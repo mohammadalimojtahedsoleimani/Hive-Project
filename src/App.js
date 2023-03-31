@@ -14,12 +14,13 @@ import PostPage from './pages/PostPage';
 import NotFoundPage from './pages/NotFoundPage';
 import EmailConfigurationPage from './pages/EmailConfigurationPage';
 import ChangePasswordPage from './pages/ChangePasswordPage';
+import SignUpPage from "./pages/SignUpPage";
 
 function App () {
-    useEffect(()=>{
+    useEffect ( () => {
         document.title = "Hive";
 
-    },[])
+    } , [] )
     return (
         <CharityProvider>
 
@@ -39,6 +40,7 @@ function App () {
                                         <Route path="/page/:id" element={ <PostPage/> }/>
                                         <Route path="/profile" element={ <ProfilePage/> }/>
                                         <Route path="/Posts" element={ <PostsPage/> }/>
+                                        <Route path="/SignUp" element={ <SignUpPage/> }/>
                                         <Route path="/activation/*" element={ <EmailConfigurationPage/> }/>
                                         <Route path="/reset_password/*" element={ <ChangePasswordPage/> }/>
                                         <Route path="/*" element={ <NotFoundPage/> }/>

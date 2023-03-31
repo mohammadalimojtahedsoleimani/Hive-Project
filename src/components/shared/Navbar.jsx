@@ -30,7 +30,7 @@ const Navbar = () => {
     const [ logged , setLogged ] = useState ( false )
     const name = localStorage.getItem ( "username" )
     const [ token , setToken ] = useState ( "" )
-    const [output,setOutPut]=useState({})
+    const [ output , setOutPut ] = useState ( {} )
     const [ data , setData ] = useState ( {
         username : "" ,
         id : 0 ,
@@ -45,7 +45,7 @@ const Navbar = () => {
         const token = localStorage.getItem ( "token" )
 
         const authorizationHeader = `JWT ${ token }`
-         axios ( {
+        axios ( {
             method : 'get' ,
             url : 'https://hive.iran.liara.run/auth/users/' ,
             headers : {
@@ -56,10 +56,10 @@ const Navbar = () => {
         } )
             .then ( function ( r ) {
 
-                console.log(r.data[0].username)
+                console.log ( r.data[ 0 ].username )
 
-                localStorage.setItem ( "username" , r.data[0].username )
-                localStorage.setItem ( "id" , r.data[0].id )
+                localStorage.setItem ( "username" , r.data[ 0 ].username )
+                localStorage.setItem ( "id" , r.data[ 0 ].id )
             } )
             .catch ( function ( error ) {
                 console.log ( error );
@@ -83,24 +83,25 @@ const Navbar = () => {
                     <div style={ BUTTON_WRAPPER_STYLES } className={ styles.lists }>
                         { logged ?
                             <button className={ styles.img_navbar_logged } onClick={ goProfileHandler }></button> :
-                            <button className={ styles.p2 } onClick={ () => setIsOpen ( true ) }>
-                                ثبت نام
-                            </button> }
+                            <Link to="/signup">
 
-                        <SignUp open={ isOpen } closeModal={ () => setIsOpen ( false ) }></SignUp>
+                                <button className={ styles.p2 }>
+                                    ثبت نام
+                                </button>
+                            </Link> }
+
+
                     </div>
 
                     <div style={ BUTTON_WRAPPER_LOGIN_STYLES } className={ styles.lists }>
-                        { logged ? <p className={styles.username}>{ name }</p> :
-                            <button className={ styles.p1 } onClick={ () => setIsOpenLogin ( true ) }>
+                        <Link to="/SignUp">
+
+
+                            <button className={ styles.p1 } >
                                 ورود
-                            </button> }
+                            </button>
 
-
-                        <Login
-                            open={ isOpenLogin }
-                            closeModal={ () => setIsOpenLogin ( false ) }
-                        ></Login>
+                        </Link>
                     </div>
 
                     <Link to="/Posts" className={ styles.lists }>
