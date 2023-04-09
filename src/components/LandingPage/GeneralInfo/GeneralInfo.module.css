@@ -1,0 +1,42 @@
+.title_text{
+    color: #252A34;
+    font-weight: bold;
+}
+.sub_text{
+    color: #444444;
+}
+.box_parent{
+    display: flex;
+}
+.sub_title{
+    color: #219D80;
+    font-weight: 500;
+}
+.left{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    flex: 1;
+}
+.inner_parent{
+    position: relative;
+    border-style: solid;
+    border-color: rgba(33, 157, 128, 0.2);
+}
+.ul_parent{
+    position: absolute;
+    top: 60%;
+    left: -30%;
+    border-style: solid;
+    border-color: rgba(33, 157, 128, 0.2);
+    background-color: white;
+}
+.shape{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.image{
+    width: 100%;
+    height: 100%;
+}

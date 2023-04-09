@@ -1,0 +1,31 @@
+.navbar{
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    
+}
+.right{
+    display: flex;
+    flex: 1.5;
+    align-items: center;
+}
+.prof_parent{
+    display: flex;
+    align-items: center;
+}
+.center{
+    display: flex;
+    align-items: center;
+    flex: 1.5;
+
+}
+.left{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.brand_name {
+    font-family: 'Irish Grover', cursive;
+    color: #3B8174;
+}
