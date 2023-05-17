@@ -1,7 +1,7 @@
 import styles from "./Menu.module.css";
 import { Fragment, useState } from "react";
 
-import Close from "./../../../images/PostsPage/close.svg";
+import Close from "../../images/PostsPage/close.svg";
 
 const Menu = (props) => {
   const [fullMenu, setFullMenu] = useState(false);
@@ -38,7 +38,12 @@ const Menu = (props) => {
         <div className={styles.menu}>
           <div className={styles.top}>
             <span className={styles.top_title}>فیلتر ها</span>
-            <img src={Close} alt="close button" onClick={closeMenu} className={styles.imgTop} />
+            <img
+              src={Close}
+              alt="close button"
+              onClick={closeMenu}
+              className={styles.imgTop}
+            />
           </div>
           {/* <hr /> */}
           <div className={styles.center}>
