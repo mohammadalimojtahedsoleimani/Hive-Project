@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
     font-family: "IRANSansXFaNum";
     src: URL("./fonts/IRANSansXFaNum-Regular.woff") format("woff");
