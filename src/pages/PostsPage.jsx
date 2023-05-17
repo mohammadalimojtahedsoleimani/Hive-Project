@@ -1,9 +1,9 @@
 import React, { Fragment, useContext, useState } from "react";
-import Filter from "../components/mainPages/PostsPage/Filter";
-import Posts from "../components/mainPages/PostsPage/Posts";
+import Filter from "../components/PostsPage/Filter";
+import Posts from "../components/PostsPage/Posts";
 import Footer from "../components/shared/Footer";
 import Navbar from "../components/shared/Navbar";
-import Menu from "../components/mainPages/PostsPage/Menu";
+import Menu from "../components/PostsPage/Menu";
 import { CharityContext } from "../context/CharityProvider";
 import { SearchContext } from "../context/SearchContext";
 
