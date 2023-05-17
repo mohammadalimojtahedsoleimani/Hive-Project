@@ -1,6 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    "./src/**/*.{js,jsx}",
+  ],
   theme: {
     extend: {
       colors: {
@@ -14,7 +16,7 @@ module.exports = {
         "secondary-500": "rgb(59, 129, 116)",
       },
       backgroundImage: {
-        'dash-pattern': "url('/src/images/common/footer/background.png')",
+        'dash-pattern': "url('./images/common/Footer/background.png')",
       },
       fontFamily: {
         IRANSans: ["IRANSans", "sans-serif"],
