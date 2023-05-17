@@ -1,30 +1,32 @@
 import styles from "./Filter.module.css";
-import { useContext , useState } from "react";
+import { useContext, useState } from "react";
 
-import SearchIcon from "../../../images/PostsPage/search.svg";
-import { SearchContext } from "../../../context/SearchContext";
+import SearchIcon from "../../images/PostsPage/search.svg";
+// import { SearchContext } from "@/context/SearchContext";
+
 const Filter = (props) => {
   const [value, setValue] = useState("");
-  const { search , setSearch } = useContext ( SearchContext )
+  // const { search , setSearch } = useContext ( SearchContext )
+  const [search, setSearch] = useState("");
   let typingTimer; //timer identifier
   const doneTypingInterval = 5000; //time in ms, 5 seconds for example
 
-  const keyUpHandler = () => {
-    clearTimeout(typingTimer);
-    typingTimer = setTimeout(doneTyping, doneTypingInterval);
-  };
+  // const keyUpHandler = () => {
+  //   clearTimeout(typingTimer);
+  //   typingTimer = setTimeout(doneTyping, doneTypingInterval);
+  // };
 
-  const keyDownHandler = () => {
-    clearTimeout(typingTimer);
-  };
+  // const keyDownHandler = () => {
+  //   clearTimeout(typingTimer);
+  // };
 
-  function doneTyping() {
-    if (search.length > 3) {
-      props.handler();
-    }
-  }
-  const valueHandler = (e) => {
-    setSearch(e.target.value.trim());
+  // function doneTyping() {
+  //   if (search.length > 3) {
+  //     props.handler();
+  //   }
+  // }
+  const valueHandler = (event) => {
+    setSearch(event.target.value.trim());
   };
   return (
     <div className={styles.parent}>
@@ -35,8 +37,9 @@ const Filter = (props) => {
           value={search}
           placeholder={"جست و جو در درخواست ها"}
           onChange={valueHandler}
-          onKeyUp={keyUpHandler}
-          onKeyDown={keyDownHandler}
+          className=" xxl:text-[18px]"
+          // onKeyUp={keyUpHandler}
+          // onKeyDown={keyDownHandler}
         />
         <button
           className={styles.category_btn}
