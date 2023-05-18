@@ -4,6 +4,7 @@ import PostsPage from './mainPages/PostsPage';
 import DashboardPage from './mainPages/DashboardPage';
 import PostPage from './mainPages/PostPage'
 import NotFoundPage from "./components/mainPages/NotFound/NotFoundPage";
+import ChangePasswordPage from "./components/mainPages/ChangePassword/ChangePasswordPage";
 
 function App () {
 
@@ -15,6 +16,7 @@ function App () {
                 <Route path="/post" element={ <PostPage/> }/>
                 <Route path="/dashboard" element={ <DashboardPage/> }/>
                 <Route path='/*' element={ <NotFoundPage/>}/>
+                <Route path='/change' element={ <ChangePasswordPage/>}/>
                 {/* <Route path="/page/:id" element={ <PostPage/> }/>
             <Route path="/profile" element={ <ProfilePage/> }/>
             <Route path="/Posts" element={ <PostsPage/> }/>

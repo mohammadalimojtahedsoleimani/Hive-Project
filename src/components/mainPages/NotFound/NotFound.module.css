@@ -9,7 +9,7 @@ display: flex;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 235px;
+    margin-top: 90px;
 
 
 }
@@ -17,7 +17,7 @@ display: flex;
 display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 105px;
+    margin-bottom: 160px;
 
 }
 
@@ -34,7 +34,8 @@ display: flex;
 
 }
 .buttonContainer button:hover{
-    border: 1.5px dashed #0131a6;
-    color: #2626ad;
+   background:rgba(33, 157, 128, 1) ;
+    color: #ffffff;
     font-weight: bold;
+    box-shadow: 1px 1px 4px #219D80;
 }
