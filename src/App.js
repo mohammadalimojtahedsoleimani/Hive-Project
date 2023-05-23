@@ -9,7 +9,7 @@ import NotFoundPage from "./components/mainPages/NotFound/NotFoundPage";
 function App () {
 
     return (
-        <main>
+
             <Routes>
                 <Route path="/" element={ <LandingPage/> }/>
                 <Route path="/posts" element={ <PostsPage/> }/>
@@ -24,7 +24,7 @@ function App () {
             <Route path="/reset_password/*" element={ <ChangePasswordPage/> }/>
             <Route path="/*" element={ <NotFoundPage/> }/> */ }
                     </Routes>
-                    </main>
+
                     )
                 }
 
