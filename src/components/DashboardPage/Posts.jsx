@@ -93,15 +93,15 @@ const Posts = () => {
     const [ currentPage , setCurrentPage ] = useState ( 1 );
     const [ date , setDate ] = useState ( new Date () );
     const [ image , setImage ] = useState ( "" );
-
+    let formData = new FormData ();
     const [ data , setData ] = useState ( {
         title : "" ,
         content : "" ,
-        category : 0 ,
+        category : 1 ,
         status : true ,
         estimated_amount : 0 ,
         collected_amount : 0 ,
-        created_date : "2023-05-24T14:31:53.151Z"
+        published_date : "2023-05-25T21:38:00Z"
 
     } )
 
@@ -120,19 +120,35 @@ const Posts = () => {
     }
     const handleImageChange = ( event ) => {
         setImage ( event.target.files[ 0 ] );
+
+        formData.append ("file", event.target.files[ 0 ])
+
     };
-    const handleDateChange = () => {
+    const handleDateChange = (e) => {
+        e.preventDefault()
         setDate ( new Date () )
-        axios.post ( "" , {
+        axios.post ( "http://127.0.0.1:8000/charity/api/v1/ads/" , {
             image,
             data
+        },{
+            headers:{
+                "Content-Type": `application/json`,
+
+            }
         })
             .then ( ( response ) => {
                 console.log ( response )
+
+            } )
+            .catch ( error => {
+                console.log ( 'the error: ' , error )
+
             } )
         console.log ( data.title )
         console.log ( data.content )
         console.log ( image )
+        console.log(data.estimated_amount)
+        console.log(data.category)
 
 
     }
@@ -211,14 +227,14 @@ const Posts = () => {
                     </div>
                     <div>
                         <label htmlFor="">مبلغ</label>
-                        <input type="number" placeholder="10.000.000 ریال" value={ data.collected_amount }
-                               onChange={ changeHandler } name="collected_amount"/>
+                        <input type="number" placeholder="10.000.000 ریال" value={ data.estimated_amount }
+                               onChange={ changeHandler } name="estimated_amount"/>
                     </div>
                 </div>
                 <div>
                     <input
                         type="file"
-                        accept=".png, .jpg, .jpeg"
+                        accept=".png, .JPG, .jpeg"
                         className="input_field"
                         hidden
                         onChange={ handleImageChange }

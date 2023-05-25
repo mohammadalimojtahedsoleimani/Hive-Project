@@ -48,13 +48,7 @@ const SelectedPosts = (props) => {
       <div className="flex justify-center gap-3 xxl:gap-8">
         {postsArray.map((post) => (
           <PostCard
-            image={post.image}
-            name={post.name}
-            date={post.date}
-            title={post.title}
-            description={post.description}
-            collected={post.collected}
-            target={post.target}
+            posts={post}
           />
         ))}
       </div>

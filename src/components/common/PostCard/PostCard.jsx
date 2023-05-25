@@ -2,36 +2,30 @@ import Calendar from "../../../images/LandingPage/selected_posts_calendar.svg";
 import Person from "../../../images/LandingPage/selected_posts_person.svg";
 
 const PostCard = ({
-  image,
-  name,
-  date,
-  title,
-  description,
-  collected,
-  target,
+  posts
 }) => {
   return (
     <div
       style={{ boxShadow: "rgba(0, 0, 0, 0.15) 0px 3px 3px 0px" }}
       className="w-[350px] xxl:w-[450px]"
     >
-      <img src={image} alt="" className="w-full h-[250px] xxl:h-[320px]" />
+      <img src={posts.image} alt="" className="w-full h-[250px] xxl:h-[320px]" />
       <div className="p-1 xxl:p-3">
         <div className="flex justify-between text-gray-400">
           <span className="flex items-center gap-1 xxl:gap-3 text-[11px] xxl:text-[15px]">
             <img src={Person} alt="" />
-            {name}
+            {posts.raiser}
           </span>
           <span className="flex items-center gap-1 xxl:gap-3 text-[10px] xxl:text-[14px]">
             <img src={Calendar} alt="" />
-            {date}
+            {posts.published_date}
           </span>
         </div>
         <h2 className="text-[#219D80] font-bold text-[15px] xxl:text-[21px] my-3 xxl:my-6">
-          {title}
+          {posts.title}
         </h2>
         <p className="text-[10px] xxl:text-[14px] h-20 xxl:h-28">
-          {description}
+          {posts.content}
         </p>
         <div className="w-[75%] py-4 xxl:py-8">
           <div className="flex justify-between">
@@ -45,10 +39,10 @@ const PostCard = ({
           </div>
           <div className="flex justify-between">
             <span className="text-[10px] xxl:text-[12px]">
-              جمع شده : {collected} میلیون تومان
+              جمع شده : {posts.collected_amount} میلیون تومان
             </span>
             <span className="text-[10px] xxl:text-[12px]">
-              هدف : {target} میلیون تومان
+              هدف : {posts.estimated_amount} میلیون تومان
             </span>
           </div>
         </div>

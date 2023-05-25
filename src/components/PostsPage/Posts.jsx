@@ -1,11 +1,13 @@
 import PostCard from "./common/PostCard";
 import styles from "./Posts.module.css";
-import { useContext, useState } from "react";
+import { useContext , useEffect , useState } from "react";
 // import { SearchContext } from "../../../context/SearchContext";
 
-const Posts = (props) => {
+const Posts = ( { data,page }) => {
   // const { search, setSearch } = useContext(SearchContext);
-
+useEffect(()=>{
+    console.log(data)
+},[])
   const setPosts = (posts, page) => {
     //searchedCharity.map 0 1 2 3
     //     image: string;
@@ -19,36 +21,36 @@ const Posts = (props) => {
     // }
 
     // const PostCard
-    if (page * 4 > posts.length) {
-      return posts
-        .slice((page - 1) * 4)
-        .map((post) => (
-          <PostCard
-            key={post.id}
-            image={post.image}
-            name={post.name}
-            date={post.date}
-            title={post.title}
-            description={post.description}
-            collected={post.collected}
-            target={post.target}
-          />
-        ));
-    }
-    return posts
-      .slice((page - 1) * 4, page * 4)
-      .map((post) => (
-        <PostCard
-          key={post.id}
-          image={post.image}
-          name={post.name}
-          date={post.date}
-          title={post.title}
-          description={post.description}
-          collected={post.collected}
-          target={post.target}
-        />
-      ));
+    // if (page * 4 > posts.length) {
+    //   return posts
+        // .slice((page - 1) * 4)
+        // posts.map((post) => (
+        //   <PostCard
+        //     key={post.id}
+        //     image={post.image}
+        //     name={post.raiser}
+        //     date={post.published_date}
+        //     title={post.title}
+        //     description={post.content}
+        //     collected={post.collected_amount}
+        //     target={post.estimated_amount}
+        //   />
+        // ));
+    // }
+    // return posts
+      // .slice((page - 1) * 4, page * 4)
+      // posts.map((post) => (
+      //   <PostCard
+      //     key={post.id}
+      //     image={post.image}
+      //     name={post.name}
+      //     date={post.date}
+      //     title={post.title}
+      //     description={post.description}
+      //     collected={post.collected}
+      //     target={post.target}
+      //   />
+      // ));
   };
   // const postsType1 = (posts) => {
   //   return (
@@ -127,7 +129,7 @@ const Posts = (props) => {
   // };
   return (
     <div className={styles.posts + " px-[6rem] xxl:px-[9rem]"}>
-      {setPosts(props.posts, props.page)}
+      {/*{setPosts(data, page)}*/}
     </div>
   );
 };
