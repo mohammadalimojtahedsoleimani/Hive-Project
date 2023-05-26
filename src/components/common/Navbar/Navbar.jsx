@@ -19,11 +19,13 @@ const Navbar = (props) => {
         {/* right */}
         <div className={styles.right + " gap-2"}>
           <div>
+            <Link to="/posts/1">
             <img
               src={Search}
               alt=""
               className="w-[2rem] xl:w-[2.5rem] xxl:w-[3rem] h-[2rem] xl:h-[2.5rem] xxl:h-[3rem]"
             />
+            </Link>
           </div>
           <div className="flex gap-3">
             <div>

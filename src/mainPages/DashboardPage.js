@@ -9,12 +9,16 @@ import SampleProfile from '../images/DashboardPage/sample_profile.png'
 import UserProfile from "../components/DashboardPage/UserProfile";
 import MostVisitedPosts from "../components/DashboardPage/MostVisitedPosts";
 import Time from "../components/DashboardPage/Time";
-import { useState } from "react";
+import { useEffect , useState } from "react";
 import Container from "../components/DashboardPage/Container";
+import axios from "axios";
 const DashboardPage = () => {
     const navOptions = [{id:0, name: 'داشبورد', value: "dashboard", icon: Dashboard, activeIcon: DashboardActive}, {id: 1, name: 'آگهی های ثبت شده', value:'posts', icon: Posts, activeIcon: PostsActive}, {id: 2, name: 'اطلاعات حساب کاربری', value: 'info', icon: Info, activeIcon: InfoActive}]
     const [active, setActive] = useState("dashboard")
-    return ( 
+    useEffect(()=>{
+
+    },[])
+    return (
         <div className="flex pt-[2rem] xxl:pt-[3rem]">
             <VerticalNavbar navOptions={navOptions} active={active} setActive={setActive}/>
             <div className=" flex-[6]">
@@ -28,5 +32,5 @@ const DashboardPage = () => {
         </div>
      );
 }
- 
+
 export default DashboardPage;

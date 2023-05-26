@@ -5,12 +5,6 @@ export const CharityContext = createContext ();
 
 const CharityProvider = ( { children } ) => {
     const [ charity , setCharity ] = useState ( [] );
-    useEffect ( () => {
-        const fetchAPI = async () => {
-            setCharity ( await getCharity () );
-        }
-        fetchAPI ();
-    } , [] )
 
     return (
         <CharityContext.Provider value={ charity }>

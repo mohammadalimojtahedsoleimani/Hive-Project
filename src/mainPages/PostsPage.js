@@ -1,5 +1,5 @@
 import Navbar from '../components/common/Navbar/Navbar'
-import { useEffect , useState } from 'react';
+import { forwardRef , useContext , useEffect , useImperativeHandle , useState } from 'react';
 import Filter from '../components/PostsPage/Filter';
 import Menu from '../components/PostsPage/Menu';
 import Posts from '../components/PostsPage/Posts';
@@ -8,6 +8,10 @@ import axios from "axios";
 import { getCharity } from "../services/api";
 import CharityPost from "./charityPost";
 import PostCard from "../components/common/PostCard/PostCard";
+import { useParams } from "react-router-dom";
+import { CharityContext } from "../context/CharityProvider";
+import { PageContext } from "../context/PageProvider"
+
 const posts = [
     {
         id : 0 ,
@@ -75,6 +79,8 @@ const PostsPage = ( props ) => {
 
     // variables
     const [ page , setPage ] = useState ( 1 )
+    const BASE_URL = "http://127.0.0.1:8000/charity/api/v1/ads/?page=1";
+
     const types = [
         "default" ,
         "search" ,
@@ -111,19 +117,26 @@ const PostsPage = ( props ) => {
     //     collected_amount : 0 ,
     //     published_date : ""
     // } )
-    const [ data , setData ] = useState ( [] )
+    const [ charity , setCharity ] = useState ( [] );
+    let number = useParams ();
+    let pNumber = 0
     // functions
-
-    useEffect (  () => {
-        const fetchAPI = async () => {
-            const data1 = await getCharity ();
-          await  setData(data1) ;
-           await console.log(data1)
-           await console.log(data)
+    useEffect ( () => {
+        let url;
+        if ( Number(number.page) === 1 ) {
+            pNumber = 1
+        } else {
+            pNumber = Number(number.page)
         }
-         fetchAPI ();
-        }, []
-    )
+        url = `http://127.0.0.1:8000/charity/api/v1/ads/?page=${ pNumber }`;
+        axios.get ( url )
+            .then ( ( response ) => {
+                console.log ( response.data.results )
+                setCharity ( response.data.results )
+                console.log ( number )
+            } )
+    } , [] )
+
     const handleType = () => {
     }
     const handleNextPage = () => {
@@ -141,15 +154,15 @@ const PostsPage = ( props ) => {
                 setIsMenuOpen={ setIsMenuOpen }
                 types={ types }
             />
-            {data.map((item)=>
-                <PostCard posts={item} key={item.id} />
-
-            )}
-                <Posts posts={ posts } page={ page } onNextPage={ handleNextPage }/>
+            { charity.map ( ( item ) =>
+                <PostCard posts={ item } key={ item.id }/>
+            ) }
+            <Posts posts={ posts } page={ page } onNextPage={ handleNextPage }/>
 
 
         </>
     )
-}
+};
 
-export default PostsPage
+
+export default PostsPage;
