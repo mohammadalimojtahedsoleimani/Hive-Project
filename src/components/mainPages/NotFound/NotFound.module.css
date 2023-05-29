@@ -1,7 +1,7 @@
 .MainBody {
     background: #EDF7F5;
     width: 100%;
-display: flex;
+    display: flex;
     flex-direction: column;
 }
 
@@ -13,15 +13,16 @@ display: flex;
 
 
 }
-.buttonContainer{
-display: flex;
+
+.buttonContainer {
+    display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 160px;
 
 }
 
-.buttonContainer button{
+.buttonContainer button {
     display: flex;
     box-sizing: border-box;
     flex-direction: row;
@@ -33,8 +34,9 @@ display: flex;
     transition: all 0.2s ease-in;
 
 }
-.buttonContainer button:hover{
-   background:rgba(33, 157, 128, 1) ;
+
+.buttonContainer button:hover {
+    background: rgba(33, 157, 128, 1);
     color: #ffffff;
     font-weight: bold;
     box-shadow: 1px 1px 4px #219D80;

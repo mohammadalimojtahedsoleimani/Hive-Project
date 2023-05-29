@@ -6,6 +6,11 @@ import PostPage from './mainPages/PostPage'
 import NotFoundPage from "./components/mainPages/NotFound/NotFoundPage";
 import CharityProvider from "./context/CharityProvider"
 import PageProvider from "./context/PageProvider";
+import Login from './components/mainPages/Authentication/Login';
+import SignUp from "./components/mainPages/Authentication/SignUp";
+import ForgetPass from "./components/mainPages/Authentication/ForgetPass"
+import Pass from './components/mainPages/Authentication/pass';
+import AboutUs from "./components/mainPages/AboutUs/AboutUs"
 
 function App () {
 
@@ -18,6 +23,11 @@ function App () {
 
                     <Routes>
                         <Route path="/" element={ <LandingPage/> }/>
+                        <Route path="/signUp" element={ <SignUp/> }/>
+                        {/*<Route path="/login" element={<Login/>}/>*/ }
+                        <Route path="/editpassword" element={ <ForgetPass/> }/>
+                        {/*<Route path='/pass' element={<Pass/>}/>*/ }
+                        <Route path="/AboutUs" element={ <AboutUs/> }/>
                         <Route path="/posts/:page" element={ <PostsPage/> }/>
                         <Route path="/post" element={ <PostPage/> }/>
                         <Route path="/dashboard" element={ <DashboardPage/> }/>

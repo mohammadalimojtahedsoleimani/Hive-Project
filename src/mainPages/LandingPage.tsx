@@ -1,12 +1,12 @@
-import Header from '@/components/LandingPage/Header'
-import Navbar from '@/components/common/Navbar'
-import AboutUs from '@/components/LandingPage/AboutUS'
-import Steps from '@/components/LandingPage/Steps'
-import GeneralInfo from '@/components/LandingPage/GeneralInfo'
-import Backup from '@/components/LandingPage/Backup'
-import Qualities from '@/components/LandingPage/Qualities'
-import SelectedPosts from '@/components/SelectedPosts'
-import Footer from '@/components/common/Footer'
+import Header from '../components/LandingPage/Header/Header'
+import Navbar from '../components/common/Navbar/Navbar'
+import AboutUs from '../components/LandingPage/AboutUS/AboutUs'
+import Steps from '../components/LandingPage/Steps/Steps'
+import GeneralInfo from '../components/LandingPage/GeneralInfo/GeneralInfo'
+import Backup from '../components/LandingPage/Backup/Backup'
+import Qualities from '../components/LandingPage/Qualities/Qualities'
+import SelectedPosts from '../components/SelectedPosts/index'
+import Footer from '../components/common/Footer/Footer'
 
 type Props = {}
 

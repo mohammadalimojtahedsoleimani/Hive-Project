@@ -1,0 +1,103 @@
+.MainBody {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.TopBody {
+    margin-top: 213px;
+    /*margin-left: 208px;*/
+    /*margin-right: 208px;*/
+    width: 1507px;
+
+
+}
+
+.FirstLine {
+
+
+}
+
+.FirstLine p {
+    font-family: 'IRANSansXFaNum';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 28px;
+    color: #252A34;
+}
+
+.SecondLine {
+    margin-top: 26px;
+    margin-right: 1px;
+
+}
+
+.SecondLine p {
+    font-family: 'IRANSansXFaNum';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 51px;
+    line-height: 74px;
+    text-align: right;
+    text-transform: capitalize;
+    color: #252A34;
+}
+
+.FirstParagraph {
+    margin-right: 1px;
+    margin-top: 26px;
+
+}
+
+.FirstParagraph p {
+    font-family: 'IRANSansXFaNum';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 184%;
+    /* or 184% */
+    text-align: right;
+    text-transform: capitalize;
+    color: #444444;
+}
+
+.imageContainer {
+    width: 1502px;
+    height: 1008px;
+    background: rgba(33, 157, 128, 0.2);
+    margin-top: 8px;
+    margin-left: 209px;
+    margin-right: 209px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageContainer image {
+
+}
+
+.middleContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1428px;
+    height: 114px;
+    margin-top: 111px;
+    background: url("../../../images/AboutUs/backgroundMiddle.png");
+}
+.middleContainer p{
+    font-family: 'IRANSansXFaNum';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 87%;
+    /* identical to box height, or 87% */
+    text-align: center;
+    text-transform: capitalize;
+    color: #444444;
+}

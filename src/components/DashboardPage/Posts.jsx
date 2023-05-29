@@ -93,13 +93,14 @@ const Posts = () => {
     const [ currentPage , setCurrentPage ] = useState ( 1 );
     const [ date , setDate ] = useState ( new Date () );
     const [ image , setImage ] = useState ( "" );
+    let imagePath = 'http://127.0.0.1:8000/media/ads/'
     let formData = new FormData ();
     const [ data , setData ] = useState ( {
-        title : "" ,
-        content : "" ,
+        title : "salam mikonam" ,
+        content : "lorem*1023123" ,
         category : 1 ,
         status : true ,
-        estimated_amount : 0 ,
+        estimated_amount : 8784654 ,
         collected_amount : 0 ,
         published_date : "2023-05-25T21:38:00Z"
 
@@ -115,27 +116,28 @@ const Posts = () => {
     };
 
     const changeHandler = ( event ) => {
-        setData ( { ... data , [ event.target.name ] : event.target.value } )
-        console.log ( event.target.name )
+        // setData ( { ... data , [ event.target.name ] : event.target.value } )
+        // console.log ( event.target.name )
     }
     const handleImageChange = ( event ) => {
-        setImage ( event.target.files[ 0 ] );
+        setImage ( event.target.files[ 0 ].name );
 
-        formData.append ("file", event.target.files[ 0 ])
+        formData.append ( "file" , event.target.files[ 0 ] )
+        imagePath += image
 
     };
-    const handleDateChange = (e) => {
-        e.preventDefault()
+    const handleDateChange = ( e ) => {
+        e.preventDefault ()
         setDate ( new Date () )
-        axios.post ( "http://127.0.0.1:8000/charity/api/v1/ads/" , {
-            image,
+        axios.post ( "http://127.0.0.1:8000/charity/api/v1/ads" , {
+            imagePath ,
             data
-        },{
-            headers:{
-                "Content-Type": `application/json`,
+        } , {
+            headers : {
+                "Content-Type" : `multipart/form-data` ,
 
             }
-        })
+        } )
             .then ( ( response ) => {
                 console.log ( response )
 
@@ -147,8 +149,8 @@ const Posts = () => {
         console.log ( data.title )
         console.log ( data.content )
         console.log ( image )
-        console.log(data.estimated_amount)
-        console.log(data.category)
+        console.log ( data.estimated_amount )
+        console.log ( data.category )
 
 
     }
