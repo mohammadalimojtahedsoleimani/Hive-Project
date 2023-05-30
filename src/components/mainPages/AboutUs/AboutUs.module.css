@@ -90,7 +90,8 @@
     margin-top: 111px;
     background: url("../../../images/AboutUs/backgroundMiddle.png");
 }
-.middleContainer p{
+
+.middleContainer p {
     font-family: 'IRANSansXFaNum';
     font-style: normal;
     font-weight: 700;
@@ -100,4 +101,167 @@
     text-align: center;
     text-transform: capitalize;
     color: #444444;
+}
+
+.tripleContainer {
+    margin-left: 272px;
+    margin-top: 89px;
+    margin-right: 198px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.TriplePart {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+
+}
+
+.asanPart {
+    display: flex;
+    margin-top: 1px;
+
+    margin-left: 32px;
+
+}
+
+.imageRight {
+    margin-left: 18px;
+
+}
+
+.rightParContainer {
+    margin-top: 4px;
+
+
+}
+
+.titleRight {
+    font-family: 'IRANSansXFaNum';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 112%;
+    /* identical to box height, or 112% */
+    text-align: right;
+    text-transform: capitalize;
+    color: #252A34;
+}
+
+.parTriplerightContainer {
+    margin-top: 17px;
+    width: 290px;
+
+
+}
+
+.parTripleRight {
+    font-family: 'IRANSansXFaNum';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 184%;
+    /* or 184% */
+    text-align: right;
+    text-transform: capitalize;
+    color: #444444;
+}
+
+.rightDots {
+    margin-left: 90px;
+
+    margin-top: 3px;
+
+}
+
+.middlePart {
+    display: flex;
+
+
+}
+
+.imageMiddle {
+    margin-left: 25px;
+
+}
+
+.middleParContainer {
+    margin-top: 5px;
+}
+
+.parTripleMiddleContainer {
+    width: 290px;
+}
+
+.leftDots {
+    margin-right: 56px;
+    margin-left: 56px;
+
+
+}
+
+.leftPart {
+    display: flex;
+    margin-top: 3px;
+
+}
+
+.parTripleLeftContainer {
+    margin-top: 12px;
+    width: 290px;
+
+
+}
+
+.imageLeft {
+    margin-left: 25px;
+    width: 75px;
+    height: 75px;
+}
+
+.leftParContainer {
+    margin-top: 7px;
+}
+
+.buttonContainer {
+    margin-top: 81px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #219D80;
+    border-radius: 10px;
+    flex-direction: row;
+    padding: 12px 24px;
+    gap: 10px;
+    width: 181px;
+    height: 54px;
+    margin-right: 671px;
+    margin-left: 598px;
+
+}
+
+.buttonSignUp {
+    font-family: 'IRANSansXFaNum';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 126%;
+    /* identical to box height, or 126% */
+    text-align: center;
+    text-transform: capitalize;
+    color: #FFFFFF;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.endContainer {
+    margin-top: 93px;
 }
