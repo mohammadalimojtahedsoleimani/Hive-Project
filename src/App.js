@@ -11,7 +11,7 @@ import SignUp from "./components/mainPages/Authentication/SignUp";
 import ForgetPass from "./components/mainPages/Authentication/ForgetPass"
 import Pass from './components/mainPages/Authentication/pass';
 import AboutUs from "./components/mainPages/AboutUs/AboutUs"
-
+import CharityPage from "./components/mainPages/charityPage/CharityPage";
 function App () {
 
     return (
@@ -29,7 +29,7 @@ function App () {
                         {/*<Route path='/pass' element={<Pass/>}/>*/ }
                         <Route path="/AboutUs" element={ <AboutUs/> }/>
                         <Route path="/posts/:page" element={ <PostsPage/> }/>
-                        <Route path="/post" element={ <PostPage/> }/>
+                        <Route path="/post" element={ <CharityPage/> }/>
                         <Route path="/dashboard" element={ <DashboardPage/> }/>
                         <Route path='/*' element={ <NotFoundPage/> }/>
 
