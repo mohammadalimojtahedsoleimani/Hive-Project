@@ -21,13 +21,13 @@
 .login{
     color: white;
     border: solid #219D80 1px;
-    padding: 2rem;
+    /* padding: 2rem; */
     border-radius: 5px;
 }
 .sign_up{
     color: white;
     border: solid #219D80 1px;
-    padding: 2rem;
+    /* padding: 2rem; */
     border-radius: 5px;
     background-color: #219D80;
 }

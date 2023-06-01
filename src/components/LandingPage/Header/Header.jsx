@@ -14,7 +14,7 @@ const Header = (props) => {
       <div
         className={
           styles.top +
-          " text-[30px] xl:text-[50px] xxl:text-[75px] xxl:leading-[160px] "
+          " text-[30px] xl:text-[50px] xxl:text-[75px] xxl:leading-[160px] font-IRANNastaliqh "
         }
       >
         بنی آدم اعضای یک، دیگرند که در آفر ینش ز یک گوهرند
@@ -22,7 +22,7 @@ const Header = (props) => {
         چو عضوی به درد آورد روزگار دگر عضو ها را نماند قرار
       </div>
       {/* bottom */}
-      <div className="pt-16">
+      <div className="pt-16 pb-3 xxl:pb-6">
         <div
           className={
             styles.bottom_text + " xxl:text-[22px] xxl:leading-[30px] xxl:mb-6"
@@ -33,14 +33,16 @@ const Header = (props) => {
         <div className={styles.enter_parent + " gap-6 pt-4"}>
           <button
             className={
-              styles.login + " xxl:text-[1.25rem] xxl:leading-[0.5rem]"
+              styles.login +
+              " p-[1rem] xxl:p-[2rem] text-[0.75rem] xxl:text-[1.25rem] xxl:leading-[0.5rem]"
             }
           >
             وارد شو
           </button>
           <button
             className={
-              styles.sign_up + " xxl:text-[1.25rem] xxl:leading-[0.5rem]"
+              styles.sign_up +
+              " p-[1rem] xxl:p-[2rem] text-[0.75rem] xxl:text-[1.25rem] xxl:leading-[0.5rem]"
             }
           >
             ثبت نام کن

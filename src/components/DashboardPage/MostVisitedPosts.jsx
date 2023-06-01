@@ -29,12 +29,12 @@ const MostVisitedPosts = () => {
         <tbody className="flex flex-col">
           {mostVisitedPostsArr.map((post) => {
             return (
-              <tr className="text-[10px] xxl:text-[12px] py-2 xxl:py-4 flex justify-between gap-3 xxl:gap-7 min-w-[14rem]">
-                <th className="flex">
+              <tr className="text-[10px] xxl:text-[14px] py-2 xxl:py-4 flex justify-between gap-3 xxl:gap-9 min-w-[14rem] xxl:min-w-[17rem]">
+                <th className="flex items-center justify-center gap-3">
                   <img
                     src={iconsArr[Math.floor(Math.random() * iconsArr.length)]}
                     alt=""
-                    className="w-6 xxl:w-10"
+                    className="w-6 xxl:w-8"
                   />{" "}
                   {post.name}
                 </th>

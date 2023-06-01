@@ -20,11 +20,11 @@ const Navbar = (props) => {
         <div className={styles.right + " gap-2"}>
           <div>
             <Link to="/posts/1">
-            <img
-              src={Search}
-              alt=""
-              className="w-[2rem] xl:w-[2.5rem] xxl:w-[3rem] h-[2rem] xl:h-[2.5rem] xxl:h-[3rem]"
-            />
+              <img
+                src={Search}
+                alt=""
+                className="w-[2rem] xl:w-[2.5rem] xxl:w-[3rem] h-[2rem] xl:h-[2.5rem] xxl:h-[3rem]"
+              />
             </Link>
           </div>
           <div className="flex gap-3">
@@ -37,7 +37,7 @@ const Navbar = (props) => {
             </div>
             <div className={styles.prof_parent + " gap-1"}>
               <img src={DownArrow} alt="down arrow" className="w-4 h-2 mt-3" />
-              <span className="text-sm xl:text-base xxl:text-xl font-medium text-secondary-500  font-IRANSans">
+              <span className="text-sm font-medium xl:text-base xxl:text-xl text-secondary-500">
                 محمدرضایاغی گر
               </span>
             </div>
@@ -47,7 +47,7 @@ const Navbar = (props) => {
         <div className={styles.center + " gap-6"}>
           {links.map((item) => (
             <Link
-              className="text-xs xl:text-sm xxl:text-lg font-medium text-secondary-500 font-IRANSans"
+              className="text-xs font-medium xl:text-sm xxl:text-lg text-secondary-500"
               to={item.key}
             >
               {item.value}
@@ -56,8 +56,10 @@ const Navbar = (props) => {
         </div>
         {/* left */}
         <div className={styles.left}>
-          <span className={styles.brand_name + " xxl:text-[31px]"}>Hive</span>
-          <img src={Logo} alt="logo" />
+          <span className={styles.brand_name + " text-[20px] xxl:text-[31px]"}>
+            Hive
+          </span>
+          <img src={Logo} className="w-[3rem] xxl:w-[5rem]" alt="logo" />
         </div>
       </div>
     </nav>
