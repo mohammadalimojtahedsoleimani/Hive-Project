@@ -30,7 +30,7 @@
 
   @font-face {
     font-family: "IRANNastaliqh";
-    src: url("./fonts/IranNastaliq.ttf") format("ttf");
+    src: url("./fonts/IranNastaliq_YasDL.com.ttf") format("ttf"), url('./fonts/IranNastaliq-Web.woff') format('woff');
     font-weight: 400;
   }
 *{
