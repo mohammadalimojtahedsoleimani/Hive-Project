@@ -23,13 +23,13 @@ const Navbar = (props: Props) => {
                     </div>
                     <div className={styles.prof_parent + ' gap-1'}>
                         <img src={DownArrow} alt="down arrow" className='w-4 h-2 mt-3' />
-                        <span className='text-sm xl:text-base xxl:text-xl font-medium text-secondary-500  font-IRANSans'>محمدرضایاغی گر</span>
+                        <span className='text-sm font-medium xl:text-base xxl:text-xl text-secondary-500'>محمدرضایاغی گر</span>
                     </div>
                 </div>
             </div>
             {/* center */}
             <div className={styles.center + ' gap-6'}>
-                {links.map(item => <Link className='text-xs xl:text-sm xxl:text-lg font-medium text-secondary-500 font-IRANSans' to={item.key}>{item.value}</Link>)}
+                {links.map(item => <Link className='text-xs font-medium xl:text-base xxl:text-lg text-secondary-500' to={item.key}>{item.value}</Link>)}
             </div>
             {/* left */}
             <div className={styles.left}>

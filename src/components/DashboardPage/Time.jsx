@@ -61,7 +61,7 @@ const Time = () => {
     <div
       className={
         styles.time +
-        " flex bg-[#FCFCFC] p-[1rem] xxl:p-[2rem] mt-[5rem] xxl:mt-[7rem] gap-4"
+        " flex bg-[#FCFCFC] p-[1rem] xxl:p-[2rem] mt-[5rem] xxl:mt-[6rem] gap-4"
       }
     >
       <div className=" flex xxl:text-[21px] pt-[0.5rem] xxl:pt-[1rem]">

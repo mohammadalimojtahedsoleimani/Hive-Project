@@ -24,8 +24,14 @@
 
   @font-face {
     font-family: "BYekan";
-    src: url("./fonts/B YEKAN LIGHT.ttf") format("ttf");
-    font-weight: 300;
+    src: url("./fonts/BYekan.woff") format("woff");
+    font-weight: 400;
+  }
+
+  @font-face {
+    font-family: "IRANNastaliqh";
+    src: url("./fonts/IranNastaliq.ttf") format("ttf");
+    font-weight: 400;
   }
 *{
     box-sizing: border-box;
