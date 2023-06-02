@@ -1,4 +1,4 @@
-import React , { useEffect , useState,createContext } from "react";
+import React , { useEffect , useState , createContext } from "react";
 import { getCharity } from "../services/api";
 
 export const PageContext = createContext ();
@@ -8,7 +8,7 @@ const PageProvider = ( { children } ) => {
 
 
     return (
-        <PageContext.Provider value={ pageNumber }>
+        <PageContext.Provider value={ { pageNumber , setPageNumber } }>
             { children }
         </PageContext.Provider>
     );

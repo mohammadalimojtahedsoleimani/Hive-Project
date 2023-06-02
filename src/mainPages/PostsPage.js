@@ -79,7 +79,7 @@ const PostsPage = ( props ) => {
 
     // variables
     const [ page , setPage ] = useState ( 1 )
-    const BASE_URL = "http://127.0.0.1:8000/charity/api/v1/ads/?page=1";
+
 
     const types = [
         "default" ,
@@ -117,25 +117,31 @@ const PostsPage = ( props ) => {
     //     collected_amount : 0 ,
     //     published_date : ""
     // } )
-    const [ charity , setCharity ] = useState ( [] );
+    const { charity , setCharity } = useContext ( CharityContext )
+    const { pageNumber , setPageNumber } = useContext ( PageContext )
     let number = useParams ();
     let pNumber = 0
     // functions
     useEffect ( () => {
-        let url;
-        if ( Number(number.page) === 1 ) {
-            pNumber = 1
-        } else {
-            pNumber = Number(number.page)
-        }
-        url = `http://127.0.0.1:8000/charity/api/v1/ads/?page=${ pNumber }`;
-        axios.get ( url )
-            .then ( ( response ) => {
-                console.log ( response.data.results )
-                setCharity ( response.data.results )
-                console.log ( number )
-            } )
-    } , [] )
+        // let url;
+        // if ( Number ( number.page ) === 1 ) {
+        //     pNumber = 1
+        // } else {
+        //     pNumber = Number ( number.page )
+        // }
+        // url = `http://127.0.0.1:8000/charity/api/v1/ads/?page=${ pNumber }`;
+        // axios.get ( url )
+        //     .then ( ( response ) => {
+        //         console.log ( response.data.results )
+        //         setCharity ( response.data.results )
+        //         console.log ( number )
+        //         console.log ( response )
+        //     } )
+        setPageNumber ( Number ( number.page ) )
+        console.log ( typeof number.page )
+
+        console.log ( charity )
+    } , [ charity,number.page ] )
 
     const handleType = () => {
     }
@@ -155,7 +161,7 @@ const PostsPage = ( props ) => {
                 types={ types }
             />
             { charity.map ( ( item ) =>
-                <PostCard posts={ item } key={ item.id }/>
+               <PostCard posts={ item } key={ item.id }/>
             ) }
             <Posts posts={ posts } page={ page } onNextPage={ handleNextPage }/>
 
