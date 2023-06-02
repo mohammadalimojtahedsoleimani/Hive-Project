@@ -11,6 +11,8 @@ import PostCard from "../components/common/PostCard/PostCard";
 import { useParams } from "react-router-dom";
 import { CharityContext } from "../context/CharityProvider";
 import { PageContext } from "../context/PageProvider"
+import { PropagateLoader } from "react-spinners";
+import { Bars } from "react-loader-spinner";
 
 const posts = [
     {
@@ -141,7 +143,7 @@ const PostsPage = ( props ) => {
         console.log ( typeof number.page )
 
         console.log ( charity )
-    } , [ charity,number.page ] )
+    } , [ charity , number.page ] )
 
     const handleType = () => {
     }
@@ -150,6 +152,21 @@ const PostsPage = ( props ) => {
     return (
         <>
             <Navbar dark={ true }/>
+            {/*<div>*/}
+
+            {/*    {*/}
+            {/*        charity.length === 0 && <Bars*/}
+            {/*            height="80"*/}
+            {/*            width="80"*/}
+            {/*            color="#4fa94d"*/}
+            {/*            ariaLabel="bars-loading"*/}
+            {/*            wrapperStyle={{}}*/}
+            {/*            wrapperClass=""*/}
+            {/*            visible={true}*/}
+            {/*        />*/}
+
+            {/*    }*/}
+            {/*</div>*/}
             <Filter
                 type={ type }
                 handleType={ handleType }
@@ -161,7 +178,7 @@ const PostsPage = ( props ) => {
                 types={ types }
             />
             { charity.map ( ( item ) =>
-               <PostCard posts={ item } key={ item.id }/>
+                <PostCard posts={ item } key={ item.id }/>
             ) }
             <Posts posts={ posts } page={ page } onNextPage={ handleNextPage }/>
 
