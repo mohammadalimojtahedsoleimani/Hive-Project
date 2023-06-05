@@ -35,8 +35,8 @@ const Time = () => {
   );
 
   useEffect(() => {
-    let now = new Date();
     const newInterval = setTimeout(() => {
+      let now = new Date();
       setShamsiDate(
         new Intl.DateTimeFormat("fa-IR-u-ca-persian", shamsiOptions)
           .format(now)

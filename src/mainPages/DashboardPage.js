@@ -26,10 +26,12 @@ const DashboardPage = () => {
             <div className=" flex-[6]">
                 <Container active={active}/>
             </div>
-            <div className="flex flex-col items-end flex-[2] pl-[2rem] xxl:pl-[3rem] pt-[2rem] xxl:pt-[3rem]">
+            <div className="flex flex-col items-end flex-[2] pl-[2.5rem] xxl:pl-[3.5rem] pt-[2rem] xxl:pt-[3rem]">
                 <UserProfile username='علیرضا محمدزاده' profilePic={SampleProfile}/>
+                <div className="flex flex-col items-center">
                 <MostVisitedPosts/>
                 <Time/>
+                </div>
             </div>
         </div>
      );

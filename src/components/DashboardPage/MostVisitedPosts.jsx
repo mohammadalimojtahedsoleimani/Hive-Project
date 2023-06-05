@@ -18,18 +18,20 @@ const MostVisitedPosts = () => {
   const iconsArr = [MoneyBag, PiggyBank, PiggyBank2, Donation];
   return (
     <div
-      className="bg-[#ffffff] py-[3rem] xxl:py-[5rem] px-[1.7rem] xxl:px-[5rem] mt-[2rem] xxl:mt-[5rem]"
-      style={{ boxShadow: "rgba(0, 0, 0, 0.16) 0px 1px 4px" }}
+      className="bg-[#ffffff] py-[2rem] xxl:py-[3rem] px-[1.7rem] xxl:px-[3rem] mt-[2rem] xxl:mt-[5rem]"
+      style={{
+        boxShadow: "0px 9px 8px -4px rgba(0,0,0,0.3)",
+      }}
     >
-      <div>
+      <div className="flex flex-col items-center font-bold text-[13px] xxl:text-[16px] gap-2 mb-3 xxl:mb-5">
         <h3>آگهی های پر طرفدار</h3>
-        <hr />
+        <hr className="w-[45%] h-[1px]" />
       </div>
       <table>
         <tbody className="flex flex-col">
           {mostVisitedPostsArr.map((post) => {
             return (
-              <tr className="text-[10px] xxl:text-[14px] py-2 xxl:py-4 flex justify-between gap-3 xxl:gap-9 min-w-[14rem] xxl:min-w-[17rem]">
+              <tr className="text-[10px] xxl:text-[14px] py-2 xxl:py-4 flex justify-between gap-3 xxl:gap-9 min-w-[14rem] xxl:min-w-[19rem]">
                 <th className="flex items-center justify-center gap-3">
                   <img
                     src={iconsArr[Math.floor(Math.random() * iconsArr.length)]}

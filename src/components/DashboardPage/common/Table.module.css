@@ -1,0 +1,15 @@
+.table th{
+    padding: 0.8vw 1.7vw;
+    border-bottom: solid 1px #F2F2F2;
+}
+.table>thead th{
+    background-color: #F7F7F7;
+}
+.table_shadow{
+    box-shadow: 0px 9px 8px -4px rgba(0,0,0,0.3);
+    background-size: cover;
+    background-color: #FCFCFC;
+}
+/* .table tr>th{
+    display: flex;
+} */
