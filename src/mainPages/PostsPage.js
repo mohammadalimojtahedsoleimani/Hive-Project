@@ -11,6 +11,8 @@ import PostCard from "../components/common/PostCard/PostCard";
 import { useParams } from "react-router-dom";
 import { CharityContext } from "../context/CharityProvider";
 import { PageContext } from "../context/PageProvider"
+import { PropagateLoader } from "react-spinners";
+import { Bars } from "react-loader-spinner";
 
 const posts = [
     {
@@ -79,7 +81,7 @@ const PostsPage = ( props ) => {
 
     // variables
     const [ page , setPage ] = useState ( 1 )
-    const BASE_URL = "http://127.0.0.1:8000/charity/api/v1/ads/?page=1";
+
 
     const types = [
         "default" ,
@@ -117,25 +119,31 @@ const PostsPage = ( props ) => {
     //     collected_amount : 0 ,
     //     published_date : ""
     // } )
-    const [ charity , setCharity ] = useState ( [] );
+    const { charity , setCharity } = useContext ( CharityContext )
+    const { pageNumber , setPageNumber } = useContext ( PageContext )
     let number = useParams ();
     let pNumber = 0
     // functions
     useEffect ( () => {
-        let url;
-        if ( Number(number.page) === 1 ) {
-            pNumber = 1
-        } else {
-            pNumber = Number(number.page)
-        }
-        url = `http://127.0.0.1:8000/charity/api/v1/ads/?page=${ pNumber }`;
-        axios.get ( url )
-            .then ( ( response ) => {
-                console.log ( response.data.results )
-                setCharity ( response.data.results )
-                console.log ( number )
-            } )
-    } , [] )
+        // let url;
+        // if ( Number ( number.page ) === 1 ) {
+        //     pNumber = 1
+        // } else {
+        //     pNumber = Number ( number.page )
+        // }
+        // url = `http://127.0.0.1:8000/charity/api/v1/ads/?page=${ pNumber }`;
+        // axios.get ( url )
+        //     .then ( ( response ) => {
+        //         console.log ( response.data.results )
+        //         setCharity ( response.data.results )
+        //         console.log ( number )
+        //         console.log ( response )
+        //     } )
+        setPageNumber ( Number ( number.page ) )
+        console.log ( typeof number.page )
+
+        console.log ( charity )
+    } , [ charity , number.page ] )
 
     const handleType = () => {
     }
@@ -144,6 +152,21 @@ const PostsPage = ( props ) => {
     return (
         <>
             <Navbar dark={ true }/>
+            {/*<div>*/}
+
+            {/*    {*/}
+            {/*        charity.length === 0 && <Bars*/}
+            {/*            height="80"*/}
+            {/*            width="80"*/}
+            {/*            color="#4fa94d"*/}
+            {/*            ariaLabel="bars-loading"*/}
+            {/*            wrapperStyle={{}}*/}
+            {/*            wrapperClass=""*/}
+            {/*            visible={true}*/}
+            {/*        />*/}
+
+            {/*    }*/}
+            {/*</div>*/}
             <Filter
                 type={ type }
                 handleType={ handleType }
