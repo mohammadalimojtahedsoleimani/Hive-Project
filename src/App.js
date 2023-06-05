@@ -7,7 +7,7 @@ import NotFoundPage from "./components/mainPages/NotFound/NotFoundPage";
 import CharityProvider from "./context/CharityProvider"
 import PageProvider from "./context/PageProvider";
 import Login from './components/mainPages/Authentication/Login';
-import SignUp from "./components/mainPages/Authentication/SignUp";
+import SignUp from "./components/mainPages/SignUp/SignUp";
 import ForgetPass from "./components/mainPages/Authentication/ForgetPass"
 import Pass from './components/mainPages/Authentication/pass';
 import AboutUs from "./components/mainPages/AboutUs/AboutUs"
