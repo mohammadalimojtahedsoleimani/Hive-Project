@@ -23,7 +23,7 @@ const DashboardPage = () => {
         <div className="flex">
             <div className="fixed top-0 left-0 w-[75vh] z-[-2]"><img src={Rectangle} alt=""/></div>
             <VerticalNavbar navOptions={navOptions} active={active} setActive={setActive}/>
-            <div className=" flex-[6]">
+            <div className="h-[100vh] flex-[6]">
                 <Container active={active}/>
             </div>
             <div className="flex flex-col items-end flex-[2] pl-[2.5rem] xxl:pl-[3.5rem] pt-[2rem] xxl:pt-[3rem]">

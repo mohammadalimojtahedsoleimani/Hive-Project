@@ -1,5 +1,6 @@
 import Posts from "./Posts";
 import Dashboard from "./Dashboard";
+import PersonalInfo from "./PersonalInfo";
 const Container = ({ active }) => {
   const content = () => {
     switch (active) {
@@ -8,7 +9,7 @@ const Container = ({ active }) => {
       case "posts":
         return <Posts />;
       default:
-        return <div>info</div>;
+        return <PersonalInfo />;
     }
   };
   return content();

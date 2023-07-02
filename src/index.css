@@ -40,6 +40,9 @@
     font-weight: 400;
     font-family: "IRANSansXFaNum", sans-serif;
 }
+*:focus-visible{
+  outline: 0;
+}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
