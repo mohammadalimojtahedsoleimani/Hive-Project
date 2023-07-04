@@ -41,21 +41,23 @@ const Navbar = ( props ) => {
                             />
                         </Link>
                     </div>
-                    <div className="flex gap-3">
-                        <div>
-                            <img
-                                src={ Profile }
-                                alt="profile pic"
-                                className="w-[30px] xl:w-[40px] xxl:w-[50px] h-[30px] xl:h-[40px] xxl:h-[50px]"
-                            />
-                        </div>
-                        <div className={ styles.prof_parent + " gap-1" }>
-                            <img src={ DownArrow } alt="down arrow" className="w-4 h-2 mt-3"/>
-                            <span className="text-sm font-medium xl:text-base xxl:text-xl text-secondary-500">
+                    <Link to='/dashboard'>
+                        <div className="flex gap-3">
+                            <div>
+                                <img
+                                    src={ Profile }
+                                    alt="profile pic"
+                                    className="w-[30px] xl:w-[40px] xxl:w-[50px] h-[30px] xl:h-[40px] xxl:h-[50px]"
+                                />
+                            </div>
+                            <div className={ styles.prof_parent + " gap-1" }>
+                                <img src={ DownArrow } alt="down arrow" className="w-4 h-2 mt-3"/>
+                                <span className="text-sm font-medium xl:text-base xxl:text-xl text-secondary-500">
                 محمدرضایاغی گر
               </span>
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                 </div>
                 {/* center */ }
                 <div className={ styles.center + " gap-6" }>
@@ -69,12 +71,14 @@ const Navbar = ( props ) => {
                     ) ) }
                 </div>
                 {/* left */ }
-                <div className={ styles.left }>
+                <Link to='/'>
+                    <div className={ styles.left }>
           <span className={ styles.brand_name + " text-[20px] xxl:text-[31px]" }>
             Hive
           </span>
-                    <img src={ Logo } className="w-[3rem] xxl:w-[5rem]" alt="logo"/>
-                </div>
+                        <img src={ Logo } className="w-[3rem] xxl:w-[5rem]" alt="logo"/>
+                    </div>
+                </Link>
             </div>
             <ToastContainer/>
         </nav>

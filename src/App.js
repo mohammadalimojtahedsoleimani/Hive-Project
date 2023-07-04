@@ -32,7 +32,7 @@ function App () {
                                 {/*<Route path='/pass' element={<Pass/>}/>*/ }
                                 <Route path="/AboutUs" element={ <AboutUs/> }/>
                                 <Route path="/posts/:page" element={ <PostsPage/> }/>
-                                <Route path="/post" element={ <CharityPage/> }/>
+                                <Route path="/post/:page" element={ <CharityPage/> }/>
                                 <Route path="/dashboard" element={ <DashboardPage/> }/>
                                 <Route path='/*' element={ <NotFoundPage/> }/>
 

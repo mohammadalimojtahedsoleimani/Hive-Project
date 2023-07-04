@@ -123,7 +123,7 @@ const Posts = () => {
     );
     useEffect ( () => {
         value = localStorage.getItem ( "token" );
-    } )
+    } , [] )
     const handlePageClick = ( page ) => {
         setCurrentPage ( page );
     };
@@ -153,7 +153,7 @@ const Posts = () => {
         let df = JSON.stringify ( data )
         axios
             .post (
-                "http://127.0.0.1:8000/charity/api/v1/ads/" , formData,
+                "http://127.0.0.1:8000/charity/api/v1/ads/" , formData ,
                 {
                     headers : {
                         'Authorization' : `Bearer ${ value }` ,
@@ -174,8 +174,8 @@ const Posts = () => {
         // console.log ( data.estimated_amount );
         // console.log ( data.category );
         console.log ( df )
-        console.log(data.image)
-        console.log(formData)
+        console.log ( data.image )
+        console.log ( formData )
     };
 
     // api-call
