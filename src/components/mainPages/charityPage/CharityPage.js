@@ -25,11 +25,8 @@ const CharityPage = () => {
     const [ content , setContent ] = useState ( '' )
     const [ estimated_amount , setEstimated_amount ] = useState ( '' )
     const [ collected_amount , setCollected_amount ] = useState ( '' )
+    const [ collected_percentage , setCollected_percentage ] = useState ( '' )
     // functions
-    const percent = (numerator, denominator) => {
-        return (numerator / denominator) * 100;
-    };
-
     useEffect ( () => {
         console.log ( charity_id )
         axios.get ( `http://127.0.0.1:8000/charity/api/v1/ads/${ charity_id }/` )
@@ -42,11 +39,11 @@ const CharityPage = () => {
                 setCollected_amount ( r.data.collected_amount )
                 setImage ( r.data.image )
                 setContent ( r.data.content )
+                setCollected_percentage(r.data.collected_percentage)
                 console.log ( r.data )
+                console.log(r.data.collected_percentage)
             } )
-        let a = Number(estimated_amount)
-        let b = Number(collected_amount)
-        value = percent(a,b)
+
 
     } , [] )
 
@@ -59,7 +56,7 @@ const CharityPage = () => {
                     <div className={ styles.rightPartTop }>
                         <p>{ title }</p>
                         <div className={ styles.rightPartTopIMG }>
-                            <img src={ image } alt="axe rast"/>
+                            <img src={ image } alt="axe rast" className={styles.rightPartTopImage}/>
                         </div>
                     </div>
                     <div className={ styles.leftPartTop }>
@@ -134,14 +131,14 @@ const CharityPage = () => {
                         <div className={ styles.donationDetailsContainer }>
                             <div className={ styles.totalDonationPercent }>
                                 <p>کمک های مالی جمع شده</p>
-                                <p>{value}%</p>
+                                <p>{ collected_percentage }%</p>
                             </div>
                             <div className={ styles.totalBar }>
 
                                 <div className={ styles.progressBar }>
                                     <div className={ styles.progressBarDisplay } style={ {
-                                        width : `${ value }%` ,
-                                        backgroundColor : "#219D80" ,
+                                        width : `${ collected_percentage }%` ,
+                                        backgroundColor : "#4D7AD2" ,
                                         transition : "width 0.5s"
                                     } }></div>
 

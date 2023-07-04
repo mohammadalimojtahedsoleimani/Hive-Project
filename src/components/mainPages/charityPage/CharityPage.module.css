@@ -31,16 +31,24 @@
     font-size: 39px;
     line-height: 128%;
     text-transform: capitalize;
-    color: #219D80;
+    color: #4D7AD2;
 }
 
 .rightPartTopIMG {
     margin-top: 45px;
+    max-width: 827px;
+    min-width: 827px;
+    /*overflow: hidden;*/
+    object-fit: none;
+
+}
+.rightPartTopImage{
 
 }
 
+
 .leftPartTop {
-    background: #EDF7F5;
+    background: #EDF3F7;
     width: 416px;
     height: 421px;
     margin-right: 52px;
@@ -68,7 +76,7 @@
 }
 
 .leftPartTopUpContainer span {
-    border: 1px solid #219D80;
+    border: 1px solid #4D7AD2;
     width: 60px;
     height: 0px;
     margin-right: 24px;
@@ -226,6 +234,7 @@
     max-width: 827px;
     max-height: 176px;
     margin-top: 26px;
+    min-width: 827px;
 
 }
 
@@ -234,7 +243,7 @@
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
-    line-height: 157%;
+    line-height: 22px;
     text-align: right;
     text-transform: capitalize;
     color: #555555;
@@ -243,7 +252,7 @@
 .leftDownPart {
     width: 416px;
     height: 390px;
-    background: #EDF7F5;
+    background: #EDF3F7;
     display: flex;
     flex-direction: column;
     margin-right: 52px;
@@ -274,7 +283,7 @@
 }
 
 .detailCharityContainerLine {
-    border: 1px solid #219D80;
+    border: 1px solid #4D7AD2;
     width: 60px;
     height: 0px;
     margin-top: 12px;
@@ -362,9 +371,12 @@ margin-top: 56px;
     margin-right: 28px;
     margin-left: 47px;
 }
+.buttonContainer div :hover{
+    background: red;
+}
+
 .shareButton{
-    width: 101px;
-    height: 24px;
+
 
     font-family: 'IRANSansXFaNum';
     font-style: normal;
@@ -372,24 +384,23 @@ margin-top: 56px;
     font-size: 18px;
     line-height: 24px;
     /* identical to box height, or 133% */
-
     display: flex;
     align-items: center;
     text-align: center;
     text-transform: capitalize;
 
-    color: #219D80;
+    color: #4D7AD2;
 
 
     /* Inside auto layout */
 
     flex: none;
-    order: 0;
-    flex-grow: 0;
+
 
 }
+
 .shareButtonContainer{
-    border: 1px solid #219D80;
+    border: 1px solid #4D7AD2;
     border-radius: 10px;
     display: flex;
     flex-direction: row;
@@ -400,9 +411,13 @@ margin-top: 56px;
     box-sizing: border-box;
     width: 155px;
     height: 56px;
+    cursor: pointer;
+
 }
+
+
 .donateButtonContainer{
-    background: #219D80;
+    border: 1px solid #4D7AD2;
     border-radius: 10px;
     width: 161.58px;
     height: 56px;
@@ -412,11 +427,13 @@ margin-top: 56px;
     align-items: center;
     padding: 16px 32px;
     gap: 10px;
+    cursor: pointer;
+
 }
+
 .donateButton{
-    color: #FFFFFF;
+    color: #4D7AD2;
     flex: none;
-    order: 0;
     flex-grow: 0;
     display: flex;
     align-items: center;
@@ -427,7 +444,6 @@ margin-top: 56px;
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
-    width: 108px;
-    height: 24px;
+
 
 }

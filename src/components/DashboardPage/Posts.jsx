@@ -156,7 +156,7 @@ const Posts = () => {
                 "http://127.0.0.1:8000/charity/api/v1/ads/" , formData ,
                 {
                     headers : {
-                        'Authorization' : `Bearer ${ value }` ,
+                        'Authorization' : `Bearer ${value}` ,
                         "Content-Type" : "multipart/form-data"
                     } ,
                 }
