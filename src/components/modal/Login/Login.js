@@ -6,7 +6,7 @@ import styles from "../Login/Login.module.css";
 import cancel from "../../../images/modal/close.svg";
 import Email from "../emailGet/Email";
 import { LoginModalContext } from "../../../context/LoginContext";
-
+import { ProfileContext } from "../../../context/ProfileContext";
 import axios from "axios";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify";
@@ -19,6 +19,7 @@ const Login = ( { open } ) => {
     const { setIsOpenLogin } = useContext ( LoginModalContext )
     // const { setIsOpen } = useContext ( SignUpContext );
     const { isIn , setIsIn } = useContext ( DakhelContext );
+    const { profile , setProfile } = useContext ( ProfileContext );
     let login = "ورود"
     const [ inIn , isInIn ] = useState ( false )
 
@@ -53,6 +54,7 @@ const Login = ( { open } ) => {
                 setErrors ( {} )
                 setIsOpenLogin ( false )
                 setIsIn ( true )
+                // axios.get(``)
 
 
             } )

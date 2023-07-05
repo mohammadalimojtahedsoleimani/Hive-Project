@@ -4,6 +4,7 @@ import PiggyBank2 from "../../images/common/icons/Piggy Bank 2.svg";
 import Donation from "../../images/common/icons/Donation.svg";
 import { Fragment , useEffect , useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const MostVisitedPosts = () => {
     // const mostVisitedPostsArr = [
@@ -41,6 +42,7 @@ axios.get('http://127.0.0.1:8000/charity/api/v1/popular-advertisements/')
                 { mostVisitedPosts.map ( ( post ) => {
 
                     return (
+                        <Link to={`/post/${post.id}`}>
                         <tr className="text-[10px] xxl:text-[14px] py-2 xxl:py-4 flex justify-between gap-3 xxl:gap-9 min-w-[14rem] xxl:min-w-[19rem]">
                             <th className="flex items-center justify-center gap-3">
                                 <img
@@ -52,6 +54,7 @@ axios.get('http://127.0.0.1:8000/charity/api/v1/popular-advertisements/')
                             </th>
                             <th>{ Math.round(post.collected_amount) } تومان</th>
                         </tr>
+                        </Link>
                     );
                 }  ) }
                 </tbody>
