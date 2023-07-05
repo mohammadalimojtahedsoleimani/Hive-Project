@@ -13,6 +13,7 @@ import Pass from './components/mainPages/Authentication/pass';
 import AboutUs from "./components/mainPages/AboutUs/AboutUs"
 import CharityPage from "./components/mainPages/charityPage/CharityPage";
 import { LoginModalProvider } from "./context/LoginContext";
+import SignUpPage from "./components/SignUpPage/SignUpPage";
 
 function App () {
 
@@ -24,7 +25,7 @@ function App () {
 
                         <Routes>
                             <Route path="/" element={ <LandingPage/> }/>
-                            <Route path="/signUp" element={ <SignUp/> }/>
+                            <Route path="/signUp" element={ <SignUpPage/> }/>
                             {/*<Route path="/login" element={<Login/>}/>*/ }
                             <Route path="/editpassword" element={ <ForgetPass/> }/>
                             {/*<Route path='/pass' element={<Pass/>}/>*/ }
