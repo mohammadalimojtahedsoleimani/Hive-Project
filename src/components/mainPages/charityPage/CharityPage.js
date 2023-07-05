@@ -1,4 +1,4 @@
-import React from 'react';
+import React , { useEffect , useState } from 'react';
 import styles from "./CharityPage.module.css"
 import Navbar from "../../common/Navbar/Navbar"
 import Footer from "../../common/Footer/Footer"
@@ -8,19 +8,55 @@ import poorKodak from "../../../images/CharityPage/poor kodak.png"
 import people from "../../../images/CharityPage/peoplevector.png"
 import calender from "../../../images/CharityPage/calender.png"
 import clock from "../../../images/CharityPage/clock.png"
+import { useLocation } from "react-router-dom";
+import axios from "axios";
 
 const CharityPage = () => {
     // Variables
-    let value = 60
+    let value = 0
+    const { pathname } = useLocation ();
+    const segments = pathname.split ( "/" );
+    let charity_id = segments[ 2 ]
+    const [ category , setCategory ] = useState ( '' )
+    const [ title , setTitle ] = useState ( '' )
+    const [ image , setImage ] = useState ( '' )
+    const [ raiser_full_name , setRaiser_full_name ] = useState ( '' )
+    const [ published_date , setPublished_date ] = useState ( '' )
+    const [ content , setContent ] = useState ( '' )
+    const [ estimated_amount , setEstimated_amount ] = useState ( '' )
+    const [ collected_amount , setCollected_amount ] = useState ( '' )
+    const [ collected_percentage , setCollected_percentage ] = useState ( '' )
+    // functions
+    useEffect ( () => {
+        console.log ( charity_id )
+        axios.get ( `http://127.0.0.1:8000/charity/api/v1/ads/${ charity_id }/` )
+            .then ( r => {
+                setCategory ( r.data.category.name )
+                setTitle ( r.data.title )
+                setRaiser_full_name ( r.data.raiser_full_name )
+                setPublished_date ( r.data.published_date )
+                setEstimated_amount ( r.data.estimated_amount )
+                setCollected_amount ( r.data.collected_amount )
+                setImage ( r.data.image )
+                setContent ( r.data.content )
+                setCollected_percentage(r.data.collected_percentage)
+                console.log ( r.data )
+                console.log(r.data.collected_percentage)
+            } )
+
+
+    } , [] )
+
+
     return (
         <>
             <Navbar/>
             <div className={ styles.mainBody }>
                 <div className={ styles.topBody }>
                     <div className={ styles.rightPartTop }>
-                        <p>جمع آوری کمک برای کودکان کار</p>
+                        <p>{ title }</p>
                         <div className={ styles.rightPartTopIMG }>
-                            <img src={ rightImg } alt="axe rast"/>
+                            <img src={ image } alt="axe rast" className={styles.rightPartTopImage}/>
                         </div>
                     </div>
                     <div className={ styles.leftPartTop }>
@@ -66,11 +102,11 @@ const CharityPage = () => {
                         <div className={ styles.detailedContainer }>
                             <div className={ styles.usernameContainer }>
                                 <img src={ people } alt="axe people"/>
-                                <p>علیرضا محمدی</p>
+                                <p>{ raiser_full_name }</p>
                             </div>
                             <div className={ styles.dateContainer }>
                                 <img src={ calender } alt="axe calender"/>
-                                <p>12 اردیبهشت 1401</p>
+                                <p>{ published_date }</p>
                             </div>
                             <div className={ styles.estimatedTimeContainer }>
                                 <img src={ clock } alt="axe clock"/>
@@ -80,10 +116,8 @@ const CharityPage = () => {
                         </div>
                         <div className={ styles.descriptionContainer }>
                             <p>
-                                علوم تجربی در پاسخ همه این پرسشها به «نمی‌دانم» می‌رسد؛ زیرا نمی‌توان اینها را آزمود.
-                                علوم تجربی به مسائل محدود و جزئی پاسخ می‌دهد، اما از تصویر کلی جهان ناتوان است.
-                                این است که علوم تجربی از پاسخ به اساسی ترین مسائلی که برای جهان‌بینی لازم است، یعنی
-                                برداشتهای کلی درباره مجموع و سرتاسر جهان، ناتوان است.
+                                { content }
+
                             </p>
 
                         </div>
@@ -97,14 +131,14 @@ const CharityPage = () => {
                         <div className={ styles.donationDetailsContainer }>
                             <div className={ styles.totalDonationPercent }>
                                 <p>کمک های مالی جمع شده</p>
-                                <p>60%</p>
+                                <p>{ collected_percentage }%</p>
                             </div>
                             <div className={ styles.totalBar }>
 
                                 <div className={ styles.progressBar }>
                                     <div className={ styles.progressBarDisplay } style={ {
-                                        width : `${ value }%` ,
-                                        backgroundColor : "#219D80" ,
+                                        width : `${ collected_percentage }%` ,
+                                        backgroundColor : "#4D7AD2" ,
                                         transition : "width 0.5s"
                                     } }></div>
 
@@ -113,8 +147,8 @@ const CharityPage = () => {
 
                             </div>
                             <div className={ styles.totalDonationNumber }>
-                                <p>جمع شده: 6 تومان</p>
-                                <p>هدف: 10 تومان</p>
+                                <p>جمع شده: { collected_amount } تومان</p>
+                                <p>هدف: { estimated_amount } تومان</p>
                             </div>
                         </div>
                         <div className={ styles.buttonContainer }>

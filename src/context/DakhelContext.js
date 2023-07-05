@@ -3,7 +3,7 @@ import React, { useState,createContext } from "react";
 const DakhelContext = createContext();
 
 const DakhelProvider = ( { children }) => {
-    const [isIn, setIsIn] = useState(false);
+    let [isIn, setIsIn] = useState(null);
 
     return (
         <DakhelContext.Provider value={{isIn , setIsIn }}>
