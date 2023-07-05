@@ -7,13 +7,12 @@ import NotFoundPage from "./components/mainPages/NotFound/NotFoundPage";
 import CharityProvider from "./context/CharityProvider"
 import PageProvider from "./context/PageProvider";
 import Login from './components/mainPages/Authentication/Login';
-import SignUp from "./components/mainPages/Authentication/SignUp";
-import ForgetPass from "./components/mainPages/Authentication/ForgetPass"
 import Pass from './components/mainPages/Authentication/pass';
 import AboutUs from "./components/mainPages/AboutUs/AboutUs"
 import CharityPage from "./components/mainPages/charityPage/CharityPage";
 import { LoginModalProvider } from "./context/LoginContext";
 import SignUpPage from "./components/SignUpPage/SignUpPage";
+import EditPasswordPage from './components/EditPasswordPage/EditPasswordPage';
 
 function App () {
 
@@ -27,7 +26,7 @@ function App () {
                             <Route path="/" element={ <LandingPage/> }/>
                             <Route path="/signUp" element={ <SignUpPage/> }/>
                             {/*<Route path="/login" element={<Login/>}/>*/ }
-                            <Route path="/editpassword" element={ <ForgetPass/> }/>
+                            <Route path="/editpassword" element={ <EditPasswordPage/> }/>
                             {/*<Route path='/pass' element={<Pass/>}/>*/ }
                             <Route path="/AboutUs" element={ <AboutUs/> }/>
                             <Route path="/posts/:page" element={ <PostsPage/> }/>
