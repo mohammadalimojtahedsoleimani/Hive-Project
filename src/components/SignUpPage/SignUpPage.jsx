@@ -7,7 +7,7 @@ import Pinterest from "../../images/SignUp/links/pinterest.svg";
 import Youtube from "../../images/SignUp/links/youtube.svg";
 import Pattern1 from "../../images/SignUp/patterns/pattern_1.svg";
 import Pattern2 from "../../images/SignUp/patterns/pattern_2.svg";
-import { Link } from "react-router-dom";
+import { Link , useNavigate } from "react-router-dom";
 import React , { useContext , useState } from "react";
 import { DakhelContext } from "../../context/DakhelContext";
 import axios from "axios";
@@ -18,6 +18,7 @@ import "./SignUp.module.css";
 
 const SignUpPage = () => {
     //variables
+    const navigate = useNavigate()
     const { setIsIn } = useContext ( DakhelContext );
     const [ data , setData ] = useState ( {
         email : "" ,
@@ -44,6 +45,7 @@ const SignUpPage = () => {
                         password : ""
                     } )
                     setErrors ( {} )
+                    navigate('/dashboard')
                 } )
                 .catch ( error => {
                     console.log ( 'the error:' , error )

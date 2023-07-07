@@ -1,6 +1,6 @@
 import Logo from "../../images/DashboardPage/logo.svg";
 import Logout from "../../images/DashboardPage/logout.svg";
-import { useNavigate } from "react-router-dom";
+import { Link , useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { DakhelContext } from "../../context/DakhelContext";
 
@@ -17,12 +17,14 @@ const VerticalNavbar = ( { navOptions , active , setActive } ) => {
     }
     return (
         <div className="flex-[1.4] vertical_navbar bg-[#F2F2F2] pt-[2rem] xxl:pt-[3rem] min-h-[100vh]">
+            <Link to='/'>
             <div className="flex items-center justify-center logo">
         <span className="font-IrishGrover text-[#3B8174] text-[30px] xxl:text-[39px]">
           Hive
         </span>
                 <img src={ Logo } alt="" className="w-[4rem] xxl:w-[5.5rem]"/>
             </div>
+            </Link>
             <ul className="mt-10 xxl:mt-16">
                 { navOptions.map ( ( navOption ) => (
                     <li
@@ -55,6 +57,9 @@ const VerticalNavbar = ( { navOptions , active , setActive } ) => {
                 onClick={  logOutHandler }>
                 <img src={ Logout } alt="axe logout" />
                 <span >خروج از حساب کاربری</span>
+            </div>
+            <div className="flex text-[14px] xxl:text-[18px] p-2 xxl:p-4 gap-2 xxl:gap-4 text-[#A65959] mr-2 xxl:mr-4 mt-20 xxl:mt-32 cursor-pointer">
+                <span>حذف حساب کاربری</span>
             </div>
         </div>
     );
