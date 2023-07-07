@@ -1,15 +1,19 @@
 import Logo from "../../images/DashboardPage/logo.svg";
 import Logout from "../../images/DashboardPage/logout.svg";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { DakhelContext } from "../../context/DakhelContext";
 
 const VerticalNavbar = ( { navOptions , active , setActive } ) => {
     // variables
     const navigate = useNavigate ()
+    const {  setIsIn } = useContext ( DakhelContext );
     // functions
     const logOutHandler = () => {
         localStorage.removeItem ( "token" )
         navigate ( "/" )
         console.log("salam")
+        setIsIn(false)
     }
     return (
         <div className="flex-[1.4] vertical_navbar bg-[#F2F2F2] pt-[2rem] xxl:pt-[3rem] min-h-[100vh]">

@@ -1,4 +1,4 @@
-import { useEffect , useState } from "react";
+import { useContext , useEffect , useState } from "react";
 import Image from "../../images/LandingPage/selected_posts_image_2.png";
 import CreatePost from "../../images/DashboardPage/create_post.svg";
 import Upload from "../../images/DashboardPage/upload.svg";
@@ -8,6 +8,8 @@ import Avatar2 from "../../images/common/avatars/avatar_2.svg";
 import Avatar3 from "../../images/common/avatars/avatar_3.svg";
 import axios from "axios";
 import Table from "./common/Table";
+import moment from "moment";
+import { DakhelContext } from "../../context/DakhelContext";
 
 const nameFont = ( value ) => {
     if ( value.length <= 15 ) {
@@ -100,10 +102,11 @@ const Posts = () => {
     const [ fileData , setFileData ] = useState ( null );
     const pageSize = 5;
     const [ currentPage , setCurrentPage ] = useState ( 1 );
-    const [ date , setDate ] = useState ( new Date () );
+    const [ date , setDate ] = useState ( '' );
     const [ image , setImage ] = useState ( "" );
+    const { isIn , setIsIn } = useContext ( DakhelContext );
     let imagePath = "http://127.0.0.1:8000/media/ads/";
-    let formData = new FormData ();
+
     let value = ""
     const [ data , setData ] = useState ( {
         image : null ,
@@ -113,7 +116,6 @@ const Posts = () => {
         status : 'true' ,
         estimated_amount : '' ,
         collected_amount : '0' ,
-        published_date : '2023-07-02T17:55:06.379Z' ,
     } );
 
     // functions
@@ -121,9 +123,15 @@ const Posts = () => {
         { length : Math.ceil ( posts.length / pageSize ) } ,
         ( _ , index ) => index + 1
     );
+    const updateDateTime = () => {
+        const now = new Date();
+        const isoString = now.toISOString();
+        setDate(isoString);
+    };
     useEffect ( () => {
         value = localStorage.getItem ( "token" );
-    } , [] )
+        updateDateTime()
+    }  )
     const handlePageClick = ( page ) => {
         setCurrentPage ( page );
     };
@@ -135,12 +143,17 @@ const Posts = () => {
     };
     const handleImageChange = ( event ) => {
         setData ( { ... data , [ event.target.name ] : event.target.files[ 0 ] } );
-        formData.append ( "file" , event.target.files[ 0 ] );
         imagePath += image;
+        // const now = moment();
+        // const dateTimeString = now.format("YYYY-MM-DDTHH:mm:ss.SSSZ");
+        // setDate(dateTimeString)
+        // console.log(dateTimeString)
+        // console.log(date)
     };
     const handleDateChange = ( e ) => {
         e.preventDefault ();
-        setDate ( new Date () );
+        console.log(date)
+        console.log(value)
         const formData = new FormData ()
         formData.append ( 'image' , data.image , data.image.name )
         formData.append ( 'title' , data.title )
@@ -149,14 +162,14 @@ const Posts = () => {
         formData.append ( 'status' , data.status )
         formData.append ( 'estimated_amount' , data.estimated_amount )
         formData.append ( 'collected_amount' , data.collected_amount )
-        formData.append ( 'published_date' , data.published_date )
+        formData.append ( 'published_date' , date )
         let df = JSON.stringify ( data )
         axios
             .post (
                 "http://127.0.0.1:8000/charity/api/v1/ads/" , formData ,
                 {
                     headers : {
-                        'Authorization' : `Bearer ${value}` ,
+                        'Authorization' : `JWT ${value}` ,
                         "Content-Type" : "multipart/form-data"
                     } ,
                 }
@@ -167,15 +180,11 @@ const Posts = () => {
             .catch ( ( error ) => {
                 console.log ( "the error: " , error.response );
             } );
-        console.log ( value )
-        // console.log ( data.title );
-        // console.log ( data.content );
-        // console.log ( data.image );
-        // console.log ( data.estimated_amount );
-        // console.log ( data.category );
-        console.log ( df )
-        console.log ( data.image )
+
         console.log ( formData )
+    };
+    const onButtonClick = () => {
+
     };
 
     // api-call
