@@ -20,7 +20,7 @@ const Footer = (props) => {
                 placeholder="ایمیل خود را وارد کنید"
                 className="rounded-r-[10px] w-40 xxl:w-64 text-[9px] xxl:text-[14px] p-2 xxl:p-3 h-8 xxl:h-12"
               />
-              <button className="bg-[#219D80] text-white rounded-l-[10px] text-[10px] xxl:text-[16px] h-8 xxl:h-12 px-2 xxl:px-4">
+              <button className="bg-[#4D7AD2] text-white rounded-l-[10px] text-[10px] xxl:text-[16px] h-8 xxl:h-12 px-2 xxl:px-4">
                 عضو شو
               </button>
             </div>
