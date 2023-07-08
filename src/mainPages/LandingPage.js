@@ -28,14 +28,15 @@ const LandingPage = ( props ) => {
 
     return (
         <>
-            <Navbar/>
+            <Navbar active='home' isLogin={false} dark={true}/>
             <Header/>
+            <SelectedPosts/>
             <AboutUs/>
             <Steps/>
             <GeneralInfo/>
             <Backup/>
             <Qualities/>
-            <SelectedPosts/>
+            
             <Footer/>
         </>
     )

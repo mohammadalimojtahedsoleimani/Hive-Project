@@ -9,6 +9,19 @@
     flex: 1.5;
     align-items: center;
 }
+.login{
+    color: #4D7AD2;
+    border: solid #4D7AD2 1px;
+    /* padding: 2rem; */
+    border-radius: 12px;
+}
+.sign_up{
+    color: white;
+    border: solid #4D7AD2 1px;
+    /* padding: 2rem; */
+    border-radius: 12px;
+    background-color: #4D7AD2;
+}
 .prof_parent{
     display: flex;
     align-items: center;
@@ -16,18 +29,18 @@
 .center{
     display: flex;
     align-items: center;
+    justify-content: space-between;
     flex: 1.5;
 
 }
 .left{
     flex: 1;
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    justify-content: end;
 }
 .brand_name {
     font-family: 'Irish Grover', cursive;
-    color: #3B8174;
+    color: #4D7AD2;
 }
 .Toast{
     z-index: 9999999999;
