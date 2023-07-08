@@ -2,7 +2,7 @@ import React , { useEffect , useState , createContext , useContext } from "react
 import { getCharity } from "../services/api";
 import { PageContext } from "./PageProvider";
 
-export const CharityContext = createContext ();
+const CharityContext = createContext ();
 
 const CharityProvider = ( { children } ) => {
     const [ charity , setCharity ] = useState ( [] );
@@ -23,4 +23,4 @@ const CharityProvider = ( { children } ) => {
     );
 };
 
-export default CharityProvider;
+export { CharityProvider,CharityContext};

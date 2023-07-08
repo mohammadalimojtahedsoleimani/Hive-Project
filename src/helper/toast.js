@@ -6,7 +6,7 @@ export const notify = ( text , type ) => {
     if ( type === "success" ) {
         toast.success ( text,{
             position: "top-right",
-            autoClose: 5000,
+            autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -16,11 +16,13 @@ export const notify = ( text , type ) => {
             zIndex:{zIndex},
         } );
     } else if ( type === "info" ) {
-        toast.info ( text )
+        toast.info ( text,{
+            autoClose: 2000,
+        } )
     } else {
         toast.error ( text,{
             position: "top-right",
-            autoClose: 5000,
+            autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,

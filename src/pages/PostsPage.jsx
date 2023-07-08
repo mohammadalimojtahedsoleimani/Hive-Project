@@ -4,7 +4,7 @@ import Posts from "../components/PostsPage/Posts";
 import Footer from "../components/shared/Footer";
 import Navbar from "../components/shared/Navbar";
 import Menu from "../components/PostsPage/Menu";
-import { CharityContext } from "../context/CharityProvider";
+import { CharityContext } from "../context/CharityContext";
 import { SearchContext } from "../context/SearchContext";
 
 const PostsPage = () => {

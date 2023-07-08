@@ -1,10 +1,8 @@
 import styles from "./Header.module.css";
-import HeaderRightShape_1 from "../../../images/LandingPage/header_right_shape_1.svg";
-import HeaderRightShape_2 from "../../../images/LandingPage/header_right_shape_2.svg";
-import HeaderLeftShape from "../../../images/LandingPage/header_left_shape.svg";
 import { useContext } from "react";
 import { LoginModalContext } from "../../../context/LoginContext";
 import Login from "../../modal/Login/Login";
+import { Link } from "react-router-dom";
 
 const BUTTON_WRAPPER_LOGIN_STYLES = {
   position: "relative",
@@ -58,19 +56,17 @@ const Header = (props) => {
               closeModal={() => setIsOpenLogin(false)}
             ></Login>
           </div>
-          <button
+          <Link
+            to="signUp"
             className={
               styles.sign_up +
               " py-[0.75rem] px-[1rem] xxl:px-[2rem] xxl:py-[1.25rem] text-[1rem] xxl:text-[1.25rem] xxl:leading-[0.5rem]"
             }
           >
             ثبت نام کن
-          </button>
+          </Link>
         </div>
       </div>
-      {/* <img src={HeaderRightShape_1} alt="" className={styles.shape_1} />
-      <img src={HeaderRightShape_2} alt="" className={styles.shape_2} />
-      <img src={HeaderLeftShape} alt="" className={styles.shape_3} /> */}
     </section>
   );
 };

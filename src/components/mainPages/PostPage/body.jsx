@@ -1,7 +1,7 @@
 import React , { PureComponent , useContext } from 'react';
 import './body.css';
 import { useParams } from "react-router-dom";
-import { CharityContext } from "../../../context/CharityProvider";
+import { CharityContext } from "../../../context/CharityContext";
 function Body()
 {
     let { id } = useParams();
