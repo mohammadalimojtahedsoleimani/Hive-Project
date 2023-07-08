@@ -157,6 +157,7 @@ const PostsPage = ( props ) => {
                 //   setSheetNumber(response.data["id"]);
                 setCharity ( response.data.results )
                 setPage(response.data.current_page)
+                setPageNumber ( Number ( number.page ) )
                 setItemsInfo({total_objects:response.data.total_objects, total_pages:response.data.total_pages})
                 //   toast.success("!آپلود شد", {
                 //     position: toast.POSITION.TOP_LEFT,
@@ -178,7 +179,7 @@ const PostsPage = ( props ) => {
 
 
 
-        setPageNumber ( Number ( number.page ) )
+        
         console.log ( typeof number.page )
 
         console.log ( charity )
