@@ -2,27 +2,43 @@ import Calendar from "../../../images/LandingPage/selected_posts_calendar.svg";
 import Person from "../../../images/LandingPage/selected_posts_person.svg";
 
 const PostCard = ({
-  posts
+  image,
+  name,
+  date,
+  title,
+  description,
+  collected,
+  target,
 }) => {
+  console.log("postss ", image);
   return (
     <div
-      style={{ boxShadow: "rgba(0, 0, 0, 0.15) 0px 3px 3px 0px" }}
+      style={{
+        boxShadow: "rgba(0, 0, 0, 0.15) 0px 3px 3px 0px",
+      }}
       className="w-[300px] xxl:w-[350px] mx-4 xxl:mx-7"
     >
-      <img src={posts.image} alt="" className="w-full h-[200px] xxl:h-[270px]" />
+      <div
+        style={{
+          backgroundImage: `url(${image})`,
+          backgroundSize: "cover",
+        }}
+        className="w-full  h-[200px] xxl:h-[300px]"
+      ></div>
+      {/* <img src={image} alt="" className="w-full h-[200px] xxl:h-[270px]" /> */}
       <div className="p-1 xxl:p-3">
         <div className="flex justify-between text-gray-400">
           <span className="flex items-center gap-1 xxl:gap-3 text-[11px] xxl:text-[15px]">
             <img src={Person} alt="" />
-            {posts.raiser}
+            {name}
           </span>
           <span className="flex items-center gap-1 xxl:gap-3 text-[10px] xxl:text-[14px]">
             <img src={Calendar} alt="" />
-            {posts.published_date}
+            {date}
           </span>
         </div>
         <h2 className="text-[#219D80] font-bold text-[15px] xxl:text-[21px] mt-3 xxl:mt-6">
-          {posts.title}
+          {title}
         </h2>
         {/* <p className='text-[10px] xxl:text-[14px] h-16 xxl:h-24'>{description}</p> */}
         <div className="w-[75%] py-4 xxl:py-8">
@@ -37,10 +53,10 @@ const PostCard = ({
           </div>
           <div className="flex justify-between">
             <span className="text-[10px] xxl:text-[12px]">
-              جمع شده : {posts.collected_amount} میلیون تومان
+              جمع شده : {collected} میلیون تومان
             </span>
             <span className="text-[10px] xxl:text-[12px]">
-              هدف : {posts.estimated_amount} میلیون تومان
+              هدف : {target} میلیون تومان
             </span>
           </div>
         </div>

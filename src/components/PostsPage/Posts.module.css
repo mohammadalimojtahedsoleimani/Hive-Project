@@ -40,3 +40,10 @@
     display: flex;
     flex-wrap: wrap;
 }
+@media (min-height: 950px) {
+    /* styles for screens with height greater than 1500px */
+    .posts{
+        padding-top: 9vh;
+        /* background-color: red; */
+    }
+  }

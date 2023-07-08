@@ -13,6 +13,7 @@ import { CharityContext } from "../context/CharityProvider";
 import { PageContext } from "../context/PageProvider"
 import { PropagateLoader } from "react-spinners";
 import { Bars } from "react-loader-spinner";
+import Paging from '../components/PostsPage/Paging';
 
 const posts = [
     {
@@ -81,7 +82,7 @@ const PostsPage = ( props ) => {
 
     // variables
     const [ page , setPage ] = useState ( 1 )
-
+    const [itemsInfo , setItemsInfo] = useState({total_objects: 0, total_pages:0})
 
     const types = [
         "default" ,
@@ -125,13 +126,13 @@ const PostsPage = ( props ) => {
     let pNumber = 0
     // functions
     useEffect ( () => {
-        // let url;
-        // if ( Number ( number.page ) === 1 ) {
-        //     pNumber = 1
-        // } else {
-        //     pNumber = Number ( number.page )
-        // }
-        // url = `http://127.0.0.1:8000/charity/api/v1/ads/?page=${ pNumber }`;
+        let url;
+        if ( Number ( number.page ) === 1 ) {
+            pNumber = 1
+        } else {
+            pNumber = Number ( number.page )
+        }
+        url = `http://127.0.0.1:8000/charity/api/v1/ads/?page=${ pNumber }`;
         // axios.get ( url )
         //     .then ( ( response ) => {
         //         console.log ( response.data.results )
@@ -139,11 +140,49 @@ const PostsPage = ( props ) => {
         //         console.log ( number )
         //         console.log ( response )
         //     } )
+
+
+
+
+            axios({
+                method: "get",
+                url: `http://127.0.0.1:8000/charity/api/v1/ads/?page=${ pNumber }`,
+                // data: fileData,
+                // headers: {
+                //   "Content-Type": "multipart/form-data",
+                // },
+            })
+                .then(function (response) {
+                console.log(response.data)
+                //   setSheetNumber(response.data["id"]);
+                setCharity ( response.data.results )
+                setPage(response.data.current_page)
+                setItemsInfo({total_objects:response.data.total_objects, total_pages:response.data.total_pages})
+                //   toast.success("!آپلود شد", {
+                //     position: toast.POSITION.TOP_LEFT,
+                //   });
+                console.log ( response )
+                //   navigate("/words");
+                })
+                .catch(function (error) {
+                    console.log(error)
+                //   const response = error.request.responseText;
+                //   toast.error(response === "" ? error.message : response, {
+                //     position: toast.POSITION.TOP_LEFT,
+                //   });
+                });
+
+
+
+
+
+
+
         setPageNumber ( Number ( number.page ) )
         console.log ( typeof number.page )
 
         console.log ( charity )
-    } , [ charity , number.page ] )
+    } , [ charity , page ] )
 
     const handleType = () => {
     }
@@ -177,10 +216,13 @@ const PostsPage = ( props ) => {
                 setIsMenuOpen={ setIsMenuOpen }
                 types={ types }
             />
-            { charity.map ( ( item ) =>
+            {/* { charity.map ( ( item ) =>
                 <PostCard posts={ item } key={ item.id }/>
-            ) }
-            <Posts posts={ posts } page={ page } onNextPage={ handleNextPage }/>
+            ) } */}
+            {charity && <Posts posts={ charity } page={ page } onNextPage={ handleNextPage }/>}
+            <Paging total_pages={itemsInfo.total_pages}
+  page={page}
+  total_objects={itemsInfo.total_objects}/>
 
 
         </>
