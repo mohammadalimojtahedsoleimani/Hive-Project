@@ -1,7 +1,7 @@
 
 .btn{
     position: absolute;
-    background-color: #219D80;
+    background-color: #4D7AD2;
     color: white;
     border-radius: 5px;
 }
@@ -13,13 +13,13 @@
 }
 .inner_parent{
     position: relative;
-    border: solid rgba(33, 157, 128, 0.2) 4px;
+    border: solid #4D7AD222 4px;
 }
 .Image_2_parent{
     position: absolute;
     top: 50%;
     left: 50%;
-    border: solid rgba(33, 157, 128, 0.2) 4px;
+    border: solid #4D7AD222 4px;
 }
 .shape{
     position: absolute;

@@ -1,35 +1,38 @@
 .parent{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     position: relative;
-    background-image: linear-gradient(112deg, #3b8174 42%, #5B5F66 -13%);  /* background-position: 0 100px; */
+    /* background-image: linear-gradient(112deg, #3b8174 42%, #5B5F66 -13%);  */
+    background-image: url(../../../images/LandingPage/background.png);
+    background-size: cover;
 }
 .top{
     font-family: IRANNastaliqh, IRANSans;
-    color: white;
+    color: #555555;
     text-align: center;
 }
 .bottom_text{
     text-align: center;
-    color: white;
+    color: black;
+    text-shadow: 2px 7px 11px rgba(0,0,0,0.63);
 }
 .enter_parent{
     display: flex;
     justify-content: center;
 }
 .login{
-    color: white;
-    border: solid #219D80 1px;
+    color: black;
+    border: solid #4D7AD2 1px;
     /* padding: 2rem; */
     border-radius: 5px;
 }
 .sign_up{
     color: white;
-    border: solid #219D80 1px;
+    border: solid #4D7AD2 1px;
     /* padding: 2rem; */
     border-radius: 5px;
-    background-color: #219D80;
+    background-color: #4D7AD2;
 }
 .shape_1, .shape_2{
     position: absolute;

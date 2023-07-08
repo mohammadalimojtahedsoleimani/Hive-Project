@@ -37,19 +37,14 @@ const SelectedPosts = (props) => {
     },
   ];
   return (
-    <section className="px-[5rem] xxl:px-[10rem] py-[3rem] xxl:py-[6rem]">
-      <h2 className="font-bold text-[20] xxl:text-[27px] mb-11 xxl:mb-28">
+    <section className=" bg-[#5E86FF] px-[5rem] xxl:px-[10rem] py-[3rem] xxl:py-[6rem]">
+      <h2 className="text-[white] font-bold text-[20] xxl:text-[27px] mb-11 xxl:mb-28">
         آخرین کمک ها
         <hr className=" bg-gray-400 inline-block mr-4 m-1 h-[1px] xxl:w-[66px]" />
       </h2>
-      <h2 className={" xxl:text-[39px] xxl:my-[2rem]"}>
-        نیاز های کودکان اولویت همه ماست!
-      </h2>
-      <div className="flex justify-center gap-3 xxl:gap-8">
+      <div className="flex justify-center gap-4 xxl:gap-14">
         {postsArray.map((post) => (
-          <PostCard
-            posts={post}
-          />
+          <PostCard posts={post} />
         ))}
       </div>
     </section>

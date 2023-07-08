@@ -15,25 +15,29 @@ const Header = (props) => {
   return (
     <section
       className={
-        styles.parent + " pt-[110px] xl:pt-[140px] xxl:pt-[220px] xxl:pb-16"
+        styles.parent +
+        " pt-[150px] xl:pt-[190px] xxl:pt-[230px] min-h-[1000px] xl:min-h-[1200px] xxl:min-h-[1500px] pb-10 xxl:pb-24"
       }
     >
       {/* top */}
       <div
         className={
           styles.top +
-          " text-[30px] xl:text-[50px] xxl:text-[75px] xxl:leading-[160px] font-IRANNastaliqh "
+          " font-[700] text-[45px] xl:text-[50px] xxl:text-[55px] xxl:leading-[160px] font-IRANNastaliqh "
         }
       >
-        بنی آدم اعضای یک، دیگرند که در آفر ینش ز یک گوهرند
+        بنی آدم اعضای یک، دیگرند &nbsp;&nbsp;&nbsp;&nbsp;که در آفر ینش ز یک
+        گوهرند
         <br />
-        چو عضوی به درد آورد روزگار دگر عضو ها را نماند قرار
+        چو عضوی به درد آورد روزگار &nbsp;&nbsp;&nbsp;&nbsp;دگر عضو ها را نماند
+        قرار
       </div>
       {/* bottom */}
       <div className="pt-16 pb-3 xxl:pb-6">
         <div
           className={
-            styles.bottom_text + " xxl:text-[22px] xxl:leading-[30px] xxl:mb-6"
+            styles.bottom_text +
+            " text-center text-[30px] xxl:text-[36px] xxl:leading-[30px] xxl:mb-6"
           }
         >
           هایو، اجتمایی برای گسترش نیکوکاری
@@ -44,7 +48,7 @@ const Header = (props) => {
               onClick={() => setIsOpenLogin(true)}
               className={
                 styles.login +
-                " p-[1rem] xxl:p-[2rem] text-[0.75rem] xxl:text-[1.25rem] xxl:leading-[0.5rem]"
+                " py-[0.75rem] px-[1rem] xxl:px-[2rem] xxl:py-[1.25rem] text-[1rem] xxl:text-[1.25rem] xxl:leading-[0.5rem]"
               }
             >
               وارد شو
@@ -57,16 +61,16 @@ const Header = (props) => {
           <button
             className={
               styles.sign_up +
-              " p-[1rem] xxl:p-[2rem] text-[0.75rem] xxl:text-[1.25rem] xxl:leading-[0.5rem]"
+              " py-[0.75rem] px-[1rem] xxl:px-[2rem] xxl:py-[1.25rem] text-[1rem] xxl:text-[1.25rem] xxl:leading-[0.5rem]"
             }
           >
             ثبت نام کن
           </button>
         </div>
       </div>
-      <img src={HeaderRightShape_1} alt="" className={styles.shape_1} />
+      {/* <img src={HeaderRightShape_1} alt="" className={styles.shape_1} />
       <img src={HeaderRightShape_2} alt="" className={styles.shape_2} />
-      <img src={HeaderLeftShape} alt="" className={styles.shape_3} />
+      <img src={HeaderLeftShape} alt="" className={styles.shape_3} /> */}
     </section>
   );
 };

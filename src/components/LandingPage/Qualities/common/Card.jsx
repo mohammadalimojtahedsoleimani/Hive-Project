@@ -1,7 +1,7 @@
 const Card = ({ image, text_1, text_2 }) => {
   return (
     <div
-      style={{ backgroundColor: "rgba(33, 157, 128, 0.08)" }}
+      style={{ backgroundColor: "#6B90FF22" }}
       className="flex flex-col items-center rounded-2xl py-6 xxl:py-20 px-10 xxl:px-28"
     >
       <img
