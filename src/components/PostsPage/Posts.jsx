@@ -42,12 +42,12 @@ const Posts = (props) => {
           <PostCard
             key={post.id}
             image={post.image}
-            name={post.name}
-            date={post.date}
+            name={post.raiser_full_name}
+            date={post.published_date}
             title={post.title}
-            description={post.description}
-            collected={post.collected}
-            target={post.target}
+            description={post.snippet}
+            collected={post.collected_amount}
+            target={post.estimated_amount}
           />
         ))
     );
