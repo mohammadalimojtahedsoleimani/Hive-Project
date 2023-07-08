@@ -7,7 +7,7 @@ import post_3 from "./../../../images/LandingPage/SelectedPosts/post_3.svg";
 import post_4 from "./../../../images/LandingPage/SelectedPosts/post_4.svg";
 import Post from "./../../shared/Post";
 import { useContext } from "react";
-import { CharityContext } from "../../../context/CharityProvider";
+import { CharityContext } from "../../../context/CharityContext";
 
 const SelectedPosts = (props) => {
   const charity = useContext(CharityContext);

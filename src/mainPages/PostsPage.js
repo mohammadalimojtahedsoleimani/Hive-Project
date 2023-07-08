@@ -9,7 +9,7 @@ import { getCharity } from "../services/api";
 import CharityPost from "./charityPost";
 import PostCard from "../components/common/PostCard/PostCard";
 import { useParams } from "react-router-dom";
-import { CharityContext } from "../context/CharityProvider";
+import { CharityContext } from "../context/CharityContext";
 import { PageContext } from "../context/PageProvider"
 import { PropagateLoader } from "react-spinners";
 import { Bars } from "react-loader-spinner";

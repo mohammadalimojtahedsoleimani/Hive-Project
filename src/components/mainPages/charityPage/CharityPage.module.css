@@ -419,7 +419,7 @@ margin-top: 56px;
 .donateButtonContainer{
     border: 1px solid #4D7AD2;
     border-radius: 10px;
-    width: 161.58px;
+    width: 162px;
     height: 56px;
     display: flex;
     flex-direction: row;
@@ -442,7 +442,7 @@ margin-top: 56px;
     font-family: 'IRANSansXFaNum';
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 24px;
 
 

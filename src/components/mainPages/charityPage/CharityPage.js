@@ -1,4 +1,4 @@
-import React , { useEffect , useState } from 'react';
+import React , { useContext , useEffect , useState } from 'react';
 import styles from "./CharityPage.module.css"
 import Navbar from "../../common/Navbar/Navbar"
 import Footer from "../../common/Footer/Footer"
@@ -10,6 +10,13 @@ import calender from "../../../images/CharityPage/calender.png"
 import clock from "../../../images/CharityPage/clock.png"
 import { useLocation } from "react-router-dom";
 import axios from "axios";
+import { DonationContext } from "../../../context/DonationContext";
+import Donation from "../../modal/Donation/Donation";
+// innate styles
+const BUTTON_WRAPPER_DONATE_STYLES = {
+    position : "relative" ,
+    zIndex : 1 ,
+};
 
 const CharityPage = () => {
     // Variables
@@ -26,6 +33,8 @@ const CharityPage = () => {
     const [ estimated_amount , setEstimated_amount ] = useState ( '' )
     const [ collected_amount , setCollected_amount ] = useState ( '' )
     const [ collected_percentage , setCollected_percentage ] = useState ( '' )
+    // contexts
+    const { isDonationOpen , setIsDonationOpen } = useContext ( DonationContext );
     // functions
     useEffect ( () => {
         console.log ( charity_id )
@@ -39,9 +48,9 @@ const CharityPage = () => {
                 setCollected_amount ( r.data.collected_amount )
                 setImage ( r.data.image )
                 setContent ( r.data.content )
-                setCollected_percentage(r.data.collected_percentage)
+                setCollected_percentage ( r.data.collected_percentage )
                 console.log ( r.data )
-                console.log(r.data.collected_percentage)
+                console.log ( r.data.collected_percentage )
             } )
 
 
@@ -56,7 +65,7 @@ const CharityPage = () => {
                     <div className={ styles.rightPartTop }>
                         <p>{ title }</p>
                         <div className={ styles.rightPartTopIMG }>
-                            <img src={ image } alt="axe rast" className={styles.rightPartTopImage}/>
+                            <img src={ image } alt="axe rast" className={ styles.rightPartTopImage }/>
                         </div>
                     </div>
                     <div className={ styles.leftPartTop }>
@@ -157,9 +166,16 @@ const CharityPage = () => {
 
                             </div>
                             <div className={ styles.donateButtonContainer }>
+                                <div style={ BUTTON_WRAPPER_DONATE_STYLES }>
 
 
-                                <button className={ styles.donateButton }>پرداخت کمک</button>
+                                    <button className={ styles.donateButton }
+                                            onClick={ () => setIsDonationOpen ( true ) }>پرداخت کمک
+                                    </button>
+                                    <Donation open={ isDonationOpen } closeModal={ () => setIsDonationOpen ( false ) } ChairtyTitle={title} pageId={charity_id}>
+                                    </Donation>
+
+                                </div>
                             </div>
                         </div>
 
