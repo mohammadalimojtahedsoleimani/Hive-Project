@@ -17,6 +17,7 @@ import { DakhelProvider } from "./context/DakhelContext";
 import { ProfileProvider } from "./context/ProfileContext";
 import { DonationProvider } from "./context/DonationContext";
 import { SearchProvider } from "./context/SearchContext";
+import { LogoutProvider } from "./context/LogoutContext";
 
 function App () {
 
@@ -28,24 +29,26 @@ function App () {
                         <DonationProvider>
                             <SearchProvider>
                                 <CharityProvider>
-                                    <>
-                                        <Routes>
-                                            <Route path="/" element={ <LandingPage/> }/>
-                                            <Route path="/signUp" element={ <SignUpPage/> }/>
-                                            <Route path="/editpassword" element={ <EditPasswordPage/> }/>
-                                            <Route path="/AboutUs" element={ <AboutUs/> }/>
-                                            <Route path="/posts/:page" element={ <PostsPage/> }/>
-                                            <Route path="/post/:page" element={ <CharityPage/> }/>
-                                            <Route path="/dashboard" element={ <DashboardPage/> }/>
-                                            <Route path='/*' element={ <NotFoundPage/> }/>
-                                            {/* <Route path="/page/:id" element={ <PostPage/> }/>
+                                    <LogoutProvider>
+                                        <>
+                                            <Routes>
+                                                <Route path="/" element={ <LandingPage/> }/>
+                                                <Route path="/signUp" element={ <SignUpPage/> }/>
+                                                <Route path="/editpassword" element={ <EditPasswordPage/> }/>
+                                                <Route path="/AboutUs" element={ <AboutUs/> }/>
+                                                <Route path="/posts/:page" element={ <PostsPage/> }/>
+                                                <Route path="/post/:page" element={ <CharityPage/> }/>
+                                                <Route path="/dashboard" element={ <DashboardPage/> }/>
+                                                <Route path='/*' element={ <NotFoundPage/> }/>
+                                                {/* <Route path="/page/:id" element={ <PostPage/> }/>
             <Route path="/profile" element={ <ProfilePage/> }/>
             <Route path="/Posts" element={ <PostsPage/> }/>
             <Route path="/activation/*" element={ <EmailConfigurationPage/> }/>
             <Route path="/reset_password/*" element={ <ChangePasswordPage/> }/>
             <Route path="/*" element={ <NotFoundPage/> }/> */ }
-                                        </Routes>
-                                    </>
+                                            </Routes>
+                                        </>
+                                    </LogoutProvider>
                                 </CharityProvider>
                             </SearchProvider>
                         </DonationProvider>

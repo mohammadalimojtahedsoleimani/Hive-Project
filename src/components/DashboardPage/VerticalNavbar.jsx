@@ -3,11 +3,17 @@ import Logout from "../../images/DashboardPage/logout.svg";
 import { Link , useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { DakhelContext } from "../../context/DakhelContext";
-
+import {LogoutContext} from "../../context/LogoutContext";
+import LogOut from "../modal/LogOut/LogOut";
+const BUTTON_WRAPPER_LOGOUT_STYLES = {
+    position: "relative",
+    zIndex : 1 ,
+};
 const VerticalNavbar = ( { navOptions , active , setActive } ) => {
     // variables
     const navigate = useNavigate ()
     const {  setIsIn } = useContext ( DakhelContext );
+    const {isLogOpen,setIsLogOpen} = useContext(LogoutContext);
     // functions
     const logOutHandler = () => {
         localStorage.removeItem ( "token" )
@@ -52,11 +58,16 @@ const VerticalNavbar = ( { navOptions , active , setActive } ) => {
                     </li>
                 ) ) }
             </ul>
+
             <div
                 className="flex text-[14px] xxl:text-[18px] p-2 xxl:p-4 gap-2 xxl:gap-4 text-[#A65959] mr-2 xxl:mr-4 mt-20 xxl:mt-32 cursor-pointer"
-                onClick={  logOutHandler }>
+                style={BUTTON_WRAPPER_LOGOUT_STYLES} >
                 <img src={ Logout } alt="axe logout" />
-                <span >خروج از حساب کاربری</span>
+                <span onClick={()=>setIsLogOpen(true)} >خروج از حساب کاربری</span>
+                <LogOut open={isLogOpen}
+                        closeModal={() => setIsLogOpen(false)}>
+
+                </LogOut>
             </div>
             <div className="flex text-[14px] xxl:text-[18px] p-2 xxl:p-4 gap-2 xxl:gap-4 text-[#A65959] mr-2 xxl:mr-4 mt-20 xxl:mt-32 cursor-pointer">
                 <span>حذف حساب کاربری</span>
