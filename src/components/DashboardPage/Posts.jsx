@@ -106,6 +106,7 @@ const Posts = () => {
     const [ image , setImage ] = useState ( "" );
     const { isIn , setIsIn } = useContext ( DakhelContext );
     let imagePath = "http://127.0.0.1:8000/media/ads/";
+    const [ alCharity , setAlCharity ] = useState ( null )
 
     let value = ""
     const [ data , setData ] = useState ( {
@@ -124,14 +125,14 @@ const Posts = () => {
         ( _ , index ) => index + 1
     );
     const updateDateTime = () => {
-        const now = new Date();
-        const isoString = now.toISOString();
-        setDate(isoString);
+        const now = new Date ();
+        const isoString = now.toISOString ();
+        setDate ( isoString );
     };
     useEffect ( () => {
         value = localStorage.getItem ( "token" );
-        updateDateTime()
-    }  )
+        updateDateTime ()
+    } )
     const handlePageClick = ( page ) => {
         setCurrentPage ( page );
     };
@@ -152,8 +153,8 @@ const Posts = () => {
     };
     const handleDateChange = ( e ) => {
         e.preventDefault ();
-        console.log(date)
-        console.log(value)
+        console.log ( date )
+        console.log ( value )
         const formData = new FormData ()
         formData.append ( 'image' , data.image , data.image.name )
         formData.append ( 'title' , data.title )
@@ -169,7 +170,7 @@ const Posts = () => {
                 "http://127.0.0.1:8000/charity/api/v1/ads/" , formData ,
                 {
                     headers : {
-                        'Authorization' : `JWT ${value}` ,
+                        'Authorization' : `JWT ${ value }` ,
                         "Content-Type" : "multipart/form-data"
                     } ,
                 }
@@ -186,6 +187,18 @@ const Posts = () => {
     const onButtonClick = () => {
 
     };
+    useEffect ( () => {
+        axios.get ( 'http://127.0.0.1:8000/charity/api/v1/user-advertisements/' , {
+            headers : {
+                'Authorization' : `JWT ${ value }`
+            }
+        } )
+            .then ( r => {
+                setAlCharity ( r.data )
+                console.log(alCharity)
+            } )
+
+    } , [] )
 
     // api-call
 

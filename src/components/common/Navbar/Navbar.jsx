@@ -17,7 +17,7 @@ const Navbar = ({ active, dark }) => {
   const links = [
     { key: "map", value: "نقشه راه " },
     { key: "contact_us", value: "ارتباط با ما" },
-    { key: "about_us", value: " درباره ما" },
+    { key: "/AboutUs", value: " درباره ما" },
     { key: "home", value: "خانه" },
   ];
   const getIn = (
