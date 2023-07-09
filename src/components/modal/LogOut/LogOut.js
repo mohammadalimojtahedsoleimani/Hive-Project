@@ -23,6 +23,7 @@ const LogOut = ( { open , closeModal } ) => {
         navigate ( "/" )
         console.log("salam")
         setIsIn(false)
+        setIsLogOpen(false)
     }
     const closeHandler = () => {
         setIsLogOpen ( false )

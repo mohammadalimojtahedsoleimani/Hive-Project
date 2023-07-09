@@ -30,6 +30,7 @@ const DeleteProfile = ( { open , closeModal } ) => {
         } )
             .then ( r => {
                 navigate ( '/' );
+                setIsDelOpen(false)
             } )
 
     }
