@@ -14,6 +14,7 @@ import { PageContext } from "../context/PageProvider"
 import { PropagateLoader } from "react-spinners";
 import { Bars } from "react-loader-spinner";
 import Paging from '../components/PostsPage/Paging';
+import { SearchContext } from "../context/SearchContext";
 
 const posts = [
     {
@@ -82,7 +83,7 @@ const PostsPage = ( props ) => {
 
     // variables
     const [ page , setPage ] = useState ( 1 )
-    const [itemsInfo , setItemsInfo] = useState({total_objects: 0, total_pages:0})
+    const [ itemsInfo , setItemsInfo ] = useState ( { total_objects : 0 , total_pages : 0 } )
 
     const types = [
         "default" ,
@@ -120,7 +121,8 @@ const PostsPage = ( props ) => {
     //     collected_amount : 0 ,
     //     published_date : ""
     // } )
-    const { charity , setCharity } = useContext ( CharityContext )
+    const { charity , setCharity } = useContext ( CharityContext );
+    const { search , setSearch } = useContext ( SearchContext );
     const { pageNumber , setPageNumber } = useContext ( PageContext )
     let number = useParams ();
     let pNumber = 0
@@ -132,7 +134,7 @@ const PostsPage = ( props ) => {
         } else {
             pNumber = Number ( number.page )
         }
-        url = `http://127.0.0.1:8000/charity/api/v1/ads/?page=${ pNumber }`;
+
         // axios.get ( url )
         //     .then ( ( response ) => {
         //         console.log ( response.data.results )
@@ -140,50 +142,46 @@ const PostsPage = ( props ) => {
         //         console.log ( number )
         //         console.log ( response )
         //     } )
+        if ( search ){
+            url = `http://127.0.0.1:8000/charity/api/v1/ads/?search=${search}`
+        }else {
+            url = `http://127.0.0.1:8000/charity/api/v1/ads/?page=${ pNumber }`
+        }
 
 
-
-
-            axios({
-                method: "get",
-                url: `http://127.0.0.1:8000/charity/api/v1/ads/?page=${ pNumber }`,
+            axios ( {
+                method : "get" ,
+                url : url ,
                 // data: fileData,
                 // headers: {
                 //   "Content-Type": "multipart/form-data",
                 // },
-            })
-                .then(function (response) {
-                console.log(response.data)
-                //   setSheetNumber(response.data["id"]);
-                setCharity ( response.data.results )
-                setPage(response.data.current_page)
-                setPageNumber ( Number ( number.page ) )
-                setItemsInfo({total_objects:response.data.total_objects, total_pages:response.data.total_pages})
-                //   toast.success("!آپلود شد", {
-                //     position: toast.POSITION.TOP_LEFT,
-                //   });
-                console.log ( response )
-                //   navigate("/words");
-                })
-                .catch(function (error) {
-                    console.log(error)
-                //   const response = error.request.responseText;
-                //   toast.error(response === "" ? error.message : response, {
-                //     position: toast.POSITION.TOP_LEFT,
-                //   });
-                });
+            } )
+                .then ( function ( response ) {
+                    //   setSheetNumber(response.data["id"]);
+                    setCharity ( response.data.results )
+                    setPage ( response.data.current_page )
+                    setPageNumber ( Number ( number.page ) )
+                    setItemsInfo ( {
+                        total_objects : response.data.total_objects ,
+                        total_pages : response.data.total_pages
+                    } )
+                    //   toast.success("!آپلود شد", {
+                    //     position: toast.POSITION.TOP_LEFT,
+                    //   });
+                    console.log ( response )
+                    //   navigate("/words");
+                } )
+                .catch ( function ( error ) {
+                    console.log ( error )
+                    //   const response = error.request.responseText;
+                    //   toast.error(response === "" ? error.message : response, {
+                    //     position: toast.POSITION.TOP_LEFT,
+                    //   });
+                } );
 
 
-
-
-
-
-
-        
-        console.log ( typeof number.page )
-
-        console.log ( charity )
-    } , [ charity , page ] )
+    } , [ number.page,search ] )
 
     const handleType = () => {
     }
@@ -192,21 +190,21 @@ const PostsPage = ( props ) => {
     return (
         <>
             <Navbar dark={ true }/>
-            {/*<div>*/}
+            {/*<div>*/ }
 
-            {/*    {*/}
-            {/*        charity.length === 0 && <Bars*/}
-            {/*            height="80"*/}
-            {/*            width="80"*/}
-            {/*            color="#4fa94d"*/}
-            {/*            ariaLabel="bars-loading"*/}
-            {/*            wrapperStyle={{}}*/}
-            {/*            wrapperClass=""*/}
-            {/*            visible={true}*/}
-            {/*        />*/}
+            {/*    {*/ }
+            {/*        charity.length === 0 && <Bars*/ }
+            {/*            height="80"*/ }
+            {/*            width="80"*/ }
+            {/*            color="#4fa94d"*/ }
+            {/*            ariaLabel="bars-loading"*/ }
+            {/*            wrapperStyle={{}}*/ }
+            {/*            wrapperClass=""*/ }
+            {/*            visible={true}*/ }
+            {/*        />*/ }
 
-            {/*    }*/}
-            {/*</div>*/}
+            {/*    }*/ }
+            {/*</div>*/ }
             <Filter
                 type={ type }
                 handleType={ handleType }
@@ -219,11 +217,11 @@ const PostsPage = ( props ) => {
             />
             {/* { charity.map ( ( item ) =>
                 <PostCard posts={ item } key={ item.id }/>
-            ) } */}
-            {charity && <Posts posts={ charity } page={ page } onNextPage={ handleNextPage }/>}
-            <Paging total_pages={itemsInfo.total_pages}
-  page={page}
-  total_objects={itemsInfo.total_objects}/>
+            ) } */ }
+            { charity && <Posts posts={ charity } page={ page } onNextPage={ handleNextPage }/> }
+            <Paging total_pages={ itemsInfo.total_pages }
+                    page={ page }
+                    total_objects={ itemsInfo.total_objects }/>
 
 
         </>

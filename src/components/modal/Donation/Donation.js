@@ -8,12 +8,12 @@ import heart from "../../../images/DonationModal/heart1.png"
 import close from "../../../images/DonationModal/close.png"
 import axios from "axios";
 
-const Donation = ( { open , ChairtyTitle,pageId } ) => {
+const Donation = ( { open , ChairtyTitle , pageId } ) => {
     // variables
     const { setIsDonationOpen } = useContext ( DonationContext );
     const [ money , setMoney ] = useState ( '' )
     const [ errors , setErrors ] = useState ( {} )
-    let value= localStorage.getItem ( "token" );
+    let value = localStorage.getItem ( "token" );
 
     // functions
     const closeHandler = () => {
@@ -35,18 +35,19 @@ const Donation = ( { open , ChairtyTitle,pageId } ) => {
     }
     const submitHandler = () => {
         const formData = new FormData ()
-        formData.append('amount',money)
-        axios.patch(`http://127.0.0.1:8000/charity/api/v1/donations/${pageId}/`,formData,{
-            headers:{
-                'Authorization':`JWT ${value}`
+        formData.append ( 'advertisement' , pageId )
+        formData.append ( 'amount' , money )
+        axios.post ( `http://127.0.0.1:8000/charity/api/v1/donations/` , formData , {
+            headers : {
+                'Authorization' : `JWT ${ value }`
             }
-        })
-            .then(r => {
-                console.log(r.data)
-            })
-            .catch(er =>{
-                console.log(er.response)
-            })
+        } )
+            .then ( r => {
+                console.log ( r.data )
+            } )
+            .catch ( er => {
+                console.log ( er.response )
+            } )
     }
     return createPortal (
         <>

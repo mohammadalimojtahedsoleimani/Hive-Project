@@ -14,7 +14,7 @@ const LandingPage = (props: Props) => {
   
   return (
     <>
-      <Navbar/>
+      {/*<Navbar/>*/}
       <Header/>
       <AboutUs/>
       <Steps/>
