@@ -8,10 +8,10 @@ const CharityProvider = ( { children } ) => {
     const [ charity , setCharity ] = useState ( [] );
     const { pageNumber } = useContext ( PageContext )
     useEffect ( () => {
-        const fetchAPI = async () => {
-            setCharity ( await getCharity ( pageNumber ) );
-        }
-        fetchAPI ();
+        // const fetchAPI = async () => {
+        //     setCharity ( await getCharity ( pageNumber ) );
+        // }
+        // fetchAPI ();
 
 
     } , [pageNumber] )

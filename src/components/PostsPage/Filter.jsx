@@ -4,11 +4,14 @@ import { useContext, useState } from "react";
 import SearchIcon from "../../images/PostsPage/search.svg";
 import FilterIcon from "../../images/PostsPage/filter.svg";
 // import { SearchContext } from "@/context/SearchContext";
+import {SearchContext} from "../../context/SearchContext";
 
 const Filter = (props) => {
+  // variables
+  const {search, setSearch} = useContext(SearchContext);
   const [value, setValue] = useState("");
   // const { search , setSearch } = useContext ( SearchContext )
-  const [search, setSearch] = useState("");
+
   let typingTimer; //timer identifier
   const doneTypingInterval = 5000; //time in ms, 5 seconds for example
 
@@ -27,7 +30,8 @@ const Filter = (props) => {
   //   }
   // }
   const valueHandler = (event) => {
-    setSearch(event.target.value.trim());
+    setSearch(event.target.value);
+    console.log(search)
   };
   return (
     <div className={styles.parent + " pt-[110px] xl:pt-[125px] xxl:pt-[130px]"}>
@@ -42,6 +46,7 @@ const Filter = (props) => {
           value={search}
           placeholder={"جستجو در وبسایت هایو..."}
           onChange={valueHandler}
+          name='search'
           className=" w-[24rem] xxl:w-[29rem] text-[15px] xxl:text-[18px]"
           // onKeyUp={keyUpHandler}
           // onKeyDown={keyDownHandler}
