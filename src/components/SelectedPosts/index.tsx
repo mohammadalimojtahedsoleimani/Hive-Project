@@ -1,10 +1,17 @@
+// @ts-ignore
 import Image_0 from '@/images/LandingPage/selected_posts_image_0.png'
+// @ts-ignore
 import Image_1 from '@/images/LandingPage/selected_posts_image_1.png'
+// @ts-ignore
 import Image_2 from '@/images/LandingPage/selected_posts_image_2.png'
 import PostCard from '../common/PostCard'
+import {useContext} from "react";
+import { CharityContext } from '../../context/CharityContext';
+
 type Props = {}
 
 const SelectedPosts = (props: Props) => {
+    const { charity } = useContext ( CharityContext )
     const postsArray = [
         {
             image: Image_0,
@@ -34,15 +41,19 @@ const SelectedPosts = (props: Props) => {
             target: 20,
         },
     ]
-  return (
-    <section className='px-[5rem] xxl:px-[10rem] py-[3rem] xxl:py-[6rem]'>
-        <h2 className='font-bold text-[20] xxl:text-[27px] mb-11 xxl:mb-28'>آخرین کمک ها<hr className=' bg-gray-400 inline-block mr-4 m-1 h-[1px] xxl:w-[66px]' /></h2>
-        <h2 className={' xxl:text-[39px] xxl:my-[2rem]'}>نیاز های کودکان اولویت همه ماست!</h2>
-        <div className='flex justify-center gap-3 xxl:gap-8'>
-            {postsArray.map(post => <PostCard image={post.image} name={post.name} date={post.date} title={post.title} description={post.description} collected={post.collected} target={post.target}/>)}
-        </div>
-    </section>
-  )
+    return (
+        <section className='px-[5rem] xxl:px-[10rem] py-[3rem] xxl:py-[6rem]'>
+            <h2 className='font-bold text-[20] xxl:text-[27px] mb-11 xxl:mb-28'>آخرین کمک ها
+                <hr className=' bg-gray-400 inline-block mr-4 m-1 h-[1px] xxl:w-[66px]'/>
+            </h2>
+            <h2 className={' xxl:text-[39px] xxl:my-[2rem]'}>نیاز های کودکان اولویت همه ماست!</h2>
+            <div className='flex justify-center gap-3 xxl:gap-8'>
+                {charity.map(post => <PostCard key={post.id} image={post.image} name={post.raiser_full_name} date={post.published_date}
+                                                  title={post.title} description={post.snippet}
+                                                  collected={post.collected_amount} target={post.estimated_amount}/>)}
+            </div>
+        </section>
+    )
 }
 
 export default SelectedPosts

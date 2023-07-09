@@ -23,7 +23,6 @@ const PostCard = ( {
         >
             <Link to={ `/post/${ id }` }>
 
-
                 <div
                     style={ {
                         backgroundImage : `url(${ image })` ,

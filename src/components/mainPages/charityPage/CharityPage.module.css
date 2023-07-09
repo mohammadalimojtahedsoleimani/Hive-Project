@@ -371,13 +371,9 @@ margin-top: 56px;
     margin-right: 28px;
     margin-left: 47px;
 }
-.buttonContainer div :hover{
-    background: red;
-}
+
 
 .shareButton{
-
-
     font-family: 'IRANSansXFaNum';
     font-style: normal;
     font-weight: 400;
@@ -388,17 +384,12 @@ margin-top: 56px;
     align-items: center;
     text-align: center;
     text-transform: capitalize;
-
     color: #4D7AD2;
 
-
     /* Inside auto layout */
-
     flex: none;
 
-
 }
-
 .shareButtonContainer{
     border: 1px solid #4D7AD2;
     border-radius: 10px;
@@ -446,4 +437,16 @@ margin-top: 56px;
     line-height: 24px;
 
 
+}
+.shareButtonContainer:hover{
+    background: #4D7AD2;
+}
+.shareButton:hover{
+    color: white;
+}
+.donateButtonContainer:hover{
+    background:#4D7AD2 ;
+}
+.donateButton:hover{
+    color: white;
 }

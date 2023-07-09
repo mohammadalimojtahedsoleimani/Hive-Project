@@ -59,7 +59,7 @@ const CharityPage = () => {
 
     return (
         <>
-            <Navbar/>
+            <Navbar dark={true}/>
             <div className={ styles.mainBody }>
                 <div className={ styles.topBody }>
                     <div className={ styles.rightPartTop }>
