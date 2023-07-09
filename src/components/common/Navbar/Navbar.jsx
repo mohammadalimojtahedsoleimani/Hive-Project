@@ -11,7 +11,7 @@ import { DakhelContext } from "../../../context/DakhelContext";
 import { notify } from "../../../helper/toast";
 import { LoginModalContext } from "../../../context/LoginContext";
 
-const Navbar = ({ active, isLogin, dark }) => {
+const Navbar = ({ active, dark }) => {
   const { isIn, setIsIn } = useContext(DakhelContext);
   const { isOpenLogin } = useContext(LoginModalContext);
   const links = [
@@ -41,24 +41,26 @@ const Navbar = ({ active, isLogin, dark }) => {
       </button>
     </div>
   );
-  const profile = (
-    <Link to="/dashboard" className="pr-6 xxl:pr-10">
-      <div className="flex gap-3">
-        <div>
-          <img
-            src={Profile}
-            alt="profile pic"
-            className="w-[30px] xl:w-[40px] xxl:w-[50px] h-[30px] xl:h-[40px] xxl:h-[50px]"
-          />
+  const profile = (name, profileUrl) => {
+    return (
+      <Link to="/dashboard" className="pr-6 xxl:pr-10">
+        <div className="flex gap-3">
+          <div>
+            <img
+              src={profileUrl}
+              alt="profile pic"
+              className="w-[30px] xl:w-[40px] xxl:w-[50px] h-[30px] xl:h-[40px] xxl:h-[50px]"
+            />
+          </div>
+          <div className={styles.prof_parent + " gap-1"}>
+            <span className="text-sm font-medium xl:text-base xxl:text-xl text-[#4D7AD2]">
+              {name}
+            </span>
+          </div>
         </div>
-        <div className={styles.prof_parent + " gap-1"}>
-          <span className="text-sm font-medium xl:text-base xxl:text-xl text-[#4D7AD2]">
-            محمدرضایاغی گر
-          </span>
-        </div>
-      </div>
-    </Link>
-  );
+      </Link>
+    );
+  };
   const isActive = (item) => {
     if (active === item.key) {
       return (
@@ -83,10 +85,17 @@ const Navbar = ({ active, isLogin, dark }) => {
     );
   };
   useEffect(() => {
-    if (isIn) {
-      notify("ورود موفقیت آمیز بود", "success");
+    let value = localStorage.getItem("token");
+    if (value !== undefined && value !== null) {
+      setIsIn(true);
     }
-  }, [isIn]);
+  }, []);
+
+  // useEffect(() => {
+  //   if (isIn) {
+  //     notify("ورود موفقیت آمیز بود", "success");
+  //   }
+  // }, [isIn]);
 
   return (
     <nav
@@ -110,7 +119,12 @@ const Navbar = ({ active, isLogin, dark }) => {
               />
             </Link>
           </div>
-          {isLogin ? profile : getIn}
+          {isIn
+            ? profile(
+                "امیلی جین استون",
+                "http://127.0.0.1:8000/media/ads/FxunEVSWcAATZR1.jpg"
+              )
+            : getIn}
         </div>
         {/* center */}
         <div className={styles.center}>
