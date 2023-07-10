@@ -34,6 +34,7 @@ const LandingPage = ( props ) => {
         isMobile?
         <>
             <MobileNavbar active='home' isLogin={false} dark={true}/>
+            <HeaderMobile/>
             {/* <AboutUs/>
             <Steps/>
             <GeneralInfo/>

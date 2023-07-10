@@ -1,0 +1,116 @@
+.parent{
+    /* " pt-[150px] xl:pt-[190px] xxl:pt-[230px] min-h-[1000px] xl:min-h-[1200px] xxl:min-h-[1500px] pb-10 xxl:pb-24" */
+    height: 100vh;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: flex-end;
+    position: relative;
+    background-color: #5B5f66;
+    /* background-image: linear-gradient(112deg, #3b8174 42%, #5B5F66 -13%);  */
+    /* background-image: url(../../../images/LandingPage/background_mobile_vertical_2.png); */
+    /* background-image: linear-gradient(115.6deg, #536EA1 46%, #5B5f66 44.1%);
+    background-size: cover; */
+    /* background: linear-gradient(to top left, #ff0000 50%, #00ff00 50%) no-repeat; */
+}
+.background_div{
+    height: 100%;
+    width: 90vw;
+    background: linear-gradient(to bottom right, #536EA1 50%, #5B5f66 50%) no-repeat;
+
+}
+.inner_parent{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    padding-top: calc(10.5vh + 2vw + 2rem);
+}
+.top{
+    /* + */
+          /* " font-[700] text-[45px] xl:text-[50px] xxl:text-[55px] xxl:leading-[160px] font-IRANNastaliqh " */
+    padding-top: calc(2.7vw + 2.3rem);
+    padding-left: calc(1.2vw + 0.9rem);
+    padding-right: calc(1.2vw + 0.9rem);
+    
+    /* text-align: center; */
+}
+.beit_1{
+    margin-bottom: calc(10vh );
+}
+.beit_1 *,
+.beit_2  *{
+    font-size: calc(1.5vh + 0.4vw + 2rem);
+    font-family: IRANNastaliqh, IRANSans;
+    color: white;
+    margin-bottom: calc(0.8vw + 0.6rem);
+}
+.beit_1 *:nth-of-type(2),
+.beit_2 *:nth-of-type(2){
+    text-align: left;
+}
+.bottom{
+    /* pt-16 pb-3 xxl:pb-6 */
+    padding-top: calc(1.5vh);
+}
+.bottom_text{
+    text-align: center;
+    font-size: calc(1.1vw + 0.8rem);
+    color: white;
+    /* text-shadow: 2px 7px 11px rgba(0,0,0,0.63); */
+}
+.enter_parent{
+    /* gap-6 pt-4 */
+    display: flex;
+    padding-top: calc(1.5vh);
+    gap: calc(1.3vw + 1rem);
+    justify-content: center;
+}
+.login{
+    /* " py-[0.75rem] px-[1rem] xxl:px-[2rem] xxl:py-[1.25rem] text-[1rem] xxl:text-[1.25rem] xxl:leading-[0.5rem]" */
+    font-size: calc(1vw + 0.7rem);
+    padding: calc(0.5rem + 0.2rem) calc(0.7rem + 0.4rem);
+    color: white;
+    border: solid #4D7AD2 1px;
+    /* padding: 2rem; */
+    border-radius: 5px;
+}
+.sign_up{
+    /* " py-[0.75rem] px-[1rem] xxl:px-[2rem] xxl:py-[1.25rem] text-[1rem] xxl:text-[1.25rem] xxl:leading-[0.5rem]" */
+    font-size: calc(1vw + 0.7rem);
+    padding: calc(0.5rem + 0.2rem) calc(0.7rem + 0.4rem);
+    color: white;
+    border: solid #4D7AD2 1px;
+    /* padding: 2rem; */
+    border-radius: 5px;
+    background-color: #4D7AD2;
+}
+.shape_1, .shape_2{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.shape_3{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+/* calc(1.6vh + 1.5vw + 1rem) */
+
+@media (max-width: 280px) {
+    /* styles for screens with height greater than 1500px */
+    .beit_1 *,
+    .beit_2  *{
+        font-size: calc(1.6vh + 1.5vw + 1rem);
+    }
+    .bottom_text{
+        font-size: calc(0.85vw + 0.7rem);
+    }
+    .sign_up,.login{
+        font-size: calc(0.8vw + 0.6rem);
+    }
+    
+    
+  }
