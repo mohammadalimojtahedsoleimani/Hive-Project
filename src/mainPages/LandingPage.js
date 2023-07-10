@@ -39,6 +39,7 @@ const LandingPage = ( props ) => {
             <GeneralInfo/>
             <Backup/>
             <Qualities/> */}
+            <MobileFooter/>
         </> : <>
         <Navbar active='home' isLogin={false} dark={true}/>
          <Header/>
