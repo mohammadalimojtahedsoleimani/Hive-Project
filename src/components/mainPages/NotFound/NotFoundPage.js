@@ -2,7 +2,7 @@ import React from 'react';
 import Footer from '../../common/Footer/Footer'
 import style from "./NotFound.module.css"
 import Navbar from "../../common/Navbar/Navbar";
-import Img from "../../../images/NotFound/404 Error.png"
+import Img from "../../../images/NotFound/error.png"
 import { Link , useNavigate } from "react-router-dom";
 import { click } from "@testing-library/user-event/dist/click";
 
@@ -13,7 +13,7 @@ const NotFoundPage = () => {
     }
     return (
         <>
-            <Navbar/>
+            <Navbar dark={true}/>
             <div className={ style.MainBody }>
                 <div className={ style.imageContainer }>
                     <img src={ Img } alt="axe"/>
@@ -24,7 +24,7 @@ const NotFoundPage = () => {
                     </button>
                 </div>
             </div>
-            <Footer/>
+            {/*<Footer/>*/}
         </>
     );
 }

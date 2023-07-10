@@ -68,7 +68,7 @@
 .imageContainer {
     width: 1502px;
     height: 1008px;
-    background: rgba(33, 157, 128, 0.2);
+    background: rgba(77, 122, 210, 0.2);
     margin-top: 8px;
     margin-left: 209px;
     margin-right: 209px;
@@ -106,11 +106,12 @@
 .tripleContainer {
     margin-left: 272px;
     margin-top: 89px;
-    margin-right: 198px;
+    margin-right: 220px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    width: 1450px;
 }
 
 .TriplePart {
@@ -234,7 +235,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #219D80;
+    background: #4D7AD2;
     border-radius: 10px;
     flex-direction: row;
     padding: 12px 24px;

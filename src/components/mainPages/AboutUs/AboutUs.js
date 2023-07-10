@@ -9,6 +9,7 @@ import middleTriplePart from "../../../images/AboutUs/middleone.png"
 import rightAndLeftDots from "../../../images/AboutUs/dots.png"
 import leftTriplePart from "../../../images/AboutUs/leftone.png"
 import endImagePic from "../../../images/AboutUs/end.png"
+import { Link } from "react-router-dom";
 const AboutUs = () => {
     return (
         <>
@@ -95,9 +96,11 @@ const AboutUs = () => {
 
                     </div>
                     <div className={ styles.buttonContainer }>
+                        <Link to='/signUp'>
                         <button className={ styles.buttonSignUp }>
                             شروع و ثبت نام
                         </button>
+                        </Link>
                     </div>
                 </div>
                 <div className={styles.endContainer}>

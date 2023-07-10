@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const BUTTON_WRAPPER_LOGIN_STYLES = {
   position: "relative",
-  // zIndex : 1 ,
+  zIndex : 1 ,
 };
 const Header = (props) => {
   const { isOpenLogin, setIsOpenLogin } = useContext(LoginModalContext);

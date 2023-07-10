@@ -1,0 +1,46 @@
+.MainBody {
+    background: #edf3f7;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.imageContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 165px;
+    width: 667px;
+    height: 500px;
+    margin-right: 650px;
+    margin-left: 517px;
+
+}
+.buttonContainer{
+    margin-right: 830px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    border-radius: 10px;
+    background: transparent;
+    width: 272px;
+    height: 55px;
+    color: #4D7AD2;
+    border: 1px solid rgba(77, 122, 210, 1);
+
+}
+.buttonContainer button{
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 272px;
+    height: 55px;
+
+}
+.buttonContainer button:hover{
+    background: #4D7AD2;
+    color: white;
+}
