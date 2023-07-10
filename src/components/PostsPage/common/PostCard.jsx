@@ -1,6 +1,8 @@
 import Calendar from "../../../images/LandingPage/selected_posts_calendar.svg";
 import Person from "../../../images/LandingPage/selected_posts_person.svg";
 import { Link } from "react-router-dom";
+import styles from "../../mainPages/charityPage/CharityPage.module.css";
+import React from "react";
 
 const PostCard = ( {
                        id ,
@@ -34,7 +36,7 @@ const PostCard = ( {
             {/* <img src={image} alt="" className="w-full h-[200px] xxl:h-[270px]" /> */ }
             <div className="p-1 xxl:p-3">
                 <div className="flex justify-between text-gray-400">
-          <span className="flex items-center gap-1 xxl:gap-3 text-[11px] xxl:text-[15px]">
+          <span className="flex items-center gap-1 xxl:gap-3 text-[11px] xxl:text-[15px] ">
             <img src={ Person } alt=""/>
               { name }
           </span>
@@ -43,7 +45,7 @@ const PostCard = ( {
                         { date }
           </span>
                 </div>
-                <h2 className="text-[#219D80] font-bold text-[15px] xxl:text-[21px] mt-3 xxl:mt-6">
+                <h2 className="font-bold text-[15px] xxl:text-[21px] mt-3 xxl:mt-6 text-blue-500 text-opacity-100">
                     { title }
                 </h2>
                 {/* <p className='text-[10px] xxl:text-[14px] h-16 xxl:h-24'>{description}</p> */ }
@@ -54,8 +56,17 @@ const PostCard = ( {
             </span>
                         <span className="text-[10px] xxl:text-[14px] font-bold">{ collected_percentage }%</span>
                     </div>
-                    <div className="inline-block bg-[#C7E7DF] rounded-[8px] h-2 xxl:h-4 w-full">
-                        <hr className="bg-[#219D80] rounded-[8px] h-full w-[90%]"/>
+                    <div className={ styles.totalBar }>
+
+                        <div className={ styles.progressBar }>
+                            <div className={ styles.progressBarDisplay } style={ {
+                                width : `${ collected_percentage }%` ,
+                                backgroundColor : "#4D7AD2" ,
+                                transition : "width 0.5s"
+                            } }></div>
+
+                        </div>
+
                     </div>
                     <div className="flex justify-between">
             <span className="text-[10px] xxl:text-[12px]">
