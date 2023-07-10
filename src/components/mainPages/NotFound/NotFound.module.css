@@ -1,5 +1,5 @@
 .MainBody {
-    background: #EDF7F5;
+    background: #edf3f7;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -9,7 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 90px;
+    margin-top: 165px;
 
 
 }
@@ -18,7 +18,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 160px;
+    margin-bottom: 140px;
 
 }
 
@@ -30,13 +30,13 @@
     align-items: center;
     padding: 16px 32px;
     gap: 10px;
-    border: 1px solid #219D80;
+    border: 1px solid rgba(77, 122, 210, 1);
     transition: all 0.2s ease-in;
 
 }
 
 .buttonContainer button:hover {
-    background: rgba(33, 157, 128, 1);
+    background: rgba(77, 122, 210, 1);
     color: #ffffff;
     font-weight: bold;
     box-shadow: 1px 1px 4px #219D80;
