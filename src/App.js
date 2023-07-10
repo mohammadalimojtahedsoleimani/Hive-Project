@@ -19,6 +19,7 @@ import { DonationProvider } from "./context/DonationContext";
 import { SearchProvider } from "./context/SearchContext";
 import { LogoutProvider } from "./context/LogoutContext";
 import { DeleteprofProvider } from "./context/DeleteprofContext";
+import Activation from "./components/Activation/Activation"
 
 function App () {
 
@@ -41,6 +42,7 @@ function App () {
                                                     <Route path="/posts/:page" element={ <PostsPage/> }/>
                                                     <Route path="/post/:page" element={ <CharityPage/> }/>
                                                     <Route path="/dashboard" element={ <DashboardPage/> }/>
+                                                    <Route path="/activation/*" element={ <Activation/> }/>
                                                     <Route path='/*' element={ <NotFoundPage/> }/>
                                                     {/* <Route path="/page/:id" element={ <PostPage/> }/>
             <Route path="/profile" element={ <ProfilePage/> }/>

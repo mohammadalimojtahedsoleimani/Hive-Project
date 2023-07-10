@@ -435,6 +435,8 @@ margin-top: 56px;
     font-weight: 400;
     font-size: 18px;
     line-height: 24px;
+    width: 162px;
+    height: 56px;
 
 
 }
@@ -444,9 +446,8 @@ margin-top: 56px;
 .shareButton:hover{
     color: white;
 }
-.donateButtonContainer:hover{
-    background:#4D7AD2 ;
-}
+
 .donateButton:hover{
     color: white;
+    background:#4D7AD2 ;
 }

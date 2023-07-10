@@ -9,18 +9,26 @@ import SampleProfile from '../images/DashboardPage/sample_profile.png'
 import UserProfile from "../components/DashboardPage/UserProfile";
 import MostVisitedPosts from "../components/DashboardPage/MostVisitedPosts";
 import Time from "../components/DashboardPage/Time";
-import { useEffect , useState } from "react";
+import { useContext , useEffect , useState } from "react";
 import Container from "../components/DashboardPage/Container";
 import Rectangle from '../images/DashboardPage/rectangle.svg'
 import axios from "axios";
+import { LoginModalContext } from "../context/LoginContext";
+import Login from "../components/modal/Login/Login";
+const BUTTON_WRAPPER_LOGIN_STYLES = {
+    position: "relative",
+    zIndex : 1 ,
+};
 const DashboardPage = () => {
+    // variables
+    const { isOpenLogin, setIsOpenLogin } = useContext(LoginModalContext);
     const navOptions = [{id:0, name: 'داشبورد', value: "dashboard", icon: Dashboard, activeIcon: DashboardActive}, {id: 1, name: 'آگهی های ثبت شده', value:'posts', icon: Posts, activeIcon: PostsActive}, {id: 2, name: 'اطلاعات حساب کاربری', value: 'info', icon: Info, activeIcon: InfoActive}]
     const [active, setActive] = useState("dashboard")
     useEffect(()=>{
 
     },[])
     return (
-        <div className="flex">
+        <div className="flex" style={BUTTON_WRAPPER_LOGIN_STYLES}>
             <div className="fixed top-0 left-0 w-[75vh] z-[-2]"><img src={Rectangle} alt=""/></div>
             <VerticalNavbar navOptions={navOptions} active={active} setActive={setActive}/>
             <div className="h-[100vh] flex-[6]">
@@ -33,6 +41,9 @@ const DashboardPage = () => {
                 <Time/>
                 </div>
             </div>
+            <Login open={isOpenLogin}>
+
+            </Login>
         </div>
      );
 }
