@@ -113,7 +113,7 @@ const Posts = () => {
         image : null ,
         title : '' ,
         content : '' ,
-        category : '2' ,
+        category : '' ,
         status : 'true' ,
         estimated_amount : '' ,
         collected_amount : '0' ,
@@ -328,27 +328,41 @@ const Posts = () => {
                             دسته بندی آگهی
                         </label>
                         <select
-                            className="w-full flex justify-start rounded-lg text-[13px] xxl:text-[16px] text-[#ABABAB] px-[4px] py-[5px]"
-                            id="mySelect"
+                            className="w-full flex justify-start rounded-lg text-[13px] xxl:text-[16px] text-[#ABABAB] px-[4px] py-[5px] cursor-pointer"
+                            id="category"
                             style={ { border : "solid #B5B5B5 2px" } }
+                            name='category'
+                            onChange={changeHandler}
                         >
-                            <option
-                                value="option1"
-                                className=" flex justify-start px-[0.3rem] xxl:px-[0.5rem] text-[13px] xxl:text-[16px]"
+                            <option name='category' id='category' onClick={changeHandler}
+                                value="1"
+                                className=" flex justify-start px-[0.3rem] xxl:px-[0.5rem] text-[13px] xxl:text-[16px] cursor-pointer"
                             >
-                                Option 1
+                                حیوانات
                             </option>
                             <option
-                                value="option2"
-                                className=" flex justify-start px-[0.3rem] xxl:px-[0.5rem] text-[13px] xxl:text-[16px]"
+                                value="2"
+                                className=" flex justify-start px-[0.3rem] xxl:px-[0.5rem] text-[13px] xxl:text-[16px] cursor-pointer"
                             >
-                                Option 2
+                                آموزشی
                             </option>
                             <option
-                                value="option3"
-                                className=" flex justify-start px-[0.3rem] xxl:px-[0.5rem] text-[13px] xxl:text-[16px]"
+                                value="3"
+                                className=" flex justify-start px-[0.3rem] xxl:px-[0.5rem] text-[13px] xxl:text-[16px] cursor-pointer"
                             >
-                                Option 3
+                                سایر
+                            </option>
+                            <option
+                                value="4"
+                                className=" flex justify-start px-[0.3rem] xxl:px-[0.5rem] text-[13px] xxl:text-[16px] cursor-pointer"
+                            >
+                                پزشکی
+                            </option>
+                            <option
+                                value="5"
+                                className=" flex justify-start px-[0.3rem] xxl:px-[0.5rem] text-[13px] xxl:text-[16px] cursor-pointer"
+                            >
+                                محیط زیست
                             </option>
                         </select>
                     </div>

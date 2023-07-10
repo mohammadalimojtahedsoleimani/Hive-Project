@@ -413,30 +413,27 @@ margin-top: 56px;
     width: 162px;
     height: 56px;
     display: flex;
-    flex-direction: row;
+    gap: 10px;
     justify-content: center;
     align-items: center;
-    padding: 16px 32px;
-    gap: 10px;
+
+
     cursor: pointer;
 
 }
 
 .donateButton{
     color: #4D7AD2;
-    flex: none;
-    flex-grow: 0;
     display: flex;
-    align-items: center;
-    text-align: center;
     text-transform: capitalize;
     font-family: 'IRANSansXFaNum';
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
     line-height: 24px;
-    width: 162px;
-    height: 56px;
+
+
+
 
 
 }
@@ -446,8 +443,10 @@ margin-top: 56px;
 .shareButton:hover{
     color: white;
 }
-
+.donateButtonContainer:hover{
+    background:#4D7AD2 ;
+}
 .donateButton:hover{
     color: white;
-    background:#4D7AD2 ;
+
 }
