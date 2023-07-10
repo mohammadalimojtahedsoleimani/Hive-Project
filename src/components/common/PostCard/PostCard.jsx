@@ -2,15 +2,15 @@ import Calendar from "../../../images/LandingPage/selected_posts_calendar.svg";
 import Person from "../../../images/LandingPage/selected_posts_person.svg";
 import { Link } from "react-router-dom";
 
-const PostCard = ({ posts }) => {
+const PostCard = ({ post }) => {
   return (
     <div
       style={{ boxShadow: "rgba(0, 0, 0, 0.15) 0px 3px 3px 0px" }}
       className="bg-white w-[350px] xxl:w-[450px] rounded-lg overflow-hidden"
     >
-      <Link to={`/post/${posts.id}`}>
+      <Link to={`/post/${post.id}`}>
         <img
-          src={posts.image}
+          src={post.image}
           alt=""
           className="w-full h-[250px] xxl:h-[320px]"
         />
@@ -19,18 +19,18 @@ const PostCard = ({ posts }) => {
         <div className="flex justify-between text-gray-400">
           <span className="flex items-center gap-1 xxl:gap-3 text-[11px] xxl:text-[15px]">
             <img src={Person} alt="" />
-            {posts.raiser}
+            {post.raiser_full_name}
           </span>
           <span className="flex items-center gap-1 xxl:gap-3 text-[10px] xxl:text-[14px]">
             <img src={Calendar} alt="" />
-            {posts.published_date}
+            {post.published_date}
           </span>
         </div>
         <h2 className="text-[#219D80] font-bold text-[15px] xxl:text-[21px] my-3 xxl:my-6">
-          {posts.title}
+          {post.title}
         </h2>
         <p className="text-[10px] xxl:text-[14px] h-20 xxl:h-28">
-          {posts.content}
+          {post.snippet}
         </p>
 
         <div className="w-[75%] py-4 xxl:py-8">
@@ -38,17 +38,24 @@ const PostCard = ({ posts }) => {
             <span className="text-[10px] xxl:text-[14px] font-bold">
               کمک های مالی جمع شده
             </span>
-            <span className="text-[10px] xxl:text-[14px] font-bold">90%</span>
+            <span className="text-[10px] xxl:text-[14px] font-bold">
+              {Math.floor(post.collected_percentage).toString()}%
+            </span>
           </div>
           <div className="inline-block bg-[#C7E7DF] rounded-[8px] h-2 xxl:h-4 w-full">
-            <hr className="bg-[#219D80] rounded-[8px] h-full w-[90%]" />
+            <hr
+              className="bg-[#219D80] rounded-[8px] h-full"
+              style={{
+                width: `${Math.floor(post.collected_percentage).toString()}%`,
+              }}
+            />
           </div>
           <div className="flex justify-between">
             <span className="text-[10px] xxl:text-[12px]">
-              جمع شده : {posts.collected_amount} میلیون تومان
+              جمع شده : {post.collected_amount} میلیون تومان
             </span>
             <span className="text-[10px] xxl:text-[12px]">
-              هدف : {posts.estimated_amount} میلیون تومان
+              هدف : {post.estimated_amount} میلیون تومان
             </span>
           </div>
         </div>
