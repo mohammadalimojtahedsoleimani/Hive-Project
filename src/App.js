@@ -17,10 +17,12 @@ import { DakhelProvider } from "./context/DakhelContext";
 import { ProfileProvider } from "./context/ProfileContext";
 import { DonationProvider } from "./context/DonationContext";
 import { SearchProvider } from "./context/SearchContext";
+import MobileViewProvider from "./context/MobileContext";
 
 function App () {
 
     return (
+        <MobileViewProvider>
         <PageProvider>
             <LoginModalProvider>
                 <DakhelProvider>
@@ -53,6 +55,7 @@ function App () {
                 </DakhelProvider>
             </LoginModalProvider>
         </PageProvider>
+        </MobileViewProvider>
     )
 }
 
