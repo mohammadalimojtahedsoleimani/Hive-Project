@@ -45,18 +45,18 @@ const Login = ( { open } ) => {
         await axios.post ( "http://127.0.0.1:8000/accounts/api/v1/jwt/create/" , data )
             .then ( async response => {
                 localStorage.setItem ( "token" , response.data.access )
-                console.log ( response.data.access )
+                localStorage.setItem('id',response.data.user_id)
+
+
                 setData ( {
                     email : "" ,
                     password : ""
                 } )
 
+
                 setErrors ( {} )
                 setIsOpenLogin ( false )
                 setIsIn ( true )
-                // axios.get(``)
-
-
 
             } )
 
