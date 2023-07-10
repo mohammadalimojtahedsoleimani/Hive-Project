@@ -3,20 +3,37 @@ import Avatar1 from "../../images/common/avatars/avatar_1.svg";
 import Avatar2 from "../../images/common/avatars/avatar_2.svg";
 import Avatar3 from "../../images/common/avatars/avatar_3.svg";
 import Table from "./common/Table";
+import { useEffect , useState } from "react";
+import axios from "axios";
 
 // const icon_name = <div><img src={Avatar1}/></div>
 const Dashboard = () => {
+  //variables
+  const [totalMoney,setTotalMoney] = useState('')
+  const [totalDonatores,setTotalDonatores] = useState('')
   const nameFont = (value) => {
+
     if (value.length <= 15) {
       return " text-[10px] xxl:text-[12px]";
     }
     return " text-[8px] xxl:text-[10px]";
   };
+  // functions
   const generalInfo = [
-    { topText: " 400,000 تومان", bottomText: "مبالغ جمع شده" },
+    { topText: `${totalMoney}`, bottomText: "مبالغ جمع شده" },
     { topText: "42", bottomText: "آگهی اضافه شده" },
     { topText: "200", bottomText: "حامی اضافه شده" },
   ];
+  useEffect(()=>{
+    axios.get('http://127.0.0.1:8000/charity/api/v1/ads/total_collected_amount/')
+        .then(r =>{
+          setTotalMoney(r.data.total_collected_amount)
+          console.log(r.data)
+          console.log(totalMoney)
+        })
+
+
+  },[])
   return (
     <div className="h-full px-[3.5rem] xxl:px-[5rem] pt-20 xxl:pt-36">
       <div>

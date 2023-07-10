@@ -60,7 +60,7 @@ const Navbar = ( { active , dark } ) => {
                     </div>
                     <div className={ styles.prof_parent + " gap-1" }>
             <span className="text-sm font-medium xl:text-base xxl:text-xl text-[#4D7AD2]">
-              { fname }{lname}
+              { fname } {lname}
             </span>
                     </div>
                 </div>
