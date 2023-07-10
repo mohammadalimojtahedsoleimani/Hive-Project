@@ -1,6 +1,9 @@
 import Calendar from "../../../images/LandingPage/selected_posts_calendar.svg";
 import Person from "../../../images/LandingPage/selected_posts_person.svg";
 import { Link } from "react-router-dom";
+import styles from "../../mainPages/charityPage/CharityPage.module.css";
+import stle from "../../PostsPage/common/PostCard.module.css";
+import React from "react";
 
 const PostCard = ({ post }) => {
   return (
@@ -39,16 +42,20 @@ const PostCard = ({ post }) => {
               کمک های مالی جمع شده
             </span>
             <span className="text-[10px] xxl:text-[14px] font-bold">
-              {Math.floor(post.collected_percentage).toString()}%
+              {/*{Math.floor(post.collected_percentage).toString()}%*/}
             </span>
           </div>
-          <div className="inline-block bg-[#C7E7DF] rounded-[8px] h-2 xxl:h-4 w-full">
-            <hr
-              className="bg-[#219D80] rounded-[8px] h-full"
-              style={{
-                width: `${Math.floor(post.collected_percentage).toString()}%`,
-              }}
-            />
+          <div className={ styles.totalBar }>
+
+            <div className={ stle.progressBar }>
+              <div className={ stle.progressBarDisplay } style={ {
+                // width : `${ collected_percentage }%` ,
+                backgroundColor : "#4D7AD2" ,
+                transition : "width 0.5s"
+              } }></div>
+
+            </div>
+
           </div>
           <div className="flex justify-between">
             <span className="text-[10px] xxl:text-[12px]">

@@ -3,7 +3,7 @@ import Person from "../../../images/LandingPage/selected_posts_person.svg";
 import { Link } from "react-router-dom";
 import styles from "../../mainPages/charityPage/CharityPage.module.css";
 import React from "react";
-
+import stle from "./PostCard.module.css"
 const PostCard = ( {
                        id ,
                        image ,
@@ -58,8 +58,8 @@ const PostCard = ( {
                     </div>
                     <div className={ styles.totalBar }>
 
-                        <div className={ styles.progressBar }>
-                            <div className={ styles.progressBarDisplay } style={ {
+                        <div className={ stle.progressBar }>
+                            <div className={ stle.progressBarDisplay } style={ {
                                 width : `${ collected_percentage }%` ,
                                 backgroundColor : "#4D7AD2" ,
                                 transition : "width 0.5s"
