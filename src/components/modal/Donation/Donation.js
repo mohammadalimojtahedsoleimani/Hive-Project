@@ -7,6 +7,8 @@ import { ToastContainer } from "react-toastify";
 import heart from "../../../images/DonationModal/heart1.png"
 import close from "../../../images/DonationModal/close.png"
 import axios from "axios";
+import { notify } from "../../../helper/toast";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Donation = ( { open , ChairtyTitle , pageId } ) => {
     // variables
@@ -14,12 +16,13 @@ const Donation = ( { open , ChairtyTitle , pageId } ) => {
     const [ money , setMoney ] = useState ( '' )
     const [ errors , setErrors ] = useState ( {} )
     let value = localStorage.getItem ( "token" );
+    const delay = 2000;
+
 
     // functions
     const closeHandler = () => {
         setMoney ( '' )
         setErrors ( {} )
-
         setIsDonationOpen ( false )
 
 
@@ -44,6 +47,14 @@ const Donation = ( { open , ChairtyTitle , pageId } ) => {
         } )
             .then ( r => {
                 console.log ( r.data )
+                notify( `پرداخت ${money} با موفقیت انجام شد.  ` ,'success')
+                const timer = setTimeout(() => {
+                    setIsDonationOpen(false)
+                    window.location.reload();
+
+
+                }, delay);
+
             } )
             .catch ( er => {
                 console.log ( er.response )
@@ -51,6 +62,8 @@ const Donation = ( { open , ChairtyTitle , pageId } ) => {
     }
     return createPortal (
         <>
+
+
             <div className={ styles.OVERLAY_STYLES }
                  onClick={ closeHandler }/>
             <div className={ styles.MODAL_STYLES }>
