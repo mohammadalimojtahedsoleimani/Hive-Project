@@ -1,7 +1,6 @@
 .errorSpan{
     min-height: calc(0.8vw + 0.1rem);
     text-align: left;
-    margin-top: 3px;
     width: fit-content;
     font-size: calc(0.7vw + 0.08rem);
     color: red;

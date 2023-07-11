@@ -32,11 +32,11 @@ const SignUpPage = () => {
     const [ isEmpty , setIsEmpty ] = useState ( '' )
 
     // functions
-    const submitHandler = async ( event ) => {
+    const submitHandler =  ( event ) => {
         event.preventDefault ();
 
         console.log ( data.email )
-        await axios.post ( "http://127.0.0.1:8000/accounts/api/v1/registration/" , data )
+         axios.post ( "http://127.0.0.1:8000/accounts/api/v1/registration/" , data )
             .then ( response => {
                 notify ( "ثبت نام موفقیت آمیز بود!" +
                     " ایمیل خود را تایید کنید" , "info" )
@@ -82,13 +82,14 @@ const SignUpPage = () => {
     const inputStyle =
         "text-[#A3A3A3] bg-[#F3F2F2] rounded-lg text-[17px] xxl:text-[19px] p-[0.4rem] xxl:p-[0.9rem] mb-[0.9rem] xxl:mb-[1.5rem]";
     const form = (
-        <form action="" className="flex flex-col" onSubmit={ submitHandler }>
-            <input type="text" placeholder="پست الکترونیکی" className={ inputStyle } onChange={ changeHandler }
-                   value={ data.email } name="email" id='email'/>
-            { errors.email || isEmpty && <span className={ styles.errorSpan }>{ errors.email }</span> }
+        <form className="flex flex-col" onSubmit={ submitHandler }>
+            <input type="email" placeholder="پست الکترونیکی" className={ inputStyle } onChange={ changeHandler }
+                   value={ data.email } name="email" />
+            { errors.email || isEmpty && <span className={ styles.errorSpan }>{ errors.email || isEmpty }</span> }
             <input type="password" placeholder="رمز عبور" className={ inputStyle } onChange={ changeHandler }
                    value={ data.password } name="password"/>
-            { errors.password || isEmpty && <span className={ styles.errorSpan }>{ errors.password }</span> }
+            { errors.password || isEmpty &&
+                <span className={ styles.errorSpan  }>{ errors.password || isEmpty }</span> }
             <input
                 type="password"
                 placeholder="تکرار رمز عبور"
@@ -97,6 +98,8 @@ const SignUpPage = () => {
                 value={ data.password1 }
                 name="password1"
             />
+            { errors.password1 || isEmpty &&
+                <span className={ styles.errorSpan  }>{ errors.password1 || isEmpty }</span> }
             <div className="text-[10px] xxl:text-[13px] flex items-center gap-3">
                 <input type="checkbox" checked={ isSelected } onChange={ handleCheckboxChange } id="selectCheck"/>
                 <label htmlFor="">
@@ -106,13 +109,13 @@ const SignUpPage = () => {
                     هایو را تایید مینمایم
                 </label>
             </div>
-            {/*<input*/}
-            {/*    type="submit"*/}
-            {/*    value="ساخت حساب کاربری"*/}
-            {/*    className="text-white bg-[#4D7AD2] rounded-lg text-[18px] xxl:text-[21px] py-[0.8rem] xxl:py-[1.2rem] my-6 xxl:my-9"*/}
-            {/*/>*/}
+            {/*<input*/ }
+            {/*    type="submit"*/ }
+            {/*    value="ساخت حساب کاربری"*/ }
+            {/*    className="text-white bg-[#4D7AD2] rounded-lg text-[18px] xxl:text-[21px] py-[0.8rem] xxl:py-[1.2rem] my-6 xxl:my-9"*/ }
+            {/*/>*/ }
             <button type='submit'
-                className="text-white bg-[#4D7AD2] rounded-lg text-[18px] xxl:text-[21px] py-[0.8rem] xxl:py-[1.2rem] my-6 xxl:my-9">ساخت
+                    className="text-white bg-[#4D7AD2] rounded-lg text-[18px] xxl:text-[21px] py-[0.8rem] xxl:py-[1.2rem] my-6 xxl:my-9">ساخت
                 حساب کاربری
             </button>
         </form>
