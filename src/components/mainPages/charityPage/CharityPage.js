@@ -34,6 +34,12 @@ const CharityPage = () => {
     const [ collected_amount , setCollected_amount ] = useState ( '' )
     const [ collected_percentage , setCollected_percentage ] = useState ( '' )
     const dateOnly = published_date.split ( 'T' )[ 0 ];
+    let date = new Date ( `${ dateOnly }` ); // your date from API
+    let hijriShamsiDate = date.toLocaleDateString ( 'fa-IR-u-ca-persian-nu-arab' , {
+        day : 'numeric' ,
+        month : 'long' ,
+        year : 'numeric'
+    } );
     // contexts
     const { isDonationOpen , setIsDonationOpen } = useContext ( DonationContext );
     // functions
@@ -52,6 +58,7 @@ const CharityPage = () => {
                 setCollected_percentage ( r.data.collected_percentage )
                 console.log ( r.data )
                 console.log ( r.data.collected_percentage )
+                console.log ( hijriShamsiDate )
             } )
 
 
@@ -60,7 +67,7 @@ const CharityPage = () => {
 
     return (
         <>
-            <Navbar dark={true}/>
+            <Navbar dark={ true }/>
             <div className={ styles.mainBody }>
                 <div className={ styles.topBody }>
                     <div className={ styles.rightPartTop }>
@@ -116,7 +123,7 @@ const CharityPage = () => {
                             </div>
                             <div className={ styles.dateContainer }>
                                 <img src={ calender } alt="axe calender"/>
-                                <p>{ dateOnly }</p>
+                                <p>{ hijriShamsiDate }</p>
                             </div>
                             <div className={ styles.estimatedTimeContainer }>
                                 <img src={ clock } alt="axe clock"/>
@@ -173,7 +180,8 @@ const CharityPage = () => {
                                     <button className={ styles.donateButton }
                                             onClick={ () => setIsDonationOpen ( true ) }>پرداخت کمک
                                     </button>
-                                    <Donation open={ isDonationOpen } closeModal={ () => setIsDonationOpen ( false ) } ChairtyTitle={title} pageId={charity_id}>
+                                    <Donation open={ isDonationOpen } closeModal={ () => setIsDonationOpen ( false ) }
+                                              ChairtyTitle={ title } pageId={ charity_id }>
                                     </Donation>
 
                                 </div>
