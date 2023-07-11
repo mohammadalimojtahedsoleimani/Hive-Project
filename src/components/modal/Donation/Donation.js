@@ -29,6 +29,7 @@ const Donation = ( { open , ChairtyTitle , pageId } ) => {
         setMoney ( '' )
         setErrors ( {} )
         setIsDonationOpen ( false )
+        toast.dismiss();
 
 
     }
@@ -72,6 +73,7 @@ const Donation = ( { open , ChairtyTitle , pageId } ) => {
                         notify ( `پرداخت  با موفقیت انجام شد.  ` , 'success' )
                         const timer = setTimeout ( () => {
                             setIsDonationOpen ( false )
+
                             window.location.reload ();
 
 
