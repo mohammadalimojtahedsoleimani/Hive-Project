@@ -29,7 +29,7 @@ const PostCard = ({ post }) => {
             {post.date}
           </span>
         </div>
-        <h2 className="text-[#219D80] font-bold text-[15px] xxl:text-[21px] my-3 xxl:my-6">
+        <h2 className="text-[#219D80] font-bold text-[15px] xxl:text-[21px] my-3 xxl:my-6" data-testid='title-1'>
           {post.title}
         </h2>
         <p className="text-[10px] xxl:text-[14px] h-20 xxl:h-28">

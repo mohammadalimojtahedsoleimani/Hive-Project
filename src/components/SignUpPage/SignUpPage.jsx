@@ -119,6 +119,7 @@ const SignUpPage = () => {
           onChange={changeHandler}
           value={data.email}
           name="email"
+          id='email'
         />
         {emailError ||
           ( (
@@ -132,6 +133,7 @@ const SignUpPage = () => {
           value={data.password}
           name="password"
           style={error_margin(passwordError)}
+          id='password'
         />
         {passwordError  && (
             <span className='text-red-500 flex flex-col justify-start items-start'>{passwordError }</span>
@@ -143,6 +145,7 @@ const SignUpPage = () => {
           onChange={changeHandler}
           value={data.password1}
           name="password1"
+          id='password1'
         />
         {password1Error  && (
             <span className='text-red-500 flex flex-col justify-start items-start'>
@@ -170,6 +173,7 @@ const SignUpPage = () => {
         {/*/>*/}
         <button
           type="submit"
+
           className="text-white bg-[#4D7AD2] rounded-lg text-[18px] xxl:text-[21px] py-[0.8rem] xxl:py-[1.2rem] my-6 xxl:my-9"
         >
           ساخت حساب کاربری

@@ -30,6 +30,7 @@ const SelectedPosts = ( props ) => {
 
     const postsArray = [
         {
+            id:2,
             image : Image_0 ,
             raiser_full_name : "علیرضا محمدی" ,
             date : "20 تیر 1402" ,
@@ -41,6 +42,7 @@ const SelectedPosts = ( props ) => {
             percentage:10
         } ,
         {
+            id:2,
             image : Image_1 ,
             raiser_full_name : "علیرضا محمدی" ,
             date : "20 تیر 1402" ,
@@ -52,6 +54,7 @@ const SelectedPosts = ( props ) => {
             percentage:10
         } ,
         {
+            id:3,
             image : Image_2 ,
             raiser_full_name : "زهرا علیزاده" ,
             date : "20 تیر 1402" ,
