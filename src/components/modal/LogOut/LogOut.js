@@ -20,6 +20,7 @@ const LogOut = ( { open , closeModal } ) => {
 // functions
     const submitHandler = () => {
         localStorage.removeItem ( "token" )
+        localStorage.removeItem('id')
         navigate ( "/" )
         console.log("salam")
         setIsIn(false)
