@@ -54,36 +54,34 @@ const Time = () => {
   }, [timeString, shamsiDate]);
   const dateArr = shamsiDate.split("/");
   const squareStyle =
-    "  rounded-[10px] p-[0.5rem] xxl:p-[1rem] border-solid border-[#E6E6E6] rounded-[5px] border-[1px] w-[2.2rem] xxl:w-[5rem]  text-[10px] xxl:text-[12px] text-center";
+    "  rounded-[10px]  flex justify-center items-center border-solid border-[#E6E6E6] rounded-[5px] border-[1px] h-[2.7rem] xxl:h-[3rem] w-[2.7rem] xxl:w-[3rem]  text-[11px] xxl:text-[12px] text-center";
   // console.log(timeString.slice(8).length);
   // console.log(timeString);
   return (
     <div
       className={
         styles.time +
-        " flex bg-[#FCFCFC] p-[1rem] xxl:p-[2rem] mt-[5rem] xxl:mt-[6rem] gap-4"
+        " flex items-center bg-[#FCFCFC] p-[1rem] xxl:p-[2rem] gap-4"
       }
     >
-      <div className=" flex xxl:text-[21px] pt-[0.5rem] xxl:pt-[1rem]">
+      <div className=" flex xxl:text-[21px]">
         <span>{dateArr[1]}</span>
         <span>/</span>
         <span>{dateArr[2]}</span>
         <span>/</span>
         <span>{dateArr[0]}</span>
       </div>
-      <div className="flex gap-1">
+      <div className="flex items-center gap-1">
         <div
           className={
             squareStyle +
-            " bg-[#3B8174] text-[white] text-[10px] xxl:text-[12px]"
+            " bg-[#4D7AD2] text-[white] text-[10px] xxl:text-[12px]"
           }
         >
-          {timeString.slice(9) === "AM" ? "صبح" : "شب"}
+          {timeString.slice(9)}
         </div>
         <div className={squareStyle}>{timeString.slice(3, 5)}</div>
-        <span className="mt-[0.5rem] xxl:mt-[1rem]  text-[10px] xxl:text-[12px]">
-          :
-        </span>
+        <span className="text-[10px] xxl:text-[12px]">:</span>
         <div className={squareStyle}>{timeString.slice(0, 2)}</div>
       </div>
     </div>

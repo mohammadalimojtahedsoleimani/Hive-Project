@@ -1,3 +1,8 @@
 .time *{
     font-weight: 700;
 }
+.time{
+    position: absolute;
+    bottom: calc(4vh + 3rem);
+    left: calc(2.3vw + 2rem);
+}
