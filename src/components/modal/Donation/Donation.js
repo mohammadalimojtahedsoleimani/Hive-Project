@@ -9,14 +9,19 @@ import close from "../../../images/DonationModal/close.png"
 import axios from "axios";
 import { notify } from "../../../helper/toast";
 import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
+import { DakhelContext } from "../../../context/DakhelContext";
+
 
 const Donation = ( { open , ChairtyTitle , pageId } ) => {
     // variables
     const { setIsDonationOpen } = useContext ( DonationContext );
     const [ money , setMoney ] = useState ( '' )
     const [ errors , setErrors ] = useState ( {} )
+    const { isIn , setIsIn } = useContext ( DakhelContext );
     let value = localStorage.getItem ( "token" );
     const delay = 2000;
+    const [ er , setEr ] = useState ( '' )
 
 
     // functions
@@ -36,29 +41,50 @@ const Donation = ( { open , ChairtyTitle , pageId } ) => {
     const btnHandler = ( event ) => {
         setMoney ( event.target.value )
     }
+
     const submitHandler = () => {
-        const formData = new FormData ()
-        formData.append ( 'advertisement' , pageId )
-        formData.append ( 'amount' , money )
-        axios.post ( `http://127.0.0.1:8000/charity/api/v1/donations/` , formData , {
-            headers : {
-                'Authorization' : `JWT ${ value }`
+        if ( isIn === false ) {
+            toast.warning('برای اهدای پول لطفا وارد شوید.'     ,{
+                position: "top-right",
+                autoClose: false,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: false,
+                progress: undefined,
+                theme: "colored",
+            })
+
+        } else {
+            if ( money > 0 ) {
+
+
+                const formData = new FormData ()
+                formData.append ( 'advertisement' , pageId )
+                formData.append ( 'amount' , money )
+                axios.post ( `http://127.0.0.1:8000/charity/api/v1/donations/` , formData , {
+                    headers : {
+                        'Authorization' : `JWT ${ value }`
+                    }
+                } )
+                    .then ( r => {
+                        console.log ( r.data )
+                        notify ( `پرداخت  با موفقیت انجام شد.  ` , 'success' )
+                        const timer = setTimeout ( () => {
+                            setIsDonationOpen ( false )
+                            window.location.reload ();
+
+
+                        } , delay );
+
+                    } )
+                    .catch ( er => {
+                        console.log ( er.response )
+                    } )
+            } else {
+                notify ( ' !مقدار وارد شده معتبر نیست' , 'er' )
             }
-        } )
-            .then ( r => {
-                console.log ( r.data )
-                notify( `پرداخت ${money} با موفقیت انجام شد.  ` ,'success')
-                const timer = setTimeout(() => {
-                    setIsDonationOpen(false)
-                    window.location.reload();
-
-
-                }, delay);
-
-            } )
-            .catch ( er => {
-                console.log ( er.response )
-            } )
+        }
     }
     return createPortal (
         <>
@@ -74,10 +100,10 @@ const Donation = ( { open , ChairtyTitle , pageId } ) => {
                     <div className={ styles.inputContainer }>
                         <input type="text" className={ styles.moneyInput } id="money" onChange={ changeHandler }
                                name="money" value={ money }/>
-                        { errors.money && <span>{ errors.money }</span> }
+
                         <label htmlFor="money" className={ styles.moneyLabel }>تومان</label>
                         <img src={ heart } alt="axe ghalb" className={ styles.heart }/>
-
+                        { errors.money  && <span>{ errors.money  }</span> }
 
                         <button className={ styles.randomButton }>
                             انتخاب مبلغ دلخواه
