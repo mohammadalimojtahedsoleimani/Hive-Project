@@ -16,6 +16,15 @@ const PostCard = ( {
                        collected_percentage
                    } ) => {
     console.log ( "postss " , image );
+
+    const dateOnly = date.split ( 'T' )[ 0 ];
+    let pub_date = new Date ( `${ dateOnly }` ); // your date from API
+    let hijriShamsiDate = pub_date.toLocaleDateString ( 'fa-IR-u-ca-persian-nu-arab' , {
+        day : 'numeric' ,
+        month : 'long' ,
+        year : 'numeric'
+    } );
+    let formattedNumber = collected.toLocaleString('fa-IR-u-nu-arab', {minimumFractionDigits: 0})
     return (
         <div
             style={ {
@@ -42,7 +51,7 @@ const PostCard = ( {
           </span>
                     <span className="flex items-center gap-1 xxl:gap-3 text-[10px] xxl:text-[14px]">
             <img src={ Calendar } alt=""/>
-                        { date }
+                        { hijriShamsiDate }
           </span>
                 </div>
                 <h2 className="font-bold text-[15px] xxl:text-[21px] mt-3 xxl:mt-6 text-blue-500 text-opacity-100">
