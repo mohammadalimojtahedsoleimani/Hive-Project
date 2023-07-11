@@ -26,10 +26,10 @@ const PostCard = ({ post }) => {
           </span>
           <span className="flex items-center gap-1 xxl:gap-3 text-[10px] xxl:text-[14px]">
             <img src={Calendar} alt="" />
-            {post.published_date}
+            {post.date}
           </span>
         </div>
-        <h2 className="text-[#219D80] font-bold text-[15px] xxl:text-[21px] my-3 xxl:my-6">
+        <h2 className="text-[#219D80] font-bold text-[15px] xxl:text-[21px] my-3 xxl:my-6" data-testid='title-1'>
           {post.title}
         </h2>
         <p className="text-[10px] xxl:text-[14px] h-20 xxl:h-28">
@@ -43,13 +43,14 @@ const PostCard = ({ post }) => {
             </span>
             <span className="text-[10px] xxl:text-[14px] font-bold">
               {/*{Math.floor(post.collected_percentage).toString()}%*/}
+              {post.percentage}%
             </span>
           </div>
           <div className={ styles.totalBar }>
 
             <div className={ stle.progressBar }>
               <div className={ stle.progressBarDisplay } style={ {
-                // width : `${ collected_percentage }%` ,
+                width : `${ post.percentage }%` ,
                 backgroundColor : "#4D7AD2" ,
                 transition : "width 0.5s"
               } }></div>
