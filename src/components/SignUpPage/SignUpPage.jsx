@@ -22,6 +22,7 @@ import { useEffect } from "react";
 const SignUpPage = () => {
   //variables
   const navigate = useNavigate();
+    const delay = 2000;
   const { setIsIn } = useContext(DakhelContext);
   const [data, setData] = useState({
     email: "",
@@ -40,7 +41,9 @@ const SignUpPage = () => {
   // functions
   const submitHandler = (event) => {
     event.preventDefault();
-
+    setEmailError(null);
+    setPasswordError(null);
+    setPassword1Error(null);
     console.log(data.email);
     axios
       .post("http://127.0.0.1:8000/accounts/api/v1/registration/", data)
@@ -55,7 +58,12 @@ const SignUpPage = () => {
         setPasswordError(null);
         setPassword1Error(null);
         setIsEmpty("");
-        navigate("/dashboard");
+
+          const timer = setTimeout(() => {
+              navigate("/posts/1");
+
+
+          }, delay);
       })
       .catch((error) => {
         console.log("the error:the error ", error);
@@ -78,6 +86,7 @@ const SignUpPage = () => {
           setEmailError(error.response.data.email);
           setPasswordError(error.response.data.password);
           setPassword1Error(error.response.data.password1);
+
           setIsEmpty("");
         } else {
           setIsEmpty("لطفا ورودی مورد نظر را کامل پر کنید.");
@@ -87,13 +96,20 @@ const SignUpPage = () => {
   const handleCheckboxChange = () => {
     setIsSelected(!isSelected);
   };
+  const error_margin = ( error ) => {
+    console.log ( 'in error margin function: ' , error )
+    if ( error === undefined ) {
+      return { marginBottom : 'calc(0.8vw + 0.1rem)' }
+    }
+    return null
+  }
 
   const changeHandler = (event) => {
     setData({ ...data, [event.target.name]: event.target.value });
   };
   const inputStyle =
     "text-[#A3A3A3] bg-[#F3F2F2] rounded-lg text-[17px] xxl:text-[19px] p-[0.4rem] xxl:p-[0.9rem] mb-[0.9rem] xxl:mb-[1.5rem]";
-  const form = (data) => {
+  const form = () => {
     return (
       <form className="flex flex-col" onSubmit={submitHandler}>
         <input
@@ -105,8 +121,8 @@ const SignUpPage = () => {
           name="email"
         />
         {emailError ||
-          (isEmpty && (
-            <span className={styles.errorSpan}>{emailError || isEmpty}</span>
+          ( (
+            <span className='text-red-500 flex flex-col justify-center items-center'>{emailError }</span>
           ))}
         <input
           type="password"
@@ -115,11 +131,11 @@ const SignUpPage = () => {
           onChange={changeHandler}
           value={data.password}
           name="password"
+          style={error_margin(passwordError)}
         />
-        {passwordError ||
-          (isEmpty && (
-            <span className={styles.errorSpan}>{passwordError || isEmpty}</span>
-          ))}
+        {passwordError  && (
+            <span className='text-red-500 flex flex-col justify-start items-start'>{passwordError }</span>
+          )}
         <input
           type="password"
           placeholder="تکرار رمز عبور"
@@ -128,12 +144,11 @@ const SignUpPage = () => {
           value={data.password1}
           name="password1"
         />
-        {password1Error ||
-          (isEmpty && (
-            <span className={styles.errorSpan}>
-              {password1Error || isEmpty}
+        {password1Error  && (
+            <span className='text-red-500 flex flex-col justify-start items-start'>
+              {password1Error }
             </span>
-          ))}
+          )}
         <div className="text-[10px] xxl:text-[13px] flex items-center gap-3">
           <input
             type="checkbox"
@@ -218,12 +233,16 @@ const SignUpPage = () => {
       <div className="left flex-1 flex flex-col relative min-h-[100vh]">
         <div className="flex-1"></div>
         <div className="flex-[5] flex flex-col content-between px-9 xxl:px-11">
-          <div className="fixed flex top-8 xxl:top-12 left-10 xxl:left-14">
+          <Link to='/'>
+          <div className="fixed flex top-8 xxl:top-12 left-10 xxl:left-14 cursor-pointer">
+
             <span className=" text-[white] font-IrishGrover  text-[34px] xxl:text-[39px]">
               Hive
             </span>
             <img src={Logo} alt="" className="w-[70px] xxl:w-[82px]" />
+
           </div>
+          </Link>
           <div>
             <h2 className="text-[#EEEEEE] font-[700] text-[40px] xxl:text-[48px]">
               هایو، اجتمایی برای گسترش نیکوکاری

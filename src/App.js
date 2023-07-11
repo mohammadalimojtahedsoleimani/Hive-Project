@@ -21,48 +21,52 @@ import MobileViewProvider from "./context/MobileContext";
 import { LogoutProvider } from "./context/LogoutContext";
 import { DeleteprofProvider } from "./context/DeleteprofContext";
 import Activation from "./components/Activation/Activation"
+import { CatidProvider } from "./context/CatidContext";
 
 function App () {
 
     return (
         <MobileViewProvider>
-        <PageProvider>
-            <LoginModalProvider>
-                <DakhelProvider>
-                    <ProfileProvider>
-                        <DonationProvider>
-                            <SearchProvider>
-                                <CharityProvider>
-                                    <LogoutProvider>
-                                        <DeleteprofProvider>
-                                            <>
-                                                <Routes>
-                                                    <Route path="/" element={ <LandingPage/> }/>
-                                                    <Route path="/signUp" element={ <SignUpPage/> }/>
-                                                    <Route path="/editpassword" element={ <EditPasswordPage/> }/>
-                                                    <Route path="/AboutUs" element={ <AboutUs/> }/>
-                                                    <Route path="/posts/:page" element={ <PostsPage/> }/>
-                                                    <Route path="/post/:page" element={ <CharityPage/> }/>
-                                                    <Route path="/dashboard" element={ <DashboardPage/> }/>
-                                                    <Route path="/activation" element={ <Activation/> }/>
-                                                    <Route path='/*' element={ <NotFoundPage/> }/>
-                                                    {/* <Route path="/page/:id" element={ <PostPage/> }/>
+            <PageProvider>
+                <LoginModalProvider>
+                    <DakhelProvider>
+                        <ProfileProvider>
+                            <DonationProvider>
+                                <SearchProvider>
+                                    <CharityProvider>
+                                        <LogoutProvider>
+                                            <DeleteprofProvider>
+                                                <CatidProvider>
+                                                    <>
+                                                        <Routes>
+                                                            <Route path="/" element={ <LandingPage/> }/>
+                                                            <Route path="/signUp" element={ <SignUpPage/> }/>
+                                                            <Route path="/editpassword"
+                                                                   element={ <EditPasswordPage/> }/>
+                                                            <Route path="/AboutUs" element={ <AboutUs/> }/>
+                                                            <Route path="/posts/:page" element={ <PostsPage/> }/>
+                                                            <Route path="/post/:page" element={ <CharityPage/> }/>
+                                                            <Route path="/dashboard" element={ <DashboardPage/> }/>
+                                                            <Route path="/activation" element={ <Activation/> }/>
+                                                            <Route path='/*' element={ <NotFoundPage/> }/>
+                                                            {/* <Route path="/page/:id" element={ <PostPage/> }/>
             <Route path="/profile" element={ <ProfilePage/> }/>
             <Route path="/Posts" element={ <PostsPage/> }/>
             <Route path="/activation/*" element={ <EmailConfigurationPage/> }/>
             <Route path="/reset_password/*" element={ <ChangePasswordPage/> }/>
             <Route path="/*" element={ <NotFoundPage/> }/> */ }
-                                                </Routes>
-                                            </>
-                                        </DeleteprofProvider>
-                                    </LogoutProvider>
-                                </CharityProvider>
-                            </SearchProvider>
-                        </DonationProvider>
-                    </ProfileProvider>
-                </DakhelProvider>
-            </LoginModalProvider>
-        </PageProvider>
+                                                        </Routes>
+                                                    </>
+                                                </CatidProvider>
+                                            </DeleteprofProvider>
+                                        </LogoutProvider>
+                                    </CharityProvider>
+                                </SearchProvider>
+                            </DonationProvider>
+                        </ProfileProvider>
+                    </DakhelProvider>
+                </LoginModalProvider>
+            </PageProvider>
         </MobileViewProvider>
     )
 }

@@ -283,3 +283,10 @@
     top: 22px;
     cursor: pointer;
 }
+.spanEr{
+    position: absolute;
+    left: 1061px;
+    top: 200px;
+    max-height: 10px;
+
+}

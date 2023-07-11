@@ -2,16 +2,31 @@ import Image_0 from "../../../images/LandingPage/selected_posts_image_0.png";
 import Image_1 from "../../../images/LandingPage/selected_posts_image_1.png";
 import Image_2 from "../../../images/LandingPage/selected_posts_image_2.png";
 import PostCard from "../../common/PostCard/PostCard";
-import { useContext , useEffect } from "react";
+import { useContext , useEffect , useState } from "react";
 import { CharityContext } from "../../../context/CharityContext";
+import axios from "axios";
 
 const SelectedPosts = ( props ) => {
-    const { charity , setCharity } = useContext ( CharityContext );
-
-    const slicedCharity = charity.slice ( 0 , 3 );
-    useEffect ( () => {
-        console.log ( slicedCharity )
-    } , [] )
+    const [ charity1 , setCharity1 ] = useState ( [] )
+    const { charity , setChairty } = useContext ( CharityContext )
+    const [ items , setItems ] = useState ( charity1 );
+    // let slicedData;
+    //
+    // useEffect ( async () => {
+    //     // await axios.get ( `http://127.0.0.1:8000/charity/api/v1/ads/?page=${ 1 }` )
+    //     //     .then ( r => {
+    //     //         setCharity1 ( r.data.results )
+    //     //         console.log ( r.data.results )
+    //     //         setItems ( charity1 )
+    //     //         console.log ( charity1 )
+    //     //         console.log ( items )
+    //     //         // slicedData = charity.slice(0, 3);
+    //     //
+    //     //
+    //     //     } )
+    //     console.log(charity)
+    //
+    // } , [] )
 
     const postsArray = [
         {
@@ -52,7 +67,7 @@ const SelectedPosts = ( props ) => {
                 <hr className=" bg-gray-400 inline-block mr-4 m-1 h-[1px] xxl:w-[66px]"/>
             </h2>
             <div className="flex justify-center gap-4 xxl:gap-14">
-                { slicedCharity.map ( ( post ) => (
+                { postsArray.map ( ( post ) => (
                     <PostCard post={ post } key={ post.id }/>
                 ) ) }
             </div>

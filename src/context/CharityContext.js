@@ -9,12 +9,12 @@ const CharityProvider = ( { children } ) => {
     const { pageNumber } = useContext ( PageContext )
     useEffect ( () => {
         // const fetchAPI = async () => {
-        //     setCharity ( await getCharity ( pageNumber ) );
+        //     setCharity ( await getCharity ( 1 ) );
         // }
         // fetchAPI ();
 
 
-    } , [pageNumber] )
+    } , [] )
 
     return (
         <CharityContext.Provider value={ { charity , setCharity } }>
