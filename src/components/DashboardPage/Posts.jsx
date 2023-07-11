@@ -116,6 +116,7 @@ const Posts = () => {
   const { isIn, setIsIn } = useContext(DakhelContext);
   let imagePath = "http://127.0.0.1:8000/media/ads/";
   const [alCharity, setAlCharity] = useState([]);
+  const[isCom,setIsCom]= useState('')
   const delay = 2000;
   let value = "";
   const [data, setData] = useState({
@@ -148,6 +149,7 @@ const Posts = () => {
   useEffect(() => {
     value = localStorage.getItem("token");
     updateDateTime();
+
   });
   const handlePageClick = (page) => {
     setCurrentPage(page);
@@ -169,6 +171,17 @@ const Posts = () => {
     // console.log(date)
   };
   const handleDateChange = (e) => {
+    axios.get('http://127.0.0.1:8000/accounts/api/v1/profile/complete/',{
+      headers:{
+        Authorization: `JWT ${value}`,
+      }
+    })
+        .then(r => {
+          console.log(r.data)
+          // setIsCom(r.data.profile_complete )
+
+        })
+
     e.preventDefault();
     console.log(date);
     console.log(value);
@@ -190,7 +203,6 @@ const Posts = () => {
         },
       })
       .then((response) => {
-        console.log(response.data);
         notify('ثبت پست با موفقیت انجام شد.'     , 'success')
         const timer = setTimeout ( () => {
           navigate(`/post/${response.data.id}`)
