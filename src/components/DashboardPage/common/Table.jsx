@@ -46,7 +46,10 @@ const Table = ({ titlesArr, dataArr, minHeight }) => {
         styles.table_shadow + ` inline-block rounded-lg overflow-hidden`
       }
     >
-      <table style={{ minHeight: `${minHeight}%` }} className={styles.table}>
+      <table
+        style={{ minHeight: `${minHeight}%` }}
+        className={styles.table + " overflow-y-scroll"}
+      >
         <thead>
           <tr>
             {titlesArr.map((titleObj) => (
@@ -63,7 +66,10 @@ const Table = ({ titlesArr, dataArr, minHeight }) => {
                 <div className="flex items-center gap-2">
                   {data[titlesArr[2].value] + "%"}
                   <div className="flex relative justify-end bg-[#F2F2F2] rounded-[8px] h-[0.2rem] xxl:h-[0.3rem] w-[4rem] xxl:w-[5 rem]">
-                    <hr className="bg-[#4C4C4C] absolute top-0 left-0 z-10 rounded-[8px] h-full w-[90%]" />
+                    <hr
+                      className="bg-[#4C4C4C] absolute top-0 left-0 z-10 rounded-[8px] h-full"
+                      style={{ width: `${data[titlesArr[2].value] + "%"}` }}
+                    />
                   </div>
                 </div>
               </th>
