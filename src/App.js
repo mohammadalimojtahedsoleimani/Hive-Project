@@ -44,7 +44,7 @@ function App () {
                                                     <Route path="/posts/:page" element={ <PostsPage/> }/>
                                                     <Route path="/post/:page" element={ <CharityPage/> }/>
                                                     <Route path="/dashboard" element={ <DashboardPage/> }/>
-                                                    <Route path="/activation/*" element={ <Activation/> }/>
+                                                    <Route path="/activation" element={ <Activation/> }/>
                                                     <Route path='/*' element={ <NotFoundPage/> }/>
                                                     {/* <Route path="/page/:id" element={ <PostPage/> }/>
             <Route path="/profile" element={ <ProfilePage/> }/>

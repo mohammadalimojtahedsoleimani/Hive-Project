@@ -33,6 +33,14 @@ const CharityPage = () => {
     const [ estimated_amount , setEstimated_amount ] = useState ( '' )
     const [ collected_amount , setCollected_amount ] = useState ( '' )
     const [ collected_percentage , setCollected_percentage ] = useState ( '' )
+    const dateOnly = published_date.split ( 'T' )[ 0 ];
+    let date = new Date ( `${ dateOnly }` ); // your date from API
+    let hijriShamsiDate = date.toLocaleDateString ( 'fa-IR-u-ca-persian-nu-arab' , {
+        day : 'numeric' ,
+        month : 'long' ,
+        year : 'numeric'
+    } );
+    let formattedNumber = collected_amount.toLocaleString('fa-IR-u-nu-arab', {minimumFractionDigits: 0})
     // contexts
     const { isDonationOpen , setIsDonationOpen } = useContext ( DonationContext );
     // functions
@@ -51,6 +59,7 @@ const CharityPage = () => {
                 setCollected_percentage ( r.data.collected_percentage )
                 console.log ( r.data )
                 console.log ( r.data.collected_percentage )
+                console.log ( hijriShamsiDate )
             } )
 
 
@@ -59,7 +68,7 @@ const CharityPage = () => {
 
     return (
         <>
-            <Navbar dark={true}/>
+            <Navbar dark={ true }/>
             <div className={ styles.mainBody }>
                 <div className={ styles.topBody }>
                     <div className={ styles.rightPartTop }>
@@ -115,7 +124,7 @@ const CharityPage = () => {
                             </div>
                             <div className={ styles.dateContainer }>
                                 <img src={ calender } alt="axe calender"/>
-                                <p>{ published_date }</p>
+                                <p>{ hijriShamsiDate }</p>
                             </div>
                             <div className={ styles.estimatedTimeContainer }>
                                 <img src={ clock } alt="axe clock"/>
@@ -156,7 +165,7 @@ const CharityPage = () => {
 
                             </div>
                             <div className={ styles.totalDonationNumber }>
-                                <p>جمع شده: { collected_amount } تومان</p>
+                                <p>جمع شده: { formattedNumber } تومان</p>
                                 <p>هدف: { estimated_amount } تومان</p>
                             </div>
                         </div>
@@ -172,7 +181,8 @@ const CharityPage = () => {
                                     <button className={ styles.donateButton }
                                             onClick={ () => setIsDonationOpen ( true ) }>پرداخت کمک
                                     </button>
-                                    <Donation open={ isDonationOpen } closeModal={ () => setIsDonationOpen ( false ) } ChairtyTitle={title} pageId={charity_id}>
+                                    <Donation open={ isDonationOpen } closeModal={ () => setIsDonationOpen ( false ) }
+                                              ChairtyTitle={ title } pageId={ charity_id }>
                                     </Donation>
 
                                 </div>

@@ -14,11 +14,13 @@ import axios from "axios";
 import { notify } from "../../helper/toast";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify";
-import "./SignUp.module.css";
+
+import email from "../modal/emailGet/Email";
+import styles from './SignUp.module.css'
 
 const SignUpPage = () => {
     //variables
-    const navigate = useNavigate()
+    const navigate = useNavigate ()
     const { setIsIn } = useContext ( DakhelContext );
     const [ data , setData ] = useState ( {
         email : "" ,
@@ -27,38 +29,45 @@ const SignUpPage = () => {
     } )
     const [ errors , setErrors ] = useState ( {} )
     const [ isSelected , setIsSelected ] = useState ( false );
+    const [ isEmpty , setIsEmpty ] = useState ( '' )
 
     // functions
-    const submitHandler = async ( event ) => {
+    const submitHandler =  ( event ) => {
         event.preventDefault ();
-        console.log ( data )
-        if ( isSelected ) {
 
-            await axios.post ( "http://127.0.0.1:8000/accounts/api/v1/registration/" , data )
-                .then ( response => {
-                    notify ( "ثبت نام موفقیت آمیز بود!" +
-                        " ایمیل خود را تایید کنید" , "info" )
-                    setIsIn ( true )
-                    setData ( {
-                        username : "" ,
-                        email : "" ,
-                        password : ""
-                    } )
-                    setErrors ( {} )
-                    navigate('/dashboard')
+        console.log ( data.email )
+         axios.post ( "http://127.0.0.1:8000/accounts/api/v1/registration/" , data )
+            .then ( response => {
+                notify ( "ثبت نام موفقیت آمیز بود!" +
+                    " ایمیل خود را تایید کنید" , "info" )
+                setData ( {
+                    email : "" ,
+                    password : "" ,
+                    password1 : ""
                 } )
-                .catch ( error => {
-                    console.log ( 'the error:' , error )
-                    setErrors ( error.response.data )
-                    console.log(errors)
-                } )
-        } else {
-            // const checkbox = document.getElementById ( 'selectCheck' );
-            // checkbox.classList.add ( 'shake' );
-            // setTimeout ( () => {
-            //     checkbox.classList.remove ( 'shake' );
-            // } , 500 );
-        }
+                setErrors ( {} )
+                setIsEmpty ( '' )
+                navigate ( '/dashboard' )
+            } )
+            .catch ( error => {
+                console.log ( 'the error:' , error )
+                console.log ( errors )
+                if ( data.email.trim ().length > 0 ) {
+                    setErrors ( error.response.email )
+                } else {
+                    setIsEmpty ( 'لطفا ورودی مورد نظر را کامل پر کنید.' )
+                }
+                if ( data.password.trim ().length > 0 ) {
+                    setErrors ( error.response.password )
+                } else {
+                    setIsEmpty ( 'لطفا ورودی مورد نظر را کامل پر کنید.' )
+                }
+                if ( data.password1.trim ().length > 0 ) {
+                    setErrors ( error.response.password1 )
+                } else {
+                    setIsEmpty ( 'لطفا ورودی مورد نظر را کامل پر کنید.' )
+                }
+            } )
 
 
     }
@@ -73,11 +82,14 @@ const SignUpPage = () => {
     const inputStyle =
         "text-[#A3A3A3] bg-[#F3F2F2] rounded-lg text-[17px] xxl:text-[19px] p-[0.4rem] xxl:p-[0.9rem] mb-[0.9rem] xxl:mb-[1.5rem]";
     const form = (
-        <form action="" className="flex flex-col" onSubmit={submitHandler}>
+        <form className="flex flex-col" onSubmit={ submitHandler }>
             <input type="email" placeholder="پست الکترونیکی" className={ inputStyle } onChange={ changeHandler }
-                   value={ data.email } name="email"/>
+                   value={ data.email } name="email" />
+            { errors.email || isEmpty && <span className={ styles.errorSpan }>{ errors.email || isEmpty }</span> }
             <input type="password" placeholder="رمز عبور" className={ inputStyle } onChange={ changeHandler }
                    value={ data.password } name="password"/>
+            { errors.password || isEmpty &&
+                <span className={ styles.errorSpan  }>{ errors.password || isEmpty }</span> }
             <input
                 type="password"
                 placeholder="تکرار رمز عبور"
@@ -86,6 +98,8 @@ const SignUpPage = () => {
                 value={ data.password1 }
                 name="password1"
             />
+            { errors.password1 || isEmpty &&
+                <span className={ styles.errorSpan  }>{ errors.password1 || isEmpty }</span> }
             <div className="text-[10px] xxl:text-[13px] flex items-center gap-3">
                 <input type="checkbox" checked={ isSelected } onChange={ handleCheckboxChange } id="selectCheck"/>
                 <label htmlFor="">
@@ -95,12 +109,15 @@ const SignUpPage = () => {
                     هایو را تایید مینمایم
                 </label>
             </div>
-            <input
-                type="submit"
-                value="ساخت حساب کاربری"
-                className="text-white bg-[#4D7AD2] rounded-lg text-[18px] xxl:text-[21px] py-[0.8rem] xxl:py-[1.2rem] my-6 xxl:my-9"
-                onChange={ submitHandler }
-            />
+            {/*<input*/ }
+            {/*    type="submit"*/ }
+            {/*    value="ساخت حساب کاربری"*/ }
+            {/*    className="text-white bg-[#4D7AD2] rounded-lg text-[18px] xxl:text-[21px] py-[0.8rem] xxl:py-[1.2rem] my-6 xxl:my-9"*/ }
+            {/*/>*/ }
+            <button type='submit'
+                    className="text-white bg-[#4D7AD2] rounded-lg text-[18px] xxl:text-[21px] py-[0.8rem] xxl:py-[1.2rem] my-6 xxl:my-9">ساخت
+                حساب کاربری
+            </button>
         </form>
     );
     return (
