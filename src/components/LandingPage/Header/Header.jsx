@@ -3,13 +3,15 @@ import { useContext } from "react";
 import { LoginModalContext } from "../../../context/LoginContext";
 import Login from "../../modal/Login/Login";
 import { Link } from "react-router-dom";
+import { DakhelContext } from "../../../context/DakhelContext";
 
 const BUTTON_WRAPPER_LOGIN_STYLES = {
   position: "relative",
-  zIndex : 1 ,
 };
 const Header = (props) => {
   const { isOpenLogin, setIsOpenLogin } = useContext(LoginModalContext);
+  const { isIn, setIsIn } = useContext(DakhelContext);
+
   return (
     <section
       className={
@@ -40,32 +42,34 @@ const Header = (props) => {
         >
           هایو، اجتمایی برای گسترش نیکوکاری
         </div>
-        <div className={styles.enter_parent + " gap-6 pt-4"}>
-          <div style={BUTTON_WRAPPER_LOGIN_STYLES}>
-            <button
-              onClick={() => setIsOpenLogin(true)}
+        {!isIn && (
+          <div className={styles.enter_parent + " gap-6 pt-4"}>
+            <div style={BUTTON_WRAPPER_LOGIN_STYLES}>
+              <button
+                onClick={() => setIsOpenLogin(true)}
+                className={
+                  styles.login +
+                  " py-[0.75rem] px-[1rem] xxl:px-[2rem] xxl:py-[1.25rem] text-[1rem] xxl:text-[1.25rem] xxl:leading-[0.5rem]"
+                }
+              >
+                وارد شو
+              </button>
+              <Login
+                open={isOpenLogin}
+                closeModal={() => setIsOpenLogin(false)}
+              ></Login>
+            </div>
+            <Link
+              to="signUp"
               className={
-                styles.login +
+                styles.sign_up +
                 " py-[0.75rem] px-[1rem] xxl:px-[2rem] xxl:py-[1.25rem] text-[1rem] xxl:text-[1.25rem] xxl:leading-[0.5rem]"
               }
             >
-              وارد شو
-            </button>
-            <Login
-              open={isOpenLogin}
-              closeModal={() => setIsOpenLogin(false)}
-            ></Login>
+              ثبت نام کن
+            </Link>
           </div>
-          <Link
-            to="signUp"
-            className={
-              styles.sign_up +
-              " py-[0.75rem] px-[1rem] xxl:px-[2rem] xxl:py-[1.25rem] text-[1rem] xxl:text-[1.25rem] xxl:leading-[0.5rem]"
-            }
-          >
-            ثبت نام کن
-          </Link>
-        </div>
+        )}
       </div>
     </section>
   );
