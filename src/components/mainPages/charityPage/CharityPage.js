@@ -40,6 +40,7 @@ const CharityPage = () => {
         month : 'long' ,
         year : 'numeric'
     } );
+    let formattedNumber = collected_amount.toLocaleString('fa-IR-u-nu-arab', {minimumFractionDigits: 0})
     // contexts
     const { isDonationOpen , setIsDonationOpen } = useContext ( DonationContext );
     // functions
@@ -164,7 +165,7 @@ const CharityPage = () => {
 
                             </div>
                             <div className={ styles.totalDonationNumber }>
-                                <p>جمع شده: { collected_amount } تومان</p>
+                                <p>جمع شده: { formattedNumber } تومان</p>
                                 <p>هدف: { estimated_amount } تومان</p>
                             </div>
                         </div>
