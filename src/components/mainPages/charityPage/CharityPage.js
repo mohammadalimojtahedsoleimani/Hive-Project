@@ -33,6 +33,7 @@ const CharityPage = () => {
     const [ estimated_amount , setEstimated_amount ] = useState ( '' )
     const [ collected_amount , setCollected_amount ] = useState ( '' )
     const [ collected_percentage , setCollected_percentage ] = useState ( '' )
+    const dateOnly = published_date.split ( 'T' )[ 0 ];
     // contexts
     const { isDonationOpen , setIsDonationOpen } = useContext ( DonationContext );
     // functions
@@ -115,7 +116,7 @@ const CharityPage = () => {
                             </div>
                             <div className={ styles.dateContainer }>
                                 <img src={ calender } alt="axe calender"/>
-                                <p>{ published_date }</p>
+                                <p>{ dateOnly }</p>
                             </div>
                             <div className={ styles.estimatedTimeContainer }>
                                 <img src={ clock } alt="axe clock"/>
