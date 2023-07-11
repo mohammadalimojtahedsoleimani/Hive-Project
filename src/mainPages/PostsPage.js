@@ -85,24 +85,27 @@ const PostsPage = ( props ) => {
     const [ page , setPage ] = useState ( 1 )
     const [ itemsInfo , setItemsInfo ] = useState ( { total_objects : 0 , total_pages : 0 } )
 
-    const types = [
-        "default" ,
-        "search" ,
-        "عام المنفعه" ,
-        "آموزشی" ,
-        "حیوانات" ,
-        "محیط زیست" ,
-        "کسب و کار" ,
-        "پزشکی" ,
-        "مراسم ختم" ,
-        "اورژانسی" ,
-        "عوام" ,
-        "رقابتی" ,
-        "خلاقانه" ,
-        "آرزو ها" ,
-        "ایمان" ,
-        "سفر" ,
-        "سایر" ,
+    const categories = [
+        {
+            id: 1,
+            name: "حیوانات"
+        },
+        {
+            id: 2,
+            name: "آموزشی"
+        },
+        {
+            id: 4,
+            name: "پزشکی"
+        },
+        {
+            id: 5,
+            name: "محیط زیست"
+        },
+        {
+            id: 3,
+            name: "سایر"
+        },
     ];
     const [ type , setType ] = useState ( "default" );
     const [ isMenuOpen , setIsMenuOpen ] = useState ( false );
@@ -213,7 +216,7 @@ const PostsPage = ( props ) => {
             <Menu
                 isMenuOpen={ isMenuOpen }
                 setIsMenuOpen={ setIsMenuOpen }
-                types={ types }
+                categories={ categories }
             />
             {/* { charity.map ( ( item ) =>
                 <PostCard posts={ item } key={ item.id }/>
