@@ -1,21 +1,10 @@
-.shake {
-    animation: shake 0.5s;
-}
-
-@keyframes shake {
-    0% {
-        transform: translateX(0);
-    }
-    25% {
-        transform: translateX(-5px);
-    }
-    50% {
-        transform: translateX(5px);
-    }
-    75% {
-        transform: translateX(-5px);
-    }
-    100% {
-        transform: translateX(0);
-    }
+.errorSpan{
+    min-height: calc(0.8vw + 0.1rem);
+    text-align: left;
+    margin-top: 3px;
+    width: fit-content;
+    font-size: calc(0.7vw + 0.08rem);
+    color: red;
+    padding: 0px 3px;
+    font-family: 'IRANSansXFaNum';
 }
