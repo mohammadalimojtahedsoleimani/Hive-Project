@@ -1,7 +1,7 @@
 import Calendar from "../../../images/LandingPage/selected_posts_calendar.svg";
 import Person from "../../../images/LandingPage/selected_posts_person.svg";
 import { Link } from "react-router-dom";
-import styles from "../../mainPages/charityPage/CharityPage.module.css";
+import styles from "../../charityPage/CharityPage.module.css";
 import stle from "../../PostsPage/common/PostCard.module.css";
 import React from "react";
 

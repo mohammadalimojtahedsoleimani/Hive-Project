@@ -1,16 +1,16 @@
 import React , { useContext , useEffect , useState } from 'react';
 import styles from "./CharityPage.module.css"
-import Navbar from "../../common/Navbar/Navbar"
-import Footer from "../../common/Footer/Footer"
-import khoye from "../../../images/CharityPage/khoye.png"
-import poorKodak from "../../../images/CharityPage/poor kodak.png"
-import people from "../../../images/CharityPage/peoplevector.png"
-import calender from "../../../images/CharityPage/calender.png"
-import clock from "../../../images/CharityPage/clock.png"
+import Navbar from "../common/Navbar/Navbar"
+import Footer from "../common/Footer/Footer"
+import khoye from "../../images/CharityPage/khoye.png"
+import poorKodak from "../../images/CharityPage/poor kodak.png"
+import people from "../../images/CharityPage/peoplevector.png"
+import calender from "../../images/CharityPage/calender.png"
+import clock from "../../images/CharityPage/clock.png"
 import { useLocation } from "react-router-dom";
 import axios from "axios";
-import { DonationContext } from "../../../context/DonationContext";
-import Donation from "../../modal/Donation/Donation";
+import { DonationContext } from "../../context/DonationContext";
+import Donation from "../modal/Donation/Donation";
 // innate styles
 const BUTTON_WRAPPER_DONATE_STYLES = {
     position : "relative" ,

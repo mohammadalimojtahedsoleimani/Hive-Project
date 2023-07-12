@@ -1,8 +1,0 @@
-.container{
-    padding-top: calc(5vw + 0.5rem);
-    display: flex;
-    background: linear-gradient(45deg, #B3E9FF, #E3E9FF);
-    flex: 3;
-    min-height: 100vh;
-    padding-bottom: calc(5vw + 2rem)
-}
