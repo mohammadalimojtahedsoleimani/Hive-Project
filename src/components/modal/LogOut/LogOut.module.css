@@ -70,9 +70,10 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 300px;
     margin-top: 97px;
-    margin-right: 28px;
+    width: 100%;
+    justify-content: center;
+    gap: 7%;
 
 }
 .button1{
@@ -117,7 +118,6 @@
     line-height: 24px;
     text-transform: capitalize;
     cursor: pointer;
-    margin-right: 10px;
 }
 .button2:hover{
     background: red;
