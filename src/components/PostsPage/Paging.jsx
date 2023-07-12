@@ -103,7 +103,7 @@ const Paging = ({
   };
   return (
     <div className="fixed bottom-0 w-full flex justify-center">
-      <div className="flex justify-between items-center bg-[#252A34] w-[50rem] xxl:w-[55rem] p-4 xxl:p-7 rounded-t-[5px] xxl:rounded-t-[7px]">
+      <div className="flex justify-between items-center bg-[#252A34] w-[50rem] xxl:w-[55rem] py-3 xxl:py-5 px-4 xxl:px-7 rounded-t-[5px] xxl:rounded-t-[7px]">
         <div className="right flex items-center gap-3 xxl:gap-5" dir="ltr">
           <span className="text-white">شماره صفحه</span>
           {rightSection()}

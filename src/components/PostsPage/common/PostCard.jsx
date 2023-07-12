@@ -69,11 +69,11 @@ const PostCard = ({
             {hijriShamsiDate}
           </span>
         </div>
-        <h2 className="font-bold text-[15px] xxl:text-[21px] mt-3 xxl:mt-6 text-blue-500 text-opacity-100">
+        <h2 className="font-bold text-[15px] xxl:text-[21px] mt-3 xxl:mt-4 text-blue-500 text-opacity-100">
           {title}
         </h2>
         {/* <p className='text-[10px] xxl:text-[14px] h-16 xxl:h-24'>{description}</p> */}
-        <div className="w-[100%] py-4 xxl:py-8">
+        <div className="w-[100%] py-4 xxl:py-6">
           <div className="flex justify-between">
             <span className="text-[10px] xxl:text-[14px] font-bold">
               کمک های مالی جمع شده
@@ -108,7 +108,7 @@ const PostCard = ({
             style={{ border: "solid #4D7AD2 1.5px", borderRadius: "5px" }}
             className={
               stle.button +
-              " text-[#4D7AD2] text-[12px] xxl:text-[16px] p-2 xxl:p-4"
+              " text-[#4D7AD2] text-[12px] xxl:text-[16px] p-2 xxl:px-4 xxl:py-2"
             }
           >
             کمک میکنم

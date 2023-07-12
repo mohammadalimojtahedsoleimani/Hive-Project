@@ -49,7 +49,7 @@ const Posts = (props) => {
             description={post.snippet}
             collected={post.collected_amount}
             target={post.estimated_amount}
-            collected_percentage = { post.collected_percentage}
+            collected_percentage={post.collected_percentage}
           />
         ))
     );
@@ -130,7 +130,7 @@ const Posts = (props) => {
   //   return result;
   // };
   return (
-    <div className={styles.posts + " px-[6rem] xxl:px-[9rem] mb-[8rem]"}>
+    <div className={styles.posts + " px-[5rem] xxl:px-[9rem] mb-[6rem]"}>
       {setPosts(props.posts, props.page)}
     </div>
   );

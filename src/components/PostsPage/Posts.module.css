@@ -47,3 +47,10 @@
         /* background-color: red; */
     }
   }
+  @media (max-width: 1919px) {
+    /* styles for screens with height greater than 1500px */
+    .posts{
+        padding-top: 9vh;
+        /* background-color: red; */
+    }
+  }
