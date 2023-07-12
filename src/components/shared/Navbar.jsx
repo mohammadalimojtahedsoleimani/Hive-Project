@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import styles from "./Navbar.module.css";
 import Search from "./../../images/Navbar/search.svg";
 import Logo from "./../../images/Navbar/logo.svg";
-import SignUp from "../modal/SignUp";
+import SignUp from "../deleted/emailGet/SignUp";
 import Login from "../modal/Login/Login";
 import { LoginModalContext , LoginModalProvider } from "../../context/LoginContext";
 import { SignUpContext } from "../../context/SignUpContext";

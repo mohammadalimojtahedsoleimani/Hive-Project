@@ -1,7 +1,7 @@
 import styles from "./Header.module.css";
 import Hands from "./../../../images/LandingPage/hands.svg";
 import { Link } from "react-router-dom";
-import SignUp from "../../modal/SignUp";
+import SignUp from "../../deleted/emailGet/SignUp";
 import React , { Fragment , useState } from "react";
 
 const BUTTON_WRAPPER_STYLES = {

@@ -2,7 +2,6 @@ import React , { useContext , useEffect , useState } from 'react';
 import styles from "./CharityPage.module.css"
 import Navbar from "../../common/Navbar/Navbar"
 import Footer from "../../common/Footer/Footer"
-import rightImg from "../../../images/CharityPage/kodak kar.png"
 import khoye from "../../../images/CharityPage/khoye.png"
 import poorKodak from "../../../images/CharityPage/poor kodak.png"
 import people from "../../../images/CharityPage/peoplevector.png"

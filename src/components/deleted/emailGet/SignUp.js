@@ -1,14 +1,14 @@
 import React , { useContext , useEffect , useState } from 'react';
 import { createPortal } from 'react-dom';
-import styles from "../../components/modal/SignUp.module.css";
+import styles from "./SignUp.module.css";
 import axios from "axios";
-import Login from "./Login/Login";
-import cancel from "../../images/modal/close.svg"
-import { LoginModalContext } from "../../context/LoginContext";
-import { SignUpContext } from "../../context/SignUpContext";
-import { DakhelContext } from "../../context/DakhelContext";
-import { ForgetModalContext } from "../../context/forgetPassContext";
-import { notify } from "../../helper/toast";
+import Login from "../../modal/Login/Login";
+import cancel from "../../../images/modal/close.svg"
+import { LoginModalContext } from "../../../context/LoginContext";
+import { SignUpContext } from "../../../context/SignUpContext";
+import { DakhelContext } from "../../../context/DakhelContext";
+import { ForgetModalContext } from "../../../context/forgetPassContext";
+import { notify } from "../../../helper/toast";
 
 
 const SignUp = ( { open,closeModal  } ) => {

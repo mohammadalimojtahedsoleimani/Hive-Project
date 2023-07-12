@@ -9,13 +9,12 @@ import Pattern1 from "../../images/SignUp/patterns/pattern_1.svg";
 import Pattern2 from "../../images/SignUp/patterns/pattern_2.svg";
 import { Link, useNavigate } from "react-router-dom";
 import React, { useContext, useState } from "react";
-import { DakhelContext } from "../../context/DakhelContext";
 import axios from "axios";
 import { notify } from "../../helper/toast";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 
-import email from "../modal/emailGet/Email";
+
 import styles from "./SignUp.module.css";
 import { useEffect } from "react";
 
@@ -23,7 +22,7 @@ const SignUpPage = () => {
   //variables
   const navigate = useNavigate();
     const delay = 2000;
-  const { setIsIn } = useContext(DakhelContext);
+
   const [data, setData] = useState({
     email: "",
     password: "",

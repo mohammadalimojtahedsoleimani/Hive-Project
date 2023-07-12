@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+
 import EditIcon from "../../images/DashboardPage/edit.svg";
 import SampleProfile from "../../images/DashboardPage/sample_profile.png";
-import { combineLatestAll } from "./../../../node_modules/rxjs/dist/esm5/internal/operators/combineLatestAll";
+
 import { useEffect , useState } from "react";
 import axios from "axios";
 import { notify } from "../../helper/toast";
@@ -25,7 +25,7 @@ const PersonalInfo = () => {
     useEffect ( () => {
         value = localStorage.getItem ( "token" );
         id = localStorage.getItem ( 'id' )
-    } );
+    },[] );
     const changeHandler = ( event ) => {
         // setData()
         setData ( { ... data , [ event.target.name ] : event.target.value } );
