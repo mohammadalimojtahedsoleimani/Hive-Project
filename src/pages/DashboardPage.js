@@ -24,9 +24,6 @@ const DashboardPage = () => {
     const { isOpenLogin, setIsOpenLogin } = useContext(LoginModalContext);
     const navOptions = [{id:0, name: 'داشبورد', value: "dashboard", icon: Dashboard, activeIcon: DashboardActive}, {id: 1, name: 'آگهی های ثبت شده', value:'posts', icon: Posts, activeIcon: PostsActive}, {id: 2, name: 'اطلاعات حساب کاربری', value: 'info', icon: Info, activeIcon: InfoActive}]
     const [active, setActive] = useState("dashboard")
-    useEffect(()=>{
-
-    },[])
     return (
         <div className="flex" style={BUTTON_WRAPPER_LOGIN_STYLES}>
             <div className="fixed top-0 left-0 w-[75vh] z-[-2]"><img src={Rectangle} alt=""/></div>

@@ -1,13 +1,10 @@
 import { Route , Routes } from "react-router-dom";
-import LandingPage from './mainPages/LandingPage'
-import PostsPage from './mainPages/PostsPage';
-import DashboardPage from './mainPages/DashboardPage';
-import PostPage from './mainPages/PostPage'
+import LandingPage from './pages/LandingPage'
+import PostsPage from './pages/PostsPage';
+import DashboardPage from './pages/DashboardPage';
 import NotFoundPage from "./components/mainPages/NotFound/NotFoundPage";
 import { CharityProvider } from "./context/CharityContext"
 import PageProvider from "./context/PageProvider";
-import Login from './components/mainPages/Authentication/Login';
-import Pass from './components/mainPages/Authentication/pass';
 import AboutUs from "./components/mainPages/AboutUs/AboutUs"
 import CharityPage from "./components/mainPages/charityPage/CharityPage";
 import { LoginModalProvider } from "./context/LoginContext";

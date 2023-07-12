@@ -6,7 +6,6 @@ import Posts from '../components/PostsPage/Posts';
 import Image from '../images/LandingPage/selected_posts_image_2.png'
 import axios from "axios";
 import { getCharity } from "../services/api";
-import CharityPost from "./charityPost";
 import PostCard from "../components/common/PostCard/PostCard";
 import { useParams } from "react-router-dom";
 import { CharityContext } from "../context/CharityContext";
