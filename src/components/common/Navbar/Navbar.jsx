@@ -79,7 +79,7 @@ const Navbar = ({ active, dark }) => {
           >
             {item.value}
           </Link>
-          <hr className="text-[#4D7AD2]" />
+          <hr className="bg-[#4D7AD2] border-0 h-[1px]" />
         </div>
       );
     }

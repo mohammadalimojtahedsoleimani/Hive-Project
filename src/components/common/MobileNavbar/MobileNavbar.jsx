@@ -60,7 +60,9 @@ const MobileNavbar = ({ active, dark }) => {
         <Link className={styles.link} to={item.key}>
           {item.value}
         </Link>
-        {active === item.key && <hr className="text-[#4D7AD2]" />}
+        {active === item.key && (
+          <hr className="bg-[#4D7AD2] border-0 h-[1px] pb-[-1px]" />
+        )}
       </div>
     );
   };
