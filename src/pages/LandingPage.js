@@ -35,6 +35,7 @@ const LandingPage = ( props ) => {
         <>
             <MobileNavbar active='home' isLogin={false} dark={true}/>
             <HeaderMobile/>
+            <SelectedPostsMobile/>
             {/* <AboutUs/>
             <Steps/>
             <GeneralInfo/>
