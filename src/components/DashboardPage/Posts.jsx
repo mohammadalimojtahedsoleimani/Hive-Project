@@ -14,6 +14,10 @@ import axios from "axios";
 import Table from "./common/Table";
 import moment from "moment";
 import { DakhelContext } from "../../context/DakhelContext";
+import { notify } from "../../helper/toast";
+import { useNavigate } from "react-router-dom";
+
+import { ToastContainer } from "react-toastify";
 
 const nameFont = (value) => {
   if (value.length <= 15) {
@@ -103,6 +107,7 @@ const posts = [
 const Posts = () => {
   // variables
   const [newPost, setNewPost] = useState(false);
+  const navigate = useNavigate()
   const [fileData, setFileData] = useState(null);
   const pageSize = 5;
   const [currentPage, setCurrentPage] = useState(1);
@@ -111,7 +116,8 @@ const Posts = () => {
   const { isIn, setIsIn } = useContext(DakhelContext);
   let imagePath = "http://127.0.0.1:8000/media/ads/";
   const [alCharity, setAlCharity] = useState([]);
-
+  const[isCom,setIsCom]= useState('')
+  const delay = 2000;
   let value = "";
   const [data, setData] = useState({
     image: null,
@@ -143,6 +149,7 @@ const Posts = () => {
   useEffect(() => {
     value = localStorage.getItem("token");
     updateDateTime();
+
   });
   const handlePageClick = (page) => {
     setCurrentPage(page);
@@ -164,6 +171,17 @@ const Posts = () => {
     // console.log(date)
   };
   const handleDateChange = (e) => {
+    axios.get('http://127.0.0.1:8000/accounts/api/v1/profile/complete/',{
+      headers:{
+        Authorization: `JWT ${value}`,
+      }
+    })
+        .then(r => {
+          console.log(r.data)
+          // setIsCom(r.data.profile_complete )
+
+        })
+
     e.preventDefault();
     console.log(date);
     console.log(value);
@@ -185,7 +203,14 @@ const Posts = () => {
         },
       })
       .then((response) => {
-        console.log(response);
+        notify('ثبت پست با موفقیت انجام شد.'     , 'success')
+        const timer = setTimeout ( () => {
+          navigate(`/post/${response.data.id}`)
+
+
+
+
+        } , delay );
       })
       .catch((error) => {
         console.log("the error: ", error.response);
@@ -484,6 +509,7 @@ const Posts = () => {
           ارسال جهت بررسی
         </button>
       </div>
+      <ToastContainer/>
     </div>
   );
   return newPost ? newPostsContainer : oldPosts;

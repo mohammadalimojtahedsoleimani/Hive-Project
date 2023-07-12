@@ -110,8 +110,6 @@ const Navbar = ({ active, dark }) => {
           setLname(r.data.last_name);
           setAvatar(r.data.avatar);
           setProfile(r.data);
-          console.log(profile);
-          console.log(r.data);
         });
     }
   }, [isIn]);
