@@ -2,14 +2,14 @@ import { Route , Routes } from "react-router-dom";
 import LandingPage from './pages/LandingPage'
 import PostsPage from './pages/PostsPage';
 import DashboardPage from './pages/DashboardPage';
-import NotFoundPage from "./components/NotFound/NotFoundPage";
+import NotFoundPage from "./pages/NotFoundPage";
 import { CharityProvider } from "./context/CharityContext"
 import PageProvider from "./context/PageProvider";
-import AboutUs from "./components/AboutUs/AboutUs"
-import CharityPage from "./components/charityPage/CharityPage";
+import AboutUs from "./pages/AboutUs"
+import CharityPage from "./pages/CharityPage";
 import { LoginModalProvider } from "./context/LoginContext";
-import SignUpPage from "./components/SignUpPage/SignUpPage";
-import EditPasswordPage from './components/EditPasswordPage/EditPasswordPage';
+import SignUpPage from "./pages/SignUpPage";
+import EditPasswordPage from './pages/EditPasswordPage';
 import { DakhelProvider } from "./context/DakhelContext";
 import { ProfileProvider } from "./context/ProfileContext";
 import { DonationProvider } from "./context/DonationContext";
@@ -17,7 +17,7 @@ import { SearchProvider } from "./context/SearchContext";
 import MobileViewProvider from "./context/MobileContext";
 import { LogoutProvider } from "./context/LogoutContext";
 import { DeleteprofProvider } from "./context/DeleteprofContext";
-import Activation from "./components/Activation/Activation"
+import Activation from "./pages/Activation"
 import { CatidProvider } from "./context/CatidContext";
 
 function App () {

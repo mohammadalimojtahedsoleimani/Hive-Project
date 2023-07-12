@@ -1,7 +1,7 @@
 import Calendar from "../../../images/LandingPage/selected_posts_calendar.svg";
 import Person from "../../../images/LandingPage/selected_posts_person.svg";
 import { Link, useNavigate } from "react-router-dom";
-import styles from "../../charityPage/CharityPage.module.css";
+import styles from "../../../pages/CharityPage.module.css";
 import React from "react";
 import stle from "./PostCard.module.css";
 const PostCard = ({

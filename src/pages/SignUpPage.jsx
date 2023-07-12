@@ -1,19 +1,18 @@
-import Google from "../../images/SignUp/google.svg";
-import Github from "../../images/SignUp/github-cropped.svg";
-import Logo from "../../images/SignUp/logo.svg";
-import Twitter from "../../images/SignUp/links/twitter.svg";
-import Insta from "../../images/SignUp/links/insta.svg";
-import Pinterest from "../../images/SignUp/links/pinterest.svg";
-import Youtube from "../../images/SignUp/links/youtube.svg";
-import Pattern1 from "../../images/SignUp/patterns/pattern_1.svg";
-import Pattern2 from "../../images/SignUp/patterns/pattern_2.svg";
+import Google from "../images/SignUp/google.svg";
+import Github from "../images/SignUp/github-cropped.svg";
+import Logo from "../images/SignUp/logo.svg";
+import Twitter from "../images/SignUp/links/twitter.svg";
+import Insta from "../images/SignUp/links/insta.svg";
+import Pinterest from "../images/SignUp/links/pinterest.svg";
+import Youtube from "../images/SignUp/links/youtube.svg";
+import Pattern1 from "../images/SignUp/patterns/pattern_1.svg";
+import Pattern2 from "../images/SignUp/patterns/pattern_2.svg";
 import { Link, useNavigate } from "react-router-dom";
 import React, { useContext, useState } from "react";
 import axios from "axios";
-import { notify } from "../../helper/toast";
+import { notify } from "../helper/toast";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-
 
 import styles from "./SignUp.module.css";
 import { useEffect } from "react";
@@ -21,7 +20,7 @@ import { useEffect } from "react";
 const SignUpPage = () => {
   //variables
   const navigate = useNavigate();
-    const delay = 2000;
+  const delay = 2000;
 
   const [data, setData] = useState({
     email: "",
@@ -58,11 +57,9 @@ const SignUpPage = () => {
         setPassword1Error(null);
         setIsEmpty("");
 
-          const timer = setTimeout(() => {
-              navigate("/posts/1");
-
-
-          }, delay);
+        const timer = setTimeout(() => {
+          navigate("/posts/1");
+        }, delay);
       })
       .catch((error) => {
         console.log("the error:the error ", error);
@@ -95,13 +92,13 @@ const SignUpPage = () => {
   const handleCheckboxChange = () => {
     setIsSelected(!isSelected);
   };
-  const error_margin = ( error ) => {
-    console.log ( 'in error margin function: ' , error )
-    if ( error === undefined ) {
-      return { marginBottom : 'calc(0.8vw + 0.1rem)' }
+  const error_margin = (error) => {
+    console.log("in error margin function: ", error);
+    if (error === undefined) {
+      return { marginBottom: "calc(0.8vw + 0.1rem)" };
     }
-    return null
-  }
+    return null;
+  };
 
   const changeHandler = (event) => {
     setData({ ...data, [event.target.name]: event.target.value });
@@ -118,12 +115,13 @@ const SignUpPage = () => {
           onChange={changeHandler}
           value={data.email}
           name="email"
-          id='email'
+          id="email"
         />
-        {emailError ||
-          ( (
-            <span className='text-red-500 flex flex-col justify-center items-center'>{emailError }</span>
-          ))}
+        {emailError || (
+          <span className="text-red-500 flex flex-col justify-center items-center">
+            {emailError}
+          </span>
+        )}
         <input
           type="password"
           placeholder="رمز عبور"
@@ -132,11 +130,13 @@ const SignUpPage = () => {
           value={data.password}
           name="password"
           style={error_margin(passwordError)}
-          id='password'
+          id="password"
         />
-        {passwordError  && (
-            <span className='text-red-500 flex flex-col justify-start items-start'>{passwordError }</span>
-          )}
+        {passwordError && (
+          <span className="text-red-500 flex flex-col justify-start items-start">
+            {passwordError}
+          </span>
+        )}
         <input
           type="password"
           placeholder="تکرار رمز عبور"
@@ -144,13 +144,13 @@ const SignUpPage = () => {
           onChange={changeHandler}
           value={data.password1}
           name="password1"
-          id='password1'
+          id="password1"
         />
-        {password1Error  && (
-            <span className='text-red-500 flex flex-col justify-start items-start'>
-              {password1Error }
-            </span>
-          )}
+        {password1Error && (
+          <span className="text-red-500 flex flex-col justify-start items-start">
+            {password1Error}
+          </span>
+        )}
         <div className="text-[10px] xxl:text-[13px] flex items-center gap-3">
           <input
             type="checkbox"
@@ -172,7 +172,6 @@ const SignUpPage = () => {
         {/*/>*/}
         <button
           type="submit"
-
           className="text-white bg-[#4D7AD2] rounded-lg text-[18px] xxl:text-[21px] py-[0.8rem] xxl:py-[1.2rem] my-6 xxl:my-9"
         >
           ساخت حساب کاربری
@@ -236,15 +235,13 @@ const SignUpPage = () => {
       <div className="left flex-1 flex flex-col relative min-h-[100vh]">
         <div className="flex-1"></div>
         <div className="flex-[5] flex flex-col content-between px-9 xxl:px-11">
-          <Link to='/'>
-          <div className="fixed flex top-8 xxl:top-12 left-10 xxl:left-14 cursor-pointer">
-
-            <span className=" text-[white] font-IrishGrover  text-[34px] xxl:text-[39px]">
-              Hive
-            </span>
-            <img src={Logo} alt="" className="w-[70px] xxl:w-[82px]" />
-
-          </div>
+          <Link to="/">
+            <div className="fixed flex top-8 xxl:top-12 left-10 xxl:left-14 cursor-pointer">
+              <span className=" text-[white] font-IrishGrover  text-[34px] xxl:text-[39px]">
+                Hive
+              </span>
+              <img src={Logo} alt="" className="w-[70px] xxl:w-[82px]" />
+            </div>
           </Link>
           <div>
             <h2 className="text-[#EEEEEE] font-[700] text-[40px] xxl:text-[48px]">

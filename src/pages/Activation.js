@@ -1,9 +1,9 @@
 import React , { useContext } from 'react';
 import styles from './Activation.module.css'
-import Navbar from '../common/Navbar/Navbar';
-import veriImg from '../../images/activation/verify.png'
+import Navbar from '../components/common/Navbar/Navbar';
+import veriImg from '../images/activation/verify.png'
 import { useNavigate } from "react-router-dom";
-import { LoginModalContext } from "../../context/LoginContext";
+import { LoginModalContext } from "../context/LoginContext";
 
 const Activation = () => {
     // variables
@@ -23,7 +23,7 @@ const Activation = () => {
                     <img src={ veriImg } alt="axe veri"/>
                 </div>
                 <div className={ styles.buttonContainer }>
-                    <button onClick={ clickHandler }>ادامه ></button>
+                    <button onClick={ clickHandler }>ادامه</button>
 
                 </div>
 

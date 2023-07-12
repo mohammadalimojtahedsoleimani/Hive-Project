@@ -1,7 +1,7 @@
 import Calendar from "../../../images/LandingPage/selected_posts_calendar.svg";
 import Person from "../../../images/LandingPage/selected_posts_person.svg";
 import { Link } from "react-router-dom";
-import styles from "../../charityPage/CharityPage.module.css";
+import styles from "../../../pages/CharityPage.module.css";
 import stle from "../../PostsPage/common/PostCard.module.css";
 import React from "react";
 
@@ -29,7 +29,10 @@ const PostCard = ({ post }) => {
             {post.published_date}
           </span>
         </div>
-        <h2 className="text-[#219D80] font-bold text-[15px] xxl:text-[21px] my-3 xxl:my-6" data-testid='title-1'>
+        <h2
+          className="text-[#219D80] font-bold text-[15px] xxl:text-[21px] my-3 xxl:my-6"
+          data-testid="title-1"
+        >
           {post.title}
         </h2>
         <p className="text-[10px] xxl:text-[14px] h-20 xxl:h-28">
@@ -45,17 +48,17 @@ const PostCard = ({ post }) => {
               {post.collected_percentage}%
             </span>
           </div>
-          <div className={ styles.totalBar }>
-
-            <div className={ stle.progressBar }>
-              <div className={ stle.progressBarDisplay } style={ {
-                width : `${ post.collected_percentage }%` ,
-                backgroundColor : "#4D7AD2" ,
-                transition : "width 0.5s"
-              } }></div>
-
+          <div className={styles.totalBar}>
+            <div className={stle.progressBar}>
+              <div
+                className={stle.progressBarDisplay}
+                style={{
+                  width: `${post.collected_percentage}%`,
+                  backgroundColor: "#4D7AD2",
+                  transition: "width 0.5s",
+                }}
+              ></div>
             </div>
-
           </div>
           <div className="flex justify-between">
             <span className="text-[10px] xxl:text-[12px]">

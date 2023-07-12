@@ -1,9 +1,9 @@
-import Locks from "../../images/EditPasswordPage/locks.png";
-import Logo from "../../images/SignUp/logo.svg";
-import Twitter from "../../images/SignUp/links/twitter.svg";
-import Insta from "../../images/SignUp/links/insta.svg";
-import Pinterest from "../../images/SignUp/links/pinterest.svg";
-import Youtube from "../../images/SignUp/links/youtube.svg";
+import Locks from "../images/EditPasswordPage/locks.png";
+import Logo from "../images/SignUp/logo.svg";
+import Twitter from "../images/SignUp/links/twitter.svg";
+import Insta from "../images/SignUp/links/insta.svg";
+import Pinterest from "../images/SignUp/links/pinterest.svg";
+import Youtube from "../images/SignUp/links/youtube.svg";
 import { Link } from "react-router-dom";
 const EditPasswordPage = () => {
   const inputStyle =
