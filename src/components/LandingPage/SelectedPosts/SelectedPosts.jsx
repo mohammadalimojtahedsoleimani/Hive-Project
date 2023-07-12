@@ -10,7 +10,7 @@ const SelectedPosts = ( props ) => {
     // variables
     const [ charity1 , setCharity1 ] = useState ( [] )
     const { charity , setChairty } = useContext ( CharityContext )
-    let slicedData = charity.slice(0, 2);
+    let slicedData = charity.slice(0, 3);
     const postsArray = [
         {
             id:2,
