@@ -439,14 +439,19 @@ margin-top: 56px;
 }
 .shareButtonContainer:hover{
     background: #4D7AD2;
+    color: white;
 }
-.shareButton:hover{
+/* .shareButton:hover{
+    color: white;
+} */
+.shareButtonContainer:hover .shareButton{
     color: white;
 }
 .donateButtonContainer:hover{
-    background:#4D7AD2 ;
-}
-.donateButton:hover{
+    background: #4D7AD2;
     color: white;
-
+}
+.donateButtonContainer:hover .donateButton{
+    background:#4D7AD2 ;
+    color: white;
 }

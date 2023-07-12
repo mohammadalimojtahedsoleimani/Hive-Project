@@ -15,7 +15,7 @@ import Donation from "../../modal/Donation/Donation";
 // innate styles
 const BUTTON_WRAPPER_DONATE_STYLES = {
     position : "relative" ,
-    zIndex : 1 ,
+    // zIndex : 1 ,
 };
 
 const CharityPage = () => {
