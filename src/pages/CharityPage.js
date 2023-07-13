@@ -11,6 +11,7 @@ import { useLocation } from "react-router-dom";
 import axios from "axios";
 import { DonationContext } from "../context/DonationContext";
 import Donation from "../components/modal/Donation/Donation";
+import DateTransformer from "../helper/dateTransformer";
 // innate styles
 const BUTTON_WRAPPER_DONATE_STYLES = {
     position : "relative" ,
@@ -33,18 +34,13 @@ const CharityPage = () => {
     const [ collected_amount , setCollected_amount ] = useState ( '' )
     const [ collected_percentage , setCollected_percentage ] = useState ( '' )
     const dateOnly = published_date.split ( 'T' )[ 0 ];
-    let date = new Date ( `${ dateOnly }` ); // your date from API
-    let hijriShamsiDate = date.toLocaleDateString ( 'fa-IR-u-ca-persian-nu-arab' , {
-        day : 'numeric' ,
-        month : 'long' ,
-        year : 'numeric'
-    } );
     let formattedNumber = collected_amount.toLocaleString('fa-IR-u-nu-arab', {minimumFractionDigits: 0})
     // contexts
     const { isDonationOpen , setIsDonationOpen } = useContext ( DonationContext );
     // functions
     useEffect ( () => {
-        console.log ( charity_id )
+
+
         axios.get ( `http://127.0.0.1:8000/charity/api/v1/ads/${ charity_id }/` )
             .then ( r => {
                 setCategory ( r.data.category.name )
@@ -56,9 +52,7 @@ const CharityPage = () => {
                 setImage ( r.data.image )
                 setContent ( r.data.content )
                 setCollected_percentage ( r.data.collected_percentage )
-                console.log ( r.data )
-                console.log ( r.data.collected_percentage )
-                console.log ( hijriShamsiDate )
+
             } )
 
 
@@ -123,7 +117,7 @@ const CharityPage = () => {
                             </div>
                             <div className={ styles.dateContainer }>
                                 <img src={ calender } alt="axe calender"/>
-                                <p>{ hijriShamsiDate }</p>
+                                <p>{ DateTransformer(dateOnly) }</p>
                             </div>
                             <div className={ styles.estimatedTimeContainer }>
                                 <img src={ clock } alt="axe clock"/>
@@ -181,7 +175,7 @@ const CharityPage = () => {
                                             onClick={ () => setIsDonationOpen ( true ) }>پرداخت کمک
                                     </button>
                                     <Donation open={ isDonationOpen } closeModal={ () => setIsDonationOpen ( false ) }
-                                              ChairtyTitle={ title } pageId={ charity_id }>
+                                              ChairtyTitle={ title } pageId={ charity_id } >
                                     </Donation>
 
                                 </div>
