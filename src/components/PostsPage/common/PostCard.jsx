@@ -5,6 +5,7 @@ import styles from "../../../pages/CharityPage.module.css";
 import React , { useEffect , useState } from "react";
 import stle from "./PostCard.module.css";
 import axios from "axios";
+import DateTransformer from "../../../helper/dateTransformer";
 
 const PostCard = ( {
                        id ,
@@ -21,15 +22,6 @@ const PostCard = ( {
     console.log ( "postss " , image );
     const [ nOfDonatores , setNofDonatores ] = useState ( '' )
     const dateOnly = date.split ( "T" )[ 0 ];
-    let pub_date = new Date ( `${ dateOnly }` ); // your date from API
-    let hijriShamsiDate = pub_date.toLocaleDateString (
-        "fa-IR-u-ca-persian-nu-arab" ,
-        {
-            day : "numeric" ,
-            month : "long" ,
-            year : "numeric" ,
-        }
-    );
     let formattedNumber = collected.toLocaleString ( "fa-IR-u-nu-arab" , {
         minimumFractionDigits : 0 ,
     } );
@@ -76,7 +68,7 @@ const PostCard = ( {
           </span>
                     <span className="flex items-center gap-1 xxl:gap-3 text-[11px] xxl:text-[13px] pl-2 xxl:pl-3">
             <img src={ Calendar } alt="" className="w-[13px] xxl:w-[17px]"/>
-                        { hijriShamsiDate }
+                        { DateTransformer(dateOnly) }
           </span>
                 </div>
                 <h2 className="font-bold text-[15px] xxl:text-[21px] mt-3 xxl:mt-4 text-blue-500 text-opacity-100">

@@ -4,8 +4,13 @@ import { Link } from "react-router-dom";
 import styles from "../../../pages/CharityPage.module.css";
 import stle from "../../PostsPage/common/PostCard.module.css";
 import React from "react";
+import DateTransformer from "../../../helper/dateTransformer";
 
 const PostCard = ({ post }) => {
+  let date = post.published_date
+  const dateOnly = date.split ( 'T' )[ 0 ];
+
+
   return (
     <div
       style={{ boxShadow: "rgba(0, 0, 0, 0.15) 0px 3px 3px 0px" }}
@@ -26,7 +31,7 @@ const PostCard = ({ post }) => {
           </span>
           <span className="flex items-center gap-1 xxl:gap-3 text-[10px] xxl:text-[14px]">
             <img src={Calendar} alt="" />
-            {post.published_date}
+            {DateTransformer(dateOnly)}
           </span>
         </div>
         <h2
