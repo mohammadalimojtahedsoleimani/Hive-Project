@@ -14,6 +14,7 @@ import { PropagateLoader } from "react-spinners";
 import { Bars } from "react-loader-spinner";
 import Paging from '../components/PostsPage/Paging';
 import { SearchContext } from "../context/SearchContext";
+import { CatidContext } from "../context/CatidContext";
 
 const posts = [
     {
@@ -83,28 +84,28 @@ const PostsPage = ( props ) => {
     // variables
     const [ page , setPage ] = useState ( 1 )
     const [ itemsInfo , setItemsInfo ] = useState ( { total_objects : 0 , total_pages : 0 } )
-
+    const { catid , setCatid } = useContext ( CatidContext );
     const categories = [
         {
-            id: 1,
-            name: "حیوانات"
-        },
+            id : 1 ,
+            name : "حیوانات"
+        } ,
         {
-            id: 2,
-            name: "آموزشی"
-        },
+            id : 2 ,
+            name : "آموزشی"
+        } ,
         {
-            id: 4,
-            name: "پزشکی"
-        },
+            id : 4 ,
+            name : "پزشکی"
+        } ,
         {
-            id: 5,
-            name: "محیط زیست"
-        },
+            id : 5 ,
+            name : "محیط زیست"
+        } ,
         {
-            id: 3,
-            name: "سایر"
-        },
+            id : 3 ,
+            name : "سایر"
+        } ,
     ];
     const [ type , setType ] = useState ( "default" );
     const [ isMenuOpen , setIsMenuOpen ] = useState ( false );
@@ -144,46 +145,47 @@ const PostsPage = ( props ) => {
         //         console.log ( number )
         //         console.log ( response )
         //     } )
-        if ( search ){
-            url = `http://127.0.0.1:8000/charity/api/v1/ads/?search=${search}`
-        }else {
+        if ( search ) {
+            url = `http://127.0.0.1:8000/charity/api/v1/ads/?search=${ search }`
+        } else if ( catid ) {
+            url = `http://127.0.0.1:8000/charity/api/v1/ads/?category=${catid}`
+        } else {
             url = `http://127.0.0.1:8000/charity/api/v1/ads/?page=${ pNumber }`
         }
 
 
-            axios ( {
-                method : "get" ,
-                url : url ,
-                // data: fileData,
-                // headers: {
-                //   "Content-Type": "multipart/form-data",
-                // },
-            } )
-                .then ( function ( response ) {
-                    //   setSheetNumber(response.data["id"]);
-                    setCharity ( response.data.results )
-                    setPage ( response.data.current_page )
-                    setPageNumber ( Number ( number.page ) )
-                    setItemsInfo ( {
-                        total_objects : response.data.total_objects ,
-                        total_pages : response.data.total_pages
-                    } )
-                    //   toast.success("!آپلود شد", {
-                    //     position: toast.POSITION.TOP_LEFT,
-                    //   });
-                    console.log ( response )
-                    //   navigate("/words");
+        axios ( {
+            method : "get" ,
+            url : url ,
+            // data: fileData,
+            // headers: {
+            //   "Content-Type": "multipart/form-data",
+            // },
+        } )
+            .then ( function ( response ) {
+                //   setSheetNumber(response.data["id"]);
+                setCharity ( response.data.results )
+                setPage ( response.data.current_page )
+                setPageNumber ( Number ( number.page ) )
+                setItemsInfo ( {
+                    total_objects : response.data.total_objects ,
+                    total_pages : response.data.total_pages
                 } )
-                .catch ( function ( error ) {
-                    console.log ( error )
-                    //   const response = error.request.responseText;
-                    //   toast.error(response === "" ? error.message : response, {
-                    //     position: toast.POSITION.TOP_LEFT,
-                    //   });
-                } );
+                //   toast.success("!آپلود شد", {
+                //     position: toast.POSITION.TOP_LEFT,
+                //   });
+                //   navigate("/words");
+            } )
+            .catch ( function ( error ) {
+                console.log ( error )
+                //   const response = error.request.responseText;
+                //   toast.error(response === "" ? error.message : response, {
+                //     position: toast.POSITION.TOP_LEFT,
+                //   });
+            } );
 
 
-    } , [ number.page,search ] )
+    } , [ number.page , search,catid ] )
 
     const handleType = () => {
     }
