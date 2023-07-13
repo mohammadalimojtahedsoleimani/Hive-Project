@@ -100,7 +100,7 @@ const Donation = ( { open , ChairtyTitle , pageId } ) => {
                     <p>{ ChairtyTitle }</p>
                     <span></span>
                     <div className={ styles.inputContainer }>
-                        <input type="text" className={ styles.moneyInput } id="money" onChange={ changeHandler }
+                        <input type="number" className={ styles.moneyInput } id="money" onChange={ changeHandler }
                                name="money" value={ money }/>
 
                         <label htmlFor="money" className={ styles.moneyLabel }>تومان</label>
