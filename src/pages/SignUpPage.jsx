@@ -56,7 +56,7 @@ const SignUpPage = () => {
         setPasswordError(null);
         setPassword1Error(null);
         setIsEmpty("");
-
+        console.log(response)
         const timer = setTimeout(() => {
           navigate("/posts/1");
         }, delay);

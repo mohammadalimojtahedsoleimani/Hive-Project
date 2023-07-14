@@ -30,7 +30,7 @@ const Navbar = ({ active, dark }) => {
   const getIn = (
     <div className="flex gap-3 xxl:gap-5 pr-6 xxl:pr-10">
       <Link
-        to="signUp"
+        to="/signUp"
         className={
           styles.sign_up +
           " flex items-center py-[0.5rem] px-[0.75rem] xxl:px-[1.5rem] xxl:py-[1rem] text-[0.75rem] xxl:text-[1rem] xxl:leading-[0.5rem]"

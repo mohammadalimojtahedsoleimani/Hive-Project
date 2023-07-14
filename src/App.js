@@ -19,7 +19,7 @@ import { LogoutProvider } from "./context/LogoutContext";
 import { DeleteprofProvider } from "./context/DeleteprofContext";
 import Activation from "./pages/Activation"
 import { CatidProvider } from "./context/CatidContext";
-
+import GetEmail from "./pages/GetEmail";
 function App () {
     const isLoggedIn = localStorage.getItem('token') !== null;
 
@@ -47,6 +47,8 @@ function App () {
                                                             <Route path="/post/:page" element={ <CharityPage/> }/>
                                                             <Route path="/dashboard" element={ isLoggedIn ? <DashboardPage/>:<NotFoundPage/> }/>
                                                             <Route path="/activation" element={ <Activation/> }/>
+                                                            <Route exact path="/getEmail"  element={ <GetEmail/> }/>
+
                                                             <Route path='/*' element={ <NotFoundPage/> }/>
                                                             {/* <Route path="/page/:id" element={ <PostPage/> }/>
             <Route path="/profile" element={ <ProfilePage/> }/>
