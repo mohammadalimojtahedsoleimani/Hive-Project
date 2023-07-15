@@ -147,7 +147,7 @@ const PostsPage = ( props ) => {
         if ( search ) {
             url = `http://127.0.0.1:8000/charity/api/v1/ads/?search=${ search }`
         } else if ( catid ) {
-            url = `http://127.0.0.1:8000/charity/api/v1/ads/?category=${catid}`
+            url = `http://127.0.0.1:8000/charity/api/v1/ads/?category=${catid}&page=${pNumber}`
         } else {
             url = `http://127.0.0.1:8000/charity/api/v1/ads/?page=${ pNumber }`
         }
