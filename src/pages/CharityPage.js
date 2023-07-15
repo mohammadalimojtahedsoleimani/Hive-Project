@@ -62,7 +62,8 @@ const CharityPage = () => {
     return (
         <>
             <Navbar dark={ true }/>
-            <div className={ styles.mainBody }>
+            <div className={ styles.mainBody } style={BUTTON_WRAPPER_DONATE_STYLES} >
+
                 <div className={ styles.topBody }>
                     <div className={ styles.rightPartTop }>
                         <p>{ title }</p>

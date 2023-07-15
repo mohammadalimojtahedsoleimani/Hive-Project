@@ -44,7 +44,7 @@ const Header = (props) => {
         </div>
         {!isIn && (
           <div className={styles.enter_parent + " gap-6 pt-4"}>
-            <div style={BUTTON_WRAPPER_LOGIN_STYLES}>
+            <div >
               <button
                 onClick={() => setIsOpenLogin(true)}
                 className={
@@ -54,10 +54,10 @@ const Header = (props) => {
               >
                 وارد شو
               </button>
-              <Login
-                open={isOpenLogin}
-                closeModal={() => setIsOpenLogin(false)}
-              ></Login>
+              {/*<Login*/}
+              {/*  open={isOpenLogin}*/}
+              {/*  closeModal={() => setIsOpenLogin(false)}*/}
+              {/*></Login>*/}
             </div>
             <Link
               to="signUp"

@@ -50,7 +50,6 @@ function App () {
                                                             <Route path="/activation" element={ <Activation/> }/>
                                                             <Route exact path="/getEmail"  element={ <GetEmail/> }/>
                                                             <Route path='/*' element={ <NotFoundPage/> }/>
-
                                                             {/* <Route path="/page/:id" element={ <PostPage/> }/>
             <Route path="/profile" element={ <ProfilePage/> }/>
             <Route path="/Posts" element={ <PostsPage/> }/>
