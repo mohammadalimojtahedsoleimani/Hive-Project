@@ -1,6 +1,7 @@
-import Calendar from "../../../images/LandingPage/selected_posts_calendar.svg";
-import Person from "../../../images/LandingPage/selected_posts_person.svg";
+import Calendar from "../../../images/common/PostCard/calendar.svg";
+import Person from "../../../images/common/PostCard/person.svg";
 import styles from "./PostCardMobile.module.css";
+import { moneyToText } from "../../../helper/Utils";
 import { Link } from "react-router-dom";
 
 const PostCardMobile = ({ post }) => {
@@ -43,8 +44,8 @@ const PostCardMobile = ({ post }) => {
             />
           </div>
           <div className={styles.money_info_bottom}>
-            <span>جمع شده : {post.collected_amount} میلیون تومان</span>
-            <span>هدف : {post.estimated_amount} میلیون تومان</span>
+            <span>جمع شده : {moneyToText(post.collected_amount)}</span>
+            <span>هدف : {moneyToText(post.estimated_amount)}</span>
           </div>
         </div>
         <div className={styles.button_parent}>
