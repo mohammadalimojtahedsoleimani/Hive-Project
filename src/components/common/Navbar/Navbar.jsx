@@ -13,7 +13,10 @@ import { LoginModalContext } from "../../../context/LoginContext";
 import { ProfileContext } from "../../../context/ProfileContext";
 import axios from "axios";
 import Login from "../../modal/Login/Login";
-
+const BUTTON_WRAPPER_LOGIN_STYLES = {
+  position: "relative",
+  // zIndex : 1 ,
+};
 const Navbar = ({ active, dark }) => {
   const { isIn, setIsIn } = useContext(DakhelContext);
   const { profile, setProfile } = useContext(ProfileContext);
@@ -47,6 +50,10 @@ const Navbar = ({ active, dark }) => {
       >
         ورود
       </button>
+      <Login
+        open={isOpenLogin}
+        closeModal={() => setIsOpenLogin(false)}
+      ></Login>
     </div>
   );
   const profile1 = (name, profileUrl) => {

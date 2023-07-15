@@ -5,14 +5,20 @@ import Insta from "../images/SignUp/links/insta.svg";
 import Pinterest from "../images/SignUp/links/pinterest.svg";
 import Youtube from "../images/SignUp/links/youtube.svg";
 import { Link , useLocation , useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useContext , useState } from "react";
 import axios from "axios";
+import { notify } from "../helper/toast";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+import { LoginModalContext } from "../context/LoginContext";
 
 const EditPasswordPage = () => {
     const location = useLocation ();
     const navigate = useNavigate ();
+    const { isOpenLogin, setIsOpenLogin } = useContext(LoginModalContext);
     const { pathname } = location;
     const segments = pathname.split ( '/' );
+    const delay = 1000;
 
     const [ data , setData ] = useState ( {
         password : '' ,
@@ -29,10 +35,17 @@ const EditPasswordPage = () => {
         e.preventDefault();
         axios.patch('http://127.0.0.1:8000/accounts/api/v1/password-reset-complete',data)
             .then(r => {
-                console.log(r)
+                notify('تغییر رمز عبور با موفقیت انجام شد'  , 'success')
+                const timer = setTimeout ( () => {
+                    window.location.reload ();
+                    setIsOpenLogin ( true )
+
+
+
+                } , delay );
             })
             .catch(er => {
-                console.log(er)
+                notify('پسورد معتبر وارد کنید'  , 'er')
             })
     }
 
@@ -128,6 +141,7 @@ const EditPasswordPage = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer/>
         </div>
     );
 };

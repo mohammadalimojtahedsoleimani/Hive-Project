@@ -16,7 +16,7 @@ import moment from "moment";
 import { DakhelContext } from "../../context/DakhelContext";
 import { notify } from "../../helper/toast";
 import { useNavigate } from "react-router-dom";
-
+import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 
 const nameFont = (value) => {
@@ -208,10 +208,8 @@ const Posts = () => {
         }, delay);
       })
       .catch((error) => {
-        console.log("the error: ", error.response);
+        notify("خطایی رخ داد، دوباره تلاش کنید.", "er");
       });
-
-    console.log(formData);
   };
   const onButtonClick = () => {};
   useEffect(() => {

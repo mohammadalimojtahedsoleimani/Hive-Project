@@ -1,5 +1,5 @@
 import React , { useContext , useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { Link , useNavigate } from "react-router-dom";
 import { notify } from "../../../helper/toast";
 import { createPortal } from 'react-dom';
 import styles from "../Login/Login.module.css";
@@ -122,15 +122,16 @@ const Login = ( { open } ) => {
                     </div>
                     <div className={ styles.formButtons }>
                         <button type="submit">{ login }</button>
+                        <Link to='/getEmail'>
 
-                        <div className={ styles.listContainer }>
+
+                            <div className={ styles.listContainer } onClick={closeHandler}>
 
                             <span onClick={ forgetPasswordClickHandler } className={ styles.loginP }
                             >رمز عبور خود را فراموش کرده ام.</span>
-                            {/*<Email open={ isPassOpen } closePassModal={ () => setIsPassOpen ( false ) }>*/ }
 
-                            {/*</Email>*/ }
-                        </div>
+                            </div>
+                        </Link>
 
                     </div>
                 </form>

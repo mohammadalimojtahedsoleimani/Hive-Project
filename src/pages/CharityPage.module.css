@@ -38,7 +38,9 @@
     margin-top: 45px;
     max-width: 827px;
     min-width: 827px;
-    /*overflow: hidden;*/
+    overflow: hidden;
+    min-height: 501px;
+    max-height: 501px;
     object-fit: none;
 
 }

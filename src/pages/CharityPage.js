@@ -34,7 +34,7 @@ const CharityPage = () => {
     const [ collected_amount , setCollected_amount ] = useState ( '' )
     const [ collected_percentage , setCollected_percentage ] = useState ( '' )
     const dateOnly = published_date.split ( 'T' )[ 0 ];
-    let formattedNumber = collected_amount.toLocaleString('fa-IR-u-nu-arab', {minimumFractionDigits: 0})
+    let formattedNumber = collected_amount.toLocaleString ( 'fa-IR-u-nu-arab' , { minimumFractionDigits : 0 } )
     // contexts
     const { isDonationOpen , setIsDonationOpen } = useContext ( DonationContext );
     // functions
@@ -62,7 +62,8 @@ const CharityPage = () => {
     return (
         <>
             <Navbar dark={ true }/>
-            <div className={ styles.mainBody }>
+            <div className={ styles.mainBody } style={BUTTON_WRAPPER_DONATE_STYLES} >
+
                 <div className={ styles.topBody }>
                     <div className={ styles.rightPartTop }>
                         <p>{ title }</p>
@@ -117,7 +118,7 @@ const CharityPage = () => {
                             </div>
                             <div className={ styles.dateContainer }>
                                 <img src={ calender } alt="axe calender"/>
-                                <p>{ DateTransformer(dateOnly) }</p>
+                                <p>{ DateTransformer ( dateOnly ) }</p>
                             </div>
                             <div className={ styles.estimatedTimeContainer }>
                                 <img src={ clock } alt="axe clock"/>
@@ -175,7 +176,8 @@ const CharityPage = () => {
                                             onClick={ () => setIsDonationOpen ( true ) }>پرداخت کمک
                                     </button>
                                     <Donation open={ isDonationOpen } closeModal={ () => setIsDonationOpen ( false ) }
-                                              ChairtyTitle={ title } pageId={ charity_id } >
+                                              ChairtyTitle={ title } pageId={ charity_id } collect={ collected_amount }
+                                              estimate={ estimated_amount }>
                                     </Donation>
 
                                 </div>
