@@ -12,20 +12,31 @@ import { LogoutContext } from "../../../context/LogoutContext";
 import { DakhelContext } from "../../../context/DakhelContext";
 
 
-const LogOut = ( { open , closeModal } ) => {
+const LogOut = ( { open , closeModal,token } ) => {
     const navigate = useNavigate ();
     const { isLogOpen , setIsLogOpen } = useContext ( LogoutContext );
     const {  setIsIn } = useContext ( DakhelContext );
     // CONTEXTS
 // functions
     const submitHandler = () => {
+
+axios.post('http://127.0.0.1:8000/accounts/api/v1/logout/',{
+
+},{
+    headers:{
+        'Authorization' : `JWT ${token}`
+    }
+})
+    .then(r =>{
+        console.log(r)
+
+    })
         localStorage.removeItem ( "token" )
         localStorage.removeItem('id')
         navigate ( "/" )
         console.log("salam")
         setIsIn(false)
         setIsLogOpen(false)
-
     }
     const closeHandler = () => {
         setIsLogOpen ( false )

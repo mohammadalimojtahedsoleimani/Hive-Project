@@ -69,7 +69,6 @@ const Donation = ( { open , ChairtyTitle , pageId } ) => {
                     }
                 } )
                     .then ( r => {
-                        console.log ( r.data )
                         notify ( `پرداخت  با موفقیت انجام شد.  ` , 'success' )
                         const timer = setTimeout ( () => {
                             setIsDonationOpen ( false )

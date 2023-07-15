@@ -16,6 +16,7 @@ const PersonalInfo = () => {
   let value;
   let id;
   const { isIn , setIsIn } = useContext ( DakhelContext );
+  const delay = 1000;
   // functions
   const handleImageChange = (event) => {
     setData({ ...data, [event.target.name]: event.target.files[0] });
@@ -50,6 +51,11 @@ const PersonalInfo = () => {
   };
   const handleDateChange = (e) => {
     e.preventDefault();
+    if(!data.fname || !data.lname) {
+      notify('لطفا همه ورودی ها را پر کنید'    , 'er')
+      return;
+    }
+
     value = localStorage.getItem("token");
     id = localStorage.getItem("id");
 
@@ -70,8 +76,14 @@ const PersonalInfo = () => {
         },
       })
       .then((response) => {
-        console.log(response);
         notify("تغییرات با موفقیت ثبت شد.", "success");
+        const timer = setTimeout ( () => {
+          window.location.reload ();
+
+
+        } , delay );
+
+
       })
       .catch((error) => {
         console.log("the error: ", error.response);
@@ -82,7 +94,7 @@ const PersonalInfo = () => {
 
   return (
     <div className="flex items-start pt-[14vh] w-full h-full">
-      <form className="flex flex-col w-full pl-[7vw] pr-[5vw]" action="">
+      <form className="flex flex-col w-full pl-[7vw] pr-[5vw]" onSubmit={handleDateChange}>
         <div className="flex flex-col gap-[8vh]">
           {/* <div>
             <img src={SampleProfile} alt="" />
@@ -253,8 +265,7 @@ const PersonalInfo = () => {
             </div>
             <div className="flex justify-center mt-[9vh]">
               <button
-                onClick={handleDateChange}
-                // onClick={}
+             type='submit'
                 className="font-[700] text-[19px] xxl:text-[21px] text-white bg-[#4D7AD2] rounded-lg px-[0.8rem] xxl:px-[0.5rem] py-[1rem] xxl:py-[0.7rem] relative left-[5vw]"
               >
                 انجام تغییرات
