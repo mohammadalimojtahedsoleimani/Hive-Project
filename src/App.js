@@ -46,7 +46,11 @@ function App () {
                                                             <Route path="/AboutUs" element={ <AboutUs/> }/>
                                                             <Route path="/posts/:page" element={ <PostsPage/> }/>
                                                             <Route path="/post/:page" element={ <CharityPage/> }/>
-                                                            <Route path="/dashboard" element={ isLoggedIn ? <DashboardPage/>:<NotFoundPage/> }/>
+                                                            <Route path="/dashboard">
+                                                                <Route path="general" element={ isLoggedIn ? <DashboardPage active="general"/>:<NotFoundPage/> }/>
+                                                                <Route path="posts" element={ isLoggedIn ? <DashboardPage active="posts"/>:<NotFoundPage/> }/>
+                                                                <Route path="info" element={ isLoggedIn ? <DashboardPage active="info"/>:<NotFoundPage/> }/>
+                                                            </Route>
                                                             <Route path="/activation" element={ <Activation/> }/>
                                                             <Route exact path="/getEmail"  element={ <GetEmail/> }/>
                                                             <Route path='/*' element={ <NotFoundPage/> }/>

@@ -36,7 +36,7 @@ const MobileNavbar = ({ active, dark }) => {
   );
   const profile = (name, profileUrl) => {
     return (
-      <Link to="/dashboard" className="pr-6 xxl:pr-10">
+      <Link to="/dashboard/general" className="pr-6 xxl:pr-10">
         <div className="flex gap-3">
           <div>
             <img
@@ -61,7 +61,7 @@ const MobileNavbar = ({ active, dark }) => {
           {item.value}
         </Link>
         {active === item.key && (
-          <hr className="bg-[#4D7AD2] border-0 h-[1px] pb-[-1px]" />
+          <hr className="bg-[#4D7AD2] border-0 h-[1px]" />
         )}
       </div>
     );

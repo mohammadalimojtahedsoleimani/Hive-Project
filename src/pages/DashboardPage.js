@@ -19,15 +19,17 @@ const BUTTON_WRAPPER_LOGIN_STYLES = {
     position: "relative",
     zIndex : 1 ,
 };
-const DashboardPage = () => {
+const DashboardPage = ({active}) => {
     // variables
     const { isOpenLogin, setIsOpenLogin } = useContext(LoginModalContext);
-    const navOptions = [{id:0, name: 'داشبورد', value: "dashboard", icon: Dashboard, activeIcon: DashboardActive}, {id: 1, name: 'آگهی های ثبت شده', value:'posts', icon: Posts, activeIcon: PostsActive}, {id: 2, name: 'اطلاعات حساب کاربری', value: 'info', icon: Info, activeIcon: InfoActive}]
-    const [active, setActive] = useState("dashboard")
+    const navOptions = [{id:0, name: 'داشبورد', value: "general", icon: Dashboard, activeIcon: DashboardActive}, {id: 1, name: 'آگهی های ثبت شده', value:'posts', icon: Posts, activeIcon: PostsActive}, {id: 2, name: 'اطلاعات حساب کاربری', value: 'info', icon: Info, activeIcon: InfoActive}]
+    // const [active, setActive] = useState("dashboard")
     return (
         <div className="flex" style={BUTTON_WRAPPER_LOGIN_STYLES}>
             <div className="fixed top-0 left-0 w-[75vh] z-[-2]"><img src={Rectangle} alt=""/></div>
-            <VerticalNavbar navOptions={navOptions} active={active} setActive={setActive}/>
+            <VerticalNavbar navOptions={navOptions} active={active}
+            //  setActive={setActive}
+             />
             <div className="h-[100vh] flex-[6]">
                 <Container active={active}/>
             </div>
