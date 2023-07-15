@@ -1,11 +1,12 @@
 import styles from "./Menu.module.css";
-import { Fragment, useContext, useState } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 
 import Close from "../../images/PostsPage/close.svg";
 import { CatidContext } from "../../context/CatidContext";
 
 const Menu = (props) => {
   const [fullMenu, setFullMenu] = useState(false);
+  const [tempCatid, setTempCatid] = useState("");
   const { catid, setCatid } = useContext(CatidContext);
 
   const closeMenu = () => {
@@ -13,7 +14,7 @@ const Menu = (props) => {
   };
 
   const activeStyle = (id) => {
-    if (id === catid) {
+    if (id === tempCatid) {
       return {
         backgroundColor: "rgba(82, 82, 82, 1)",
         color: "white",
@@ -26,7 +27,7 @@ const Menu = (props) => {
         {props.categories.slice(start, end).map((category) => (
           <div
             onClick={() => {
-              setCatid(category.id);
+              setTempCatid(category.id);
             }}
             className={styles.type + " text-[12px] xxl:text-[15px]"}
             style={activeStyle(category.id)}
@@ -53,6 +54,19 @@ const Menu = (props) => {
       }
     }
     return result;
+  };
+  useEffect(() => {
+    if (tempCatid === "") {
+      setCatid("");
+    }
+  }, [tempCatid]);
+  const handleCheckResult = () => {
+    setCatid(tempCatid);
+    closeMenu();
+  };
+  const handleReset = () => {
+    setTempCatid("");
+    closeMenu();
   };
   const maxShownNumber = 12;
   const theMenu = () => {
@@ -98,11 +112,13 @@ const Menu = (props) => {
             {/* <hr /> */}
             <div className={styles.bottom}>
               <button
+                onClick={handleReset}
                 className={styles.reset_btn + " text-[16px] xxl:text-[19px]"}
               >
                 ریست
               </button>
               <button
+                onClick={handleCheckResult}
                 className={
                   styles.see_result_btn + " text-[16px] xxl:text-[19px]"
                 }
