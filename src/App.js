@@ -20,9 +20,9 @@ import { DeleteprofProvider } from "./context/DeleteprofContext";
 import Activation from "./pages/Activation"
 import { CatidProvider } from "./context/CatidContext";
 import GetEmail from "./pages/GetEmail";
+import UseScrollToTop from "./hooks/use-scroll-to-top";
 function App () {
     const isLoggedIn = localStorage.getItem('token') !== null;
-
 
     return (
         <MobileViewProvider>
@@ -36,6 +36,7 @@ function App () {
                                         <LogoutProvider>
                                             <DeleteprofProvider>
                                                 <CatidProvider>
+                                                <UseScrollToTop>
                                                     <>
                                                         <Routes>
                                                             <Route path="/" element={ <LandingPage/> }/>
@@ -58,6 +59,7 @@ function App () {
             <Route path="/*" element={ <NotFoundPage/> }/> */ }
                                                         </Routes>
                                                     </>
+                                                    </UseScrollToTop>
                                                 </CatidProvider>
                                             </DeleteprofProvider>
                                         </LogoutProvider>
