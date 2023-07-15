@@ -23,6 +23,7 @@ const VerticalNavbar = ({ navOptions, active, setActive }) => {
   const { setIsIn } = useContext(DakhelContext);
   const { isLogOpen, setIsLogOpen } = useContext(LogoutContext);
   const { isDelOpen, setIsDelOpen } = useContext(DeleteprofContext);
+  const value = localStorage.getItem('token')
   // functions
   const logOutHandler = () => {
     localStorage.removeItem("token");
@@ -74,7 +75,7 @@ const VerticalNavbar = ({ navOptions, active, setActive }) => {
       >
         <img src={Logout} alt="axe logout" />
         <span onClick={() => setIsLogOpen(true)}>خروج از حساب کاربری</span>
-        <LogOut
+        <LogOut token={value}
           open={isLogOpen}
           closeModal={() => setIsLogOpen(false)}
         ></LogOut>

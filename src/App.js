@@ -19,10 +19,10 @@ import { LogoutProvider } from "./context/LogoutContext";
 import { DeleteprofProvider } from "./context/DeleteprofContext";
 import Activation from "./pages/Activation"
 import { CatidProvider } from "./context/CatidContext";
-
+import GetEmail from "./pages/GetEmail";
+import UseScrollToTop from "./hooks/use-scroll-to-top";
 function App () {
     const isLoggedIn = localStorage.getItem('token') !== null;
-
 
     return (
         <MobileViewProvider>
@@ -36,18 +36,21 @@ function App () {
                                         <LogoutProvider>
                                             <DeleteprofProvider>
                                                 <CatidProvider>
+                                                <UseScrollToTop>
                                                     <>
                                                         <Routes>
                                                             <Route path="/" element={ <LandingPage/> }/>
                                                             <Route path="/signUp" element={ <SignUpPage/> }/>
-                                                            <Route path="/editpassword"
+                                                            <Route path="/reset-password/*"
                                                                    element={ <EditPasswordPage/> }/>
                                                             <Route path="/AboutUs" element={ <AboutUs/> }/>
                                                             <Route path="/posts/:page" element={ <PostsPage/> }/>
                                                             <Route path="/post/:page" element={ <CharityPage/> }/>
                                                             <Route path="/dashboard" element={ isLoggedIn ? <DashboardPage/>:<NotFoundPage/> }/>
                                                             <Route path="/activation" element={ <Activation/> }/>
+                                                            <Route exact path="/getEmail"  element={ <GetEmail/> }/>
                                                             <Route path='/*' element={ <NotFoundPage/> }/>
+
                                                             {/* <Route path="/page/:id" element={ <PostPage/> }/>
             <Route path="/profile" element={ <ProfilePage/> }/>
             <Route path="/Posts" element={ <PostsPage/> }/>
@@ -56,6 +59,7 @@ function App () {
             <Route path="/*" element={ <NotFoundPage/> }/> */ }
                                                         </Routes>
                                                     </>
+                                                    </UseScrollToTop>
                                                 </CatidProvider>
                                             </DeleteprofProvider>
                                         </LogoutProvider>

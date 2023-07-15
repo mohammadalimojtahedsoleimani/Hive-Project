@@ -4,58 +4,56 @@ import Twitter from "../images/SignUp/links/twitter.svg";
 import Insta from "../images/SignUp/links/insta.svg";
 import Pinterest from "../images/SignUp/links/pinterest.svg";
 import Youtube from "../images/SignUp/links/youtube.svg";
-import { Link , useLocation , useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
-const EditPasswordPage = () => {
-    const location = useLocation ();
-    const navigate = useNavigate ();
-    const { pathname } = location;
-    const segments = pathname.split ( '/' );
+const GetEmail = () => {
+    const [data,setData]=useState({
+            email:"",
+        }
+    )
 
-    const [ data , setData ] = useState ( {
-        password : '' ,
-        token : segments[ 7 ] ,
-        uidb64 : segments[ 6 ]
-    } )
-    const changeHandler = ( event ) => {
-        setData ( { ... data , [ event.target.name ] : event.target.value } )
-
-    }
+    // functions
+    const changeHandler = (event) => {
+        setData({ ...data, [event.target.name]: event.target.value });
+    };
     const submitHandler = (e)=>{
-        console.log(data.uidb64)
-        console.log(data.token)
         e.preventDefault();
-        axios.patch('http://127.0.0.1:8000/accounts/api/v1/password-reset-complete',data)
-            .then(r => {
+
+        axios
+            .post('http://127.0.0.1:8000/accounts/api/v1/request-reset-email/',data)
+            .then(r =>{
                 console.log(r)
+
             })
-            .catch(er => {
+            .catch(er=>{
                 console.log(er)
             })
-    }
 
+
+    }
     const inputStyle =
         "text-[#A3A3A3] bg-[#F3F2F2] rounded-lg text-[17px] xxl:text-[19px] p-[0.4rem] xxl:p-[0.9rem] mb-[0.9rem] xxl:mb-[1.5rem]";
-    const form = (
-        <form  className="flex flex-col pl-[4rem]" onSubmit={submitHandler}>
+    const form = ()=>{
+   return (
+        <form  className="flex flex-col pl-[4rem]" onSubmit={submitHandler} >
             <div className="flex flex-col mb-8 xxl:mb-11">
                 <label
                     htmlFor=""
                     className="font-[500] text-[28px] xxl:text-[32px] mb-3 xxl:mb-5"
                 >
-                    رمز عبور جدید :
+                    ایمیل خود را وارد کنید:
                 </label>
-                <input type="password" name='password' value={data.password} onChange={changeHandler} className={ inputStyle }/>
+                <input type="text" name='email' value={data.value} id="email" onChange={changeHandler} className={ inputStyle }/>
             </div>
-
             <button type='submit'
                     className="text-white bg-[#4D7AD2] font-[700] rounded-lg text-[18px] xxl:text-[21px] py-[0.8rem] xxl:py-[1.2rem] my-6 xxl:my-9">
-                بررسی تغییرات
+                ارسال ایمیل
             </button>
         </form>
     );
+    };
     return (
         <div
             className="page min-h-[100vh] flex"
@@ -67,7 +65,7 @@ const EditPasswordPage = () => {
             <div
                 className="right flex-1 flex flex-col items-stretch justify-center relative bottom-3 xxl:bottom-4 pl-[13vw] pr-[10vw] min-h-[100vh]">
                 <div className="right_parent z-[2] pt-[4.5rem] relative bottom-8 xxl:bottom-16">
-                    <div className="form_parent">{ form }</div>
+                    <div className="form_parent">{ form() }</div>
                 </div>
             </div>
             <div className="left flex-1 flex flex-col relative min-h-[100vh]">
@@ -132,4 +130,4 @@ const EditPasswordPage = () => {
     );
 };
 
-export default EditPasswordPage;
+export default GetEmail;
