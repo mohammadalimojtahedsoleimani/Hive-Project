@@ -1,6 +1,6 @@
 import styles from "./Table.module.css";
 import { useState } from "react";
-const Table = ({ titlesArr, dataArr, minHeight }) => {
+const Table = ({ titlesArr, dataArr, itemsPerPage, minHeight }) => {
   const itemBaseStyle = "text-[10px] xxl:text-[12px]";
   const itemStyle1 = itemBaseStyle + " text-[#4C4C4C]";
   const itemStyle2 = itemBaseStyle + " text-[#808080]";
@@ -35,22 +35,18 @@ const Table = ({ titlesArr, dataArr, minHeight }) => {
     const end = start + itemsPerPage;
     return data.slice(start, end);
   }
-  const itemsPerPage = 5;
   const pageCount = getPageCount(dataArr.length, itemsPerPage);
   const pageNumbers = [...Array(pageCount).keys()].map((num) => num + 1);
   const pageData = getPageData(dataArr, currentPage, itemsPerPage);
   return (
     <div
-      style={{ minHeight: `${minHeight}%` }}
+      // style={{ minHeight: `${minHeight}%` }}
       className={
-        styles.table_shadow + ` inline-block rounded-lg overflow-hidden`
+        styles.table_shadow + ` h-fit inline-block rounded-lg overflow-hidden`
       }
     >
-      <table
-        style={{ minHeight: `${minHeight}%` }}
-        className={styles.table + " overflow-y-scroll"}
-      >
-        <thead>
+      <table style={{ minHeight: `${minHeight}` }} className={styles.table}>
+        <thead className={styles.column_name}>
           <tr>
             {titlesArr.map((titleObj) => (
               <th className={" font-medium " + itemStyle1}>{titleObj.name}</th>
@@ -79,42 +75,42 @@ const Table = ({ titlesArr, dataArr, minHeight }) => {
               </th>
             </tr>
           ))}
-          <div
-            className={
-              styles.pagination +
-              " py-[0.5rem] xxl:py-[1rem] gap-[0.4rem] xxl:gap-[0.6rem]"
-            }
-            dir="ltr"
-          >
-            <button
-              style={pageStyle(1)}
-              className="text-[10px] xxl:text-[12px]"
-              onClick={onPrevPage}
-            >
-              صفحه قبل
-            </button>
-            {pageNumbers.map((num) => (
-              <button
-                className={
-                  styles.pagination_num +
-                  " text-[10px] xxl:text-[12px] h-[1.5rem] xxl:h-[2.5rem] w-[1.5rem] xxl:w-[2.5rem]"
-                }
-                key={num}
-                onClick={() => setCurrentPage(num)}
-              >
-                {num}
-              </button>
-            ))}
-            <button
-              className="text-[10px] xxl:text-[12px]"
-              style={pageStyle(pageCount)}
-              onClick={onNextPage}
-            >
-              صفحه بعد
-            </button>
-          </div>
         </tbody>
       </table>
+      <div
+        className={
+          styles.pagination +
+          " py-[0.5rem] xxl:py-[1rem] gap-[0.4rem] xxl:gap-[0.6rem]"
+        }
+        dir="ltr"
+      >
+        <button
+          style={pageStyle(1)}
+          className="text-[10px] xxl:text-[12px]"
+          onClick={onPrevPage}
+        >
+          صفحه قبل
+        </button>
+        {pageNumbers.map((num) => (
+          <button
+            className={
+              styles.pagination_num +
+              " text-[10px] xxl:text-[12px] h-[1.5rem] xxl:h-[2.5rem] w-[1.5rem] xxl:w-[2.5rem]"
+            }
+            key={num}
+            onClick={() => setCurrentPage(num)}
+          >
+            {num}
+          </button>
+        ))}
+        <button
+          className="text-[10px] xxl:text-[12px]"
+          style={pageStyle(pageCount)}
+          onClick={onNextPage}
+        >
+          صفحه بعد
+        </button>
+      </div>
     </div>
   );
 };

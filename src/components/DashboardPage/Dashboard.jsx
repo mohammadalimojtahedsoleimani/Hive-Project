@@ -125,6 +125,7 @@ const Dashboard = () => {
         </div>
       </div>
       <Table
+        itemsPerPage={5}
         titlesArr={[
           { name: "نام حامی", value: "supporter" },
           { name: "وضعیت", value: "status" },
