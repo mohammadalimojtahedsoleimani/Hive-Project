@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install project dependencies
-RUN npm config set registry https://npm.iranrepo.ir/
+# RUN npm config set registry https://npm.iranrepo.ir/
 
 RUN npm install
 
