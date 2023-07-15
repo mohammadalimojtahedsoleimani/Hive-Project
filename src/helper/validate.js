@@ -10,13 +10,17 @@ export const validate = ( data ) => {
     }
     if ( ! data.password ) {
         errors.password = "رمز عبور ضروری است"
-    } else if ( data.password.length < 8) {
-        errors.password = "رمز عبوری کمتر از 8 حرف است"
-    } else if ( /^\d+$/.test(data.password) ){
-
-    }
-    else {
+    } else if ( data.password.length < 8 || /^\d+$/.test(data.password) ) {
+        errors.password = "رمز عبور بسیار ساده میباشد."
+    }else {
         delete errors.password
+    }
+    if ( !data.password1 ){
+        errors.password1 = 'تکرار رمز عبور ضروری است'
+    }else if ( data.password !== data.password1 ){
+        errors.password1 = 'تکرار رمز عبور با رمز عبور مطابقت ندارد.'
+    } else {
+        delete errors.password1
     }
 
     return errors;

@@ -1,4 +1,4 @@
-import React , { useContext ,  useState } from 'react';
+import React , { useContext , useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { notify } from "../../../helper/toast";
 import { createPortal } from 'react-dom';
@@ -28,34 +28,28 @@ const Login = ( { open } ) => {
     } )
     const [ touch , setTouch ] = useState ( {} )
     const [ errors , setErrors ] = useState ( {} )
-
-    // useEffect ( () => {
-    //     if ( inIn ) {
-    //
-    //         setTimeout ( () => {
-    //             window.location.reload ();
-    //             isInIn ( true )
-    //
-    //         } , 3000 );
-    //     }
-    // } , [ inIn ] )
+    const delay = 2000;
     const submitHandler = async ( event ) => {
         event.preventDefault ();
         await axios.post ( "http://127.0.0.1:8000/accounts/api/v1/jwt/create/" , data )
             .then ( async response => {
                 localStorage.setItem ( "token" , response.data.access )
-                localStorage.setItem('id',response.data.user_id)
-
+                localStorage.setItem ( 'id' , response.data.user_id )
+                notify ( 'ورود موفقیت آمیز بود' , 'success' )
 
                 setData ( {
                     email : "" ,
                     password : ""
                 } )
+                const timer = setTimeout ( () => {
+                    setErrors ( {} )
+                    setIsOpenLogin ( false )
+                    setIsIn ( true )
+                    window.location.reload ();
 
 
-                setErrors ( {} )
-                setIsOpenLogin ( false )
-                setIsIn ( true )
+                } , delay );
+
 
             } )
 
@@ -82,8 +76,6 @@ const Login = ( { open } ) => {
             password : ""
         } )
         setErrors ( {} )
-        // setIsOpen ( false )
-        // setIsPassOpen ( false )
         setIsOpenLogin ( false )
 
 

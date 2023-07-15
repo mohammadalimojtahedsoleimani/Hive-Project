@@ -13,7 +13,7 @@ import { toast } from 'react-toastify';
 import { DakhelContext } from "../../../context/DakhelContext";
 
 
-const Donation = ( { open , ChairtyTitle , pageId } ) => {
+const Donation = ( { open , ChairtyTitle , pageId , collect , estimate } ) => {
     // variables
     const { setIsDonationOpen } = useContext ( DonationContext );
     const [ money , setMoney ] = useState ( '' )
@@ -22,6 +22,7 @@ const Donation = ( { open , ChairtyTitle , pageId } ) => {
     let value = localStorage.getItem ( "token" );
     const delay = 2000;
     const [ er , setEr ] = useState ( '' )
+    const newTotal = collect + money;
 
 
     // functions
@@ -29,7 +30,7 @@ const Donation = ( { open , ChairtyTitle , pageId } ) => {
         setMoney ( '' )
         setErrors ( {} )
         setIsDonationOpen ( false )
-        toast.dismiss();
+        toast.dismiss ();
 
 
     }
@@ -45,20 +46,23 @@ const Donation = ( { open , ChairtyTitle , pageId } ) => {
 
     const submitHandler = () => {
         if ( isIn === false ) {
-            toast.warning('برای اهدای پول لطفا وارد شوید.'     ,{
-                position: "top-right",
-                autoClose: false,
-                hideProgressBar: false,
-                closeOnClick: false,
-                pauseOnHover: true,
-                draggable: false,
-                progress: undefined,
-                theme: "colored",
-            })
+            toast.warning ( 'برای اهدای پول لطفا وارد شوید.' , {
+                position : "top-right" ,
+                autoClose : false ,
+                hideProgressBar : false ,
+                closeOnClick : false ,
+                pauseOnHover : true ,
+                draggable : false ,
+                progress : undefined ,
+                theme : "colored" ,
+            } )
 
         } else {
             if ( money > 0 ) {
-
+                if ( newTotal > estimate ) {
+                    notify ( 'مقدار وارد شده بیشتر از هدف هست' , 'er' )
+                    return;
+                }
 
                 const formData = new FormData ()
                 formData.append ( 'advertisement' , pageId )
@@ -69,7 +73,6 @@ const Donation = ( { open , ChairtyTitle , pageId } ) => {
                     }
                 } )
                     .then ( r => {
-                        console.log ( r.data )
                         notify ( `پرداخت  با موفقیت انجام شد.  ` , 'success' )
                         const timer = setTimeout ( () => {
                             setIsDonationOpen ( false )
@@ -105,7 +108,7 @@ const Donation = ( { open , ChairtyTitle , pageId } ) => {
 
                         <label htmlFor="money" className={ styles.moneyLabel }>تومان</label>
                         <img src={ heart } alt="axe ghalb" className={ styles.heart }/>
-                        { errors.money  && <span>{ errors.money  }</span> }
+                        { errors.money && <span>{ errors.money }</span> }
 
                         <button className={ styles.randomButton }>
                             انتخاب مبلغ دلخواه
