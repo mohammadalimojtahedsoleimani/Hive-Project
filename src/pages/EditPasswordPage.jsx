@@ -16,14 +16,16 @@ const EditPasswordPage = () => {
 
     const [ data , setData ] = useState ( {
         password : '' ,
-        token : segments[ 5 ] ,
-        uidb64 : segments[ 4 ]
+        token : segments[ 7 ] ,
+        uidb64 : segments[ 6 ]
     } )
     const changeHandler = ( event ) => {
         setData ( { ... data , [ event.target.name ] : event.target.value } )
 
     }
     const submitHandler = (e)=>{
+        console.log(data.uidb64)
+        console.log(data.token)
         e.preventDefault();
         axios.patch('http://127.0.0.1:8000/accounts/api/v1/password-reset-complete',data)
             .then(r => {
