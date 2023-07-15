@@ -28,7 +28,7 @@ const GetEmail = () => {
             .post ( 'http://127.0.0.1:8000/accounts/api/v1/request-reset-email/' , data )
             .then ( r => {
                 console.log ( r )
-                notify(  'ایمیل بازیابی رمزعبور ارسال شد' , 'info'              )
+                notify(  'ایمیل بازیابی رمزعبور ارسال شد' , 'info' )
 
             } )
             .catch ( er => {
