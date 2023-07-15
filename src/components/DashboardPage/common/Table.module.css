@@ -1,8 +1,10 @@
 .table{
-    
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 .table th{
-    padding: 0.8vw 1.7vw;
+    padding: 0.7vw 1.5vw;
     border-bottom: solid 1px #F2F2F2;
 }
 .table>thead th{
@@ -19,8 +21,8 @@
 } */
 .pagination{
     width: 100%;
-    position: absolute;
-    bottom: 0;
+    /* position: absolute;
+    bottom: 0; */
     display: flex;
     justify-content: center;
     background-color: #F7F7F7;
@@ -29,4 +31,10 @@
     padding: 0.3rem;
     border-radius: 50%;
     background-color: #E6E6E6;
+}
+.table th{
+    min-width: 7.5vw;
+}
+.column_name *{
+    width: 100%;
 }

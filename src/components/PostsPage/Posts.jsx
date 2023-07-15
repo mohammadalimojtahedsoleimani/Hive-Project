@@ -44,12 +44,13 @@ const Posts = (props) => {
             id={post.id}
             image={post.image}
             name={post.raiser_full_name}
+            categoryName={post.category.name}
             date={post.published_date}
             title={post.title}
             description={post.snippet}
             collected={post.collected_amount}
             target={post.estimated_amount}
-            collected_percentage={post.collected_percentage}
+            collectedPercentage={post.collected_percentage}
           />
         ))
     );

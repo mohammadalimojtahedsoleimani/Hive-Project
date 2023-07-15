@@ -13,7 +13,10 @@ import { LoginModalContext } from "../../../context/LoginContext";
 import { ProfileContext } from "../../../context/ProfileContext";
 import axios from "axios";
 import Login from "../../modal/Login/Login";
-
+const BUTTON_WRAPPER_LOGIN_STYLES = {
+  position: "relative",
+  // zIndex : 1 ,
+};
 const Navbar = ({ active, dark }) => {
   const { isIn, setIsIn } = useContext(DakhelContext);
   const { profile, setProfile } = useContext(ProfileContext);
@@ -28,7 +31,7 @@ const Navbar = ({ active, dark }) => {
     { key: "home", value: "خانه" },
   ];
   const getIn = (
-    <div className="flex gap-3 xxl:gap-5 pr-6 xxl:pr-10">
+    <div className="flex gap-3 pr-6 xxl:gap-5 xxl:pr-10">
       <Link
         to="/signUp"
         className={
@@ -47,11 +50,15 @@ const Navbar = ({ active, dark }) => {
       >
         ورود
       </button>
+      <Login
+        open={isOpenLogin}
+        closeModal={() => setIsOpenLogin(false)}
+      ></Login>
     </div>
   );
   const profile1 = (name, profileUrl) => {
     return (
-      <Link to="/dashboard" className="pr-6 xxl:pr-10">
+      <Link to="/dashboard/general" className="pr-6 xxl:pr-10">
         <div className="flex gap-3">
           <div className=" rounded-[50%] overflow-hidden">
             <img
@@ -151,7 +158,7 @@ const Navbar = ({ active, dark }) => {
         {/* left */}
 
         <div className={styles.left}>
-          <Link to="/" className="flex content-start items-center ">
+          <Link to="/" className="flex items-center content-start ">
             <span
               className={styles.brand_name + " text-[20px] xxl:text-[31px]"}
             >

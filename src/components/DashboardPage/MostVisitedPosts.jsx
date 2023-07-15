@@ -5,6 +5,7 @@ import Donation from "../../images/common/icons/Donation.svg";
 import { Fragment, useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { moneyToText } from "../../helper/Utils";
 
 const MostVisitedPosts = () => {
   // const mostVisitedPostsArr = [
@@ -55,7 +56,7 @@ const MostVisitedPosts = () => {
                     {post.title}
                   </th>
                   <th className="text-[9px] xxl:text-[12px]">
-                    {Math.round(post.collected_amount)} تومان
+                    {moneyToText(post.collected_amount)}
                   </th>
                 </tr>
               </Link>

@@ -10,3 +10,7 @@ export const validateFileType = (e) => {
       alert("Only jpg/jpeg and png files are allowed!");
     }
   };
+
+  export const moneyToText = (money) => {
+    return money.toLocaleString() + " تومان";
+  };

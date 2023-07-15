@@ -4,7 +4,7 @@ import PersonalInfo from "./PersonalInfo";
 const Container = ({ active }) => {
   const content = () => {
     switch (active) {
-      case "dashboard":
+      case "general":
         return <Dashboard />;
       case "posts":
         return <Posts />;

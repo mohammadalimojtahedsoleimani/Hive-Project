@@ -16,7 +16,7 @@ import moment from "moment";
 import { DakhelContext } from "../../context/DakhelContext";
 import { notify } from "../../helper/toast";
 import { useNavigate } from "react-router-dom";
-
+import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 
 const nameFont = (value) => {
@@ -107,7 +107,7 @@ const posts = [
 const Posts = () => {
   // variables
   const [newPost, setNewPost] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [fileData, setFileData] = useState(null);
   const pageSize = 5;
   const [currentPage, setCurrentPage] = useState(1);
@@ -116,7 +116,7 @@ const Posts = () => {
   const { isIn, setIsIn } = useContext(DakhelContext);
   let imagePath = "http://127.0.0.1:8000/media/ads/";
   const [alCharity, setAlCharity] = useState([]);
-  const[isCom,setIsCom]= useState('')
+  const [isCom, setIsCom] = useState("");
   const delay = 2000;
   let value = "";
   const [data, setData] = useState({
@@ -149,7 +149,6 @@ const Posts = () => {
   useEffect(() => {
     value = localStorage.getItem("token");
     updateDateTime();
-
   });
   const handlePageClick = (page) => {
     setCurrentPage(page);
@@ -171,16 +170,16 @@ const Posts = () => {
     // console.log(date)
   };
   const handleDateChange = (e) => {
-    axios.get('http://127.0.0.1:8000/accounts/api/v1/profile/complete/',{
-      headers:{
-        Authorization: `JWT ${value}`,
-      }
-    })
-        .then(r => {
-          console.log(r.data)
-          // setIsCom(r.data.profile_complete )
-
-        })
+    axios
+      .get("http://127.0.0.1:8000/accounts/api/v1/profile/complete/", {
+        headers: {
+          Authorization: `JWT ${value}`,
+        },
+      })
+      .then((r) => {
+        console.log(r.data);
+        // setIsCom(r.data.profile_complete )
+      });
 
     e.preventDefault();
     console.log(date);
@@ -203,20 +202,14 @@ const Posts = () => {
         },
       })
       .then((response) => {
-        notify('ثبت پست با موفقیت انجام شد.'     , 'success')
-        const timer = setTimeout ( () => {
-          navigate(`/post/${response.data.id}`)
-
-
-
-
-        } , delay );
+        notify("ثبت پست با موفقیت انجام شد.", "success");
+        const timer = setTimeout(() => {
+          navigate(`/post/${response.data.id}`);
+        }, delay);
       })
       .catch((error) => {
-        console.log("the error: ", error.response);
+        notify("خطایی رخ داد، دوباره تلاش کنید.", "er");
       });
-
-    console.log(formData);
   };
   const onButtonClick = () => {};
   useEffect(() => {
@@ -317,6 +310,7 @@ const Posts = () => {
   const postsTable = () => {
     return (
       <Table
+        itemsPerPage={7}
         titlesArr={[
           { name: "نام آگهی", value: "title" },
           { name: "وضعیت", value: "status" },
@@ -325,7 +319,7 @@ const Posts = () => {
           { name: "مبلغ کمک شده", value: "money" },
         ]}
         dataArr={tableData}
-        minHeight="70"
+        minHeight="60vh"
       />
     );
   };
@@ -344,14 +338,14 @@ const Posts = () => {
           ایجاد آگهی جدید
         </button>
       </div>
-      <div className="h-full mt-[1.5rem] xxl:mt-[2rem]">{postsTable()}</div>
+      <div className="h-fit mt-[1.5rem] xxl:mt-[2rem]">{postsTable()}</div>
     </div>
   );
   // my work
   const newPostsContainer = (
     <div
       style={{ boxShadow: "rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px" }}
-      className="mt-[5rem] xxl:mt-[7rem] mr-[2.5rem] xxl:mr-[4rem] ml-[1rem] xxl:ml-[2rem]  p-[2rem] xxl:p-[3rem] bg-[#f9f9f9bb]"
+      className="mt-[8vh] mr-[2.5rem] xxl:mr-[4rem] ml-[1rem] xxl:ml-[2rem]  p-[2rem] xxl:p-[3rem] bg-[#f9f9f9bb]"
     >
       <div className="flex gap-3">
         <img src={CreatePost} className="w-[1rem] xxl:w-[2rem]" alt="" />
@@ -463,7 +457,7 @@ const Posts = () => {
             </label>
             <input
               type="number"
-              placeholder="10.000.000 ریال"
+              placeholder="100.000 تومان"
               value={data.estimated_amount}
               onChange={changeHandler}
               name="estimated_amount"
@@ -509,7 +503,7 @@ const Posts = () => {
           ارسال جهت بررسی
         </button>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
   return newPost ? newPostsContainer : oldPosts;
