@@ -1,10 +1,11 @@
 import EditIcon from "../../images/DashboardPage/edit.svg";
 import SampleProfile from "../../images/DashboardPage/sample_profile.png";
 
-import { useEffect, useState } from "react";
+import { useContext , useEffect , useState } from "react";
 import axios from "axios";
 import { notify } from "../../helper/toast";
 import { ToastContainer } from "react-toastify";
+import { DakhelContext } from "../../context/DakhelContext";
 
 const PersonalInfo = () => {
   const [data, setData] = useState({
@@ -14,7 +15,7 @@ const PersonalInfo = () => {
   });
   let value;
   let id;
-
+  const { isIn , setIsIn } = useContext ( DakhelContext );
   // functions
   const handleImageChange = (event) => {
     setData({ ...data, [event.target.name]: event.target.files[0] });
@@ -33,7 +34,7 @@ const PersonalInfo = () => {
       .then((r) => {
         setProfPic(r.data.avatar);
       });
-  }, []);
+  }, [isIn]);
   const changeHandler = (event) => {
     // setData()
     setData({ ...data, [event.target.name]: event.target.value });
@@ -49,6 +50,8 @@ const PersonalInfo = () => {
   };
   const handleDateChange = (e) => {
     e.preventDefault();
+    value = localStorage.getItem("token");
+    id = localStorage.getItem("id");
 
     console.log(value);
 
