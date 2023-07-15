@@ -6,7 +6,7 @@ import axios from "axios";
 import { notify } from "../../helper/toast";
 import { ToastContainer } from "react-toastify";
 import { DakhelContext } from "../../context/DakhelContext";
-
+import 'react-toastify/dist/ReactToastify.css';
 const PersonalInfo = () => {
     const [ data , setData ] = useState ( {
         fname : "" ,
@@ -24,7 +24,10 @@ const PersonalInfo = () => {
     const [ profPic , setProfPic ] = useState ( "" );
     const [ firName , setFirName ] = useState ( '' );
     const [ lasName , setLasName ] = useState ( '' )
-
+const [pNumber,setPnumber] = useState('')
+const [cardNumber,setCardNumber] = useState('')
+    const [locked, setLocked] = useState(false);
+    const [locked1, setLocked1] = useState(false);
     useEffect ( () => {
         value = localStorage.getItem ( "token" );
         id = localStorage.getItem ( "id" );
@@ -43,7 +46,24 @@ const PersonalInfo = () => {
     const changeHandler = ( event ) => {
         // setData()
         setData ( { ... data , [ event.target.name ] : event.target.value } );
+
+
+
     };
+   const phoneHandler = (e)=>{
+       setPnumber(e.target.value)
+       if(pNumber.length > 11) {
+           setLocked(true);
+       }
+
+   }
+   const cardHandler = (e)=>{
+       setCardNumber(e.target.value)
+       if(cardNumber.length > 16) {
+           setLocked1(true);
+       }
+
+   }
 
     const inputStyle =
         "text-[#777777] bg-[#f3f3f3b7] text-[16px] xxl:text-[20px] p-[0.3rem] py-[0.5rem] xxl:p-[0.6rem] xxl:py-[0.9rem] rounded-[15px] font-[700]";
@@ -200,6 +220,10 @@ const PersonalInfo = () => {
                                     className={ inputStyle + " w-[50%]" }
                                     type="tel"
                                     style={ inputShadowBorder }
+                                    onChange={ phoneHandler }
+                                    maxLength={11}
+                                    name='pNumber'
+                                    value={pNumber}
                                 />
                                 <div className=" w-[50%] relative">
                                     <img
@@ -253,6 +277,10 @@ const PersonalInfo = () => {
                                     className={ inputStyle + " w-[60%]" }
                                     type="text"
                                     style={ inputShadowBorder }
+                                    onChange={ cardHandler }
+                                    maxLength={16}
+                                    name='cardNumber'
+                                    value={cardNumber}
                                 />
                                 <div className=" w-[60%] relative">
                                     <img
