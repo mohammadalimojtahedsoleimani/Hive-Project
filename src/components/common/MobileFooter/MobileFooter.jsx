@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const MobileFooter = (props) => {
   return (
-    <div className="bg-dash-pattern text-[#AFAFAF] mt-[10rem]">
+    <div className="bg-dash-pattern text-[#AFAFAF]">
       <div className={styles.inner_parent}>
         <div className={styles.top}>
           <div className={styles.logo_parent}>
