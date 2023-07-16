@@ -11,6 +11,7 @@ import { notify } from "../../../helper/toast";
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 import { DakhelContext } from "../../../context/DakhelContext";
+import BASE_URL, { CHARITY } from '../../../Config/ApiConfig';
 
 
 const Donation = ( { open , ChairtyTitle , pageId , collect , estimate } ) => {
@@ -22,7 +23,7 @@ const Donation = ( { open , ChairtyTitle , pageId , collect , estimate } ) => {
     let value = localStorage.getItem ( "token" );
     const delay = 2000;
     const [ er , setEr ] = useState ( '' )
-    const newTotal = collect + money;
+    const newTotal = collect + parseInt(money);
 
 
     // functions
@@ -45,6 +46,8 @@ const Donation = ( { open , ChairtyTitle , pageId , collect , estimate } ) => {
     }
 
     const submitHandler = () => {
+        console.log('isIn', isIn);
+        console.log('isIn === false', isIn === false);
         if ( isIn === false ) {
             toast.warning ( 'برای اهدای پول لطفا وارد شوید.' , {
                 position : "top-right" ,
@@ -59,6 +62,9 @@ const Donation = ( { open , ChairtyTitle , pageId , collect , estimate } ) => {
 
         } else {
             if ( money > 0 ) {
+                console.log('estimate',estimate)
+                console.log('newTotal', newTotal)
+                console.log('newTotal > estimate', newTotal > estimate);
                 if ( newTotal > estimate ) {
                     notify ( 'مقدار وارد شده بیشتر از هدف هست' , 'er' )
                     return;
@@ -67,7 +73,7 @@ const Donation = ( { open , ChairtyTitle , pageId , collect , estimate } ) => {
                 const formData = new FormData ()
                 formData.append ( 'advertisement' , pageId )
                 formData.append ( 'amount' , money )
-                axios.post ( `http://127.0.0.1:8000/charity/api/v1/donations/` , formData , {
+                axios.post ( BASE_URL + CHARITY.DONATION , formData , {
                     headers : {
                         'Authorization' : `JWT ${ value }`
                     }
