@@ -5,7 +5,7 @@ import { PageContext } from "./PageProvider";
 const CharityContext = createContext ();
 
 const CharityProvider = ( { children } ) => {
-    const [ charity , setCharity ] = useState ( [] );
+   const [ charity , setCharity ] = useState ( [] );
     const { pageNumber } = useContext ( PageContext )
     useEffect ( () => {
         // const fetchAPI = async () => {

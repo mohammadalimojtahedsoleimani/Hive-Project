@@ -10,8 +10,11 @@ import { handleTitle, moneyToText } from "../../../../helper/Utils";
 
 const PostCard = ({ post }) => {
   let date = post.published_date;
-  const dateOnly = date.split("T")[0];
+  let dateOnly ;
   const navigate = useNavigate();
+  if (date !== null) {
+    dateOnly = date.split("T")[0];
+  }
   const handleSnippet = (snippet) => {
     const maxChars = 180;
     if (snippet.length > maxChars) {

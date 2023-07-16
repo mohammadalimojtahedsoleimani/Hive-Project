@@ -12,8 +12,9 @@ const Activation = () => {
     const {  setIsOpenLogin } = useContext ( LoginModalContext );
     // functions
     const clickHandler = () => {
-        navigate ( '/dashboard/info' )
         setIsOpenLogin ( true )
+        navigate ( '/dashboard/info' )
+
 
     }
     return (

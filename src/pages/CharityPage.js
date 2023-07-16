@@ -95,7 +95,7 @@ const handleReadTime = (content) =>{
                                     <p className={ styles.leftPartTopParRelatedContainerText }>جمع آوری کمک برای زلزله
                                         خوی</p>
 
-                                    <p className={ styles.leftPartTopParRelatedContainerCategory }>مالی</p>
+                                    <p className={ styles.leftPartTopParRelatedContainerCategory }>{category}</p>
                                 </div>
                             </div>
                             <div className={ styles.leftPartDownRelatedPostContainer }>
@@ -107,7 +107,7 @@ const handleReadTime = (content) =>{
                                         کار بی بضاعت
                                     </p>
 
-                                    <p className={ styles.leftPartTopParRelatedContainerCategory }>مالی</p>
+                                    <p className={ styles.leftPartTopParRelatedContainerCategory }>{category}</p>
                                 </div>
 
 
