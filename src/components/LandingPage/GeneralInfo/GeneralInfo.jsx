@@ -67,7 +67,7 @@ const GeneralInfo = (props) => {
               <span className="text-[19px] xxl:text-[21px] font-bold">75%</span>
             </div>
             <div className="bg-[#EDEFF7] rounded-[8px] h-2 xxl:h-4 w-[25rem] xxl:w-[42rem]">
-              <hr className="bg-[#4D7AD2] rounded-[8px] h-full w-[75%]" />
+              <hr className="bg-[#4D7AD2] rounded-[8px] h-full w-[75%] border-t-0" />
             </div>
           </div>
           <div className="inline-block xxl:py-5">
@@ -78,7 +78,7 @@ const GeneralInfo = (props) => {
               <span className="text-[19px] xxl:text-[21px] font-bold">90%</span>
             </div>
             <div className="bg-[#EDEFF7] rounded-[8px] h-2 xxl:h-4 w-[25rem] xxl:w-[42rem]">
-              <hr className="bg-[#4D7AD2] rounded-[8px] h-full w-[90%]" />
+              <hr className="bg-[#4D7AD2] rounded-[8px] h-full w-[90%] border-t-0" />
             </div>
           </div>
         </div>
