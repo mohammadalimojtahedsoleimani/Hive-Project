@@ -134,11 +134,38 @@ const Posts = () => {
     collected_amount: "0",
   });
   const options = [
-    { value: "1", label: "حیوانات" },
-    { value: "2", label: "آموزشی" },
-    { value: "3", label: "سایر" },
-    { value: "4", label: "پزشکی" },
-    { value: "5", label: "محیط زیست" },
+    {
+      value: 6,
+      label: "حوادث طبیعی",
+    },
+    {
+      value: 7,
+      label: "کسب و کار",
+    },
+    {
+      value: 8,
+      label: "ازدواج",
+    },
+    {
+      value: 1,
+      label: "حیوانات",
+    },
+    {
+      value: 2,
+      label: "آموزشی",
+    },
+    {
+      value: 4,
+      label: "پزشکی",
+    },
+    {
+      value: 5,
+      label: "محیط زیست",
+    },
+    {
+      value: 3,
+      label: "سایر",
+    },
   ];
 
   // functions
