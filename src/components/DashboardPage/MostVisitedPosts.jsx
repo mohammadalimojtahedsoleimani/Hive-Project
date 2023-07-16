@@ -6,6 +6,7 @@ import { Fragment, useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { moneyToText } from "../../helper/Utils";
+import BASE_URL, { CHARITY } from "../../Config/ApiConfig";
 
 const MostVisitedPosts = () => {
   // const mostVisitedPostsArr = [
@@ -18,13 +19,18 @@ const MostVisitedPosts = () => {
   //     { title : "ارسال دارو به مازندران" , collected_amount : "781,000 تومان" } ,
   // ];
   const [mostVisitedPosts, setMostVisitedPosts] = useState([]);
+  const handleTitle = (title) => {
+    const maxChars = 18;
+    if (title.length > maxChars) {
+      return title.slice(0, maxChars) + "...";
+    }
+    return title;
+  };
   useEffect(() => {
-    axios
-      .get("http://127.0.0.1:8000/charity/api/v1/popular-advertisements/")
-      .then((r) => {
-        console.log(r.data);
-        setMostVisitedPosts(r.data);
-      });
+    axios.get(BASE_URL + CHARITY.POPULAR_ADVERTISEMENTS).then((r) => {
+      console.log(r.data);
+      setMostVisitedPosts(r.data.slice(0, 5));
+    });
   }, []);
 
   const iconsArr = [MoneyBag, PiggyBank, PiggyBank2, Donation];
@@ -53,7 +59,7 @@ const MostVisitedPosts = () => {
                       alt=""
                       className="w-6 xxl:w-8"
                     />{" "}
-                    {post.title}
+                    {handleTitle(post.title)}
                   </th>
                   <th className="text-[9px] xxl:text-[12px]">
                     {moneyToText(post.collected_amount)}

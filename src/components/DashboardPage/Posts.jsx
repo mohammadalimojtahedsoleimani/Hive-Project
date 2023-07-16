@@ -18,6 +18,11 @@ import { notify } from "../../helper/toast";
 import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import BASE_URL, {
+  ACCOUNTS,
+  CHARITY,
+  IMAGE_PATH,
+} from "../../Config/ApiConfig";
 
 const nameFont = (value) => {
   if (value.length <= 15) {
@@ -114,7 +119,7 @@ const Posts = () => {
   const [date, setDate] = useState("");
   const [image, setImage] = useState("");
   const { isIn, setIsIn } = useContext(DakhelContext);
-  let imagePath = "http://127.0.0.1:8000/media/ads/";
+  let imagePath = BASE_URL + IMAGE_PATH;
   const [alCharity, setAlCharity] = useState([]);
   const [isCom, setIsCom] = useState("");
   const delay = 2000;
@@ -171,7 +176,7 @@ const Posts = () => {
   };
   const handleDateChange = (e) => {
     axios
-      .get("http://127.0.0.1:8000/accounts/api/v1/profile/complete/", {
+      .get(BASE_URL + ACCOUNTS.COMPLETE_PROFILE, {
         headers: {
           Authorization: `JWT ${value}`,
         },
@@ -195,7 +200,7 @@ const Posts = () => {
     formData.append("published_date", date);
     let df = JSON.stringify(data);
     axios
-      .post("http://127.0.0.1:8000/charity/api/v1/ads/", formData, {
+      .post(BASE_URL + CHARITY.ADS, formData, {
         headers: {
           Authorization: `JWT ${value}`,
           "Content-Type": "multipart/form-data",
@@ -214,7 +219,7 @@ const Posts = () => {
   const onButtonClick = () => {};
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/charity/api/v1/user-advertisements/", {
+      .get(BASE_URL + CHARITY.USER_ADVERTISEMENTS, {
         headers: {
           Authorization: `JWT ${value}`,
         },

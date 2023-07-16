@@ -14,6 +14,7 @@ import { Bars } from "react-loader-spinner";
 import Paging from '../components/PostsPage/Paging';
 import { SearchContext } from "../context/SearchContext";
 import { CatidContext } from "../context/CatidContext";
+import BASE_URL, { CHARITY } from '../Config/ApiConfig';
 
 const posts = [
     {
@@ -86,6 +87,18 @@ const PostsPage = ( props ) => {
     const { catid , setCatid } = useContext ( CatidContext );
     const categories = [
         {
+            id: 6,
+            name: "حوادث طبیعی"
+        },
+        {
+            id: 7,
+            name: "کسب و کار"
+        },
+        {
+            id: 8,
+            name: "ازدواج"
+        },
+        {
             id : 1 ,
             name : "حیوانات"
         } ,
@@ -144,12 +157,13 @@ const PostsPage = ( props ) => {
         //         console.log ( number )
         //         console.log ( response )
         //     } )
+        url = BASE_URL + CHARITY.ADS
         if ( search ) {
-            url = `http://127.0.0.1:8000/charity/api/v1/ads/?search=${ search }`
+            url = url + `?search=${ search }`
         } else if ( catid ) {
-            url = `http://127.0.0.1:8000/charity/api/v1/ads/?category=${catid}`
+            url = url + `?category=${catid}`
         } else {
-            url = `http://127.0.0.1:8000/charity/api/v1/ads/?page=${ pNumber }`
+            url = url + `?page=${ pNumber }`
         }
 
 

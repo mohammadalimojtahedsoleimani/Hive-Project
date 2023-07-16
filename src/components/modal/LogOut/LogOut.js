@@ -10,6 +10,7 @@ import styles from "./LogOut.module.css";
 import cancel from "../../../images/modal/close.svg";
 import { LogoutContext } from "../../../context/LogoutContext";
 import { DakhelContext } from "../../../context/DakhelContext";
+import BASE_URL, { ACCOUNTS } from '../../../Config/ApiConfig';
 
 
 const LogOut = ( { open , closeModal,token } ) => {
@@ -20,7 +21,7 @@ const LogOut = ( { open , closeModal,token } ) => {
 // functions
     const submitHandler = () => {
 
-axios.post('http://127.0.0.1:8000/accounts/api/v1/logout/',{
+axios.post(BASE_URL + ACCOUNTS.LOGOUT,{
 
 },{
     headers:{

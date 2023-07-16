@@ -5,6 +5,7 @@ import Avatar3 from "../../images/common/avatars/avatar_3.svg";
 import Table from "./common/Table";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import BASE_URL, { CHARITY } from "../../Config/ApiConfig";
 
 // const icon_name = <div><img src={Avatar1}/></div>
 const Dashboard = () => {
@@ -26,25 +27,19 @@ const Dashboard = () => {
     { topText: `${totalDonatores}`, bottomText: "حامی اضافه شده" },
   ];
   useEffect(() => {
-    axios
-      .get("http://127.0.0.1:8000/charity/api/v1/ads/total_collected_amount/")
-      .then((r) => {
-        setTotalMoney(r.data.total_collected_amount);
-        console.log(r.data);
-        console.log(totalMoney);
-      });
-    axios
-      .get("http://127.0.0.1:8000/charity/api/v1/ads/all_donators/")
-      .then((res) => {
-        console.log(res);
-        setTotalDonatores(res.data.length);
-        setDonatores(res.data.results);
-      });
-    axios
-      .get("http://127.0.0.1:8000/charity/api/v1/ads/advertisement_count/")
-      .then((response) => {
-        setTotalCharities(response.data.count);
-      });
+    axios.get(BASE_URL + CHARITY.TOTAL_COLLECTED_AMOUNT).then((r) => {
+      setTotalMoney(r.data.total_collected_amount);
+      console.log(r.data);
+      console.log(totalMoney);
+    });
+    axios.get(BASE_URL + CHARITY.ALL_DONATORS).then((res) => {
+      console.log(res);
+      setTotalDonatores(res.data.length);
+      setDonatores(res.data.results);
+    });
+    axios.get(BASE_URL + CHARITY.ADVERTISEMENT_COUNT).then((response) => {
+      setTotalCharities(response.data.count);
+    });
   }, []);
 
   const [tableData, setTableData] = useState([]);
@@ -320,607 +315,7 @@ const Dashboard = () => {
                 <img
                   src={Avatar3}
                   alt=""
-                  className="rounded-[50%] border-[5px] border-[#ECECEC]"
-                />
-                سید امیررضا قربانی زرین کلایی اصل{" "}
-              </div>
-            ),
-            status: (
-              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
-                تکمیل شده
-              </div>
-            ),
-            percent: 60,
-            date: "1398/11/22",
-            money: 6500000,
-          },
-          {
-            supporter: (
-              <div
-                className={
-                  nameFont("زهرا نوروزی") +
-                  " flex items-center text-[#808080] gap-2"
-                }
-              >
-                <img
-                  src={Avatar1}
-                  alt=""
-                  className="rounded-[50%] border-[5px] border-[#ECECEC]"
-                />
-                زهرا نوروزی{" "}
-              </div>
-            ),
-            status: (
-              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
-                تکمیل شده
-              </div>
-            ),
-            percent: 40,
-            date: "1398/11/22",
-            money: 400000,
-          },
-          {
-            supporter: (
-              <div
-                className={
-                  nameFont("سید امیررضا قربانی زرین کلایی اصل") +
-                  " flex items-center text-[#808080] gap-2"
-                }
-              >
-                <img
-                  src={Avatar3}
-                  alt=""
-                  className="rounded-[50%] border-[5px] border-[#ECECEC]"
-                />
-                سید امیررضا قربانی زرین کلایی اصل{" "}
-              </div>
-            ),
-            status: (
-              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
-                تکمیل شده
-              </div>
-            ),
-            percent: 60,
-            date: "1398/11/22",
-            money: 6500000,
-          },
-          {
-            supporter: (
-              <div
-                className={
-                  nameFont("زهرا نوروزی") +
-                  " flex items-center text-[#808080] gap-2"
-                }
-              >
-                <img
-                  src={Avatar1}
-                  alt=""
-                  className="rounded-[50%] border-[5px] border-[#ECECEC]"
-                />
-                زهرا نوروزی{" "}
-              </div>
-            ),
-            status: (
-              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
-                تکمیل شده
-              </div>
-            ),
-            percent: 40,
-            date: "1398/11/22",
-            money: 400000,
-          },
-          {
-            supporter: (
-              <div
-                className={
-                  nameFont("سید امیررضا قربانی زرین کلایی اصل") +
-                  " flex items-center text-[#808080] gap-2"
-                }
-              >
-                <img
-                  src={Avatar3}
-                  alt=""
-                  className="rounded-[50%] border-[5px] border-[#ECECEC]"
-                />
-                سید امیررضا قربانی زرین کلایی اصل{" "}
-              </div>
-            ),
-            status: (
-              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
-                تکمیل شده
-              </div>
-            ),
-            percent: 60,
-            date: "1398/11/22",
-            money: 6500000,
-          },
-          {
-            supporter: (
-              <div
-                className={
-                  nameFont("زهرا نوروزی") +
-                  " flex items-center text-[#808080] gap-2"
-                }
-              >
-                <img
-                  src={Avatar1}
-                  alt=""
-                  className="rounded-[50%] border-[5px] border-[#ECECEC]"
-                />
-                زهرا نوروزی{" "}
-              </div>
-            ),
-            status: (
-              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
-                تکمیل شده
-              </div>
-            ),
-            percent: 40,
-            date: "1398/11/22",
-            money: 400000,
-          },
-          {
-            supporter: (
-              <div
-                className={
-                  nameFont("سید امیررضا قربانی زرین کلایی اصل") +
-                  " flex items-center text-[#808080] gap-2"
-                }
-              >
-                <img
-                  src={Avatar3}
-                  alt=""
-                  className="rounded-[50%] border-[5px] border-[#ECECEC]"
-                />
-                سید امیررضا قربانی زرین کلایی اصل{" "}
-              </div>
-            ),
-            status: (
-              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
-                تکمیل شده
-              </div>
-            ),
-            percent: 60,
-            date: "1398/11/22",
-            money: 6500000,
-          },
-          {
-            supporter: (
-              <div
-                className={
-                  nameFont("زهرا نوروزی") +
-                  " flex items-center text-[#808080] gap-2"
-                }
-              >
-                <img
-                  src={Avatar1}
-                  alt=""
-                  className="rounded-[50%] border-[5px] border-[#ECECEC]"
-                />
-                زهرا نوروزی{" "}
-              </div>
-            ),
-            status: (
-              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
-                تکمیل شده
-              </div>
-            ),
-            percent: 40,
-            date: "1398/11/22",
-            money: 400000,
-          },
-          {
-            supporter: (
-              <div
-                className={
-                  nameFont("سید امیررضا قربانی زرین کلایی اصل") +
-                  " flex items-center text-[#808080] gap-2"
-                }
-              >
-                <img
-                  src={Avatar3}
-                  alt=""
-                  className="rounded-[50%] border-[5px] border-[#ECECEC]"
-                />
-                سید امیررضا قربانی زرین کلایی اصل{" "}
-              </div>
-            ),
-            status: (
-              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
-                تکمیل شده
-              </div>
-            ),
-            percent: 60,
-            date: "1398/11/22",
-            money: 6500000,
-          },
-          {
-            supporter: (
-              <div
-                className={
-                  nameFont("زهرا نوروزی") +
-                  " flex items-center text-[#808080] gap-2"
-                }
-              >
-                <img
-                  src={Avatar1}
-                  alt=""
-                  className="rounded-[50%] border-[5px] border-[#ECECEC]"
-                />
-                زهرا نوروزی{" "}
-              </div>
-            ),
-            status: (
-              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
-                تکمیل شده
-              </div>
-            ),
-            percent: 40,
-            date: "1398/11/22",
-            money: 400000,
-          },
-          {
-            supporter: (
-              <div
-                className={
-                  nameFont("سید امیررضا قربانی زرین کلایی اصل") +
-                  " flex items-center text-[#808080] gap-2"
-                }
-              >
-                <img
-                  src={Avatar3}
-                  alt=""
-                  className="rounded-[50%] border-[5px] border-[#ECECEC]"
-                />
-                سید امیررضا قربانی زرین کلایی اصل{" "}
-              </div>
-            ),
-            status: (
-              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
-                تکمیل شده
-              </div>
-            ),
-            percent: 60,
-            date: "1398/11/22",
-            money: 6500000,
-          },
-          {
-            supporter: (
-              <div
-                className={
-                  nameFont("زهرا نوروزی") +
-                  " flex items-center text-[#808080] gap-2"
-                }
-              >
-                <img
-                  src={Avatar1}
-                  alt=""
-                  className="rounded-[50%] border-[5px] border-[#ECECEC]"
-                />
-                زهرا نوروزی{" "}
-              </div>
-            ),
-            status: (
-              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
-                تکمیل شده
-              </div>
-            ),
-            percent: 40,
-            date: "1398/11/22",
-            money: 400000,
-          },
-          {
-            supporter: (
-              <div
-                className={
-                  nameFont("سید امیررضا قربانی زرین کلایی اصل") +
-                  " flex items-center text-[#808080] gap-2"
-                }
-              >
-                <img
-                  src={Avatar3}
-                  alt=""
-                  className="rounded-[50%] border-[5px] border-[#ECECEC]"
-                />
-                سید امیررضا قربانی زرین کلایی اصل{" "}
-              </div>
-            ),
-            status: (
-              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
-                تکمیل شده
-              </div>
-            ),
-            percent: 60,
-            date: "1398/11/22",
-            money: 6500000,
-          },
-          {
-            supporter: (
-              <div
-                className={
-                  nameFont("زهرا نوروزی") +
-                  " flex items-center text-[#808080] gap-2"
-                }
-              >
-                <img
-                  src={Avatar1}
-                  alt=""
-                  className="rounded-[50%] border-[5px] border-[#ECECEC]"
-                />
-                زهرا نوروزی{" "}
-              </div>
-            ),
-            status: (
-              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
-                تکمیل شده
-              </div>
-            ),
-            percent: 40,
-            date: "1398/11/22",
-            money: 400000,
-          },
-          {
-            supporter: (
-              <div
-                className={
-                  nameFont("سید امیررضا قربانی زرین کلایی اصل") +
-                  " flex items-center text-[#808080] gap-2"
-                }
-              >
-                <img
-                  src={Avatar3}
-                  alt=""
-                  className="rounded-[50%] border-[5px] border-[#ECECEC]"
-                />
-                سید امیررضا قربانی زرین کلایی اصل{" "}
-              </div>
-            ),
-            status: (
-              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
-                تکمیل شده
-              </div>
-            ),
-            percent: 60,
-            date: "1398/11/22",
-            money: 6500000,
-          },
-          {
-            supporter: (
-              <div
-                className={
-                  nameFont("زهرا نوروزی") +
-                  " flex items-center text-[#808080] gap-2"
-                }
-              >
-                <img
-                  src={Avatar1}
-                  alt=""
-                  className="rounded-[50%] border-[5px] border-[#ECECEC]"
-                />
-                زهرا نوروزی{" "}
-              </div>
-            ),
-            status: (
-              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
-                تکمیل شده
-              </div>
-            ),
-            percent: 40,
-            date: "1398/11/22",
-            money: 400000,
-          },
-          {
-            supporter: (
-              <div
-                className={
-                  nameFont("سید امیررضا قربانی زرین کلایی اصل") +
-                  " flex items-center text-[#808080] gap-2"
-                }
-              >
-                <img
-                  src={Avatar3}
-                  alt=""
-                  className="rounded-[50%] border-[5px] border-[#ECECEC]"
-                />
-                سید امیررضا قربانی زرین کلایی اصل{" "}
-              </div>
-            ),
-            status: (
-              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
-                تکمیل شده
-              </div>
-            ),
-            percent: 60,
-            date: "1398/11/22",
-            money: 6500000,
-          },
-          {
-            supporter: (
-              <div
-                className={
-                  nameFont("زهرا نوروزی") +
-                  " flex items-center text-[#808080] gap-2"
-                }
-              >
-                <img
-                  src={Avatar1}
-                  alt=""
-                  className="rounded-[50%] border-[5px] border-[#ECECEC]"
-                />
-                زهرا نوروزی{" "}
-              </div>
-            ),
-            status: (
-              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
-                تکمیل شده
-              </div>
-            ),
-            percent: 40,
-            date: "1398/11/22",
-            money: 400000,
-          },
-          {
-            supporter: (
-              <div
-                className={
-                  nameFont("سید امیررضا قربانی زرین کلایی اصل") +
-                  " flex items-center text-[#808080] gap-2"
-                }
-              >
-                <img
-                  src={Avatar3}
-                  alt=""
-                  className="rounded-[50%] border-[5px] border-[#ECECEC]"
-                />
-                سید امیررضا قربانی زرین کلایی اصل{" "}
-              </div>
-            ),
-            status: (
-              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
-                تکمیل شده
-              </div>
-            ),
-            percent: 60,
-            date: "1398/11/22",
-            money: 6500000,
-          },
-          {
-            supporter: (
-              <div
-                className={
-                  nameFont("زهرا نوروزی") +
-                  " flex items-center text-[#808080] gap-2"
-                }
-              >
-                <img
-                  src={Avatar1}
-                  alt=""
-                  className="rounded-[50%] border-[5px] border-[#ECECEC]"
-                />
-                زهرا نوروزی{" "}
-              </div>
-            ),
-            status: (
-              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
-                تکمیل شده
-              </div>
-            ),
-            percent: 40,
-            date: "1398/11/22",
-            money: 400000,
-          },
-          {
-            supporter: (
-              <div
-                className={
-                  nameFont("سید امیررضا قربانی زرین کلایی اصل") +
-                  " flex items-center text-[#808080] gap-2"
-                }
-              >
-                <img
-                  src={Avatar3}
-                  alt=""
-                  className="rounded-[50%] border-[5px] border-[#ECECEC]"
-                />
-                سید امیررضا قربانی زرین کلایی اصل{" "}
-              </div>
-            ),
-            status: (
-              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
-                تکمیل شده
-              </div>
-            ),
-            percent: 60,
-            date: "1398/11/22",
-            money: 6500000,
-          },
-          {
-            supporter: (
-              <div
-                className={
-                  nameFont("زهرا نوروزی") +
-                  " flex items-center text-[#808080] gap-2"
-                }
-              >
-                <img
-                  src={Avatar1}
-                  alt=""
-                  className="rounded-[50%] border-[5px] border-[#ECECEC]"
-                />
-                زهرا نوروزی{" "}
-              </div>
-            ),
-            status: (
-              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
-                تکمیل شده
-              </div>
-            ),
-            percent: 40,
-            date: "1398/11/22",
-            money: 400000,
-          },
-          {
-            supporter: (
-              <div
-                className={
-                  nameFont("سید امیررضا قربانی زرین کلایی اصل") +
-                  " flex items-center text-[#808080] gap-2"
-                }
-              >
-                <img
-                  src={Avatar3}
-                  alt=""
-                  className="rounded-[50%] border-[5px] border-[#ECECEC]"
-                />
-                سید امیررضا قربانی زرین کلایی اصل{" "}
-              </div>
-            ),
-            status: (
-              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
-                تکمیل شده
-              </div>
-            ),
-            percent: 60,
-            date: "1398/11/22",
-            money: 6500000,
-          },
-          {
-            supporter: (
-              <div
-                className={
-                  nameFont("زهرا نوروزی") +
-                  " flex items-center text-[#808080] gap-2"
-                }
-              >
-                <img
-                  src={Avatar1}
-                  alt=""
-                  className="rounded-[50%] border-[5px] border-[#ECECEC]"
-                />
-                زهرا نوروزی{" "}
-              </div>
-            ),
-            status: (
-              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
-                تکمیل شده
-              </div>
-            ),
-            percent: 40,
-            date: "1398/11/22",
-            money: 400000,
-          },
-          {
-            supporter: (
-              <div
-                className={
-                  nameFont("سید امیررضا قربانی زرین کلایی اصل") +
-                  " flex items-center text-[#808080] gap-2"
-                }
-              >
-                <img
-                  src={Avatar3}
-                  alt=""
-                  className="rounded-[50%] border-[5px] border-[#ECECEC]"
+                  className="rounded-[50%] border-[5px] w-[29px] xxl:w-[32px] border-[#ECECEC]"
                 />
                 سید امیررضا قربانی زرین کلایی اصل{" "}
               </div>
@@ -970,7 +365,7 @@ const Dashboard = () => {
                 <img
                   src={Avatar3}
                   alt=""
-                  className="rounded-[50%] border-[5px] border-[#ECECEC]"
+                  className="rounded-[50%] border-[5px] w-[29px] xxl:w-[32px] border-[#ECECEC]"
                 />
                 سید امیررضا قربانی زرین کلایی اصل{" "}
               </div>
@@ -1020,58 +415,7 @@ const Dashboard = () => {
                 <img
                   src={Avatar3}
                   alt=""
-                  className="rounded-[50%] w-[29px] xxl:w-[32px] border-[5px] border-[#ECECEC]"
-                />
-                سید امیررضا قربانی زرین کلایی اصل{" "}
-              </div>
-            ),
-            status: (
-              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
-                تکمیل شده
-              </div>
-            ),
-            percent: 60,
-            date: "1398/11/22",
-            money: 6500000,
-          },
-
-          {
-            supporter: (
-              <div
-                className={
-                  nameFont("زهرا نوروزی") +
-                  " flex items-center text-[#808080] gap-2"
-                }
-              >
-                <img
-                  src={Avatar1}
-                  alt=""
-                  className="rounded-[50%] border-[5px] border-[#ECECEC]"
-                />
-                زهرا نوروزی{" "}
-              </div>
-            ),
-            status: (
-              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
-                تکمیل شده
-              </div>
-            ),
-            percent: 40,
-            date: "1398/11/22",
-            money: 400000,
-          },
-          {
-            supporter: (
-              <div
-                className={
-                  nameFont("سید امیررضا قربانی زرین کلایی اصل") +
-                  " flex items-center text-[#808080] gap-2"
-                }
-              >
-                <img
-                  src={Avatar3}
-                  alt=""
-                  className="rounded-[50%] border-[5px] border-[#ECECEC]"
+                  className="rounded-[50%] border-[5px] w-[29px] xxl:w-[32px] border-[#ECECEC]"
                 />
                 سید امیررضا قربانی زرین کلایی اصل{" "}
               </div>
@@ -1096,7 +440,7 @@ const Dashboard = () => {
                 <img
                   src={Avatar1}
                   alt=""
-                  className="rounded-[50%] border-[5px] border-[#ECECEC]"
+                  className="rounded-[50%] border-[5px] w-[29px] xxl:w-[32px] border-[#ECECEC]"
                 />
                 زهرا نوروزی{" "}
               </div>
@@ -1121,7 +465,7 @@ const Dashboard = () => {
                 <img
                   src={Avatar3}
                   alt=""
-                  className="rounded-[50%] border-[5px] border-[#ECECEC]"
+                  className="rounded-[50%] border-[5px] w-[29px] xxl:w-[32px] border-[#ECECEC]"
                 />
                 سید امیررضا قربانی زرین کلایی اصل{" "}
               </div>
@@ -1134,6 +478,281 @@ const Dashboard = () => {
             percent: 60,
             date: "1398/11/22",
             money: 6500000,
+          },
+          {
+            supporter: (
+              <div
+                className={
+                  nameFont("زهرا نوروزی") +
+                  " flex items-center text-[#808080] gap-2"
+                }
+              >
+                <img
+                  src={Avatar1}
+                  alt=""
+                  className="rounded-[50%] border-[5px] w-[29px] xxl:w-[32px] border-[#ECECEC]"
+                />
+                زهرا نوروزی{" "}
+              </div>
+            ),
+            status: (
+              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
+                تکمیل شده
+              </div>
+            ),
+            percent: 40,
+            date: "1398/11/22",
+            money: 400000,
+          },
+          {
+            supporter: (
+              <div
+                className={
+                  nameFont("سید امیررضا قربانی زرین کلایی اصل") +
+                  " flex items-center text-[#808080] gap-2"
+                }
+              >
+                <img
+                  src={Avatar3}
+                  alt=""
+                  className="rounded-[50%] border-[5px] w-[29px] xxl:w-[32px] border-[#ECECEC]"
+                />
+                سید امیررضا قربانی زرین کلایی اصل{" "}
+              </div>
+            ),
+            status: (
+              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
+                تکمیل شده
+              </div>
+            ),
+            percent: 60,
+            date: "1398/11/22",
+            money: 6500000,
+          },
+          {
+            supporter: (
+              <div
+                className={
+                  nameFont("زهرا نوروزی") +
+                  " flex items-center text-[#808080] gap-2"
+                }
+              >
+                <img
+                  src={Avatar1}
+                  alt=""
+                  className="rounded-[50%] border-[5px] w-[29px] xxl:w-[32px] border-[#ECECEC]"
+                />
+                زهرا نوروزی{" "}
+              </div>
+            ),
+            status: (
+              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
+                تکمیل شده
+              </div>
+            ),
+            percent: 40,
+            date: "1398/11/22",
+            money: 400000,
+          },
+          {
+            supporter: (
+              <div
+                className={
+                  nameFont("سید امیررضا قربانی زرین کلایی اصل") +
+                  " flex items-center text-[#808080] gap-2"
+                }
+              >
+                <img
+                  src={Avatar3}
+                  alt=""
+                  className="rounded-[50%] border-[5px] w-[29px] xxl:w-[32px] border-[#ECECEC]"
+                />
+                سید امیررضا قربانی زرین کلایی اصل{" "}
+              </div>
+            ),
+            status: (
+              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
+                تکمیل شده
+              </div>
+            ),
+            percent: 60,
+            date: "1398/11/22",
+            money: 6500000,
+          },
+          {
+            supporter: (
+              <div
+                className={
+                  nameFont("زهرا نوروزی") +
+                  " flex items-center text-[#808080] gap-2"
+                }
+              >
+                <img
+                  src={Avatar1}
+                  alt=""
+                  className="rounded-[50%] border-[5px] w-[29px] xxl:w-[32px] border-[#ECECEC]"
+                />
+                زهرا نوروزی{" "}
+              </div>
+            ),
+            status: (
+              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
+                تکمیل شده
+              </div>
+            ),
+            percent: 40,
+            date: "1398/11/22",
+            money: 400000,
+          },
+          {
+            supporter: (
+              <div
+                className={
+                  nameFont("سید امیررضا قربانی زرین کلایی اصل") +
+                  " flex items-center text-[#808080] gap-2"
+                }
+              >
+                <img
+                  src={Avatar3}
+                  alt=""
+                  className="rounded-[50%] border-[5px] w-[29px] xxl:w-[32px] border-[#ECECEC]"
+                />
+                سید امیررضا قربانی زرین کلایی اصل{" "}
+              </div>
+            ),
+            status: (
+              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
+                تکمیل شده
+              </div>
+            ),
+            percent: 60,
+            date: "1398/11/22",
+            money: 6500000,
+          },
+          {
+            supporter: (
+              <div
+                className={
+                  nameFont("زهرا نوروزی") +
+                  " flex items-center text-[#808080] gap-2"
+                }
+              >
+                <img
+                  src={Avatar1}
+                  alt=""
+                  className="rounded-[50%] border-[5px] w-[29px] xxl:w-[32px] border-[#ECECEC]"
+                />
+                زهرا نوروزی{" "}
+              </div>
+            ),
+            status: (
+              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
+                تکمیل شده
+              </div>
+            ),
+            percent: 40,
+            date: "1398/11/22",
+            money: 400000,
+          },
+          {
+            supporter: (
+              <div
+                className={
+                  nameFont("سید امیررضا قربانی زرین کلایی اصل") +
+                  " flex items-center text-[#808080] gap-2"
+                }
+              >
+                <img
+                  src={Avatar3}
+                  alt=""
+                  className="rounded-[50%] border-[5px] w-[29px] xxl:w-[32px] border-[#ECECEC]"
+                />
+                سید امیررضا قربانی زرین کلایی اصل{" "}
+              </div>
+            ),
+            status: (
+              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
+                تکمیل شده
+              </div>
+            ),
+            percent: 60,
+            date: "1398/11/22",
+            money: 6500000,
+          },
+          {
+            supporter: (
+              <div
+                className={
+                  nameFont("زهرا نوروزی") +
+                  " flex items-center text-[#808080] gap-2"
+                }
+              >
+                <img
+                  src={Avatar1}
+                  alt=""
+                  className="rounded-[50%] border-[5px] w-[29px] xxl:w-[32px] border-[#ECECEC]"
+                />
+                زهرا نوروزی{" "}
+              </div>
+            ),
+            status: (
+              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
+                تکمیل شده
+              </div>
+            ),
+            percent: 40,
+            date: "1398/11/22",
+            money: 400000,
+          },
+          {
+            supporter: (
+              <div
+                className={
+                  nameFont("سید امیررضا قربانی زرین کلایی اصل") +
+                  " flex items-center text-[#808080] gap-2"
+                }
+              >
+                <img
+                  src={Avatar3}
+                  alt=""
+                  className="rounded-[50%] border-[5px] w-[29px] xxl:w-[32px] border-[#ECECEC]"
+                />
+                سید امیررضا قربانی زرین کلایی اصل{" "}
+              </div>
+            ),
+            status: (
+              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
+                تکمیل شده
+              </div>
+            ),
+            percent: 60,
+            date: "1398/11/22",
+            money: 6500000,
+          },
+          {
+            supporter: (
+              <div
+                className={
+                  nameFont("زهرا نوروزی") +
+                  " flex items-center text-[#808080] gap-2"
+                }
+              >
+                <img
+                  src={Avatar1}
+                  alt=""
+                  className="rounded-[50%] border-[5px] w-[29px] xxl:w-[32px] border-[#ECECEC]"
+                />
+                زهرا نوروزی{" "}
+              </div>
+            ),
+            status: (
+              <div className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
+                تکمیل شده
+              </div>
+            ),
+            percent: 40,
+            date: "1398/11/22",
+            money: 400000,
           },
         ]}
         minHeight="58.5"

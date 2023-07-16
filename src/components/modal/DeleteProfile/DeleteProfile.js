@@ -8,6 +8,7 @@ import styles from "../LogOut/LogOut.module.css";
 import cancel from "../../../images/modal/close.svg";
 import { DeleteprofContext } from "../../../context/DeleteprofContext";
 import { DakhelContext } from "../../../context/DakhelContext";
+import BASE_URL, { ACCOUNTS } from '../../../Config/ApiConfig';
 
 
 const DeleteProfile = ( { open , closeModal } ) => {
@@ -23,7 +24,7 @@ const DeleteProfile = ( { open , closeModal } ) => {
 
     } , [ isDelOpen ] )
     const submitHandler = () => {
-        axios.delete ( 'http://127.0.0.1:8000/accounts/api/v1/delete-account/' , {
+        axios.delete ( BASE_URL + ACCOUNTS.DELETE_ACCOUNT , {
             headers : {
                 'Authorization' : `JWT ${ value }`
             }

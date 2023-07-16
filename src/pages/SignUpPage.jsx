@@ -16,6 +16,7 @@ import { ToastContainer } from "react-toastify";
 import { validate } from "../helper/validate";
 import styles from "./SignUp.module.css";
 import { useEffect } from "react";
+import BASE_URL, { ACCOUNTS } from "./../Config/ApiConfig";
 
 const SignUpPage = () => {
   //variables
@@ -41,7 +42,7 @@ const SignUpPage = () => {
   const submitHandler = (event) => {
     event.preventDefault();
     axios
-      .post("http://127.0.0.1:8000/accounts/api/v1/registration/", data)
+      .post(BASE_URL + ACCOUNTS.REGISTRATION, data)
       .then((response) => {
         notify("ثبت نام موفقیت آمیز بود!" + " ایمیل خود را تایید کنید", "info");
         setData({
@@ -49,7 +50,7 @@ const SignUpPage = () => {
           password: "",
           password1: "",
         });
-
+        setTouched({ email: false, password: false, password1: false });
         console.log(response);
         const timer = setTimeout(() => {
           navigate("/posts/1");

@@ -10,6 +10,7 @@ import axios from "axios";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify";
 import { DakhelContext } from "../../../context/DakhelContext";
+import BASE_URL, { ACCOUNTS } from '../../../Config/ApiConfig';
 
 
 const Login = ( { open } ) => {
@@ -31,7 +32,7 @@ const Login = ( { open } ) => {
     const delay = 2000;
     const submitHandler = async ( event ) => {
         event.preventDefault ();
-        await axios.post ( "http://127.0.0.1:8000/accounts/api/v1/jwt/create/" , data )
+        await axios.post ( BASE_URL + ACCOUNTS.LOGIN , data )
             .then ( async response => {
                 localStorage.setItem ( "token" , response.data.access )
                 localStorage.setItem ( 'id' , response.data.user_id )
