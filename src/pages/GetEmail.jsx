@@ -27,13 +27,9 @@ const GetEmail = () => {
     axios
       .post(BASE_URL + ACCOUNTS.RESET_EMAIL, data)
       .then((r) => {
-        console.log(r);
         notify("ایمیل بازیابی رمزعبور ارسال شد", "info");
       })
       .catch((er) => {
-        console.log("errrrrr", er);
-        console.log(er.status);
-        console.log(er.headers);
         notify("ایمیل معتبر وارد کنید.", "er");
       });
   };

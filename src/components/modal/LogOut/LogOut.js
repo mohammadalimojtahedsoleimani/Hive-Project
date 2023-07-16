@@ -17,17 +17,14 @@ const LogOut = ( { open , closeModal,token } ) => {
     const navigate = useNavigate ();
     const { isLogOpen , setIsLogOpen } = useContext ( LogoutContext );
     const {  setIsIn } = useContext ( DakhelContext );
+    const [data,setData] = useState({
+        token:token
+    })
     // CONTEXTS
 // functions
     const submitHandler = () => {
 
-axios.post(BASE_URL + ACCOUNTS.LOGOUT,{
-
-},{
-    headers:{
-        'Authorization' : `JWT ${token}`
-    }
-})
+axios.post(BASE_URL + ACCOUNTS.LOGOUT,data)
     .then(r =>{
         console.log(r)
 
