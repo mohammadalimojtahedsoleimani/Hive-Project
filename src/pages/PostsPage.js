@@ -161,7 +161,7 @@ const PostsPage = ( props ) => {
         if ( search ) {
             url = url + `?search=${ search }`
         } else if ( catid ) {
-            url = url + `?category=${catid}`
+            url = url + `?category=${catid}&page=${pNumber}`
         } else {
             url = url + `?page=${ pNumber }`
         }

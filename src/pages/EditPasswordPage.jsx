@@ -38,6 +38,7 @@ const EditPasswordPage = () => {
       .then((r) => {
         notify("تغییر رمز عبور با موفقیت انجام شد", "success");
         const timer = setTimeout(() => {
+          navigate("/");
           window.location.reload();
           setIsOpenLogin(true);
         }, delay);
@@ -75,6 +76,7 @@ const EditPasswordPage = () => {
       </button>
     </form>
   );
+
   return (
     <div
       className="page min-h-[100vh] flex"
