@@ -31,6 +31,9 @@ const GetEmail = () => {
         notify("ایمیل بازیابی رمزعبور ارسال شد", "info");
       })
       .catch((er) => {
+        console.log("errrrrr", er);
+        console.log(er.status);
+        console.log(er.headers);
         notify("ایمیل معتبر وارد کنید.", "er");
       });
   };
