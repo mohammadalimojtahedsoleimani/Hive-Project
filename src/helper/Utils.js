@@ -14,3 +14,9 @@ export const validateFileType = (e) => {
   export const moneyToText = (money) => {
     return money.toLocaleString() + " تومان";
   };
+  export const handleTitle = (title, maxChars) => {
+    if (title.length > maxChars) {
+      return title.slice(0, maxChars) + "...";
+    }
+    return title;
+  }

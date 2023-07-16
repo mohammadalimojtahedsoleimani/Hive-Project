@@ -6,7 +6,7 @@ import styles from "../../../../pages/CharityPage.module.css";
 import stle from "../../../PostsPage/common/PostCard.module.css";
 import React from "react";
 import DateTransformer from "../../../../helper/dateTransformer";
-import { moneyToText } from "../../../../helper/Utils";
+import { handleTitle, moneyToText } from "../../../../helper/Utils";
 
 const PostCard = ({ post }) => {
   let date = post.published_date;
@@ -36,7 +36,7 @@ const PostCard = ({ post }) => {
           className="w-full  h-[250px] xxl:h-[350px] cursor-pointer"
         ></div>
       </Link>
-      <div className="py-3 xxl:py-5 px-5 xxl:p-7">
+      <div className="px-5 py-3 xxl:py-5 xxl:p-7">
         <div className="flex justify-between text-gray-400">
           <span className="flex justify-end items-center gap-1 xxl:gap-3 text-[11px] xxl:text-[15px]">
             <img src={Person} alt="" />
@@ -51,12 +51,12 @@ const PostCard = ({ post }) => {
           className="text-[#4D7AD2] font-bold text-[15px] xxl:text-[21px] my-3 xxl:my-6"
           data-testid="title-1"
         >
-          {post.title}
+          {handleTitle(post.title, 29)}
         </h2>
         <p className="text-[#555555] text-[10px] xxl:text-[14px] h-12 xxl:h-20">
           {handleSnippet(post.snippet)}
         </p>
-        <div className=" flex justify-end">
+        <div className="flex justify-end ">
           <div
             className={
               stle.category +
@@ -97,7 +97,7 @@ const PostCard = ({ post }) => {
             </span>
           </div>
         </div>
-        <div className="text-left pb-1 xxl:pb-3 pl-1 xxl:pl-3">
+        <div className="pb-1 pl-1 text-left xxl:pb-3 xxl:pl-3">
           <button
             style={{ border: "solid #4D7AD2 1.5px", borderRadius: "5px" }}
             className="text-[#4D7AD2] hover:text-[white] hover:bg-[#4D7AD2] text-[12px] xxl:text-[16px] px-2 xxl:px-4 py-1 xxl:py-2"

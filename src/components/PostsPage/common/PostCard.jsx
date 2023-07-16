@@ -8,7 +8,7 @@ import React, { useEffect, useState } from "react";
 import stle from "./PostCard.module.css";
 import axios from "axios";
 import DateTransformer from "../../../helper/dateTransformer";
-import { moneyToText } from "../../../helper/Utils";
+import { handleTitle, moneyToText } from "../../../helper/Utils";
 
 const PostCard = ({
   id,
@@ -59,7 +59,7 @@ const PostCard = ({
           ></div>
         </Link>
         {/* <img src={image} alt="" className="w-full h-[200px] xxl:h-[270px]" /> */}
-        <div className="px-4 xxl:px-7 py-3 xxl:py-5">
+        <div className="px-4 py-3 xxl:px-7 xxl:py-5">
           <div className="flex justify-between text-gray-400">
             <span className="flex items-center gap-1 xxl:gap-3 text-[12px] xxl:text-[14px] ">
               <img
@@ -75,9 +75,9 @@ const PostCard = ({
             </span>
           </div>
           <h2 className="font-bold text-[15px] xxl:text-[21px] mt-3 xxl:mt-4 text-blue-500 text-opacity-100">
-            {title}
+            {handleTitle(title, 25)}
           </h2>
-          <div className=" flex justify-between">
+          <div className="flex justify-between ">
             <div className="right flex justify-center items-center text-[#8D8E9F] text-[11px] xxl:text-[14px] gap-1 xxl:gap-2 ">
               <img src={User} alt="" className=" w-[17px] xxl:w-[20px]" />
               {nOfDonatores}
