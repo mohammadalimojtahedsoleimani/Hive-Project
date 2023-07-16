@@ -29,7 +29,7 @@ const Login = ( { open } ) => {
     } )
     const [ touch , setTouch ] = useState ( {} )
     const [ errors , setErrors ] = useState ( {} )
-    const delay = 2000;
+    const delay = 1000;
     const submitHandler = async ( event ) => {
         event.preventDefault ();
         await axios.post ( BASE_URL + ACCOUNTS.LOGIN , data )

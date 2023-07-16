@@ -10,12 +10,11 @@ const Activation = () => {
     // variables
     const navigate = useNavigate ();
     const {  setIsOpenLogin } = useContext ( LoginModalContext );
-    const { isIn , setIsIn } = useContext ( DakhelContext );
     // functions
     const clickHandler = () => {
-        setIsIn(true)
-        navigate ( '/dashboard/info' )
         setIsOpenLogin ( true )
+        navigate ( '/dashboard/info' )
+
 
     }
     return (

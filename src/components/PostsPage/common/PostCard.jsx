@@ -26,10 +26,13 @@ const PostCard = ({
   const navigate = useNavigate();
   console.log("postss ", image);
   const [nOfDonatores, setNofDonatores] = useState("");
-  const dateOnly = date.split("T")[0];
-  let formattedNumber = collected.toLocaleString("fa-IR-u-nu-arab", {
-    minimumFractionDigits: 0,
-  });
+  let dateOnly;
+  console.log(date)
+  console.log(dateOnly)
+  if (date !== null) {
+    dateOnly = date.split("T")[0];
+  }
+
 
   useEffect(() => {
     axios.get(BASE_URL + CHARITY.ADS + `${id}/donators/`).then((r) => {
@@ -47,7 +50,7 @@ const PostCard = ({
       }}
       className={stle.parent + " w-[300px] xxl:w-[350px] mx-4 xxl:mx-7"}
     >
-      <div className={stle.content_parent}>
+      <div >
         <Link to={"#"}>
           <div
             style={{

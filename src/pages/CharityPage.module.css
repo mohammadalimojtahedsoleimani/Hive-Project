@@ -51,8 +51,10 @@
 
 .leftPartTop {
     background: #EDF3F7;
-    width: 416px;
-    height: 421px;
+    min-height: 421px;
+    min-width:416px ;
+    max-height:421px ;
+    max-width: 416px;
     margin-right: 52px;
     margin-top: 95px;
     display: flex;

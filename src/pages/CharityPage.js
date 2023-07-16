@@ -89,13 +89,13 @@ const handleReadTime = (content) =>{
                         <div className={ styles.RelatedPostsContainer }>
                             <div className={ styles.leftPartTopRelatedPostContainer }>
                                 <div className={ styles.leftPartTopRelatedImgContainer }>
-                                    <img src={ khoye } alt="axe khoye"/>
+                                    <img src={ khoye } alt="axe"/>
                                 </div>
                                 <div className={ styles.leftPartTopParRelatedContainer }>
                                     <p className={ styles.leftPartTopParRelatedContainerText }>جمع آوری کمک برای زلزله
                                         خوی</p>
 
-                                    <p className={ styles.leftPartTopParRelatedContainerCategory }>مالی</p>
+                                    <p className={ styles.leftPartTopParRelatedContainerCategory }>{category}</p>
                                 </div>
                             </div>
                             <div className={ styles.leftPartDownRelatedPostContainer }>
@@ -107,7 +107,7 @@ const handleReadTime = (content) =>{
                                         کار بی بضاعت
                                     </p>
 
-                                    <p className={ styles.leftPartTopParRelatedContainerCategory }>مالی</p>
+                                    <p className={ styles.leftPartTopParRelatedContainerCategory }>{category}</p>
                                 </div>
 
 

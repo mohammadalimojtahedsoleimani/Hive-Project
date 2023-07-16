@@ -45,6 +45,12 @@ const PersonalInfo = () => {
         // setData()
         setData ( { ... data , [ event.target.name ] : event.target.value } );
     };
+    const numberHandler = (e)=>{
+        setPnumber(e.target.value)
+    }
+    const cardHandler = (e)=>{
+        setCardNumber(e.target.value)
+    }
 
 
     const inputStyle =
@@ -211,6 +217,7 @@ const PersonalInfo = () => {
                                     maxLength={ 11 }
                                     name="pNumber"
                                     value={ pNumber }
+                                    onChange={numberHandler}
                                 />
                                 <div className=" w-[50%] relative">
                                     <img
@@ -267,6 +274,7 @@ const PersonalInfo = () => {
                                     maxLength={ 16 }
                                     name="cardNumber"
                                     value={ cardNumber }
+                                    onChange={cardHandler}
                                 />
                                 <div className=" w-[60%] relative">
                                     <img
