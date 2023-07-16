@@ -9,6 +9,7 @@ import stle from "./PostCard.module.css";
 import axios from "axios";
 import DateTransformer from "../../../helper/dateTransformer";
 import { handleTitle, moneyToText } from "../../../helper/Utils";
+import BASE_URL, { CHARITY } from "./../../../Config/ApiConfig";
 
 const PostCard = ({
   id,
@@ -31,11 +32,9 @@ const PostCard = ({
   });
 
   useEffect(() => {
-    axios
-      .get(`http://127.0.0.1:8000/charity/api/v1/ads/${id}/donators/`)
-      .then((r) => {
-        setNofDonatores(r.data.length);
-      });
+    axios.get(BASE_URL + CHARITY.ADS + `${id}/donators/`).then((r) => {
+      setNofDonatores(r.data.length);
+    });
   }, []);
   const totalDonators = 14;
   return (
