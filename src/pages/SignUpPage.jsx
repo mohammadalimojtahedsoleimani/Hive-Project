@@ -57,7 +57,7 @@ const SignUpPage = () => {
         }, delay);
       })
       .catch((error) => {
-        console.log("the error:the error ", error);
+        notify('خطایی رخ داد لطفا مقادیر مجاز وارد کنید'  , 'er')
       });
   };
   const handleCheckboxChange = () => {

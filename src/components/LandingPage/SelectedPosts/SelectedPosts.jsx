@@ -9,39 +9,19 @@ import BASE_URL, { CHARITY } from "../../../Config/ApiConfig";
 
 const SelectedPosts = (props) => {
   // variables
-  const [charity1, setCharity1] = useState([]);
   const { charity, setCharity } = useContext(CharityContext);
   let slicedData = charity.slice(0, 3);
   useEffect(() => {
     axios({
       method: "get",
       url: BASE_URL + CHARITY.ADS + "?page=1",
-      // data: fileData,
-      // headers: {
-      //   "Content-Type": "multipart/form-data",
-      // },
+
     })
       .then(function (response) {
-        //   setSheetNumber(response.data["id"]);
         setCharity(response.data.results);
-        // setPage ( response.data.current_page )
-        // setPageNumber ( Number ( number.page ) )
-        // setItemsInfo ( {
-        //     total_objects : response.data.total_objects ,
-        //     total_pages : response.data.total_pages
-        // } )
-        //   toast.success("!آپلود شد", {
-        //     position: toast.POSITION.TOP_LEFT,
-        //   });
-        //   navigate("/words");
+
       })
-      .catch(function (error) {
-        console.log(error);
-        //   const response = error.request.responseText;
-        //   toast.error(response === "" ? error.message : response, {
-        //     position: toast.POSITION.TOP_LEFT,
-        //   });
-      });
+
   }, []);
   const postsArray = [
     {
