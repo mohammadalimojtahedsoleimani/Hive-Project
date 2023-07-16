@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const Footer = (props) => {
   return (
-    <div className="bg-dash-pattern text-[#AFAFAF]">
+    <div id="contact_us" className="bg-dash-pattern text-[#AFAFAF]">
       <div className="flex px-[7rem] xxl:px-[14rem] py-[3rem] xxl:py-[6rem]">
         <div className="flex-1">
           <h3 className="text-white font-bold text-[10px] xxl:text-[16px] mb-4 xxl:mb-8">

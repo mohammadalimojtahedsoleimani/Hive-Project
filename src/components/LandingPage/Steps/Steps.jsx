@@ -2,7 +2,10 @@ import StepsImage from "../../../images/LandingPage/steps.png";
 
 const Steps = (props) => {
   return (
-    <section className="px-[5rem] xxl:px-[10rem] py-[3rem] xxl:pt-[8rem] xxl:pb-[6rem]">
+    <section
+      id="steps"
+      className="px-[5rem] xxl:px-[10rem] py-[3rem] xxl:pt-[8rem] xxl:pb-[6rem]"
+    >
       <div className=" xxl:mb-[5rem]">
         <h2 className=" font-bold xxl:text-[25px]">چه اتفاقی می افتد؟ 😳</h2>
         <h3 className="  text-[#717171] xxl:text-[24px]">
