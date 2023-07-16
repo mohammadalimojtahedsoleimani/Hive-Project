@@ -15,7 +15,7 @@ const PostCard = ({ post }) => {
   const handleSnippet = (snippet) => {
     const maxChars = 180;
     if (snippet.length > maxChars) {
-      return snippet.slice(0, maxChars) + "...";
+      return `${snippet.slice(0, maxChars)}...`;
     }
     return snippet;
   };
