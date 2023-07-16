@@ -74,7 +74,7 @@ const PostCard = ({
               {DateTransformer(dateOnly)}
             </span>
           </div>
-          <h2 className="font-bold text-[15px] xxl:text-[21px] mt-3 xxl:mt-4 text-blue-500 text-opacity-100">
+          <h2 className="font-bold text-[15px] xxl:text-[21px] mt-3 xxl:mt-3 text-blue-500 text-opacity-100">
             {handleTitle(title, 25)}
           </h2>
           <div className="flex justify-between ">
@@ -123,7 +123,7 @@ const PostCard = ({
               </span>
             </div>
           </div>
-          <div className="pb-1 pl-1 text-left xxl:pb-3 xxl:pl-3">
+          <div className="pb-1 pl-1 text-left xxl:pb-1 xxl:pl-2">
             <button
               style={{ border: "solid #4D7AD2 1.5px", borderRadius: "5px" }}
               className={

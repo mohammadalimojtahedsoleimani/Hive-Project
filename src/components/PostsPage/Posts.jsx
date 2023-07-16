@@ -131,7 +131,11 @@ const Posts = (props) => {
   //   return result;
   // };
   return (
-    <div className={styles.posts + " px-[5rem] xxl:px-[9rem] mb-[6rem]"}>
+    <div
+      className={
+        styles.posts + " flex justify-start px-[5rem] xxl:px-[9rem] mb-[6rem]"
+      }
+    >
       {setPosts(props.posts, props.page)}
     </div>
   );
