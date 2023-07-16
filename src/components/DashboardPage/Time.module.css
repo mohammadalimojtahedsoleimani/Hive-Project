@@ -3,6 +3,6 @@
 }
 .time{
     position: absolute;
-    bottom: calc(4vh + 3rem);
+    bottom: calc(2vh + 1.5rem);
     left: calc(2.3vw + 2rem);
 }

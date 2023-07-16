@@ -2,14 +2,27 @@ import Image_0 from "../../../images/LandingPage/selected_posts_image_0.png";
 import Image_1 from "../../../images/LandingPage/selected_posts_image_1.png";
 import Image_2 from "../../../images/LandingPage/selected_posts_image_2.png";
 import PostCard from "../common/PostCard/PostCard";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CharityContext } from "../../../context/CharityContext";
+import axios from "axios";
+import BASE_URL, { CHARITY } from "../../../Config/ApiConfig";
 
 const SelectedPosts = (props) => {
   // variables
-  const [charity1, setCharity1] = useState([]);
-  const { charity, setChairty } = useContext(CharityContext);
+  const { charity, setCharity } = useContext(CharityContext);
   let slicedData = charity.slice(0, 3);
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: BASE_URL + CHARITY.ADS + "?page=1",
+
+    })
+      .then(function (response) {
+        setCharity(response.data.results);
+
+      })
+
+  }, []);
   const postsArray = [
     {
       id: 1,
@@ -19,12 +32,12 @@ const SelectedPosts = (props) => {
       title: "جمع آوری کمک برای کودکان کار",
       snippet:
         "یقینا قلب همه ما هنگامی که فرزندان این سرزمین را در سر چهار راه ها یا معابر در حال کار می بینیم، به درد می آید، کودکانی که باید بر سر بازی و تحصیل خود باشند تا آینده سازان این مرز و بوم بوده و ارزش آفرینی کنند هدف من جمع آوری مبلغی برای کمک به این کودکان و خرید مایحتاجشان در این شرایط بد اقتصادی است .....",
-      collected_amount: "100.000",
+      collected_amount: "250.000",
       estimated_amount: "1.000.000",
       category: {
-        name: "حمایت مالی",
+        name: "سایر",
       },
-      collected_percentage: 10,
+      collected_percentage: 25,
     },
     {
       id: 2,
@@ -34,12 +47,12 @@ const SelectedPosts = (props) => {
       title: "جمع آوری کمک برای زلزله خوی",
       snippet:
         "هم وطنانمان در خوی، گرفتار بلای طبیعی زلزله اند و اکنون فرصت آن است تا دست به دست هم دهیم و در کنار دولت، ما نیز کمک حالشان شویم تا این عزیزان از گزند سرما و بی پناهی جان به در برند، من و تیمم در حال آماده سازی بسته های معیشتی برای خواهران و برادرانمان در خوی هستیم .....",
-      collected_amount: "100.000",
-      estimated_amount: "1.000.000",
+      collected_amount: "5.000.000",
+      estimated_amount: "100.000.000",
       category: {
-        name: "حمایت مالی",
+        name: "حوادث طبیعی",
       },
-      collected_percentage: 10,
+      collected_percentage: 5,
     },
     {
       id: 3,
@@ -49,12 +62,12 @@ const SelectedPosts = (props) => {
       title: "جمع آوری کمک برای کودکان کار بی بضاعت",
       snippet:
         " در آغاز فصل مدارس، قشر آسیب پذیر کودکان کار که توانایی تامین خرج های اولیه زندگی خود را ندارند، بدون امکانات تحصیلی به مدارس می روند بیایید کمک حالشان باشیم بسته های تحصیلی ای که برایشان آماده کرده ایم بسیار ساده و در حد نیاز های اولیه هست، اما این کودکان معصوم را شاد میکند....",
-      collected_amount: "100.000",
-      estimated_amount: "1.000.000",
+      collected_amount: "3.000.000",
+      estimated_amount: "15.000.000",
       category: {
-        name: "حمایت مالی",
+        name: "سایر",
       },
-      collected_percentage: 10,
+      collected_percentage: 20,
     },
   ];
   const posts = charity.length > 0 ? slicedData : postsArray;

@@ -1,12 +1,12 @@
 import EditIcon from "../../images/DashboardPage/edit.svg";
-import SampleProfile from "../../images/DashboardPage/sample_profile.png";
-
 import { useContext , useEffect , useState } from "react";
 import axios from "axios";
 import { notify } from "../../helper/toast";
 import { ToastContainer } from "react-toastify";
 import { DakhelContext } from "../../context/DakhelContext";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
+import BASE_URL , { ACCOUNTS } from "../../Config/ApiConfig";
+
 const PersonalInfo = () => {
     const [ data , setData ] = useState ( {
         fname : "" ,
@@ -22,48 +22,30 @@ const PersonalInfo = () => {
         setData ( { ... data , [ event.target.name ] : event.target.files[ 0 ] } );
     };
     const [ profPic , setProfPic ] = useState ( "" );
-    const [ firName , setFirName ] = useState ( '' );
-    const [ lasName , setLasName ] = useState ( '' )
-const [pNumber,setPnumber] = useState('')
-const [cardNumber,setCardNumber] = useState('')
-    const [locked, setLocked] = useState(false);
-    const [locked1, setLocked1] = useState(false);
+    const [ firName , setFirName ] = useState ( "" );
+    const [ lasName , setLasName ] = useState ( "" );
+    const [ pNumber , setPnumber ] = useState ( "" );
+    const [ cardNumber , setCardNumber ] = useState ( "" );
     useEffect ( () => {
         value = localStorage.getItem ( "token" );
         id = localStorage.getItem ( "id" );
         axios
-            .get ( `http://127.0.0.1:8000/accounts/api/v1/profile/${ id }/` , {
+            .get ( BASE_URL + ACCOUNTS.PROFILE + `${ id }/` , {
                 headers : {
                     Authorization : `JWT ${ value }` ,
                 } ,
             } )
             .then ( ( r ) => {
                 setProfPic ( r.data.avatar );
-                setFirName ( r.data.first_name )
-                setLasName ( r.data.last_name )
+                setFirName ( r.data.first_name );
+                setLasName ( r.data.last_name );
             } );
     } , [ isIn , data ] );
     const changeHandler = ( event ) => {
         // setData()
         setData ( { ... data , [ event.target.name ] : event.target.value } );
-
-
-
     };
-   const phoneHandler = (e)=>{
-       setPnumber(e.target.value)
-       if(pNumber.length > 11) {
-           setLocked(true);
-       }
 
-   }
-   const cardHandler = (e)=>{
-       setCardNumber(e.target.value)
-       if(cardNumber.length > 16) {
-           setLocked1(true);
-       }
-
-   }
 
     const inputStyle =
         "text-[#777777] bg-[#f3f3f3b7] text-[16px] xxl:text-[20px] p-[0.3rem] py-[0.5rem] xxl:p-[0.6rem] xxl:py-[0.9rem] rounded-[15px] font-[700]";
@@ -76,20 +58,20 @@ const [cardNumber,setCardNumber] = useState('')
     const handleDateChange = ( e ) => {
         e.preventDefault ();
         const formData = new FormData ();
-        const fn = data.fname ? data.fname : firName
-        const ln = data.lname ? data.lname : lasName
+        const fn = data.fname ? data.fname : firName;
+        const ln = data.lname ? data.lname : lasName;
         value = localStorage.getItem ( "token" );
         id = localStorage.getItem ( "id" );
 
-        console.log ( value );
         formData.append ( "first_name" , fn );
         formData.append ( "last_name" , ln );
         if ( data.avatar ) {
             formData.append ( "avatar" , data.avatar , data.avatar.name );
         }
-
+        formData.append ( 'phone_number' , pNumber )
+        formData.append ( 'card_number' , cardNumber )
         axios
-            .patch ( `http://127.0.0.1:8000/accounts/api/v1/profile/${ id }/` , formData , {
+            .patch ( BASE_URL + ACCOUNTS.PROFILE + `${ id }/` , formData , {
                 headers : {
                     Authorization : `JWT ${ value }` ,
                     "Content-Type" : "multipart/form-data" ,
@@ -99,11 +81,7 @@ const [cardNumber,setCardNumber] = useState('')
                 notify ( "تغییرات با موفقیت ثبت شد." , "success" );
                 const timer = setTimeout ( () => {
                     window.location.reload ();
-
-
                 } , delay );
-
-
             } )
             .catch ( ( error ) => {
                 console.log ( "the error: " , error.response );
@@ -114,7 +92,10 @@ const [cardNumber,setCardNumber] = useState('')
 
     return (
         <div className="flex items-start pt-[14vh] w-full h-full">
-            <form className="flex flex-col w-full pl-[7vw] pr-[5vw]" onSubmit={ handleDateChange }>
+            <form
+                className="flex flex-col w-full pl-[7vw] pr-[5vw]"
+                onSubmit={ handleDateChange }
+            >
                 <div className="flex flex-col gap-[8vh]">
                     {/* <div>
             <img src={SampleProfile} alt="" />
@@ -135,7 +116,7 @@ const [cardNumber,setCardNumber] = useState('')
                             // } }
                         />
                         <div
-                            className="flex justify-start items-center"
+                            className="flex items-center justify-start"
                             // style={{
                             //   border: "1px solid transparent",
                             //   borderImage:
@@ -148,11 +129,18 @@ const [cardNumber,setCardNumber] = useState('')
                                 alt=""
                                 className="w-[0.9rem] xxl:w-[1.5rem] mt-5 xxl:mt-7"
                             />
-                            <img
-                                className="rounded-[50%] w-16"
-                                src={ profPic }
-                                alt="upload button"
-                            />
+                            {/* <img
+                className="rounded-[50%] w-16 h-16"
+                src={profPic}
+                alt="upload button"
+              /> */ }
+                            <div
+                                className=" w-16 h-16 rounded-[50%]"
+                                style={ {
+                                    backgroundImage : `url(${ profPic })` ,
+                                    backgroundSize : "cover" ,
+                                } }
+                            ></div>
                         </div>
                     </div>
                     <div>
@@ -220,10 +208,9 @@ const [cardNumber,setCardNumber] = useState('')
                                     className={ inputStyle + " w-[50%]" }
                                     type="tel"
                                     style={ inputShadowBorder }
-                                    onChange={ phoneHandler }
-                                    maxLength={11}
-                                    name='pNumber'
-                                    value={pNumber}
+                                    maxLength={ 11 }
+                                    name="pNumber"
+                                    value={ pNumber }
                                 />
                                 <div className=" w-[50%] relative">
                                     <img
@@ -277,10 +264,9 @@ const [cardNumber,setCardNumber] = useState('')
                                     className={ inputStyle + " w-[60%]" }
                                     type="text"
                                     style={ inputShadowBorder }
-                                    onChange={ cardHandler }
-                                    maxLength={16}
-                                    name='cardNumber'
-                                    value={cardNumber}
+                                    maxLength={ 16 }
+                                    name="cardNumber"
+                                    value={ cardNumber }
                                 />
                                 <div className=" w-[60%] relative">
                                     <img
@@ -293,7 +279,7 @@ const [cardNumber,setCardNumber] = useState('')
                         </div>
                         <div className="flex justify-center mt-[9vh]">
                             <button
-                                type='submit'
+                                type="submit"
                                 className="font-[700] text-[19px] xxl:text-[21px] text-white bg-[#4D7AD2] rounded-lg px-[0.8rem] xxl:px-[0.5rem] py-[1rem] xxl:py-[0.7rem] relative left-[5vw]"
                             >
                                 انجام تغییرات

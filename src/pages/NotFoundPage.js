@@ -24,7 +24,7 @@ const NotFoundPage = () => {
                     </button>
                 </div>
             </div>
-            {/*<Footer/>*/}
+            <Footer/>
         </>
     );
 }

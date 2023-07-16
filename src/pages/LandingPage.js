@@ -14,6 +14,8 @@ import { MobileViewContext } from '../context/MobileContext'
 import MobileNavbar from '../components/common/MobileNavbar/MobileNavbar'
 import MobileFooter from '../components/common/MobileFooter/MobileFooter'
 import SelectedPostsMobile from '../components/LandingPage/SelectedPostsMobile/SelectedPostsMobile'
+import AboutUsMobile from '../components/LandingPage/AboutUsMobile/AboutUsMobile'
+import { useLocation } from 'react-router-dom'
 
 const LandingPage = ( props ) => {
     const { isIn , setIsIn } = useContext ( DakhelContext );
@@ -29,6 +31,8 @@ const LandingPage = ( props ) => {
         // } )
         //     .then (  r =>console.log(r) )
     },[isIn] )
+    
+    
     const isMobile = useContext(MobileViewContext)
     return (
         isMobile?
@@ -36,8 +40,8 @@ const LandingPage = ( props ) => {
             <MobileNavbar active='home' isLogin={false} dark={true}/>
             <HeaderMobile/>
             <SelectedPostsMobile/>
-            {/* <AboutUs/>
-            <Steps/>
+            <AboutUsMobile/>
+            {/* <Steps/>
             <GeneralInfo/>
             <Backup/>
             <Qualities/> */}

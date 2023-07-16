@@ -12,6 +12,8 @@ import axios from "axios";
 import { DonationContext } from "../context/DonationContext";
 import Donation from "../components/modal/Donation/Donation";
 import DateTransformer from "../helper/dateTransformer";
+import { moneyToText } from '../helper/Utils';
+import BASE_URL, { CHARITY } from '../Config/ApiConfig';
 // innate styles
 const BUTTON_WRAPPER_DONATE_STYLES = {
     position : "relative" ,
@@ -41,11 +43,11 @@ const CharityPage = () => {
     useEffect ( () => {
 
 
-        axios.get ( `http://127.0.0.1:8000/charity/api/v1/ads/${ charity_id }/` )
+        axios.get ( BASE_URL + CHARITY.ADS + charity_id +'/' )
             .then ( r => {
                 setCategory ( r.data.category.name )
                 setTitle ( r.data.title )
-                setRaiser_full_name ( r.data.raiser_full_name )
+                setRaiser_full_name ( r.data.raiser_full_name ) 
                 setPublished_date ( r.data.published_date )
                 setEstimated_amount ( r.data.estimated_amount )
                 setCollected_amount ( r.data.collected_amount )
@@ -58,7 +60,15 @@ const CharityPage = () => {
 
     } , [] )
 
+const handleReadTime = (content) =>{
+    console.log(content.length * 0.2);
+    const minute = Math.floor(content.length * 0.2 / 60)
+    if (minute === 0) {
+     return 'کمتر از 1 دقیقه'
+    }
+    return ` ${minute} دقیقه`
 
+}
     return (
         <>
             <Navbar dark={ true }/>
@@ -122,7 +132,7 @@ const CharityPage = () => {
                             </div>
                             <div className={ styles.estimatedTimeContainer }>
                                 <img src={ clock } alt="axe clock"/>
-                                <p>زمان مطالعه 10 دقیقه</p>
+                                <p>{handleReadTime(content)}</p>
                             </div>
 
                         </div>
@@ -160,7 +170,7 @@ const CharityPage = () => {
                             </div>
                             <div className={ styles.totalDonationNumber }>
                                 <p>جمع شده: { formattedNumber } تومان</p>
-                                <p>هدف: { estimated_amount } تومان</p>
+                                <p>هدف: { moneyToText(estimated_amount) }</p>
                             </div>
                         </div>
                         <div className={ styles.buttonContainer }>

@@ -13,6 +13,8 @@ import { LoginModalContext } from "../../../context/LoginContext";
 import { ProfileContext } from "../../../context/ProfileContext";
 import axios from "axios";
 import Login from "../../modal/Login/Login";
+import { ACCOUNTS } from "../../../Config/ApiConfig";
+import BASE_URL from "./../../../Config/ApiConfig";
 const BUTTON_WRAPPER_LOGIN_STYLES = {
   position: "relative",
   // zIndex : 1 ,
@@ -25,10 +27,10 @@ const Navbar = ({ active, dark }) => {
   const [lname, setLname] = useState("");
   const [avatar, setAvatar] = useState("");
   const links = [
-    { key: "map", value: "نقشه راه " },
-    { key: "contact_us", value: "ارتباط با ما" },
+    { key: "/#steps", value: "نقشه راه " },
+    { key: "/#contact_us", value: "ارتباط با ما" },
     { key: "/AboutUs", value: " درباره ما" },
-    { key: "home", value: "خانه" },
+    { key: "/", value: "خانه" },
   ];
   const getIn = (
     <div className="flex gap-3 pr-6 xxl:gap-5 xxl:pr-10">
@@ -61,11 +63,18 @@ const Navbar = ({ active, dark }) => {
       <Link to="/dashboard/general" className="pr-6 xxl:pr-10">
         <div className="flex gap-3">
           <div className=" rounded-[50%] overflow-hidden">
-            <img
+            {/* <img
               src={avatar}
               alt="profile pic"
               className="w-[30px] xl:w-[40px] xxl:w-[50px] h-[30px] xl:h-[40px] xxl:h-[50px]"
-            />
+            /> */}
+            <div
+              className="w-[30px] xl:w-[40px] xxl:w-[50px] h-[30px] xl:h-[40px] xxl:h-[50px] rounded-[50%]"
+              style={{
+                backgroundImage: `url(${avatar})`,
+                backgroundSize: "cover",
+              }}
+            ></div>
           </div>
           <div className={styles.prof_parent + " gap-1"}>
             <span className="text-sm font-medium xl:text-base xxl:text-xl text-[#4D7AD2]">
@@ -107,7 +116,7 @@ const Navbar = ({ active, dark }) => {
     if (value !== undefined && value !== null) {
       setIsIn(true);
       axios
-        .get(`http://127.0.0.1:8000/accounts/api/v1/profile/${idu}/`, {
+        .get(`${BASE_URL + ACCOUNTS.PROFILE + idu}/`, {
           headers: {
             Authorization: `JWT ${value}`,
           },
