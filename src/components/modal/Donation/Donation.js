@@ -21,7 +21,7 @@ const Donation = ( { open , ChairtyTitle , pageId , collect , estimate } ) => {
     const [ errors , setErrors ] = useState ( {} )
     const { isIn , setIsIn } = useContext ( DakhelContext );
     let value = localStorage.getItem ( "token" );
-    const delay = 2000;
+    const delay = 1000;
     const [ er , setEr ] = useState ( '' )
     const newTotal = collect + parseInt(money);
 
@@ -91,6 +91,7 @@ const Donation = ( { open , ChairtyTitle , pageId , collect , estimate } ) => {
                     } )
                     .catch ( er => {
                         console.log ( er.response )
+                        notify('لطفا پروفایل خود را تکمیل کنید'     ,'er')
                     } )
             } else {
                 notify ( ' !مقدار وارد شده معتبر نیست' , 'er' )
