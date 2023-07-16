@@ -1,4 +1,4 @@
-const BASE_URL = 'http://37.32.20.190:8000/';
+const BASE_URL = 'https://hive-api.iran.liara.run/';
 // const USER_URL = `${BASE_URL}/users`;
 // const POSTS_URL = `${BASE_URL}/posts`;
 const IMAGE_PATH = "media/ads/"

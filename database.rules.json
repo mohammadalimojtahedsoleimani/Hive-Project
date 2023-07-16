@@ -1,0 +1,20 @@
+{
+  "rules": {
+    ".read": true,
+    ".write": true
+  },
+  "hosting": {
+    "cors": {
+      "allowedOrigins": ["*"]
+    }
+  },
+  "allow": [
+    {
+      "origin": "*",
+      "method": ["GET", "POST"],
+      "headers": ["*"],
+      "mode": "cors",
+      "credentials": true
+    }
+  ]
+}

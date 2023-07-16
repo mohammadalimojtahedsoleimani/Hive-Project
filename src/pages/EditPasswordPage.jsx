@@ -23,8 +23,8 @@ const EditPasswordPage = () => {
 
   const [data, setData] = useState({
     password: "",
-    token: segments[7],
-    uidb64: segments[6],
+    token: segments[2],
+    uidb64: segments[1],
   });
   const changeHandler = (event) => {
     setData({ ...data, [event.target.name]: event.target.value });
