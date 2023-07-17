@@ -15,7 +15,7 @@ import BASE_URL, { CHARITY } from '../Config/ApiConfig';
 const PostsPage = ( props ) => {
 
     // variables
-    const [ page , setPage ] = useState ( 1 )
+    // const [ page , setPage ] = useState ( 1 )
     const [ itemsInfo , setItemsInfo ] = useState ( { total_objects : 0 , total_pages : 0 } )
     const { catid , setCatid } = useContext ( CatidContext );
     const categories = [
@@ -60,27 +60,62 @@ const PostsPage = ( props ) => {
     const { pageNumber , setPageNumber } = useContext ( PageContext )
     let number = useParams ();
     const navigate = useNavigate()
-    let pNumber = 0
+    
 
+    // useEffect(() => {
+    //     url = url + `?page=${ 1 }`
+        
+        
+    //     axios ( {
+    //         method : "get" ,
+    //         url : url ,
+    //     } )
+    //         .then ( function ( response ) {
+    //             //   setSheetNumber(response.data["id"]);
+    //             setCharity ( response.data.results )
+    //             setPage ( response.data.current_page )
+    //             setPageNumber ( Number ( number.page ) )
+    //             setItemsInfo ( {
+    //                 total_objects : response.data.total_objects ,
+    //                 total_pages : response.data.total_pages
+    //             } )
+    //             //   toast.success("!آپلود شد", {
+    //             //     position: toast.POSITION.TOP_LEFT,
+    //             //   });
+    //             //   navigate("/words");
+    //         } )
+    //         .catch ( function ( error ) {
+    //             console.log ( error )
+    //             //   const response = error.request.responseText;
+    //             //   toast.error(response === "" ? error.message : response, {
+    //             //     position: toast.POSITION.TOP_LEFT,
+    //             //   });
+    //         } );
+    // },[])
     useEffect ( (e) => {
+        let pNumber = 0
         console.log('useEffect', e);
-        let url;
+        
         if ( Number ( number.page ) === 1 ) {
             pNumber = 1
         } else {
             pNumber = Number ( number.page )
         }
-       
+        setPageNumber ( pNumber )
+        
+
+
+    } , [ number.page] )
+    useEffect(() => {
+        
+        let url;
         url = BASE_URL + CHARITY.ADS
         if ( search ) {
-            if (catid) {
-                setCatid("")
-            }
-            url = url + `?search=${ search }`
+            url = url + `?search=${ search }&page=${pageNumber}`
         } else if ( catid ) {
-            url = url + `?category=${catid}&page=${pNumber}`
+            url = url + `?category=${catid}&page=${pageNumber}`
         } else {
-            url = url + `?page=${ pNumber }`
+            url = url + `?page=${ pageNumber }`
         }
         
         
@@ -91,8 +126,8 @@ const PostsPage = ( props ) => {
             .then ( function ( response ) {
                 //   setSheetNumber(response.data["id"]);
                 setCharity ( response.data.results )
-                setPage ( response.data.current_page )
-                setPageNumber ( Number ( number.page ) )
+                // setPage ( response.data.current_page )
+                // setPageNumber ( Number ( number.page ) )
                 setItemsInfo ( {
                     total_objects : response.data.total_objects ,
                     total_pages : response.data.total_pages
@@ -109,54 +144,89 @@ const PostsPage = ( props ) => {
                 //     position: toast.POSITION.TOP_LEFT,
                 //   });
             } );
-
-
-    } , [ number.page, search  ] )
+    }, [pageNumber, catid, search])
 
     useEffect(() => {
         
-            pNumber = 1
-            
+                if (!search && !catid) {
+                    navigate('/posts/1')
+                    // window.location.href = "/posts/1"
+                }
+                let pNumber = 1
                 // navigate(BASE_URL + CHARITY.ADS + `?category=${catid}&page=${pNumber}`)
                 let url = BASE_URL + CHARITY.ADS
-                if (catid !== "") {
+                if (catid) {
+                    setSearch("")
                     url += `?category=${catid}&page=${pNumber}`
-                } else {
+                    navigate("/posts/1")
+                // axios ( {
+                //         method : "get" ,
+                //         url :  url,
 
-                    if ( search ) {
-                        url = url + `?search=${ search }`
-                    }
-                    else{
-                        navigate('/posts/1')
-                    }
-                    
-                }
+                //     } )
+                //         .then ( function ( response ) {
+                //             //   setSheetNumber(response.data["id"]);
+                //             setCharity ( response.data.results )
+                //             setPage ( response.data.current_page )
+                //             setPageNumber ( pNumber )
+                //             setItemsInfo ( {
+                //                 total_objects : response.data.total_objects ,
+                //                 total_pages : response.data.total_pages
+                //             } )
+
+                //         } )
+                //         .catch ( function ( error ) {
+                //             console.log ( error )
+
+                //         } );
+                    }                
                 
-            axios ( {
-                        method : "get" ,
-                        url :  url,
-
-                    } )
-                        .then ( function ( response ) {
-                            //   setSheetNumber(response.data["id"]);
-                            setCharity ( response.data.results )
-                            setPage ( response.data.current_page )
-                            setPageNumber ( Number ( number.page ) )
-                            setItemsInfo ( {
-                                total_objects : response.data.total_objects ,
-                                total_pages : response.data.total_pages
-                            } )
-
-                        } )
-                        .catch ( function ( error ) {
-                            console.log ( error )
-
-                        } );
+                
+            
 
             
 
 
-    }, [catid])
+    }, [catid ])
+
+
+    useEffect(() => {
+        console.log('in search use effect');
+        if (!search && !catid) {
+            console.log('goging to page1');
+            navigate('/posts/1')
+            // window.location.href = "/posts/1"
+        }
+        let pNumber = 1
+
+        let url = BASE_URL + CHARITY.ADS
+        if ( search ) {
+            setCatid("")
+            url = url + `?search=${ search }&page=${pNumber}`
+            navigate('/posts/1')
+        // axios ( {
+        //     method : "get" ,
+        //     url :  url,
+
+        // } )
+        //     .then ( function ( response ) {
+        //         //   setSheetNumber(response.data["id"]);
+        //         setCharity ( response.data.results )
+        //         setPage ( response.data.current_page )
+        //         setPageNumber ( pNumber )
+        //         setItemsInfo ( {
+        //             total_objects : response.data.total_objects ,
+        //             total_pages : response.data.total_pages
+        //         } )
+
+        //     } )
+        //     .catch ( function ( error ) {
+        //         console.log ( error )
+
+        //     } );
+        }
+        
+    }, [search])
     const handleType = () => {
     }
     const handleNextPage = () => {
@@ -175,9 +245,9 @@ const PostsPage = ( props ) => {
                 categories={ categories }
             />
 
-            <div className='flex justify-center'> <Posts posts={ charity } page={ page } onNextPage={ handleNextPage }/> </div>
+            <div className='flex justify-center'> <Posts posts={ charity } page={ pageNumber } onNextPage={ handleNextPage }/> </div>
             <Paging total_pages={ itemsInfo.total_pages }
-                    page={ page }
+                    page={ pageNumber }
                     total_objects={ itemsInfo.total_objects }/>
 
 
