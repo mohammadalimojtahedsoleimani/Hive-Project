@@ -16,6 +16,7 @@ const DeleteProfile = ( { open , closeModal } ) => {
     const { isDelOpen , setIsDelOpen } = useContext ( DeleteprofContext );
     const { setIsIn } = useContext ( DakhelContext );
     let value;
+    let id;
 
     // CONTEXTS
 // functions
@@ -30,8 +31,11 @@ const DeleteProfile = ( { open , closeModal } ) => {
             }
         } )
             .then ( r => {
+                localStorage.removeItem('token')
+                localStorage.removeItem('id')
                 navigate ( '/' );
                 setIsDelOpen(false)
+                setIsIn(false)
             } )
 
     }
