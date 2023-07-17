@@ -60,6 +60,11 @@ const Menu = (props) => {
       setCatid("");
     }
   }, [tempCatid]);
+  useEffect(() => {
+    if (!catid) {
+      setTempCatid("");
+    }
+  }, [catid]);
   const handleCheckResult = () => {
     setCatid(tempCatid);
     closeMenu();

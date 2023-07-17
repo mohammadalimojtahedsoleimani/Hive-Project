@@ -1,84 +1,17 @@
 import Navbar from '../components/common/Navbar/Navbar'
-import { forwardRef , useContext , useEffect , useImperativeHandle , useState } from 'react';
+import { useContext , useEffect  , useState } from 'react';
 import Filter from '../components/PostsPage/Filter';
 import Menu from '../components/PostsPage/Menu';
 import Posts from '../components/PostsPage/Posts';
-import Image from '../images/LandingPage/selected_posts_image_2.png'
 import axios from "axios";
-import { getCharity } from "../services/api";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { CharityContext } from "../context/CharityContext";
 import { PageContext } from "../context/PageProvider"
-import { PropagateLoader } from "react-spinners";
-import { Bars } from "react-loader-spinner";
 import Paging from '../components/PostsPage/Paging';
 import { SearchContext } from "../context/SearchContext";
 import { CatidContext } from "../context/CatidContext";
 import BASE_URL, { CHARITY } from '../Config/ApiConfig';
 
-const posts = [
-    {
-        id : 0 ,
-        image : Image ,
-        name : 'John Doe' ,
-        date : '2022-01-01' ,
-        title : 'Project A' ,
-        description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' ,
-        collected : 500 ,
-        target : 1000 ,
-    } ,
-    {
-        id : 1 ,
-        image : Image ,
-        name : 'Jane Smith' ,
-        date : '2022-02-01' ,
-        title : 'Project B' ,
-        description : 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' ,
-        collected : 750 ,
-        target : 1500 ,
-    } ,
-    {
-        id : 2 ,
-        image : Image ,
-        name : 'Bob Johnson' ,
-        date : '2022-03-01' ,
-        title : 'Project C' ,
-        description : 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' ,
-        collected : 1000 ,
-        target : 2000 ,
-    } ,
-    {
-        id : 3 ,
-        image : Image ,
-        name : 'Bob Johnson' ,
-        date : '2022-03-01' ,
-        title : 'Project C' ,
-        description : 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' ,
-        collected : 1000 ,
-        target : 2000 ,
-    } ,
-    {
-        id : 4 ,
-        image : Image ,
-        name : 'Bob Johnson' ,
-        date : '2022-03-01' ,
-        title : 'Project C' ,
-        description : 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' ,
-        collected : 1000 ,
-        target : 2000 ,
-    } ,
-    {
-        id : 5 ,
-        image : Image ,
-        name : 'Bob Johnson' ,
-        date : '2022-03-01' ,
-        title : 'Project C' ,
-        description : 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' ,
-        collected : 1000 ,
-        target : 2000 ,
-    } ,
-    // Add more objects as needed
-];
 const PostsPage = ( props ) => {
 
     // variables
@@ -121,59 +54,39 @@ const PostsPage = ( props ) => {
     ];
     const [ type , setType ] = useState ( "default" );
     const [ isMenuOpen , setIsMenuOpen ] = useState ( false );
-    // const [ data , setData ] = useState ( {
-    //     id : 1 ,
-    //     image : "" ,
-    //     title : "" ,
-    //     raiser : 1 ,
-    //     snippet : "" ,
-    //     content : "" ,
-    //     category : 1 ,
-    //     status : true ,
-    //     relative_url : "" ,
-    //     absolute_url : "" ,
-    //     estimated_amount : 0 ,
-    //     collected_amount : 0 ,
-    //     published_date : ""
-    // } )
+
     const { charity , setCharity } = useContext ( CharityContext );
     const { search , setSearch } = useContext ( SearchContext );
     const { pageNumber , setPageNumber } = useContext ( PageContext )
     let number = useParams ();
+    const navigate = useNavigate()
     let pNumber = 0
-    // functions
-    useEffect ( () => {
+
+    useEffect ( (e) => {
+        console.log('useEffect', e);
         let url;
         if ( Number ( number.page ) === 1 ) {
             pNumber = 1
         } else {
             pNumber = Number ( number.page )
         }
-
-        // axios.get ( url )
-        //     .then ( ( response ) => {
-        //         console.log ( response.data.results )
-        //         setCharity ( response.data.results )
-        //         console.log ( number )
-        //         console.log ( response )
-        //     } )
+       
         url = BASE_URL + CHARITY.ADS
         if ( search ) {
+            if (catid) {
+                setCatid("")
+            }
             url = url + `?search=${ search }`
         } else if ( catid ) {
             url = url + `?category=${catid}&page=${pNumber}`
         } else {
             url = url + `?page=${ pNumber }`
         }
-
-
+        
+        
         axios ( {
             method : "get" ,
             url : url ,
-            // data: fileData,
-            // headers: {
-            //   "Content-Type": "multipart/form-data",
-            // },
         } )
             .then ( function ( response ) {
                 //   setSheetNumber(response.data["id"]);
@@ -198,8 +111,52 @@ const PostsPage = ( props ) => {
             } );
 
 
-    } , [ number.page , search,catid ] )
+    } , [ number.page, search  ] )
 
+    useEffect(() => {
+        
+            pNumber = 1
+            
+                // navigate(BASE_URL + CHARITY.ADS + `?category=${catid}&page=${pNumber}`)
+                let url = BASE_URL + CHARITY.ADS
+                if (catid !== "") {
+                    url += `?category=${catid}&page=${pNumber}`
+                } else {
+
+                    if ( search ) {
+                        url = url + `?search=${ search }`
+                    }
+                    else{
+                        navigate('/posts/1')
+                    }
+                    
+                }
+                
+            axios ( {
+                        method : "get" ,
+                        url :  url,
+
+                    } )
+                        .then ( function ( response ) {
+                            //   setSheetNumber(response.data["id"]);
+                            setCharity ( response.data.results )
+                            setPage ( response.data.current_page )
+                            setPageNumber ( Number ( number.page ) )
+                            setItemsInfo ( {
+                                total_objects : response.data.total_objects ,
+                                total_pages : response.data.total_pages
+                            } )
+
+                        } )
+                        .catch ( function ( error ) {
+                            console.log ( error )
+
+                        } );
+
+            
+
+
+    }, [catid])
     const handleType = () => {
     }
     const handleNextPage = () => {
@@ -207,21 +164,6 @@ const PostsPage = ( props ) => {
     return (
         <>
             <Navbar dark={ true }/>
-            {/*<div>*/ }
-
-            {/*    {*/ }
-            {/*        charity.length === 0 && <Bars*/ }
-            {/*            height="80"*/ }
-            {/*            width="80"*/ }
-            {/*            color="#4fa94d"*/ }
-            {/*            ariaLabel="bars-loading"*/ }
-            {/*            wrapperStyle={{}}*/ }
-            {/*            wrapperClass=""*/ }
-            {/*            visible={true}*/ }
-            {/*        />*/ }
-
-            {/*    }*/ }
-            {/*</div>*/ }
             <Filter
                 type={ type }
                 handleType={ handleType }
@@ -232,10 +174,8 @@ const PostsPage = ( props ) => {
                 setIsMenuOpen={ setIsMenuOpen }
                 categories={ categories }
             />
-            {/* { charity.map ( ( item ) =>
-                <PostCard posts={ item } key={ item.id }/>
-            ) } */ }
-            { charity && <Posts posts={ charity } page={ page } onNextPage={ handleNextPage }/> }
+
+            <div className='flex justify-center'> <Posts posts={ charity } page={ page } onNextPage={ handleNextPage }/> </div>
             <Paging total_pages={ itemsInfo.total_pages }
                     page={ page }
                     total_objects={ itemsInfo.total_objects }/>
