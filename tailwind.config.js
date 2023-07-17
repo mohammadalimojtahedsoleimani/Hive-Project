@@ -16,7 +16,7 @@ module.exports = {
         "secondary-500": "rgb(59, 129, 116)",
       },
       backgroundImage: {
-        'dash-pattern': "url('./images/common/Footer/background.png')",
+        'dash-pattern': "url('./assets/images/common/Footer/background.png')",
       },
       fontFamily: {
         IRANSans: ["IRANSans", "sans-serif"],
