@@ -1,20 +1,20 @@
 import React , { useContext , useEffect , useState } from 'react';
-import styles from "./CharityPage.module.css"
-import Navbar from "../components/common/Navbar/Navbar"
-import Footer from "../components/common/Footer/Footer"
-import khoye from "../images/CharityPage/khoye.png"
-import poorKodak from "../images/CharityPage/poor kodak.png"
-import people from "../images/CharityPage/peoplevector.png"
-import calender from "../images/CharityPage/calender.png"
-import clock from "../images/CharityPage/clock.png"
+import styles from "./style/CharityPage.module.css"
+import Navbar from "../../components/common/Navbar/Navbar"
+import Footer from "../../components/common/Footer/Footer"
+import khoye from "../../assets/images/CharityPage/khoye.png"
+import poorKodak from "../../assets/images/CharityPage/poor kodak.png"
+import people from "../../assets/images/CharityPage/peoplevector.png"
+import calender from "../../assets/images/CharityPage/calender.png"
+import clock from "../../assets/images/CharityPage/clock.png"
 import { useLocation } from "react-router-dom";
 import axios from "axios";
-import { DonationContext } from "../context/DonationContext";
-import Donation from "../components/modal/Donation/Donation";
-import DateTransformer from "../helper/dateTransformer";
-import { moneyToText } from '../helper/Utils';
-import BASE_URL, { CHARITY } from '../Config/ApiConfig';
-import adBlockerHandler from "../helper/adBlockerHandler";
+import { DonationContext } from "../../context/DonationContext";
+import Donation from "../../components/modal/Donation/Donation";
+import DateTransformer from "../../helper/dateTransformer";
+import { moneyToText } from '../../helper/Utils';
+import BASE_URL, { CHARITY } from '../../Config/ApiConfig';
+import adBlockerHandler from "../../helper/adBlockerHandler";
 // innate styles
 const BUTTON_WRAPPER_DONATE_STYLES = {
     position : "relative" ,

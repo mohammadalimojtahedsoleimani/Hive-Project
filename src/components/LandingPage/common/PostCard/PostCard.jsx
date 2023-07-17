@@ -1,8 +1,8 @@
-import Calendar from "../../../../images/common/PostCard/calendar.svg";
-import Person from "../../../../images/common/PostCard/person.svg";
-import Category from "../../../../images/common/PostCard/category.svg";
+import Calendar from "../../../../assets/images/common/PostCard/calendar.svg";
+import Person from "../../../../assets/images/common/PostCard/person.svg";
+import Category from "../../../../assets/images/common/PostCard/category.svg";
 import { Link, useNavigate } from "react-router-dom";
-import styles from "../../../../pages/CharityPage.module.css";
+import styles from "../../../../pages/CharityPage/style/CharityPage.module.css";
 import stle from "../../../PostsPage/common/PostCard.module.css";
 import React from "react";
 import DateTransformer from "../../../../helper/dateTransformer";

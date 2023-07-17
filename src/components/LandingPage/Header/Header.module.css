@@ -4,7 +4,7 @@
     justify-content: flex-start;
     position: relative;
     /* background-image: linear-gradient(112deg, #3b8174 42%, #5B5F66 -13%);  */
-    background-image: url(../../../images/LandingPage/background.png);
+    background-image: url(../../../assets/images/LandingPage/background.png);
     background-size: cover;
 }
 .top{

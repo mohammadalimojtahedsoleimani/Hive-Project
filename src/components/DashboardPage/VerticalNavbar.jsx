@@ -1,6 +1,6 @@
-import Logo from "../../images/DashboardPage/logo.svg";
-import Logout from "../../images/DashboardPage/logout.svg";
-import Delete from "../../images/DashboardPage/delete.svg";
+import Logo from "../../assets/images/DashboardPage/logo.svg";
+import Logout from "../../assets/images/DashboardPage/logout.svg";
+import Delete from "../../assets/images/DashboardPage/delete.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { DakhelContext } from "../../context/DakhelContext";

@@ -1,6 +1,6 @@
-import Image_0 from "../../../images/LandingPage/selected_posts_image_0.png";
-import Image_1 from "../../../images/LandingPage/selected_posts_image_1.png";
-import Image_2 from "../../../images/LandingPage/selected_posts_image_2.png";
+import Image_0 from "../../../assets/images/LandingPage/selected_posts_image_0.png";
+import Image_1 from "../../../assets/images/LandingPage/selected_posts_image_1.png";
+import Image_2 from "../../../assets/images/LandingPage/selected_posts_image_2.png";
 import PostCard from "../common/PostCard/PostCard";
 import { useContext, useEffect, useState } from "react";
 import { CharityContext } from "../../../context/CharityContext";

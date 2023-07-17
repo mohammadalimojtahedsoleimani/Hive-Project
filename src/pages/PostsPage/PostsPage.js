@@ -1,17 +1,17 @@
-import Navbar from '../components/common/Navbar/Navbar'
+import Navbar from '../../components/common/Navbar/Navbar'
 import { useContext , useEffect  , useState } from 'react';
-import Filter from '../components/PostsPage/Filter';
-import Menu from '../components/PostsPage/Menu';
-import Posts from '../components/PostsPage/Posts';
+import Filter from '../../components/PostsPage/Filter';
+import Menu from '../../components/PostsPage/Menu';
+import Posts from '../../components/PostsPage/Posts';
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-import { CharityContext } from "../context/CharityContext";
-import { PageContext } from "../context/PageProvider"
-import Paging from '../components/PostsPage/Paging';
-import { SearchContext } from "../context/SearchContext";
-import { CatidContext } from "../context/CatidContext";
-import BASE_URL, { CHARITY } from '../Config/ApiConfig';
-import adBlockerHandler from "../helper/adBlockerHandler";
+import { CharityContext } from "../../context/CharityContext";
+import { PageContext } from "../../context/PageProvider"
+import Paging from '../../components/PostsPage/Paging';
+import { SearchContext } from "../../context/SearchContext";
+import { CatidContext } from "../../context/CatidContext";
+import BASE_URL, { CHARITY } from '../../Config/ApiConfig';
+import adBlockerHandler from "../../helper/adBlockerHandler";
 
 const PostsPage = ( props ) => {
 

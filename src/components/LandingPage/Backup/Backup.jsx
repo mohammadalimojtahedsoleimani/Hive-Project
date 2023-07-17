@@ -1,6 +1,6 @@
 import styles from "./Backup.module.css";
-import TrustTick from "../../../images/LandingPage/trust_tick.svg";
-import Arrow from "../../../images/LandingPage/backup_arrow.svg";
+import TrustTick from "../../../assets/images/LandingPage/trust_tick.svg";
+import Arrow from "../../../assets/images/LandingPage/backup_arrow.svg";
 
 const Backup = (props) => {
   return (

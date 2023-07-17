@@ -1,7 +1,7 @@
-import Pattern from "../../images/DashboardPage/pattern.svg";
-import Avatar1 from "../../images/common/avatars/avatar_1.svg";
-import Avatar2 from "../../images/common/avatars/avatar_2.svg";
-import Avatar3 from "../../images/common/avatars/avatar_3.svg";
+import Pattern from "../../assets/images/DashboardPage/pattern.svg";
+import Avatar1 from "../../assets/images/common/avatars/avatar_1.svg";
+import Avatar2 from "../../assets/images/common/avatars/avatar_2.svg";
+import Avatar3 from "../../assets/images/common/avatars/avatar_3.svg";
 import Table from "./common/Table";
 import { useEffect, useState } from "react";
 import axios from "axios";
