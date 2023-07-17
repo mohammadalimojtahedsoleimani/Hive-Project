@@ -7,7 +7,7 @@ import axios from "axios";
 import { notify } from "../../../helper/toast";
 import { createPortal } from "react-dom";
 import styles from "./LogOut.module.css";
-import cancel from "../../../images/modal/close.svg";
+import cancel from "../../../assets/images/modal/close.svg";
 import { LogoutContext } from "../../../context/LogoutContext";
 import { DakhelContext } from "../../../context/DakhelContext";
 import BASE_URL, { ACCOUNTS } from '../../../Config/ApiConfig';

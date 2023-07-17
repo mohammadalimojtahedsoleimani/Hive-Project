@@ -1,8 +1,8 @@
-import Twitter from "../../..//images/common/Footer/twitter.svg";
-import Instagram from "../../..//images/common/Footer/insta.svg";
-import Pintrest from "../../..//images/common/Footer/pintrest.svg";
-import Youtube from "../../..//images/common/Footer/youtube.svg";
-import Logo from "../../../images/common/Footer/logo.png";
+import Twitter from "../../../assets/images/common/Footer/twitter.svg";
+import Instagram from "../../../assets/images/common/Footer/insta.svg";
+import Pintrest from "../../../assets/images/common/Footer/pintrest.svg";
+import Youtube from "../../../assets/images/common/Footer/youtube.svg";
+import Logo from "../../../assets/images/common/Footer/logo.png";
 import { Link } from "react-router-dom";
 
 const Footer = (props) => {

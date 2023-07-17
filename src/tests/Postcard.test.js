@@ -2,7 +2,7 @@ import { render , screen , fireEvent , cleanup , waitFor } from "@testing-librar
 import "@testing-library/jest-dom/extend-expect";
 
 import PostCard from '../components/LandingPage/common/PostCard/PostCard';
-import Image_0 from "../images/LandingPage/selected_posts_image_0.png";
+import Image_0 from "../assets/images/LandingPage/selected_posts_image_0.png";
 import { BrowserRouter } from "react-router-dom";
 import SignUpPage from "./SignUpPage";
 import userEvent from "@testing-library/user-event";

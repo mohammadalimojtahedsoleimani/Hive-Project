@@ -1,9 +1,0 @@
-.errorSpan{
-    min-height: calc(0.8vw + 0.1rem);
-    text-align: left;
-    width: fit-content;
-    font-size: calc(0.7vw + 0.08rem);
-    color: red;
-    padding: 0px 3px;
-    font-family: 'IRANSansXFaNum';
-}

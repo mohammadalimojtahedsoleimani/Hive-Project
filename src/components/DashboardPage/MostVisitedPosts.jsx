@@ -1,7 +1,7 @@
-import MoneyBag from "../../images/common/icons/Money Bag.svg";
-import PiggyBank from "../../images/common/icons/Piggy Bank.svg";
-import PiggyBank2 from "../../images/common/icons/Piggy Bank 2.svg";
-import Donation from "../../images/common/icons/Donation.svg";
+import MoneyBag from "../../assets/icons/icons/Money Bag.svg";
+import PiggyBank from "../../assets/icons/icons/Piggy Bank.svg";
+import PiggyBank2 from "../../assets/icons/icons/Piggy Bank 2.svg";
+import Donation from "../../assets/icons/icons/Donation.svg";
 import { Fragment, useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";

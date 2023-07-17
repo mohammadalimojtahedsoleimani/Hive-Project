@@ -1,8 +1,8 @@
 import styles from "./Filter.module.css";
 import { useContext, useState } from "react";
 
-import SearchIcon from "../../images/PostsPage/search.svg";
-import FilterIcon from "../../images/PostsPage/filter.svg";
+import SearchIcon from "../../assets/images/PostsPage/search.svg";
+import FilterIcon from "../../assets/images/PostsPage/filter.svg";
 // import { SearchContext } from "@/context/SearchContext";
 import {SearchContext} from "../../context/SearchContext";
 

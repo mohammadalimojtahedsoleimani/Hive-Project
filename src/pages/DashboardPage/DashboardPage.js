@@ -1,20 +1,20 @@
-import VerticalNavbar from "../components/DashboardPage/VerticalNavbar";
-import Dashboard from '../images/DashboardPage/dashboard.svg'
-import DashboardActive from '../images/DashboardPage/dashboard_active.svg'
-import Posts from '../images/DashboardPage/posts.svg'
-import PostsActive from '../images/DashboardPage/posts_active.svg'
-import Info from '../images/DashboardPage/info.svg'
-import InfoActive from '../images/DashboardPage/info_active.svg'
-import SampleProfile from '../images/DashboardPage/sample_profile.png'
-import UserProfile from "../components/DashboardPage/UserProfile";
-import MostVisitedPosts from "../components/DashboardPage/MostVisitedPosts";
-import Time from "../components/DashboardPage/Time";
+import VerticalNavbar from "../../components/DashboardPage/VerticalNavbar";
+import Dashboard from '../../assets/images/DashboardPage/dashboard.svg'
+import DashboardActive from '../../assets/images/DashboardPage/dashboard_active.svg'
+import Posts from '../../assets/images/DashboardPage/posts.svg'
+import PostsActive from '../../assets/images/DashboardPage/posts_active.svg'
+import Info from '../../assets/images/DashboardPage/info.svg'
+import InfoActive from '../../assets/images/DashboardPage/info_active.svg'
+import SampleProfile from '../../assets/images/DashboardPage/sample_profile.png'
+import UserProfile from "../../components/DashboardPage/UserProfile";
+import MostVisitedPosts from "../../components/DashboardPage/MostVisitedPosts";
+import Time from "../../components/DashboardPage/Time";
 import { useContext , useEffect , useState } from "react";
-import Container from "../components/DashboardPage/Container";
-import Rectangle from '../images/DashboardPage/rectangle.svg'
+import Container from "../../components/DashboardPage/Container";
+import Rectangle from '../../assets/images/DashboardPage/rectangle.svg'
 import axios from "axios";
-import { LoginModalContext } from "../context/LoginContext";
-import Login from "../components/modal/Login/Login";
+import { LoginModalContext } from "../../context/LoginContext";
+import Login from "../../components/modal/Login/Login";
 const BUTTON_WRAPPER_LOGIN_STYLES = {
     position: "relative",
     zIndex : 1 ,

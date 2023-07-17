@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from "react";
 import styles from "./MobileNavbar.module.css";
-import Menu from "../../../images/common/Navbar/menu.svg";
-import Profile from "../../../images/common/Navbar/profile.png";
-import Logo from "../../../images/common/Navbar/logo.svg";
+import Menu from "../../../assets/images/common/Navbar/menu.svg";
+import Profile from "../../../assets/images/common/Navbar/profile.png";
+import Logo from "../../../assets/images/common/Navbar/logo.svg";
 import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

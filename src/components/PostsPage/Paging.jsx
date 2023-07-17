@@ -1,6 +1,6 @@
 import { Fragment } from "react";
-import Right from "../../images/PostsPage/right.svg";
-import Left from "../../images/PostsPage/left.svg";
+import Right from "../../assets/images/PostsPage/right.svg";
+import Left from "../../assets/images/PostsPage/left.svg";
 import { useNavigate } from "react-router-dom";
 const Paging = ({
   total_pages: pagesCount,

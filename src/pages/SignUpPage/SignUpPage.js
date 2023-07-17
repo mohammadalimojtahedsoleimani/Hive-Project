@@ -1,22 +1,21 @@
-import Google from "../images/SignUp/google.svg";
-import Github from "../images/SignUp/github-cropped.svg";
-import Logo from "../images/SignUp/logo.svg";
-import Twitter from "../images/SignUp/links/twitter.svg";
-import Insta from "../images/SignUp/links/insta.svg";
-import Pinterest from "../images/SignUp/links/pinterest.svg";
-import Youtube from "../images/SignUp/links/youtube.svg";
-import Pattern1 from "../images/SignUp/patterns/pattern_1.svg";
-import Pattern2 from "../images/SignUp/patterns/pattern_2.svg";
+import Google from "../../assets/images/SignUp/google.svg";
+import Github from "../../assets/images/SignUp/github-cropped.svg";
+import Logo from "../../assets/images/SignUp/logo.svg";
+import Twitter from "../../assets/images/SignUp/links/twitter.svg";
+import Insta from "../../assets/images/SignUp/links/insta.svg";
+import Pinterest from "../../assets/images/SignUp/links/pinterest.svg";
+import Youtube from "../../assets/images/SignUp/links/youtube.svg";
+import Pattern1 from "../../assets/images/SignUp/patterns/pattern_1.svg";
+import Pattern2 from "../../assets/images/SignUp/patterns/pattern_2.svg";
 import { Link, useNavigate } from "react-router-dom";
 import React, { useContext, useState } from "react";
 import axios from "axios";
-import { notify } from "../helper/toast";
+import { notify } from "../../helper/toast";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-import { validate } from "../helper/validate";
-import styles from "./SignUp.module.css";
+import { validate } from "../../helper/validate";
 import { useEffect } from "react";
-import BASE_URL, { ACCOUNTS } from "./../Config/ApiConfig";
+import BASE_URL, { ACCOUNTS } from "../../Config/ApiConfig";
 
 const SignUpPage = () => {
   //variables

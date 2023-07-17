@@ -6,31 +6,31 @@
 
 @font-face {
     font-family: "IRANSansXFaNum";
-    src: url('./fonts/IRANSansXFaNum-Regular.woff') format("woff");
+    src: url('assets/fonts/IRANSansXFaNum-Regular.woff') format("woff");
     font-weight: 400;
   }
   
   @font-face {
     font-family: "IRANSansXFaNum";
-    src: url("./fonts/IRANSansXFaNum-Bold.woff") format("woff");
+    src: url("assets/fonts/IRANSansXFaNum-Bold.woff") format("woff");
     font-weight: 500;
   }
 
 @font-face {
     font-family: "BYekan";
-    src: url("./fonts/BYekan.woff") format("woff");
+    src: url("assets/fonts/BYekan.woff") format("woff");
     font-weight: 400;
   }
 
   @font-face {
     font-family: "BYekan";
-    src: url("./fonts/BYekan.woff") format("woff");
+    src: url("assets/fonts/BYekan.woff") format("woff");
     font-weight: 400;
   }
 
   @font-face {
     font-family: "IRANNastaliqh";
-    src: url("./fonts/IranNastaliq_YasDL.com.ttf") format("ttf"), url('./fonts/IranNastaliq-Web.woff') format('woff');
+    src: url("assets/fonts/IranNastaliq_YasDL.com.ttf") format("ttf"), url('assets/fonts/IranNastaliq-Web.woff') format('woff');
     font-weight: 400;
   }
 *{

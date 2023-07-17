@@ -1,4 +1,4 @@
-import StepsImage from "../../../images/LandingPage/steps.png";
+import StepsImage from "../../../assets/images/LandingPage/steps.png";
 
 const Steps = (props) => {
   return (

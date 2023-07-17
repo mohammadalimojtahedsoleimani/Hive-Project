@@ -1,6 +1,6 @@
-import Idea from "../../../images/LandingPage/idea.svg";
-import Sheild from "../../../images/LandingPage/sheild.svg";
-import Help from "../../../images/LandingPage/general_info_image.png";
+import Idea from "../../../assets/images/LandingPage/idea.svg";
+import Sheild from "../../../assets/images/LandingPage/sheild.svg";
+import Help from "../../../assets/images/LandingPage/general_info_image.png";
 import styles from "./GeneralInfo.module.css";
 
 const GeneralInfo = (props) => {

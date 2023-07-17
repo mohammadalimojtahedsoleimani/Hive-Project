@@ -1,9 +1,9 @@
-import Image_1 from "../../../images/LandingPage/about_us_image_1.png";
-import Image_2 from "../../../images/LandingPage/about_us_image_2.png";
-import Shape from "../../../images/LandingPage/about_us_shape.png";
-import Par from "../../../images/LandingPage/about_us_par.svg";
-import Rock from "../../../images/LandingPage/about_us_rock.png";
-import Landpiece from "../../../images/LandingPage/about_us_landpiece.svg";
+import Image_1 from "../../../assets/images/LandingPage/about_us_image_1.png";
+import Image_2 from "../../../assets/images/LandingPage/about_us_image_2.png";
+import Shape from "../../../assets/images/LandingPage/about_us_shape.png";
+import Par from "../../../assets/images/LandingPage/about_us_par.svg";
+import Rock from "../../../assets/images/LandingPage/about_us_rock.png";
+import Landpiece from "../../../assets/images/LandingPage/about_us_landpiece.svg";
 import styles from "./AboutUsMobile.module.css";
 
 const AboutUsMobile = (props) => {

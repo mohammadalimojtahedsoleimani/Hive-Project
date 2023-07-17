@@ -1,4 +1,4 @@
-import NotifBell from "../../images/DashboardPage/bell.svg";
+import NotifBell from "../../assets/images/DashboardPage/bell.svg";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import BASE_URL, { ACCOUNTS } from "../../Config/ApiConfig";

@@ -1,13 +1,13 @@
 import React from 'react';
-import styles from "./AboutUs.module.css"
-import Navbar from "../components/common/Navbar/Navbar"
-import Footer from "../components/common/Footer/Footer"
-import IMG from "../images/AboutUs/aboutUs.png"
-import rightTriplePart from "../images/AboutUs/rightone.png"
-import middleTriplePart from "../images/AboutUs/middleone.png"
-import rightAndLeftDots from "../images/AboutUs/dots.png"
-import leftTriplePart from "../images/AboutUs/leftone.png"
-import endImagePic from "../images/AboutUs/end.png"
+import styles from "./style/AboutUs.module.css"
+import Navbar from "../../components/common/Navbar/Navbar"
+import Footer from "../../components/common/Footer/Footer"
+import IMG from "../../assets/images/AboutUs/aboutUs.png"
+import rightTriplePart from "../../assets/images/AboutUs/rightone.png"
+import middleTriplePart from "../../assets/images/AboutUs/middleone.png"
+import rightAndLeftDots from "../../assets/images/AboutUs/dots.png"
+import leftTriplePart from "../../assets/images/AboutUs/leftone.png"
+import endImagePic from "../../assets/images/AboutUs/end.png"
 import { Link } from "react-router-dom";
 const AboutUs = () => {
     return (

@@ -1,4 +1,4 @@
-import EditIcon from "../../images/DashboardPage/edit.svg";
+import EditIcon from "../../assets/images/DashboardPage/edit.svg";
 import { useContext , useEffect , useState } from "react";
 import axios from "axios";
 import { notify } from "../../helper/toast";
