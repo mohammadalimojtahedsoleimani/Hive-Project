@@ -97,7 +97,7 @@ const PostCard = ({
                 کمک های مالی جمع شده
               </span>
               <span className="text-[10px] xxl:text-[14px] font-bold">
-                {collectedPercentage}%
+                {Math.round(collectedPercentage)}%
               </span>
             </div>
             <div className={styles.totalBar}>
