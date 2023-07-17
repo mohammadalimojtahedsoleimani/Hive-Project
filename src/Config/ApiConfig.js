@@ -1,7 +1,5 @@
-const BASE_URL = 'http://37.32.20.190:8000/';
-// const USER_URL = `${BASE_URL}/users`;
-// const POSTS_URL = `${BASE_URL}/posts`;
-const IMAGE_PATH = "media/ads/"
+const BASE_URL = 'https://hive-api.iran.liara.run/';
+
 const ACCOUNTS = {
     PROFILE :"accounts/api/v1/profile/",
     REGISTRATION :"accounts/api/v1/registration/",
@@ -23,4 +21,4 @@ const CHARITY = {
     DONATION: "charity/api/v1/donations/",
 }
 export default BASE_URL
-export { IMAGE_PATH, ACCOUNTS, CHARITY};
+export { ACCOUNTS, CHARITY};

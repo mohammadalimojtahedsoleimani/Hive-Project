@@ -47,7 +47,6 @@ const Time = () => {
       );
       setTimeString(new Intl.DateTimeFormat("en-US", options).format(now));
     }, 2001);
-    // console.log(timeString);
     return () => {
       clearInterval(newInterval);
     };

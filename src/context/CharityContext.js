@@ -1,20 +1,9 @@
-import React , { useEffect , useState , createContext , useContext } from "react";
-import { getCharity } from "../services/api";
-import { PageContext } from "./PageProvider";
+import React , { useState , createContext } from "react";
 
 const CharityContext = createContext ();
 
 const CharityProvider = ( { children } ) => {
-    const [ charity , setCharity ] = useState ( [] );
-    const { pageNumber } = useContext ( PageContext )
-    useEffect ( () => {
-        // const fetchAPI = async () => {
-        //     setCharity ( await getCharity ( 1 ) );
-        // }
-        // fetchAPI ();
-
-
-    } , [] )
+   const [ charity , setCharity ] = useState ( [] );
 
     return (
         <CharityContext.Provider value={ { charity , setCharity } }>

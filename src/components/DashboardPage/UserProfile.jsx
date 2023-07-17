@@ -1,9 +1,9 @@
-import NotifBell from "../../images/DashboardPage/bell.svg";
+import NotifBell from "../../assets/images/DashboardPage/bell.svg";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import BASE_URL, { ACCOUNTS } from "../../Config/ApiConfig";
 
-const UserProfile = ({ profilePic, username }) => {
+const UserProfile = () => {
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
   const [avatar, setAvatar] = useState("");
@@ -29,11 +29,6 @@ const UserProfile = ({ profilePic, username }) => {
         className=" w-12 h-12 rounded-[50%]"
         style={{ backgroundImage: `url(${avatar})`, backgroundSize: "cover" }}
       ></div>
-      {/* <img
-        src={avatar}
-        alt="profile pic"
-        className=" w-12 h-12 rounded-[50%]"
-      /> */}
       <span className="font-bold text-[#777777] text-[15px] xxl:text-[20px]">
         {fname} {lname}
       </span>

@@ -1,10 +1,10 @@
-import Image_0 from "../../../images/LandingPage/qualities_image_0.svg";
-import Image_1 from "../../../images/LandingPage/qualities_image_1.svg";
-import Image_2 from "../../../images/LandingPage/qualities_image_2.svg";
-import Image_3 from "../../../images/LandingPage/qualities_image_3.svg";
+import Image_0 from "../../../assets/images/LandingPage/qualities_image_0.svg";
+import Image_1 from "../../../assets/images/LandingPage/qualities_image_1.svg";
+import Image_2 from "../../../assets/images/LandingPage/qualities_image_2.svg";
+import Image_3 from "../../../assets/images/LandingPage/qualities_image_3.svg";
 import Card from "./common/Card";
 
-const Qualities = (props) => {
+const Qualities = () => {
   const cardsArray = [
     {
       id: 0,

@@ -16,13 +16,9 @@
     background-size: cover;
     background-color: #FCFCFC;
 }
-/* .table tr>th{
-    display: flex;
-} */
+
 .pagination{
     width: 100%;
-    /* position: absolute;
-    bottom: 0; */
     display: flex;
     justify-content: center;
     background-color: #F7F7F7;

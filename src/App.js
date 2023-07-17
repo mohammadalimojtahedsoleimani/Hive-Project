@@ -1,15 +1,15 @@
-import { redirect , Route , Routes } from "react-router-dom";
-import LandingPage from './pages/LandingPage'
-import PostsPage from './pages/PostsPage';
-import DashboardPage from './pages/DashboardPage';
-import NotFoundPage from "./pages/NotFoundPage";
+import { Route , Routes } from "react-router-dom";
+import LandingPage from './pages/LandingPage/LandingPage'
+import PostsPage from './pages/PostsPage/PostsPage';
+import DashboardPage from './pages/DashboardPage/DashboardPage';
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import { CharityProvider } from "./context/CharityContext"
 import PageProvider from "./context/PageProvider";
-import AboutUs from "./pages/AboutUs"
-import CharityPage from "./pages/CharityPage";
+import AboutUs from "./pages/AboutUs/AboutUs"
+import CharityPage from "./pages/CharityPage/CharityPage";
 import { LoginModalProvider } from "./context/LoginContext";
-import SignUpPage from "./pages/SignUpPage";
-import EditPasswordPage from './pages/EditPasswordPage';
+import SignUpPage from "./pages/SignUpPage/SignUpPage";
+import EditPasswordPage from './pages/EditPasswordPage/EditPasswordPage';
 import { DakhelProvider } from "./context/DakhelContext";
 import { ProfileProvider } from "./context/ProfileContext";
 import { DonationProvider } from "./context/DonationContext";
@@ -17,9 +17,9 @@ import { SearchProvider } from "./context/SearchContext";
 import MobileViewProvider from "./context/MobileContext";
 import { LogoutProvider } from "./context/LogoutContext";
 import { DeleteprofProvider } from "./context/DeleteprofContext";
-import Activation from "./pages/Activation"
+import Activation from "./pages/Activation/Activation"
 import { CatidProvider } from "./context/CatidContext";
-import GetEmail from "./pages/GetEmail";
+import GetEmail from "./pages/GetEmail/GetEmail";
 import UseScrollToTop from "./hooks/use-scroll-to-top";
 function App () {
     const isLoggedIn = localStorage.getItem('token') !== null;

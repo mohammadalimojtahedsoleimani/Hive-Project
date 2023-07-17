@@ -1,10 +1,10 @@
-import Image_0 from "../../../images/LandingPage/selected_posts_image_0.png";
-import Image_1 from "../../../images/LandingPage/selected_posts_image_1.png";
-import Image_2 from "../../../images/LandingPage/selected_posts_image_2.png";
+import Image_0 from "../../../assets/images/LandingPage/selected_posts_image_0.png";
+import Image_1 from "../../../assets/images/LandingPage/selected_posts_image_1.png";
+import Image_2 from "../../../assets/images/LandingPage/selected_posts_image_2.png";
 import PostCardMobile from "../../common/PostCardMobile/PostCardMobile";
 import styles from "./SelectedPostsMobile.module.css";
 
-const SelectedPostsMobile = (props) => {
+const SelectedPostsMobile = () => {
   const postsArray = [
     {
       image: Image_0,
@@ -47,43 +47,11 @@ const SelectedPostsMobile = (props) => {
         <hr />
       </h2>
       <div className={styles.projects_part}>
-        {/* {projects.map((project) => {
-          return (
-            <div key={project.id} className={styles.project_element}>
-              <img className={styles.img} src={project.pic}></img>
-              <div>
-                <img className={styles.more_info_btn} src={moreInfoButton}></img>
-                <p className={styles.project_desc}>طراحی سایت</p>
-                <p className={styles.project_title}>{project.title}</p>
-              </div>
-            </div>
-          );
-        })} */}
         {postsArray.map((post) => (
           <PostCardMobile post={post} />
-          // <div className={styles.project_element}>
-          //   <img className={styles.img} src={post.image}></img>
-          //   <div>
-          //     {/* <img className={styles.more_info_btn} src={moreInfoButton}></img> */}
-          //     <p className={styles.project_desc}>طراحی سایت</p>
-          //     <p className={styles.project_title}>{post.title}</p>
-          //   </div>
-          // </div>
         ))}
       </div>
     </section>
-
-    // <section className=" bg-[#5E86FF] px-[5rem] xxl:px-[10rem] py-[3rem] xxl:py-[6rem]">
-    //   <h2 className="text-[white] font-bold text-[20] xxl:text-[27px] mb-11 xxl:mb-28">
-    //     آخرین کمک ها
-    //     <hr className=" bg-gray-400 inline-block mr-4 m-1 h-[1px] xxl:w-[66px]" />
-    //   </h2>
-    //   <div className="flex justify-center gap-4 xxl:gap-14">
-    //     {postsArray.map((post) => (
-    //       <PostCard posts={post} />
-    //     ))}
-    //   </div>
-    // </section>
   );
 };
 

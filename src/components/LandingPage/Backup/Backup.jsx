@@ -1,12 +1,13 @@
 import styles from "./Backup.module.css";
-import TrustTick from "../../../images/LandingPage/trust_tick.svg";
-import Arrow from "../../../images/LandingPage/backup_arrow.svg";
+import TrustTick from "../../../assets/images/LandingPage/trust_tick.svg";
+import Arrow from "../../../assets/images/LandingPage/backup_arrow.svg";
 
-const Backup = (props) => {
+const Backup = () => {
   return (
     <section
       className={
-        styles.parent + " text-[#C9C9C9] px-20 xxl:px-40 pb-10 xxl:pb-20"
+        styles.parent +
+        " relative text-[#C9C9C9] px-20 xxl:px-40 pb-10 xxl:pb-20"
       }
     >
       <div className="flex justify-start text-[white] pt-10 xxl:pt-20 mb-4 xxl:mb-8">

@@ -12,13 +12,11 @@
 .login{
     color: #4D7AD2;
     border: solid #4D7AD2 1px;
-    /* padding: 2rem; */
     border-radius: 12px;
 }
 .sign_up{
     color: white;
     border: solid #4D7AD2 1px;
-    /* padding: 2rem; */
     border-radius: 12px;
     background-color: #4D7AD2;
 }

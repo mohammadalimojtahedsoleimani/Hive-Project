@@ -1,9 +1,9 @@
-import Idea from "../../../images/LandingPage/idea.svg";
-import Sheild from "../../../images/LandingPage/sheild.svg";
-import Help from "../../../images/LandingPage/general_info_image.png";
+import Idea from "../../../assets/images/LandingPage/idea.svg";
+import Sheild from "../../../assets/images/LandingPage/sheild.svg";
+import Help from "../../../assets/images/LandingPage/general_info_image.png";
 import styles from "./GeneralInfo.module.css";
 
-const GeneralInfo = (props) => {
+const GeneralInfo = () => {
   const list_style =
     "list-disc mr-[15px] text-[14px]  mt-[15px]  mb-[15px] xxl:mr-[20px] xxl:text-[17px]  xxl:mt-[20px]  xxl:mb-[20px]";
 
@@ -59,7 +59,7 @@ const GeneralInfo = (props) => {
           </div>
         </div>
         <div className="text-right py-7 xxl:py-10">
-          <div className="inline-block  py-3 xxl:py-5">
+          <div className="inline-block py-3 xxl:py-5">
             <div className="flex justify-between">
               <span className="text-[#F0F0F0] text-[18px] xxl:text-[20px] font-medium">
                 کمک های مالی

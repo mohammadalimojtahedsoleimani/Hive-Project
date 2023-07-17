@@ -1,7 +1,7 @@
 import styles from "./Menu.module.css";
 import { Fragment, useContext, useEffect, useState } from "react";
 
-import Close from "../../images/PostsPage/close.svg";
+import Close from "../../assets/images/PostsPage/close.svg";
 import { CatidContext } from "../../context/CatidContext";
 
 const Menu = (props) => {
@@ -60,6 +60,11 @@ const Menu = (props) => {
       setCatid("");
     }
   }, [tempCatid]);
+  useEffect(() => {
+    if (!catid) {
+      setTempCatid("");
+    }
+  }, [catid]);
   const handleCheckResult = () => {
     setCatid(tempCatid);
     closeMenu();

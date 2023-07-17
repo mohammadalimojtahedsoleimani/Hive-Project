@@ -1,5 +1,5 @@
-import Calendar from "../../../images/common/PostCard/calendar.svg";
-import Person from "../../../images/common/PostCard/person.svg";
+import Calendar from "../../../assets/images/common/PostCard/calendar.svg";
+import Person from "../../../assets/images/common/PostCard/person.svg";
 import styles from "./PostCardMobile.module.css";
 import { moneyToText } from "../../../helper/Utils";
 import { Link } from "react-router-dom";
@@ -12,7 +12,6 @@ const PostCardMobile = ({ post }) => {
       }}
       className="bg-white min-w-[71vw]"
     >
-      {/* <img src={post.image} alt="" className="min-w-[71vw]" /> */}
       <Link to={`/post/${post.id}`}>
         <img src={post.image} alt="" className="w-full " />
       </Link>

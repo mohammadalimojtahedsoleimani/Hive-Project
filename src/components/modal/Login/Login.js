@@ -1,11 +1,10 @@
 import React , { useContext , useState } from 'react';
-import { Link , useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { notify } from "../../../helper/toast";
 import { createPortal } from 'react-dom';
 import styles from "../Login/Login.module.css";
-import cancel from "../../../images/modal/close.svg";
+import cancel from "../../../assets/images/modal/close.svg";
 import { LoginModalContext } from "../../../context/LoginContext";
-import { ProfileContext } from "../../../context/ProfileContext";
 import axios from "axios";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify";
@@ -14,22 +13,16 @@ import BASE_URL, { ACCOUNTS } from '../../../Config/ApiConfig';
 
 
 const Login = ( { open } ) => {
-    const navigate = useNavigate ();
-    // const { isPassOpen , setIsPassOpen } = useContext ( ForgetModalContext )
     const { setIsOpenLogin } = useContext ( LoginModalContext )
-    // const { setIsOpen } = useContext ( SignUpContext );
     const { isIn , setIsIn } = useContext ( DakhelContext );
-    const { profile , setProfile } = useContext ( ProfileContext );
     let login = "ورود"
-    const [ inIn , isInIn ] = useState ( false )
-
     const [ data , setData ] = useState ( {
         email : "" ,
         password : ""
     } )
     const [ touch , setTouch ] = useState ( {} )
     const [ errors , setErrors ] = useState ( {} )
-    const delay = 2000;
+    const delay = 1000;
     const submitHandler = async ( event ) => {
         event.preventDefault ();
         await axios.post ( BASE_URL + ACCOUNTS.LOGIN , data )

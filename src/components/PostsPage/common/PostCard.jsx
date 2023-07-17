@@ -1,9 +1,9 @@
-import Calendar from "../../../images/common/PostCard/calendar.svg";
-import Person from "../../../images/common/PostCard/person.svg";
-import User from "../../../images/common/PostCard/user.svg";
-import Category from "../../../images/common/PostCard/category.svg";
+import Calendar from "../../../assets/images/common/PostCard/calendar.svg";
+import Person from "../../../assets/images/common/PostCard/person.svg";
+import User from "../../../assets/images/common/PostCard/user.svg";
+import Category from "../../../assets/images/common/PostCard/category.svg";
 import { Link, useNavigate } from "react-router-dom";
-import styles from "../../../pages/CharityPage.module.css";
+import styles from "../../../pages/CharityPage/style/CharityPage.module.css";
 import React, { useEffect, useState } from "react";
 import stle from "./PostCard.module.css";
 import axios from "axios";
@@ -26,17 +26,18 @@ const PostCard = ({
   const navigate = useNavigate();
   console.log("postss ", image);
   const [nOfDonatores, setNofDonatores] = useState("");
-  const dateOnly = date.split("T")[0];
-  let formattedNumber = collected.toLocaleString("fa-IR-u-nu-arab", {
-    minimumFractionDigits: 0,
-  });
+  let dateOnly;
+  console.log(date);
+  console.log(dateOnly);
+  if (date !== null) {
+    dateOnly = date.split("T")[0];
+  }
 
   useEffect(() => {
     axios.get(BASE_URL + CHARITY.ADS + `${id}/donators/`).then((r) => {
       setNofDonatores(r.data.length);
     });
   }, []);
-  const totalDonators = 14;
   return (
     <div
       onClick={() => {
@@ -47,7 +48,7 @@ const PostCard = ({
       }}
       className={stle.parent + " w-[300px] xxl:w-[350px] mx-4 xxl:mx-7"}
     >
-      <div className={stle.content_parent}>
+      <div>
         <Link to={"#"}>
           <div
             style={{
@@ -57,7 +58,6 @@ const PostCard = ({
             className="w-full  h-[200px] xxl:h-[300px] cursor-pointer"
           ></div>
         </Link>
-        {/* <img src={image} alt="" className="w-full h-[200px] xxl:h-[270px]" /> */}
         <div className="px-4 py-3 xxl:px-7 xxl:py-5">
           <div className="flex justify-between text-gray-400">
             <span className="flex items-center gap-1 xxl:gap-3 text-[12px] xxl:text-[14px] ">
@@ -91,7 +91,6 @@ const PostCard = ({
               <img src={Category} alt="" className="w-[5px] xxl:w-[8px]" />
             </div>
           </div>
-          {/* <p className='text-[10px] xxl:text-[14px] h-16 xxl:h-24'>{description}</p> */}
           <div className="w-[100%] py-4 xxl:pb-6 xxl:pt-4">
             <div className="flex justify-between">
               <span className="text-[10px] xxl:text-[14px] font-bold">

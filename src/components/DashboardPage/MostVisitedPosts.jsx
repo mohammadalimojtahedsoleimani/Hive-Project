@@ -1,23 +1,14 @@
-import MoneyBag from "../../images/common/icons/Money Bag.svg";
-import PiggyBank from "../../images/common/icons/Piggy Bank.svg";
-import PiggyBank2 from "../../images/common/icons/Piggy Bank 2.svg";
-import Donation from "../../images/common/icons/Donation.svg";
-import { Fragment, useEffect, useState } from "react";
+import MoneyBag from "../../assets/icons/icons/Money Bag.svg";
+import PiggyBank from "../../assets/icons/icons/Piggy Bank.svg";
+import PiggyBank2 from "../../assets/icons/icons/Piggy Bank 2.svg";
+import Donation from "../../assets/icons/icons/Donation.svg";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { moneyToText } from "../../helper/Utils";
 import BASE_URL, { CHARITY } from "../../Config/ApiConfig";
 
 const MostVisitedPosts = () => {
-  // const mostVisitedPostsArr = [
-  //     { title : "ترکیه" , collected_amount : "7,019,000 تومان" } ,
-  //     { title : "زاهدان" , collected_amount : "4,033,000 تومان" } ,
-  //     { title : "کودکان کار کرج" , collected_amount : "3,971,000 تومان" } ,
-  //     { title : "کودکان کار اصفهان" , collected_amount : "2,904,000 تومان" } ,
-  //     { title : "نیازمندان منیریه تهران" , collected_amount : "2,802,000 تومان" } ,
-  //     { title : "تغذیه 3200 کودک" , collected_amount : "1,130,000 تومان" } ,
-  //     { title : "ارسال دارو به مازندران" , collected_amount : "781,000 تومان" } ,
-  // ];
   const [mostVisitedPosts, setMostVisitedPosts] = useState([]);
   const handleTitle = (title) => {
     const maxChars = 18;

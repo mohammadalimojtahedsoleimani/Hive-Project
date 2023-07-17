@@ -1,0 +1,46 @@
+.MainBody {
+    background: #edf3f7;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    font-family: 'IRANSansXFaNum';
+}
+.imageContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 165px;
+    width: 667px;
+    height: 500px;
+
+}
+.buttonContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    border-radius: 10px;
+    background: transparent;
+    width: 272px;
+    height: 55px;
+    color: #4D7AD2;
+    border: 1px solid rgba(77, 122, 210, 1);
+
+}
+.buttonContainer button{
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 272px;
+    height: 55px;
+
+}
+.buttonContainer button:hover{
+    background: #4D7AD2;
+    color: white;
+}

@@ -1,0 +1,443 @@
+.mainBody {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.topBody {
+
+    display: flex;
+    flex-direction: row;
+    margin-top: 201px;
+    margin-right: 312px;
+    margin-left: 313px;
+
+    justify-content: center;
+
+
+}
+
+.rightPartTop p {
+    font-family: 'IRANSansXFaNum';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 39px;
+    line-height: 128%;
+    text-transform: capitalize;
+    color: #4D7AD2;
+}
+
+.rightPartTopIMG {
+    margin-top: 45px;
+    max-width: 827px;
+    min-width: 827px;
+    overflow: hidden;
+    /* min-height: 501px; */
+    max-height: 501px;
+    object-fit: none;
+
+}
+
+.leftPartTop {
+    background: #EDF3F7;
+    min-height: 421px;
+    min-width:416px ;
+    max-height:421px ;
+    max-width: 416px;
+    margin-right: 52px;
+    margin-top: 95px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.leftPartTopUpContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.leftPartTopUpContainer p {
+    margin-top: 45px;
+    margin-right: 23px;
+    font-family: 'IRANSansXFaNum';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 132%;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+.leftPartTopUpContainer span {
+    border: 1px solid #4D7AD2;
+    width: 60px;
+    height: 0px;
+    margin-right: 24px;
+    margin-top: 13px;
+}
+
+.RelatedPostsContainer {
+    display: flex;
+    flex-direction: column;
+    margin-right: 24px;
+    margin-left: 44px;
+    margin-top: 32px;
+}
+
+.leftPartTopRelatedPostContainer {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.leftPartTopRelatedImgContainer {
+    width: 150px;
+    height: 110px;
+
+
+}
+
+.leftPartTopParRelatedContainer {
+    margin-top: 15px;
+    margin-right: 20px;
+
+}
+
+.leftPartTopParRelatedContainerText {
+    font-family: 'IRANSansXFaNum';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 140%;
+    text-align: right;
+    text-transform: capitalize;
+    color: #000000;
+    max-width: 177px;
+    margin-right: 1px;
+    max-height: 56px;
+}
+
+.leftPartTopParRelatedContainerCategory {
+    font-family: 'IRANSansXFaNum';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: capitalize;
+    color: #252A34;
+
+    max-width: 25px;
+
+}
+
+.leftPartDownRelatedPostContainer {
+    display: flex;
+    flex-direction: row;
+    margin-top: 24px;
+}
+
+.downBody {
+    display: flex;
+    flex-direction: row;
+    margin-top: 60px;
+    justify-content: start;
+    align-items: start;
+    margin-bottom: 130px;
+
+
+}
+
+.rightDownPart {
+    display: flex;
+    flex-direction: column;
+    margin-right: 313px;
+
+    justify-content: center;
+    align-items: start;
+}
+
+.detailedContainer {
+    display: flex;
+    flex-direction: row;
+
+
+}
+
+.usernameContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 53px;
+}
+
+.usernameContainer p {
+    font-family: 'IRANSansXFaNum';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 171%;
+    text-transform: capitalize;
+    color: #888888;
+    margin-right: 5px;
+}
+
+.dateContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 53px;
+}
+
+.dateContainer p {
+    font-family: 'IRANSansXFaNum';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 171%;
+    text-transform: capitalize;
+    color: #999999;
+    margin-right: 6px;
+}
+
+.estimatedTimeContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.estimatedTimeContainer p {
+    margin-right: 15px;
+    font-family: 'IRANSansXFaNum';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 171%;
+    text-align: right;
+    text-transform: capitalize;
+    color: #888888;
+}
+
+.descriptionContainer {
+    max-width: 827px;
+    max-height: 176px;
+    margin-top: 26px;
+    min-width: 827px;
+
+}
+
+.descriptionContainer p {
+    font-family: 'IRANSansXFaNum';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: right;
+    text-transform: capitalize;
+    color: #555555;
+}
+
+.leftDownPart {
+    width: 416px;
+    height: 390px;
+    background: #EDF3F7;
+    display: flex;
+    flex-direction: column;
+    margin-right: 52px;
+    margin-left: 313px;
+
+}
+
+.detailCharityContainer {
+    margin-top: 44px;
+    margin-right: 24px;
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.detailCharityContainerSpan {
+    font-family: 'IRANSansXFaNum';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 33px;
+    text-align: right;
+    text-transform: capitalize;
+    color: #000000;
+
+
+}
+
+.detailCharityContainerLine {
+    border: 1px solid #4D7AD2;
+    width: 60px;
+    height: 0px;
+    margin-top: 12px;
+
+}
+
+.donationDetailsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+.totalDonationPercent {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: row;
+    width: 341px;
+    justify-content: space-between;
+
+}
+.totalDonationPercent p{
+    font-family: 'IRANSansXFaNum';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: right;
+    text-transform: capitalize;
+
+    color: #252A34;
+}
+
+
+.totalBar {
+    margin-top: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.progressBar {
+    overflow: hidden;
+    width:337.41px ;
+    height: 7.28px;
+    background: rgba(185, 207, 249, 1);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.progressBarDisplay {
+    height: 7.28px;
+
+}
+
+
+.totalDonationNumber {
+    margin-top: 14px;
+    display: flex;
+    flex-direction: row;
+    width: 341px;
+    justify-content: space-between;
+}
+.totalDonationNumber p{
+    font-family: 'IRANSansXFaNum';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: right;
+    text-transform: capitalize;
+    color: #252A34;
+}
+
+.buttonContainer {
+margin-top: 56px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 341px;
+    margin-right: 28px;
+    margin-left: 47px;
+}
+
+
+.shareButton{
+    font-family: 'IRANSansXFaNum';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: capitalize;
+    color: #4D7AD2;
+
+    /* Inside auto layout */
+    flex: none;
+
+}
+.shareButtonContainer{
+    border: 1px solid #4D7AD2;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 32px;
+    gap: 10px;
+    box-sizing: border-box;
+    width: 155px;
+    height: 56px;
+    cursor: pointer;
+
+}
+
+
+.donateButtonContainer{
+    border: 1px solid #4D7AD2;
+    border-radius: 10px;
+    width: 162px;
+    height: 56px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+
+
+    cursor: pointer;
+
+}
+
+.donateButton{
+    color: #4D7AD2;
+    display: flex;
+    text-transform: capitalize;
+    font-family: 'IRANSansXFaNum';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+
+
+
+
+
+}
+.shareButtonContainer:hover{
+    background: #4D7AD2;
+    color: white;
+}
+.shareButtonContainer:hover .shareButton{
+    color: white;
+}
+.donateButtonContainer:hover{
+    background: #4D7AD2;
+    color: white;
+}
+.donateButtonContainer:hover .donateButton{
+    background:#4D7AD2 ;
+    color: white;
+}

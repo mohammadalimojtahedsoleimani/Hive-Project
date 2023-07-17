@@ -5,7 +5,7 @@ import axios from "axios";
 import { notify } from "../../../helper/toast";
 import { createPortal } from "react-dom";
 import styles from "../LogOut/LogOut.module.css";
-import cancel from "../../../images/modal/close.svg";
+import cancel from "../../../assets/images/modal/close.svg";
 import { DeleteprofContext } from "../../../context/DeleteprofContext";
 import { DakhelContext } from "../../../context/DakhelContext";
 import BASE_URL, { ACCOUNTS } from '../../../Config/ApiConfig';
@@ -30,8 +30,11 @@ const DeleteProfile = ( { open , closeModal } ) => {
             }
         } )
             .then ( r => {
+                localStorage.removeItem('token')
+                localStorage.removeItem('id')
                 navigate ( '/' );
                 setIsDelOpen(false)
+                setIsIn(false)
             } )
 
     }
