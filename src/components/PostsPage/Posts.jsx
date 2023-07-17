@@ -2,7 +2,7 @@ import PostCard from "./common/PostCard";
 import styles from "./Posts.module.css";
 
 const Posts = (props) => {
-  const setPosts = (posts, page) => {
+  const setPosts = (posts) => {
     return posts.map((post) => (
       <PostCard
         key={post.id}
@@ -22,11 +22,12 @@ const Posts = (props) => {
 
   return (
     <div
+      dir="ltr"
       className={
         styles.posts + " flex justify-start px-[5rem] xxl:px-[9rem] mb-[6rem]"
       }
     >
-      {setPosts(props.posts, props.page)}
+      {setPosts(props.posts)}
     </div>
   );
 };

@@ -40,6 +40,7 @@ const PostCard = ({
   }, []);
   return (
     <div
+      dir="rtl"
       onClick={() => {
         navigate(`/post/${id}`);
       }}
