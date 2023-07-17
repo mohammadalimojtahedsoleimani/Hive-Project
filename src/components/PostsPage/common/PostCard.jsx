@@ -27,19 +27,17 @@ const PostCard = ({
   console.log("postss ", image);
   const [nOfDonatores, setNofDonatores] = useState("");
   let dateOnly;
-  console.log(date)
-  console.log(dateOnly)
+  console.log(date);
+  console.log(dateOnly);
   if (date !== null) {
     dateOnly = date.split("T")[0];
   }
-
 
   useEffect(() => {
     axios.get(BASE_URL + CHARITY.ADS + `${id}/donators/`).then((r) => {
       setNofDonatores(r.data.length);
     });
   }, []);
-  const totalDonators = 14;
   return (
     <div
       onClick={() => {
@@ -50,7 +48,7 @@ const PostCard = ({
       }}
       className={stle.parent + " w-[300px] xxl:w-[350px] mx-4 xxl:mx-7"}
     >
-      <div >
+      <div>
         <Link to={"#"}>
           <div
             style={{
@@ -60,7 +58,6 @@ const PostCard = ({
             className="w-full  h-[200px] xxl:h-[300px] cursor-pointer"
           ></div>
         </Link>
-        {/* <img src={image} alt="" className="w-full h-[200px] xxl:h-[270px]" /> */}
         <div className="px-4 py-3 xxl:px-7 xxl:py-5">
           <div className="flex justify-between text-gray-400">
             <span className="flex items-center gap-1 xxl:gap-3 text-[12px] xxl:text-[14px] ">
@@ -94,7 +91,6 @@ const PostCard = ({
               <img src={Category} alt="" className="w-[5px] xxl:w-[8px]" />
             </div>
           </div>
-          {/* <p className='text-[10px] xxl:text-[14px] h-16 xxl:h-24'>{description}</p> */}
           <div className="w-[100%] py-4 xxl:pb-6 xxl:pt-4">
             <div className="flex justify-between">
               <span className="text-[10px] xxl:text-[14px] font-bold">

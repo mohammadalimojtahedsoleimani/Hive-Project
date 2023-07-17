@@ -16,7 +16,6 @@ const DeleteProfile = ( { open , closeModal } ) => {
     const { isDelOpen , setIsDelOpen } = useContext ( DeleteprofContext );
     const { setIsIn } = useContext ( DakhelContext );
     let value;
-    let id;
 
     // CONTEXTS
 // functions

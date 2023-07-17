@@ -89,7 +89,6 @@ const Paging = ({
   const navigate = useNavigate();
   const goToPage = (destinationPage) => {
     navigate(`/posts/${destinationPage}`);
-    // <Link to="1"></Link>
   };
   const nextPage = () => {
     if (activePage + 1 <= pagesCount) {
@@ -102,13 +101,13 @@ const Paging = ({
     }
   };
   return (
-    <div className="fixed bottom-0 w-full flex justify-center">
+    <div className="fixed bottom-0 flex justify-center w-full">
       <div className="flex justify-between items-center bg-[#252A34] w-[50rem] xxl:w-[55rem] py-3 xxl:py-5 px-4 xxl:px-7 rounded-t-[5px] xxl:rounded-t-[7px]">
-        <div className="right flex items-center gap-3 xxl:gap-5" dir="ltr">
+        <div className="flex items-center gap-3 right xxl:gap-5" dir="ltr">
           <span className="text-white">شماره صفحه</span>
           {rightSection()}
         </div>
-        <div className="left text-white">
+        <div className="text-white left">
           نمایش {activePage * 4 - 3} - {Math.min(activePage * 4, totalItems)} از{" "}
           {totalItems} مورد یافت شده
         </div>

@@ -6,7 +6,7 @@ import Rock from "../../../assets/images/LandingPage/about_us_rock.png";
 import Landpiece from "../../../assets/images/LandingPage/about_us_landpiece.svg";
 import styles from "./AboutUs.module.css";
 
-const AboutUs = (props) => {
+const AboutUs = () => {
   return (
     <section className=" bg-[#5E86FF] relative flex px-[14rem] xxl:px-[15rem] pt-[3rem] xxl:pt-[6rem] pb-[10rem] xxl:pb-[12rem]">
       <div className="relative flex-1">

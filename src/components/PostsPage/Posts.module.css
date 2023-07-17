@@ -1,6 +1,3 @@
-/* .posts{
-    display: flex;
-} */
 .parent{
     display: flex;
 }
@@ -41,16 +38,14 @@
     flex-wrap: wrap;
 }
 @media (min-height: 1000px) {
-    /* styles for screens with height greater than 1500px */
+    /* styles for screens with height greater than 1000px */
     .posts{
         padding-top: 7vh;
-        /* background-color: red; */
     }
   }
   @media (max-width: 1919px) {
-    /* styles for screens with height greater than 1500px */
+    /* styles for screens with height less than 1919px */
     .posts{
         padding-top: 9vh;
-        /* background-color: red; */
     }
   }

@@ -1,10 +1,8 @@
 .parent{
-    /* bg-[#5E86FF] px-[5rem] xxl:px-[10rem] py-[3rem] xxl:py-[6rem] */
     background-color: white;
     padding: calc(3vw + 2.5rem) 0;
 }
 .title{
-    /* text-[white] font-bold text-[20] xxl:text-[27px] mb-11 xxl:mb-28 */
     color: black;
     font-weight: bold;
     font-size: calc(1.1vw + 0.8rem);
@@ -13,7 +11,6 @@
     align-items: center;
 }
 .title hr{
-    /* bg-gray-400 inline-block mr-4 m-1 h-[1px] xxl:w-[66px]rgba(0, 0, 0, 0.25) */
     width: calc(4.5vw + 4.2rem);
     background-color: rgba(0, 0, 0, 0.25);
     margin-right: calc(1vw + 0.7rem);
@@ -24,15 +21,6 @@
     flex-direction: column;
     background-color: #002036;
   }
-  
-  /* .title {
-    align-self: center;
-    background-image: linear-gradient(to left, #0090c7, #9ce4ff);
-    background-clip: text;
-    color: transparent;
-    padding-top: 3vh;
-    font-size: 5.2vw;
-  } */
   
   .projects_part {
     display: flex;

@@ -3,7 +3,6 @@
     flex-direction: column;
     justify-content: flex-start;
     position: relative;
-    /* background-image: linear-gradient(112deg, #3b8174 42%, #5B5F66 -13%);  */
     background-image: url(../../../assets/images/LandingPage/background.png);
     background-size: cover;
 }
@@ -24,13 +23,11 @@
 .login{
     color: black;
     border: solid #4D7AD2 1px;
-    /* padding: 2rem; */
     border-radius: 5px;
 }
 .sign_up{
     color: white;
     border: solid #4D7AD2 1px;
-    /* padding: 2rem; */
     border-radius: 5px;
     background-color: #4D7AD2;
 }

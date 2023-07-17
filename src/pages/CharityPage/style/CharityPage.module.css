@@ -19,11 +19,6 @@
 
 }
 
-.rightPartTop {
-
-
-}
-
 .rightPartTop p {
     font-family: 'IRANSansXFaNum';
     font-style: normal;
@@ -44,10 +39,6 @@
     object-fit: none;
 
 }
-.rightPartTopImage{
-
-}
-
 
 .leftPartTop {
     background: #EDF3F7;
@@ -120,7 +111,6 @@
     font-weight: 500;
     font-size: 20px;
     line-height: 140%;
-    /* or 140% */
     text-align: right;
     text-transform: capitalize;
     color: #000000;
@@ -135,7 +125,6 @@
     font-weight: 300;
     font-size: 14px;
     line-height: 20px;
-    /* identical to box height, or 143% */
     text-transform: capitalize;
     color: #252A34;
 
@@ -190,7 +179,6 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 171%;
-    /* identical to box height, or 171% */
     text-transform: capitalize;
     color: #888888;
     margin-right: 5px;
@@ -316,8 +304,6 @@
     font-weight: 700;
     font-size: 14px;
     line-height: 16px;
-    /* or 114% */
-
     text-align: right;
     text-transform: capitalize;
 
@@ -383,7 +369,6 @@ margin-top: 56px;
     font-weight: 400;
     font-size: 18px;
     line-height: 24px;
-    /* identical to box height, or 133% */
     display: flex;
     align-items: center;
     text-align: center;
@@ -445,9 +430,6 @@ margin-top: 56px;
     background: #4D7AD2;
     color: white;
 }
-/* .shareButton:hover{
-    color: white;
-} */
 .shareButtonContainer:hover .shareButton{
     color: white;
 }

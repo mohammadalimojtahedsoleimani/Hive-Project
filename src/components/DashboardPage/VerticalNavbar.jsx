@@ -45,7 +45,6 @@ const VerticalNavbar = ({ navOptions, active, setActive }) => {
         {navOptions.map((navOption) => (
           <li
             onClick={() => {
-              // setActive(navOption.value);
               navigate(`/dashboard/${navOption.value}`);
             }}
             style={{

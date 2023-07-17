@@ -1,8 +1,7 @@
-import React , { useContext , useEffect , useState } from 'react';
+import React , { useContext , useState } from 'react';
 import { DonationContext } from "../../../context/DonationContext";
 import styles from "./Donation.module.css";
 import { createPortal } from "react-dom";
-import cancel from "../../../assets/images/modal/close.svg";
 import { ToastContainer } from "react-toastify";
 import heart from "../../../assets/images/DonationModal/heart1.png"
 import close from "../../../assets/images/DonationModal/close.png"
@@ -22,7 +21,6 @@ const Donation = ( { open , ChairtyTitle , pageId , collect , estimate } ) => {
     const { isIn , setIsIn } = useContext ( DakhelContext );
     let value = localStorage.getItem ( "token" );
     const delay = 1000;
-    const [ er , setEr ] = useState ( '' )
     const newTotal = collect + parseInt(money);
 
 

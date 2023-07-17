@@ -12,7 +12,6 @@ const PostCardMobile = ({ post }) => {
       }}
       className="bg-white min-w-[71vw]"
     >
-      {/* <img src={post.image} alt="" className="min-w-[71vw]" /> */}
       <Link to={`/post/${post.id}`}>
         <img src={post.image} alt="" className="w-full " />
       </Link>

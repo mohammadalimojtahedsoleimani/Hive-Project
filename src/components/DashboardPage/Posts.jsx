@@ -1,28 +1,17 @@
-import { useContext, useEffect, useState } from "react";
-import Image from "../../assets/images/LandingPage/selected_posts_image_2.png";
+import { useEffect, useState } from "react";
 import CreatePost from "../../assets/images/DashboardPage/create_post.svg";
-import Upload from "../../assets/images/DashboardPage/upload.svg";
 import Upload_ from "../../assets/images/DashboardPage/upload_.svg";
-import Avatar1 from "../../assets/images/common/avatars/avatar_1.svg";
-import Avatar2 from "../../assets/images/common/avatars/avatar_2.svg";
-import Avatar3 from "../../assets/images/common/avatars/avatar_3.svg";
 import MoneyBag from "../../assets/icons/icons/Money Bag.svg";
 import PiggyBank from "../../assets/icons/icons/Piggy Bank.svg";
 import PiggyBank2 from "../../assets/icons/icons/Piggy Bank 2.svg";
 import Donation from "../../assets/icons/icons/Donation.svg";
 import axios from "axios";
 import Table from "./common/Table";
-import moment from "moment";
-import { DakhelContext } from "../../context/DakhelContext";
 import { notify } from "../../helper/toast";
 import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-import BASE_URL, {
-  ACCOUNTS,
-  CHARITY,
-  IMAGE_PATH,
-} from "../../Config/ApiConfig";
+import BASE_URL, { ACCOUNTS, CHARITY } from "../../Config/ApiConfig";
 
 const nameFont = (value) => {
   if (value.length <= 15) {
@@ -30,98 +19,13 @@ const nameFont = (value) => {
   }
   return " text-[8px] xxl:text-[10px]";
 };
-const posts = [
-  {
-    id: 0,
-    image: Image,
-    name: "John Doe",
-    date: "2022-01-01",
-    title: "Project A",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    collected: 500,
-    target: 1000,
-  },
-  {
-    id: 1,
-    image: Image,
-    name: "Jane Smith",
-    date: "2022-02-01",
-    title: "Project B",
-    description:
-      "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    collected: 750,
-    target: 1500,
-  },
-  {
-    id: 2,
-    image: Image,
-    name: "Bob Johnson",
-    date: "2022-03-01",
-    title: "Project C",
-    description:
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    collected: 1000,
-    target: 2000,
-  },
-  {
-    id: 3,
-    image: Image,
-    name: "Bob Johnson",
-    date: "2022-03-01",
-    title: "Project C",
-    description:
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    collected: 1000,
-    target: 2000,
-  },
-  {
-    id: 4,
-    image: Image,
-    name: "Bob Johnson",
-    date: "2022-03-01",
-    title: "Project C",
-    description:
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    collected: 1000,
-    target: 2000,
-  },
-  {
-    id: 5,
-    image: Image,
-    name: "Bob Johnson",
-    date: "2022-03-01",
-    title: "Project C",
-    description:
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    collected: 1000,
-    target: 2000,
-  },
-  {
-    id: 6,
-    image: Image,
-    name: "Bob sfdf",
-    date: "2022-03-01",
-    title: "Project C",
-    description:
-      "nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    collected: 1000,
-    target: 2000,
-  },
-  // Add more objects as needed
-];
+
 const Posts = () => {
   // variables
   const [newPost, setNewPost] = useState(false);
   const navigate = useNavigate();
-  const [fileData, setFileData] = useState(null);
-  const pageSize = 5;
-  const [currentPage, setCurrentPage] = useState(1);
   const [date, setDate] = useState("");
-  const [image, setImage] = useState("");
-  const { isIn, setIsIn } = useContext(DakhelContext);
-  let imagePath = BASE_URL + IMAGE_PATH;
   const [alCharity, setAlCharity] = useState([]);
-  const [isCom, setIsCom] = useState("");
   const delay = 2000;
   let value = "";
   const [data, setData] = useState({
@@ -169,10 +73,6 @@ const Posts = () => {
   ];
 
   // functions
-  const pages = Array.from(
-    { length: Math.ceil(posts.length / pageSize) },
-    (_, index) => index + 1
-  );
   const updateDateTime = () => {
     const now = new Date();
     const isoString = now.toISOString();
@@ -182,24 +82,11 @@ const Posts = () => {
     value = localStorage.getItem("token");
     updateDateTime();
   });
-  const handlePageClick = (page) => {
-    setCurrentPage(page);
-  };
 
   const changeHandler = (event) => {
-    // setData()
     setData({ ...data, [event.target.name]: event.target.value });
     console.log(event.target.name);
     console.log(data.category);
-  };
-  const handleImageChange = (event) => {
-    setData({ ...data, [event.target.name]: event.target.files[0] });
-    imagePath += image;
-    // const now = moment();
-    // const dateTimeString = now.format("YYYY-MM-DDTHH:mm:ss.SSSZ");
-    // setDate(dateTimeString)
-    // console.log(dateTimeString)
-    // console.log(date)
   };
   const handleDateChange = (e) => {
     axios
@@ -210,7 +97,6 @@ const Posts = () => {
       })
       .then((r) => {
         console.log(r.data);
-        // setIsCom(r.data.profile_complete )
       });
 
     e.preventDefault();
@@ -225,7 +111,9 @@ const Posts = () => {
     formData.append("estimated_amount", data.estimated_amount);
     formData.append("collected_amount", data.collected_amount);
     formData.append("published_date", date);
-    let df = JSON.stringify(data);
+
+    // api-call
+
     axios
       .post(BASE_URL + CHARITY.ADS, formData, {
         headers: {
@@ -239,11 +127,10 @@ const Posts = () => {
           navigate(`/post/${response.data.id}`);
         }, delay);
       })
-      .catch((error) => {
+      .catch(() => {
         notify("خطایی رخ داد، دوباره تلاش کنید.", "er");
       });
   };
-  const onButtonClick = () => {};
   useEffect(() => {
     axios
       .get(BASE_URL + CHARITY.USER_ADVERTISEMENTS, {
@@ -258,8 +145,6 @@ const Posts = () => {
         console.log(alCharity);
       });
   }, []);
-
-  // api-call
 
   const iconsArr = [MoneyBag, PiggyBank, PiggyBank2, Donation];
 
@@ -420,36 +305,6 @@ const Posts = () => {
               onChange={changeHandler}
               value={data.category}
             >
-              {/*<option name='category' id='category' onClick={changeHandler}*/}
-              {/*    value="1"*/}
-              {/*    className=" flex justify-start px-[0.3rem] xxl:px-[0.5rem] text-[13px] xxl:text-[16px] cursor-pointer"*/}
-              {/*>*/}
-              {/*    حیوانات*/}
-              {/*</option>*/}
-              {/*<option*/}
-              {/*    value="2"*/}
-              {/*    className=" flex justify-start px-[0.3rem] xxl:px-[0.5rem] text-[13px] xxl:text-[16px] cursor-pointer"*/}
-              {/*>*/}
-              {/*    آموزشی*/}
-              {/*</option>*/}
-              {/*<option*/}
-              {/*    value="3"*/}
-              {/*    className=" flex justify-start px-[0.3rem] xxl:px-[0.5rem] text-[13px] xxl:text-[16px] cursor-pointer"*/}
-              {/*>*/}
-              {/*    سایر*/}
-              {/*</option>*/}
-              {/*<option*/}
-              {/*    value="4"*/}
-              {/*    className=" flex justify-start px-[0.3rem] xxl:px-[0.5rem] text-[13px] xxl:text-[16px] cursor-pointer"*/}
-              {/*>*/}
-              {/*    پزشکی*/}
-              {/*</option>*/}
-              {/*<option*/}
-              {/*    value="5"*/}
-              {/*    className=" flex justify-start px-[0.3rem] xxl:px-[0.5rem] text-[13px] xxl:text-[16px] cursor-pointer"*/}
-              {/*>*/}
-              {/*    محیط زیست*/}
-              {/*</option>*/}
               <option value="">یک دسته بندی را انتخاب کنید</option>
               {options.map((option) => (
                 <option
@@ -504,22 +359,10 @@ const Posts = () => {
             accept=".png, .JPG, .jpeg"
             className="input_field"
             hidden
-            onChange={handleImageChange}
             name="image"
-
-            // onChange={ ( { target : { files } } ) => {
-            //     if ( files[ 0 ] ) {
-            //         setFileData ( files[ 0 ] );
-            //     }
-            // } }
           />
           <div
             className="rounded-[10px] border-dashed border-[#B5B5B5] border-[5px] p-[3rem] border-spacing-10 xxl:p-[5.5rem]"
-            // style={{
-            //   border: "1px solid transparent",
-            //   borderImage:
-            //     "linear-gradient(to bottom, black 5px, transparent 5px) 1",
-            // }}
             onClick={() => document.querySelector(".input_field").click()}
           >
             <img className="" src={Upload_} alt="upload button" />
@@ -542,58 +385,3 @@ const Posts = () => {
 };
 // end
 export default Posts;
-
-// [
-//     {
-//         supporter : (
-//             <div
-//                 className={
-//                     nameFont ( "زهرا نوروزی" ) +
-//                     " flex items-center text-[#808080] gap-2"
-//                 }
-//             >
-//                 <img
-//                     src={ Avatar1 }
-//                     alt=""
-//                     className="rounded-[50%] border-[5px] border-[#ECECEC]"
-//                 />
-//                 زهرا نوروزی{ " " }
-//             </div>
-//         ) ,
-//         status : (
-//             <div
-//                 className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]">
-//                 تکمیل شده
-//             </div>
-//         ) ,
-//         percent : 40 ,
-//         date : "1398/11/22" ,
-//         money : 400000 ,
-//     } ,
-//     {
-//         supporter : (
-//             <div
-//                 className={
-//                     nameFont ( "سید امیررضا قربانی زرین کلایی اصل" ) +
-//                     " flex items-center text-[#808080] gap-2"
-//                 }
-//             >
-//                 <img
-//                     src={ Avatar3 }
-//                     alt=""
-//                     className="rounded-[50%] border-[5px] border-[#ECECEC]"
-//                 />
-//                 سید امیررضا قربانی زرین کلایی اصل{ " " }
-//             </div>
-//         ) ,
-//         status : (
-//             <div
-//                 className=" p-[5px] xxl:p-[10px] text-[10px] xxl:text-[12px] text-[#427A5B] bg-[#DEEDE5] rounded-[2px]" style={setStatus(post.status, post.collected_percentage)}>
-//                 تکمیل شده
-//             </div>
-//         ) ,
-//         percent : 60 ,
-//         date : "1398/11/22" ,
-//         money : 6500000 ,
-//     } ,
-// ]

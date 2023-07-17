@@ -1,6 +1,6 @@
 import StepsImage from "../../../assets/images/LandingPage/steps.png";
 
-const Steps = (props) => {
+const Steps = () => {
   return (
     <section
       id="steps"

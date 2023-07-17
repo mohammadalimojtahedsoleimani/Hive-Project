@@ -9,14 +9,7 @@
 
 .TopBody {
     margin-top: 213px;
-    /*margin-left: 208px;*/
-    /*margin-right: 208px;*/
     width: 1507px;
-
-
-}
-
-.FirstLine {
 
 
 }
@@ -77,10 +70,6 @@
     align-items: center;
 }
 
-.imageContainer image {
-
-}
-
 .middleContainer {
     display: flex;
     justify-content: center;
@@ -97,7 +86,6 @@
     font-weight: 700;
     font-size: 30px;
     line-height: 87%;
-    /* identical to box height, or 87% */
     text-align: center;
     text-transform: capitalize;
     color: #444444;
@@ -149,7 +137,6 @@
     font-weight: 700;
     font-size: 25px;
     line-height: 112%;
-    /* identical to box height, or 112% */
     text-align: right;
     text-transform: capitalize;
     color: #252A34;
@@ -168,7 +155,6 @@
     font-weight: 400;
     font-size: 22px;
     line-height: 184%;
-    /* or 184% */
     text-align: right;
     text-transform: capitalize;
     color: #444444;
@@ -253,11 +239,9 @@
     font-weight: 400;
     font-size: 19px;
     line-height: 126%;
-    /* identical to box height, or 126% */
     text-align: center;
     text-transform: capitalize;
     color: #FFFFFF;
-    /* Inside auto layout */
     flex: none;
     order: 0;
     flex-grow: 0;

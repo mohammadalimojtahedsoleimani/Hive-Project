@@ -20,3 +20,9 @@ export const validateFileType = (e) => {
     }
     return title;
   }
+  export const nameFont = (value) => {
+    if (value.length <= 15) {
+      return " text-[10px] xxl:text-[12px]";
+    }
+    return " text-[8px] xxl:text-[10px]";
+  };

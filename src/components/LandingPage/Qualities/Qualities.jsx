@@ -4,7 +4,7 @@ import Image_2 from "../../../assets/images/LandingPage/qualities_image_2.svg";
 import Image_3 from "../../../assets/images/LandingPage/qualities_image_3.svg";
 import Card from "./common/Card";
 
-const Qualities = (props) => {
+const Qualities = () => {
   const cardsArray = [
     {
       id: 0,

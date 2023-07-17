@@ -1,5 +1,4 @@
-import React , { useEffect , useState , createContext } from "react";
-import { getCharity } from "../services/api";
+import React , { useState , createContext } from "react";
 
 export const PageContext = createContext ();
 

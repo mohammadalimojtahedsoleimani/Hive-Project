@@ -4,7 +4,6 @@ import Navbar from '../../components/common/Navbar/Navbar';
 import veriImg from '../../assets/images/activation/verify.png'
 import { useNavigate } from "react-router-dom";
 import { LoginModalContext } from "../../context/LoginContext";
-import { DakhelContext } from "../../context/DakhelContext";
 
 const Activation = () => {
     // variables

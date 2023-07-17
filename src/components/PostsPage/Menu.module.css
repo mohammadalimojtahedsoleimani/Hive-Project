@@ -1,6 +1,5 @@
 .menu_parent{
     height: 100vh;
-    /* padding: calc(1.2vw + 0.4rem); */
     position: fixed;
     top: 0;
     right: 0;
@@ -16,7 +15,6 @@
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
     background-color: #FAFAFA;
-    /* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; */
     box-shadow: -3px 4px 7px 6px #0000003D;
 }
 .top{
@@ -67,7 +65,6 @@
 }
 .type { 
     min-width: calc(5.2vw + 1.3rem);
-    /* display: flex; */
     display: inline-block;
     padding: calc(0.35vw + 0.04rem) 0;
     border: solid calc(0.09vw + 0.01rem) rgba(0, 0, 0, 0.5);

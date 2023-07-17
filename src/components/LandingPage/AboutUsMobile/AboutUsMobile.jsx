@@ -1,9 +1,5 @@
 import Image_1 from "../../../assets/images/LandingPage/about_us_image_1.png";
 import Image_2 from "../../../assets/images/LandingPage/about_us_image_2.png";
-import Shape from "../../../assets/images/LandingPage/about_us_shape.png";
-import Par from "../../../assets/images/LandingPage/about_us_par.svg";
-import Rock from "../../../assets/images/LandingPage/about_us_rock.png";
-import Landpiece from "../../../assets/images/LandingPage/about_us_landpiece.svg";
 import styles from "./AboutUsMobile.module.css";
 
 const AboutUsMobile = (props) => {
@@ -29,7 +25,6 @@ const AboutUsMobile = (props) => {
               }
             >
               <img src={Image_2} className={styles.image} alt="" />
-              {/* <img src={Shape} className={styles.shape} alt="" /> */}
             </div>
           </div>
         </div>
@@ -55,22 +50,6 @@ const AboutUsMobile = (props) => {
           بیشتر بخوانید
         </button>
       </div>
-
-      {/* <img
-        src={Rock}
-        alt=""
-        className="absolute top-0 right-0 w-[8.5rem] xxl:w-[10rem]"
-      />
-      <img
-        src={Landpiece}
-        alt=""
-        className="absolute bottom-0 right-0  w-[16rem] xxl:w-[18rem]"
-      /> */}
-      {/* <img
-        src={Par}
-        alt=""
-        className="absolute bottom-[10%] left-0  w-[10rem] xxl:w-[12rem]"
-      /> */}
     </section>
   );
 };

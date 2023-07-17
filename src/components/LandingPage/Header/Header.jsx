@@ -1,13 +1,9 @@
 import styles from "./Header.module.css";
 import { useContext } from "react";
 import { LoginModalContext } from "../../../context/LoginContext";
-import Login from "../../modal/Login/Login";
 import { Link } from "react-router-dom";
 import { DakhelContext } from "../../../context/DakhelContext";
 
-const BUTTON_WRAPPER_LOGIN_STYLES = {
-  position: "relative",
-};
 const Header = (props) => {
   const { isOpenLogin, setIsOpenLogin } = useContext(LoginModalContext);
   const { isIn, setIsIn } = useContext(DakhelContext);
@@ -44,7 +40,7 @@ const Header = (props) => {
         </div>
         {!isIn && (
           <div className={styles.enter_parent + " gap-6 pt-4"}>
-            <div >
+            <div>
               <button
                 onClick={() => setIsOpenLogin(true)}
                 className={
@@ -54,10 +50,6 @@ const Header = (props) => {
               >
                 وارد شو
               </button>
-              {/*<Login*/}
-              {/*  open={isOpenLogin}*/}
-              {/*  closeModal={() => setIsOpenLogin(false)}*/}
-              {/*></Login>*/}
             </div>
             <Link
               to="signUp"

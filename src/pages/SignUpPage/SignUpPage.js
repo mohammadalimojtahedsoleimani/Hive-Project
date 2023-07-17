@@ -8,7 +8,7 @@ import Youtube from "../../assets/images/SignUp/links/youtube.svg";
 import Pattern1 from "../../assets/images/SignUp/patterns/pattern_1.svg";
 import Pattern2 from "../../assets/images/SignUp/patterns/pattern_2.svg";
 import { Link, useNavigate } from "react-router-dom";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { notify } from "../../helper/toast";
 import "react-toastify/dist/ReactToastify.css";
@@ -27,9 +27,6 @@ const SignUpPage = () => {
     password: "",
     password1: "",
   });
-  const [emailError, setEmailError] = useState(null);
-  const [passwordError, setPasswordError] = useState(null);
-  const [password1Error, setPassword1Error] = useState(null);
   const [errors, setErrors] = useState({});
   const [isSelected, setIsSelected] = useState(false);
   const [touch, setTouched] = useState({});
@@ -62,14 +59,6 @@ const SignUpPage = () => {
   const handleCheckboxChange = () => {
     setIsSelected(!isSelected);
   };
-  const error_margin = (error) => {
-    console.log("in error margin function: ", error);
-    if (error === undefined) {
-      return { marginBottom: "calc(0.8vw + 0.1rem)" };
-    }
-    return null;
-  };
-
   const changeHandler = (event) => {
     setData({ ...data, [event.target.name]: event.target.value });
   };
@@ -145,11 +134,6 @@ const SignUpPage = () => {
             هایو را تایید مینمایم
           </label>
         </div>
-        {/*<input*/}
-        {/*    type="submit"*/}
-        {/*    value="ساخت حساب کاربری"*/}
-        {/*    className="text-white bg-[#4D7AD2] rounded-lg text-[18px] xxl:text-[21px] py-[0.8rem] xxl:py-[1.2rem] my-6 xxl:my-9"*/}
-        {/*/>*/}
         <button
           type="submit"
           className="text-white bg-[#4D7AD2] rounded-lg text-[18px] xxl:text-[21px] py-[0.8rem] xxl:py-[1.2rem] my-6 xxl:my-9"

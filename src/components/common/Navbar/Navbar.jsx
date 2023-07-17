@@ -1,24 +1,19 @@
 import React, { useContext, useEffect, useState } from "react";
 import styles from "./Navbar.module.css";
 import Search from "../../../assets/images/common/Navbar/search.svg";
-import Profile from "../../../assets/images/common/Navbar/profile.png";
 import Logo from "../../../assets/images/common/Navbar/logo.svg";
 import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { DakhelContext } from "../../../context/DakhelContext";
 
-import { notify } from "../../../helper/toast";
 import { LoginModalContext } from "../../../context/LoginContext";
 import { ProfileContext } from "../../../context/ProfileContext";
 import axios from "axios";
 import Login from "../../modal/Login/Login";
 import { ACCOUNTS } from "../../../Config/ApiConfig";
 import BASE_URL from "./../../../Config/ApiConfig";
-const BUTTON_WRAPPER_LOGIN_STYLES = {
-  position: "relative",
-  // zIndex : 1 ,
-};
+
 const Navbar = ({ active, dark }) => {
   const { isIn, setIsIn } = useContext(DakhelContext);
   const { profile, setProfile } = useContext(ProfileContext);
@@ -63,11 +58,6 @@ const Navbar = ({ active, dark }) => {
       <Link to="/dashboard/general" className="pr-6 xxl:pr-10">
         <div className="flex gap-3">
           <div className=" rounded-[50%] overflow-hidden">
-            {/* <img
-              src={avatar}
-              alt="profile pic"
-              className="w-[30px] xl:w-[40px] xxl:w-[50px] h-[30px] xl:h-[40px] xxl:h-[50px]"
-            /> */}
             <div
               className="w-[30px] xl:w-[40px] xxl:w-[50px] h-[30px] xl:h-[40px] xxl:h-[50px] rounded-[50%]"
               style={{
@@ -129,12 +119,6 @@ const Navbar = ({ active, dark }) => {
         });
     }
   }, [isIn]);
-
-  // useEffect(() => {
-  //   if (isIn) {
-  //     notify("ورود موفقیت آمیز بود", "success");
-  //   }
-  // }, [isIn]);
 
   return (
     <nav

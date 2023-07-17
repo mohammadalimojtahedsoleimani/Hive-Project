@@ -2,12 +2,11 @@ import Image_0 from "../../../assets/images/LandingPage/selected_posts_image_0.p
 import Image_1 from "../../../assets/images/LandingPage/selected_posts_image_1.png";
 import Image_2 from "../../../assets/images/LandingPage/selected_posts_image_2.png";
 import PostCard from "../common/PostCard/PostCard";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { CharityContext } from "../../../context/CharityContext";
 import axios from "axios";
 import BASE_URL, { CHARITY } from "../../../Config/ApiConfig";
-import adBlockerHandler from '../../../helper/adBlockerHandler'
-
+import adBlockerHandler from "../../../helper/adBlockerHandler";
 
 const SelectedPosts = (props) => {
   // variables
@@ -17,16 +16,13 @@ const SelectedPosts = (props) => {
     axios({
       method: "get",
       url: BASE_URL + CHARITY.ADS + "?page=1",
-
     })
       .then(function (response) {
         setCharity(response.data.results);
-
       })
-        .catch(er =>{
-          adBlockerHandler(er)
-        })
-
+      .catch((er) => {
+        adBlockerHandler(er);
+      });
   }, []);
   const postsArray = [
     {

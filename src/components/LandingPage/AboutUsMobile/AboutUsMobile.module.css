@@ -1,10 +1,7 @@
 .parent{
-    /* pt-[3rem] xxl:pt-[6rem] pb-[10rem] xxl:pb-[12rem] */
     padding: calc(2vw + 1.5rem) calc(1.3vw + 1rem);
-    /* padding-bottom: ; */
 }
 .btn{
-    /* position: absolute; */
     margin-top: calc(2vw + 1.5rem);
     background-color: #4D7AD2;
     color: white;
@@ -17,7 +14,7 @@
     flex: 1;
 }
 .bottom_of_pic{
-    margin-top: calc(6vw + 5rem);
+    margin-top: calc(6vw + 5.5rem);
 }
 .inner_parent{
     position: relative;
@@ -26,8 +23,6 @@
     border: solid #4D7AD222 4px;
 }
 .Image_2_parent{
-    /* background-image: url(../../../images/LandingPage/about_us_image_2.png);
-    background-size: cover; */
     width: calc(10vw + 9rem);
     height: calc(10vw + 9rem);
     position: absolute;

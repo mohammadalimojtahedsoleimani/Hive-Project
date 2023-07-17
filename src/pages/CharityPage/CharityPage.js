@@ -23,7 +23,6 @@ const BUTTON_WRAPPER_DONATE_STYLES = {
 
 const CharityPage = () => {
     // Variables
-    let value = 0
     const { pathname } = useLocation ();
     const segments = pathname.split ( "/" );
     let charity_id = segments[ 2 ]

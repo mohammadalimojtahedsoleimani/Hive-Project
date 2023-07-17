@@ -1,6 +1,5 @@
 import Navbar from '../../components/common/Navbar/Navbar'
 import { useContext , useEffect  , useState } from 'react';
-import Filter from '../../components/PostsPage/Filter';
 import Menu from '../../components/PostsPage/Menu';
 import Posts from '../../components/PostsPage/Posts';
 import axios from "axios";
@@ -12,11 +11,11 @@ import { SearchContext } from "../../context/SearchContext";
 import { CatidContext } from "../../context/CatidContext";
 import BASE_URL, { CHARITY } from '../../Config/ApiConfig';
 import adBlockerHandler from "../../helper/adBlockerHandler";
+import Search from '../../components/PostsPage/Search';
 
-const PostsPage = ( props ) => {
+const PostsPage = () => {
 
     // variables
-    // const [ page , setPage ] = useState ( 1 )
     const [ itemsInfo , setItemsInfo ] = useState ( { total_objects : 0 , total_pages : 0 } )
     const { catid , setCatid } = useContext ( CatidContext );
     const categories = [
@@ -62,37 +61,6 @@ const PostsPage = ( props ) => {
     let number = useParams ();
     const navigate = useNavigate()
     
-
-    // useEffect(() => {
-    //     url = url + `?page=${ 1 }`
-        
-        
-    //     axios ( {
-    //         method : "get" ,
-    //         url : url ,
-    //     } )
-    //         .then ( function ( response ) {
-    //             //   setSheetNumber(response.data["id"]);
-    //             setCharity ( response.data.results )
-    //             setPage ( response.data.current_page )
-    //             setPageNumber ( Number ( number.page ) )
-    //             setItemsInfo ( {
-    //                 total_objects : response.data.total_objects ,
-    //                 total_pages : response.data.total_pages
-    //             } )
-    //             //   toast.success("!آپلود شد", {
-    //             //     position: toast.POSITION.TOP_LEFT,
-    //             //   });
-    //             //   navigate("/words");
-    //         } )
-    //         .catch ( function ( error ) {
-    //             console.log ( error )
-    //             //   const response = error.request.responseText;
-    //             //   toast.error(response === "" ? error.message : response, {
-    //             //     position: toast.POSITION.TOP_LEFT,
-    //             //   });
-    //         } );
-    // },[])
     useEffect ( (e) => {
         let pNumber = 0
         console.log('useEffect', e);
@@ -104,9 +72,8 @@ const PostsPage = ( props ) => {
         }
         setPageNumber ( pNumber )
         
-
-
     } , [ number.page] )
+
     useEffect(() => {
         
         let url;
@@ -125,26 +92,15 @@ const PostsPage = ( props ) => {
             url : url ,
         } )
             .then ( function ( response ) {
-                //   setSheetNumber(response.data["id"]);
                 setCharity ( response.data.results )
-                // setPage ( response.data.current_page )
-                // setPageNumber ( Number ( number.page ) )
                 setItemsInfo ( {
                     total_objects : response.data.total_objects ,
                     total_pages : response.data.total_pages
                 } )
-                //   toast.success("!آپلود شد", {
-                //     position: toast.POSITION.TOP_LEFT,
-                //   });
-                //   navigate("/words");
             } )
             .catch ( function ( error ) {
                 adBlockerHandler(error)
-                console.log('this is error: ' ,error)
-                //   const response = error.request.responseText;
-                //   toast.error(response === "" ? error.message : response, {
-                //     position: toast.POSITION.TOP_LEFT,
-                //   });
+
             } );
     }, [pageNumber, catid, search])
 
@@ -152,42 +108,11 @@ const PostsPage = ( props ) => {
         
                 if (!search && !catid) {
                     navigate('/posts/1')
-                    // window.location.href = "/posts/1"
                 }
-                let pNumber = 1
-                // navigate(BASE_URL + CHARITY.ADS + `?category=${catid}&page=${pNumber}`)
-                let url = BASE_URL + CHARITY.ADS
                 if (catid) {
                     setSearch("")
-                    url += `?category=${catid}&page=${pNumber}`
                     navigate("/posts/1")
-                // axios ( {
-                //         method : "get" ,
-                //         url :  url,
-
-                //     } )
-                //         .then ( function ( response ) {
-                //             //   setSheetNumber(response.data["id"]);
-                //             setCharity ( response.data.results )
-                //             setPage ( response.data.current_page )
-                //             setPageNumber ( pNumber )
-                //             setItemsInfo ( {
-                //                 total_objects : response.data.total_objects ,
-                //                 total_pages : response.data.total_pages
-                //             } )
-
-                //         } )
-                //         .catch ( function ( error ) {
-                //             console.log ( error )
-
-                //         } );
-                    }                
-                
-                
-            
-
-            
-
+                    }
 
     }, [catid ])
 
@@ -197,48 +122,18 @@ const PostsPage = ( props ) => {
         if (!search && !catid) {
             console.log('goging to page1');
             navigate('/posts/1')
-            // window.location.href = "/posts/1"
         }
-        let pNumber = 1
-
-        let url = BASE_URL + CHARITY.ADS
         if ( search ) {
             setCatid("")
-            url = url + `?search=${ search }&page=${pNumber}`
             navigate('/posts/1')
-        // axios ( {
-        //     method : "get" ,
-        //     url :  url,
-
-        // } )
-        //     .then ( function ( response ) {
-        //         //   setSheetNumber(response.data["id"]);
-        //         setCharity ( response.data.results )
-        //         setPage ( response.data.current_page )
-        //         setPageNumber ( pNumber )
-        //         setItemsInfo ( {
-        //             total_objects : response.data.total_objects ,
-        //             total_pages : response.data.total_pages
-        //         } )
-
-        //     } )
-        //     .catch ( function ( error ) {
-        //         console.log ( error )
-
-        //     } );
         }
         
     }, [search])
-    const handleType = () => {
-    }
-    const handleNextPage = () => {
-    }
     return (
         <>
             <Navbar dark={ true }/>
-            <Filter
+            <Search
                 type={ type }
-                handleType={ handleType }
                 setIsMenuOpen={ setIsMenuOpen }
             />
             <Menu
@@ -247,7 +142,7 @@ const PostsPage = ( props ) => {
                 categories={ categories }
             />
 
-            <div className='flex justify-center'> <Posts posts={ charity } page={ pageNumber } onNextPage={ handleNextPage }/> </div>
+            <div className='flex justify-center'> <Posts posts={ charity } page={ pageNumber }/> </div>
             <Paging total_pages={ itemsInfo.total_pages }
                     page={ pageNumber }
                     total_objects={ itemsInfo.total_objects }/>

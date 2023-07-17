@@ -40,7 +40,6 @@ const Table = ({ titlesArr, dataArr, itemsPerPage, minHeight }) => {
   const pageData = getPageData(dataArr, currentPage, itemsPerPage);
   return (
     <div
-      // style={{ minHeight: `${minHeight}%` }}
       className={
         styles.table_shadow + ` h-fit inline-block rounded-lg overflow-hidden`
       }

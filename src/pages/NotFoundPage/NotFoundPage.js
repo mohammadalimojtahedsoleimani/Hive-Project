@@ -3,8 +3,7 @@ import Footer from '../../components/common/Footer/Footer'
 import style from "./style/NotFound.module.css"
 import Navbar from "../../components/common/Navbar/Navbar";
 import Img from "../../assets/images/NotFound/error.png"
-import { Link , useNavigate } from "react-router-dom";
-import { click } from "@testing-library/user-event/dist/click";
+import {  useNavigate } from "react-router-dom";
 
 const NotFoundPage = () => {
     const navigate = useNavigate ();
