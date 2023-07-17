@@ -61,6 +61,16 @@ const PostsPage = () => {
     let number = useParams ();
     const navigate = useNavigate()
     
+
+    useEffect(() => {        
+        return () => {
+          // Set the state to null when the component is unmounted
+          setCatid("");
+          setSearch("")
+        };
+      }, []);
+
+      
     useEffect ( (e) => {
         let pNumber = 0
         console.log('useEffect', e);
@@ -142,7 +152,7 @@ const PostsPage = () => {
                 categories={ categories }
             />
 
-            <div className='flex justify-center'> <Posts posts={ charity } page={ pageNumber }/> </div>
+            <div className='flex justify-center'> <Posts posts={ charity }/> </div>
             <Paging total_pages={ itemsInfo.total_pages }
                     page={ pageNumber }
                     total_objects={ itemsInfo.total_objects }/>
