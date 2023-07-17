@@ -6,6 +6,8 @@ import { useContext, useEffect, useState } from "react";
 import { CharityContext } from "../../../context/CharityContext";
 import axios from "axios";
 import BASE_URL, { CHARITY } from "../../../Config/ApiConfig";
+import adBlockerHandler from '../../../helper/adBlockerHandler'
+
 
 const SelectedPosts = (props) => {
   // variables
@@ -21,6 +23,9 @@ const SelectedPosts = (props) => {
         setCharity(response.data.results);
 
       })
+        .catch(er =>{
+          adBlockerHandler(er)
+        })
 
   }, []);
   const postsArray = [

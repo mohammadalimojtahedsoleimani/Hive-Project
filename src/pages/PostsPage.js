@@ -11,6 +11,7 @@ import Paging from '../components/PostsPage/Paging';
 import { SearchContext } from "../context/SearchContext";
 import { CatidContext } from "../context/CatidContext";
 import BASE_URL, { CHARITY } from '../Config/ApiConfig';
+import adBlockerHandler from "../helper/adBlockerHandler";
 
 const PostsPage = ( props ) => {
 
@@ -103,7 +104,8 @@ const PostsPage = ( props ) => {
                 //   navigate("/words");
             } )
             .catch ( function ( error ) {
-                console.log ( error )
+                adBlockerHandler(error)
+                console.log('this is error: ' ,error)
                 //   const response = error.request.responseText;
                 //   toast.error(response === "" ? error.message : response, {
                 //     position: toast.POSITION.TOP_LEFT,

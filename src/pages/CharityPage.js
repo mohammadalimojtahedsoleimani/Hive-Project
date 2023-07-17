@@ -14,6 +14,7 @@ import Donation from "../components/modal/Donation/Donation";
 import DateTransformer from "../helper/dateTransformer";
 import { moneyToText } from '../helper/Utils';
 import BASE_URL, { CHARITY } from '../Config/ApiConfig';
+import adBlockerHandler from "../helper/adBlockerHandler";
 // innate styles
 const BUTTON_WRAPPER_DONATE_STYLES = {
     position : "relative" ,
@@ -56,6 +57,9 @@ const CharityPage = () => {
                 setCollected_percentage ( r.data.collected_percentage )
 
             } )
+            .catch(er=>{
+                adBlockerHandler(er)
+            })
 
 
     } , [] )
