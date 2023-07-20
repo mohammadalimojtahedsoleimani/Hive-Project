@@ -59,8 +59,12 @@ const Paging = ({
         </Fragment>
       );
     }
-    const n = Math.floor((activePage - 1) / 4) + 1;
+    let n = 4 * Math.floor((activePage - 1) / 4) + 1;
+    if (n + 3 > pagesCount) {
+      n = activePage - 3;
+    }
     const numbers = Array.from({ length: 4 }, (_, i) => n + i);
+    console.log(numbers);
     return (
       <Fragment>
         <div className={squareStyle + " #DFDFDF"}>
