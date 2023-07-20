@@ -85,8 +85,9 @@ const Posts = () => {
 
   const changeHandler = (event) => {
     setData({ ...data, [event.target.name]: event.target.value });
-    console.log(event.target.name);
-    console.log(data.category);
+  };
+  const handleImageChange = (event) => {
+    setData({ ...data, [event.target.name]: event.target.files[0] });
   };
   const handleDateChange = (e) => {
     axios
@@ -102,6 +103,7 @@ const Posts = () => {
     e.preventDefault();
     console.log(date);
     console.log(value);
+    console.log(data.image)
     const formData = new FormData();
     formData.append("image", data.image, data.image.name);
     formData.append("title", data.title);
@@ -360,6 +362,8 @@ const Posts = () => {
             className="input_field"
             hidden
             name="image"
+            onChange={handleImageChange}
+
           />
           <div
             className="rounded-[10px] border-dashed border-[#B5B5B5] border-[5px] p-[3rem] border-spacing-10 xxl:p-[5.5rem]"
