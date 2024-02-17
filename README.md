@@ -28,12 +28,7 @@ Hive allows users to create campaigns for their causes and share them with other
 The following technologies were used in the development of Hive:
 
 - ⚛️ React.js
-- 📡 Node.js
-- 🚀 Express.js
-- 🍃 MongoDB
-- 🐍 Mongoose
 - 🔑 JWT
-- 🔒 bcrypt
 - 🎨 React Bootstrap
 - 🎨 Figma
 
